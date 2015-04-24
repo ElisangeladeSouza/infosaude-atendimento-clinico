@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <div class="menu">
+        <ui:insert name="menu">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="#{msg.cadastre}s">
+                        <!--<p:menuitem value="#{msg.patient}" outcome="/paciente/CapaPaciente"/>-->
+                        <p:menuitem value="#{msg.doctor}" outcome="/medico/CapaMedico"/>
+                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/CapaOdontologo"/>
+                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/CapaEnfermeiro"/>
+                        <!--<p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/CapaTecnicoEnfermagem"/>-->
+                        <!--<p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/CapaRecepcionista"/>-->                
+                    </p:submenu>
+
+<!--                    <p:submenu label="#{msg.treatment}">
+                        <p:menuitem value="#{msg.consultation}" outcome="/consulta/CapaConsulta"/>
+                        <p:menuitem value="#{msg.procedure}" outcome="/procedimento/CapaProcedimento"/>
+                        <p:menuitem value="#{msg.screening}" outcome="/triagem/CapaTriagem"/>
+                        <p:menuitem value="#{msg.avaliationTreatment}" outcome="/avaliacao-atendimento/CapaAvaliacao"/>
+                    </p:submenu>-->
+                </p:menu>
+            </h:form>
+        </ui:insert>
+    </div>
+
+</html>

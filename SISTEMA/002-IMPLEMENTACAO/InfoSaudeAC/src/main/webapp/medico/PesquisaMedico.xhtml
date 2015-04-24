@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form id="formPesquisaMedico">
+
+        <p:dataTable id="datatablePesquisaMedico" var="medico" value="#{medicoBean.medicos}"
+                     paginatorAlwaysVisible="false" style="margin-top: 1px; text-transform: uppercase" rows="10" 
+                     paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaMedico"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
+                     {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
+                     scrollable="true" scrollRows="10" scrollHeight="210">
+
+            <f:facet name="header">
+                <p:outputPanel>
+                    <p:outputLabel id="globalFilterMsg" value="#{msg.searchInAllFields}: "/>
+                    <p:inputText id="globalFilter" size="80" onkeyup="PF('pesquisaMedico').filter()" style="width:150px"/>
+                </p:outputPanel>
+            </f:facet>
+
+            <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" >
+                <h:outputText value="#{medico.id}"/>
+            </p:column>
+
+            <p:column headerText="#{msg.name}" width="90">
+                <h:outputText value="#{medico.nome}"/>
+            </p:column>
+
+            <p:column headerText="#{msg.crm}" style="text-align: center" width="20" >
+                <h:outputText value="#{medico.crm}"/>
+            </p:column>
+
+            <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" >
+                <h:outputText value="#{medico.cpf}" converter="cpfConverter"/>
+            </p:column>
+
+            <p:column headerText="#{msg.phone1}" style="text-align: center" width="25" >
+                <h:outputText value="#{medico.telefone1}"/>
+            </p:column>
+            
+            <p:column headerText="#{msg.actions}" style="text-align: center" width="30">
+                <p:commandButton id="viewButton" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px">
+                    <p:tooltip for="viewButton" value="#{msg.viewSelectedRowDetails}"/>
+                </p:commandButton>                
+                <p:commandButton id="editButton" title="#{msg.edit}" icon="ui-icon ui-icon-pencil" style="font-size: 10px">
+                    <p:tooltip for="editButton" value="#{msg.editSelectedRow}"/>
+                </p:commandButton>
+               <p:commandButton id="deleteButton" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
+                                 action="#{medicoBean.excluir}" process="@this" update="datatablePesquisaMedico">
+                    <f:setPropertyActionListener value="#{medico}" target="#{medicoBean.medicoSelecionado}"/>
+                    <p:tooltip for="deleteButton" value="#{msg.deleteSelectedRow}"/>
+                </p:commandButton>
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>
+
+</ui:composition>
+
