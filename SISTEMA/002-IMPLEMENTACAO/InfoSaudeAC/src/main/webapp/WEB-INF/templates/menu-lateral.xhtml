@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <div class="menu">
+        <ui:insert name="menu">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="#{msg.cadastre}s">
+                        <p:menuitem value="#{msg.doctor}" outcome="/medico/CadastroMedico"/>
+                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/CadastroOdontologo"/>
+                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/CadastroEnfermeiro"/>
+                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/CadastroTecnicoEnfermagem"/>
+                        <p:menuitem value="#{msg.patient}" outcome="/paciente/CadastroPaciente"/>
+                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/CadastroRecepcionista"/>
+                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/CadastroAdministrador"/>
+                        <p:menuitem value="#{msg.examination}" outcome="/exame/CadastroExame"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:insert>
+    </div>
+
+</html>

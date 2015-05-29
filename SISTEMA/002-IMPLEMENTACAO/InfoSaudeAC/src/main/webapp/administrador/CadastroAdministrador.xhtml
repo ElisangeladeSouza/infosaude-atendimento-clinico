@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="administrador" value="#{administradorBean.administrador}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloAdministrador" name="titulo">#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoAdministrador" name="conteudo">
+        
+        <p:fieldset id="fieldsetAdministrador" legend="#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator}">
+
+            <h:form id="formCadastroAdministrador">
+
+                <p:growl id="mensagens"/>
+
+                <h:panelGrid id="gridObrigatoriosAdministrador" columns="2">
+
+                    <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
+                    <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
+                                 value="#{administradorBean.administrador.cpf}" styleClass="upper" size="40"
+                                 validator="cpfValidator" converter="cpfConverter"/>
+
+                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
+                    <p:inputMask id="cartaoSus" required="true" requiredMessage="#{msg.mandatorySusCard}"
+                                 mask="999 9999 9999 9999" value="#{administradorBean.administrador.cartaoSus}" 
+                                 styleClass="upper" size="40"/>
+
+                    <p:outputLabel for="nome" value="#{msg.name}:"/>
+                    <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true"
+                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40"/>
+
+                </h:panelGrid>
+
+
+                <p:tabView id="tabViewDadosAdministrador">
+
+                    <p:tab id="tabPessoalAdministrador" title="#{msg.personal}">
+                        <h:panelGrid id="gridPessoalAdministrador" columns="2">
+                            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:" />
+                            <p:calendar id="dataNascimento" value="#{administradorBean.administrador.dataNascimento}" 
+                                        navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
+                                        yearRange="c-150:c+0" size="9" locale="pt" mask="true">
+                                <f:convertDateTime type="date" locale="pt_BR"/>
+                            </p:calendar>
+
+                            <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
+                            <p:selectOneMenu id="racaCor" value="#{administradorBean.administrador.corOuRaca}">
+                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{racaCor}" itemLabel="#{raca.descricao}" var="raca"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </p:tab>
+
+                    <p:tab id="tabContatoAdministrador" title="#{msg.contact}">
+                        <h:panelGrid id="gridContatoMedico" columns="2">
+                            <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{administradorBean.administrador.telefone1}" size="25"/>
+
+                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{administradorBean.administrador.telefone2}" size="25"/>
+
+                            <p:outputLabel for="email" value="#{msg.email}:"/>
+                            <p:inputText id="email" styleClass="lower" value="#{administradorBean.administrador.email}" size="25" validatorMessage="E-mail incorreto">
+                                <f:validateRegex pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$"/>
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:tab>
+
+                    <p:tab id="tabEnderecoAdministrador" title="#{msg.address}">
+                        <h:panelGrid id="gridEnderecoAdministrador" columns="4">
+                            <p:outputLabel for="rua" value="#{msg.street}:"/>
+                            <p:inputText id="rua" value="#{administradorBean.administrador.enderecoRua}" styleClass="upper" size="40"/>
+
+                            <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
+                            <p:inputText id="numero" value="#{administradorBean.administrador.enderecoNumero}" styleClass="upper" size="16"/>
+
+                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
+                            <p:inputText id="bairro" value="#{administradorBean.administrador.enderecoBairro}" styleClass="upper" size="40"/>
+
+                            <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{administradorBean.administrador.enderecoCep}" styleClass="upper" size="16"/>
+
+                            <p:outputLabel for="estado" value="#{msg.state}:" />
+                            <p:selectOneMenu id="estado" value="#{administradorBean.administrador.enderecoEstado}">
+                                <p:ajax process="@this" event="change" update="cidade" listener="#{administradorBean.carregarCidades}"/>
+                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                                <f:selectItems value="#{administradorBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 20px"/>
+                            <p:selectOneMenu id="cidade" value="#{administradorBean.administrador.enderecoCidade}" filter="true" filterMatchMode="startsWith">
+                                <f:validateBean />
+                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                                <f:selectItems value="#{administradorBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
+                            </p:selectOneMenu>
+
+                            <h:outputLabel/>
+                        </h:panelGrid>
+                    </p:tab>
+
+                    <p:tab id="tabDocumentosAdministrador" title="#{msg.documentation}">
+                        <h:panelGrid id="gridDocumentosAdministrador" columns="2">
+                            <p:outputLabel for="rg" value="#{msg.rg}:"/>
+                            <p:inputText id="rg" value="#{administradorBean.administrador.rg}" styleClass="upper" size="20"/>
+                        </h:panelGrid>
+                    </p:tab>
+
+                </p:tabView>
+
+
+                <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{administradorBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" 
+                                         icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/administrador/PesquisaAdministrador"
+                                  icon="fa fa-times" rendered="#{administradorBean.editando}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchAdministrator}"
+                                  id="botaoPesquisar" outcome="/administrador/PesquisaAdministrador"
+                                  icon="ui-icon ui-icon-search" rendered="#{administradorBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+                <p:blockUI block="formCadastroAdministrador" trigger="botaoSalvar"/>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

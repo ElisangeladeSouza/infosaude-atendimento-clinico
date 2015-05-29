@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="paciente" value="#{pacienteBean.paciente}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloPaciente" name="titulo">#{msg.viewCadastrePatient} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoPaciente" name="conteudo">
+
+        <p:fieldset id="fieldsetPaciente" legend="#{msg.viewCadastrePatient}">
+
+            <h:form id="formCadastroPaciente">
+
+                <p:fieldset id="visualizaPessoalPaciente" legend="#{msg.personal}">
+                    <h:panelGrid id="gridVisualizaPessoalPaciente" columns="2">
+                        <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="nome" value="#{pacienteBean.paciente.nome}" styleClass="upper" />
+
+                        <p:outputLabel for="dataNascimento" value="#{msg.birthDate}................:" style="font-weight: bold"/>
+                        <p:outputLabel id="dataNascimento" value="#{pacienteBean.paciente.dataNascimento}">
+                            <f:convertDateTime type="date" locale="pt_BR"/>
+                        </p:outputLabel> 
+
+                        <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="racaCor" value="#{pacienteBean.paciente.corOuRaca}"
+                                       styleClass="upper"/>
+                        
+                        <p:outputLabel for="peso" value="#{msg.weight}...............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="peso" value="#{pacienteBean.paciente.peso} Kg"/>
+                        
+                        <p:outputLabel for="altura" value="#{msg.height}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="altura" value="#{pacienteBean.paciente.altura} m"/>
+                        
+                        <p:outputLabel for="nomeMae" value="#{msg.motherName}................:" style="font-weight: bold"/>
+                        <p:outputLabel id="nomeMae" value="#{pacienteBean.paciente.nomeDaMae}"
+                                       styleClass="upper"/>
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoPaciente" legend="#{msg.contact}" style="margin-top: 15px">
+                    <h:panelGrid id="gridVisualizaContatoPaciente" columns="2">
+                        <p:outputLabel for="telefone1" value="#{msg.phone1}.....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="telefone1" styleClass="phone upper" value="#{pacienteBean.paciente.telefone1}"/>
+
+                        <p:outputLabel for="telefone2" value="#{msg.phone2}.....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="telefone2" styleClass="phone upper" value="#{pacienteBean.paciente.telefone2}"/>
+
+                        <p:outputLabel for="email" value="#{msg.email}............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="email" styleClass="lower" value="#{pacienteBean.paciente.email}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoPaciente" legend="#{msg.address}" style="margin-top: 15px;" >
+                    <h:panelGrid id="gridVisualizaEnderecoPaciente" columns="2">
+                        <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="rua" value="#{pacienteBean.paciente.enderecoRua}" styleClass="upper" />
+
+                        <p:outputLabel for="numero" value="#{msg.number}.........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="numero" value="#{pacienteBean.paciente.enderecoNumero}" styleClass="upper" />
+
+                        <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="bairro" value="#{pacienteBean.paciente.enderecoBairro}" styleClass="upper"/>
+
+                        <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cep" value="#{pacienteBean.paciente.enderecoCep}" styleClass="upper" />
+
+                        <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" styleClass="upper" />
+
+                        <p:outputLabel for="estado" value="#{msg.state}...........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="estado" value="#{pacienteBean.paciente.enderecoEstado}"/>
+
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosPaciente" legend="#{msg.documentation}" style="margin-top: 15px">
+                    <h:panelGrid id="gridVisualizaDocumentosPaciente" columns="2">
+                        <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cpf" value="#{pacienteBean.paciente.cpf}" styleClass="upper">
+                            <f:converter converterId="cpfConverter"/>
+                        </p:outputLabel>
+
+                        <p:outputLabel for="rg" value="#{msg.rg}.............:" style="font-weight: bold"/>
+                        <p:outputLabel id="rg" value="#{pacienteBean.paciente.rg}" styleClass="upper"/>
+
+                        <p:outputLabel for="cartaoSus" value="#{msg.susCard}...................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" styleClass="upper"/>
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:toolbar id="toolbarPaciente" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/paciente/PesquisaPaciente"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+            </h:form>
+
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

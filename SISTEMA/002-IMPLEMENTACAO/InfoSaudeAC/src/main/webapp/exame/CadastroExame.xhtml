@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="exame" value="#{exameBean.exame}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloExame" name="titulo">#{exameBean.editando ? msg.editCadastreExamination : msg.newRegisterExamination} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoExame" name="conteudo">
+
+        <p:fieldset id="fieldsetExame" legend="#{exameBean.editando ? msg.editCadastreExamination : msg.newRegisterExamination}">
+
+            <h:form id="formCadastroExame">
+
+                <p:growl id="mensagens"/>
+
+                <h:panelGrid id="gridObrigatoriosExame" columns="2">
+
+                    <p:outputLabel for="descricao" value="#{msg.description}:"/>
+                    <p:inputText id="descricao" value="#{exameBean.exame.descricao}" requiredMessage="#{msg.aDescriptionIsRequired}"
+                                 required="true" size="40" styleClass="upper"/>
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarExame" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{exameBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+                        
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/exame/PesquisaExame"
+                                  icon="fa fa-times" rendered="#{exameBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchExamination}"
+                                  id="botaoPesquisar" outcome="/exame/PesquisaExame"
+                                  icon="ui-icon ui-icon-search" rendered="#{exameBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+                <p:blockUI id="blockUIExame" block="formCadastroExame" trigger="botaoSalvar"/>
+                
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
