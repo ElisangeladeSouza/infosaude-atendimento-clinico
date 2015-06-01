@@ -32,8 +32,7 @@ public class RecepcionistaService implements Serializable {
 
     @Transactional
     public void delete(Recepcionista recepcionista) throws UBSException {
-        recepcionista = findById(recepcionista.getId());
-        recepcionistaDAO.delete(recepcionista);
+        recepcionistaDAO.delete(findById(recepcionista.getId()));
     }
 
     public List<Recepcionista> findAll() {

@@ -32,8 +32,7 @@ public class PacienteService implements Serializable {
 
     @Transactional
     public void delete(Paciente paciente) throws UBSException {
-        paciente = findById(paciente.getId());
-        pacienteDao.delete(paciente);
+        pacienteDao.delete(findById(paciente.getId()));
     }
 
     public Paciente findById(Long id) {

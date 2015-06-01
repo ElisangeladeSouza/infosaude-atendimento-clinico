@@ -6,7 +6,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes;
  */
 public class UBSException extends Exception {
 
-    public UBSException(String message, Exception exception) {
+    public UBSException(String message) {
         super(message);
     }
 }

@@ -34,8 +34,7 @@ public class EnfermeiroConverter implements Converter {
 
         if (value != null) {
             Long code = ((Enfermeiro) value).getId();
-            String objectToReturn = (code == null ? null : code.toString());
-            return objectToReturn;
+            return code == null ? null : code.toString();
         }
         return "";
     }

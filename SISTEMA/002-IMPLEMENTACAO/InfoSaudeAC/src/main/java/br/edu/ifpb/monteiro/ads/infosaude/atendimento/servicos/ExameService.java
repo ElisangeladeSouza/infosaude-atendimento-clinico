@@ -29,8 +29,7 @@ public class ExameService implements Serializable {
 
     @Transactional
     public void delete(Exame exame) throws UBSException {
-        exame = findById(exame.getId());
-        exameDao.delete(exame);
+        exameDao.delete(findById(exame.getId()));
     }
 
     public Exame findById(Long id) {

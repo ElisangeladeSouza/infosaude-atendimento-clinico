@@ -38,8 +38,7 @@ public class PacienteConverter implements Converter {
 
         if (value != null) {
             Long code = ((Paciente) value).getId();
-            String objectToReturn = (code == null ? null : code.toString());
-            return objectToReturn;
+            return code == null ? null : code.toString();
         }
         return "";
     }

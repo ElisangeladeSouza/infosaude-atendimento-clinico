@@ -34,8 +34,7 @@ public class MarcacaoConsultaConverter implements Converter {
 
         if (value != null) {
             Long code = ((MarcacaoConsulta) value).getId();
-            String objectToReturn = (code == null ? null : code.toString());
-            return objectToReturn;
+            return code == null ? null : code.toString();
         }
         return "";
     }

@@ -18,7 +18,7 @@ public class Exame implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "exame_descricao", length = 200, nullable = false)
     private String descricao;
@@ -29,11 +29,11 @@ public class Exame implements Serializable {
 //    private RequisicaoExame requisicaoExame;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(Long Id) {
-        this.Id = Id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescricao() {

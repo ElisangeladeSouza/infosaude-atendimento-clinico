@@ -23,7 +23,7 @@ public class PessoaBean implements Serializable {
 
     private boolean botaoEditar;
 
-    private transient final List<RacaCor> racas;
+    private final transient List<RacaCor> racas;
 
     public PessoaBean() {
         racas = Arrays.asList(RacaCor.values());
@@ -42,12 +42,10 @@ public class PessoaBean implements Serializable {
     }
 
     public boolean isBotaoEditar() {
-        System.out.println("" + botaoEditar);
         return botaoEditar;
     }
 
     public void setBotaoEditar(boolean botaoEditar) {
-        System.out.println("" + botaoEditar);
         this.botaoEditar = botaoEditar;
     }
 

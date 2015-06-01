@@ -32,8 +32,7 @@ public class MarcacaoConsultaService implements Serializable {
 
     @Transactional
     public void delete(MarcacaoConsulta marcacaoConsulta) throws UBSException {
-        marcacaoConsulta = findById(marcacaoConsulta.getId());
-        marcacaoConsultaDao.delete(marcacaoConsulta);
+        marcacaoConsultaDao.delete(findById(marcacaoConsulta.getId()));
     }
 
     public MarcacaoConsulta findById(Long id) {

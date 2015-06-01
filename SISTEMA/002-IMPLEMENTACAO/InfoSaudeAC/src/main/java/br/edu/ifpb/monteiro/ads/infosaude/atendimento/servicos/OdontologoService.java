@@ -32,8 +32,7 @@ public class OdontologoService implements Serializable {
 
     @Transactional
     public void delete(Odontologo odontologo) throws UBSException {
-        odontologo = findById(odontologo.getId());
-        odontologoDAO.delete(odontologo);
+        odontologoDAO.delete(findById(odontologo.getId()));
     }
 
     public List<Odontologo> findAll() {

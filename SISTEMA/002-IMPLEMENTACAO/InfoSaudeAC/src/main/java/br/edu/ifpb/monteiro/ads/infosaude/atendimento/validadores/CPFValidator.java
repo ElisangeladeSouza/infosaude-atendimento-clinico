@@ -25,7 +25,7 @@ public class CPFValidator implements Validator {
      * @throws ValidatorException
      */
     @Override
-    public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+    public void validate(FacesContext context, UIComponent component, Object value) {
 
         if (value == null) {
             return;

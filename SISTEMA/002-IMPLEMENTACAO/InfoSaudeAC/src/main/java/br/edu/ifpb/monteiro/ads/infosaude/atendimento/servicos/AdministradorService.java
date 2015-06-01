@@ -32,8 +32,7 @@ public class AdministradorService implements Serializable {
 
     @Transactional
     public void delete(Administrador administrador) throws UBSException {
-        administrador = findById(administrador.getId());
-        administradorDAO.delete(administrador);
+        administradorDAO.delete(findById(administrador.getId()));
     }
 
     public List<Administrador> findAll() {

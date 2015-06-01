@@ -24,7 +24,7 @@ public class CDIServiceLocator {
             return (BeanManager) initialContext.lookup("java:comp/BeanManager");
         } catch (NamingException e) {
             LOGGER.error(e);
-            throw new UBSException("Não pôde encontrar BeanManager no JNDI.", e);
+            throw new UBSException("Não pôde encontrar BeanManager no JNDI.");
         }
     }
 

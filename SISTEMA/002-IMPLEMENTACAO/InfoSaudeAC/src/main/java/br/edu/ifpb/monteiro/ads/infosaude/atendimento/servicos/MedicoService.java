@@ -32,8 +32,7 @@ public class MedicoService implements Serializable {
 
     @Transactional
     public void delete(Medico medico) throws UBSException {
-        medico = findById(medico.getId());
-        medicoDao.delete(medico);
+        medicoDao.delete(findById(medico.getId()));
     }
 
     public Medico findById(Long id) {

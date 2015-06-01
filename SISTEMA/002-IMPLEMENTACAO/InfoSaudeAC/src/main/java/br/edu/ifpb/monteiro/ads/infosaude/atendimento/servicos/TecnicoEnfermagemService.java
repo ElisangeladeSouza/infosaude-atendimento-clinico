@@ -29,8 +29,7 @@ public class TecnicoEnfermagemService implements Serializable {
 
     @Transactional
     public void delete(TecnicoEnfermagem tecnicoEnfermagem) throws UBSException {
-        tecnicoEnfermagem = findById(tecnicoEnfermagem.getId());
-        tecnicoEnfermagemDAO.delete(tecnicoEnfermagem);
+        tecnicoEnfermagemDAO.delete(findById(tecnicoEnfermagem.getId()));
     }
 
     public List<TecnicoEnfermagem> findAll() {

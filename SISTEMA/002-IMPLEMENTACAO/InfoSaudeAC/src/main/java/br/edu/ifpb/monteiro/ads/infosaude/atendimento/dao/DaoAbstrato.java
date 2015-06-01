@@ -98,10 +98,9 @@ public abstract class DaoAbstrato<T> implements Serializable {
             Predicate predicate = criteriaBuilder.conjunction();
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.<T>get(campo), valor));
             createQuery.where(predicate);
-            T resultado = entityManager.createQuery(createQuery).getSingleResult();
-            return resultado;
+            return entityManager.createQuery(createQuery).getSingleResult();
         } catch (Exception e) {
-            throw new UBSException("Informação não encontrada", e);
+            throw new UBSException("Informação não encontrada");
         }
     }
 
