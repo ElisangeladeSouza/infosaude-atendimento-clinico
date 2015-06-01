@@ -24,7 +24,7 @@ public class PacienteBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(PacienteBean.class);
+    private static final Log LOGGER = LogFactory.getLog(PacienteBean.class);
 
     @Inject
     private Paciente paciente;
@@ -80,9 +80,9 @@ public class PacienteBean implements Serializable {
             this.pacienteService.save(paciente);
             paciente = new Paciente();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

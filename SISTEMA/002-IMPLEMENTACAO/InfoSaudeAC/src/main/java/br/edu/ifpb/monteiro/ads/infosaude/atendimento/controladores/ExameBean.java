@@ -21,7 +21,7 @@ public class ExameBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(ExameBean.class);
+    private static final Log LOGGER = LogFactory.getLog(ExameBean.class);
 
     @Inject
     private Exame exame;
@@ -47,9 +47,9 @@ public class ExameBean implements Serializable {
             this.exameService.save(exame);
             exame = new Exame();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

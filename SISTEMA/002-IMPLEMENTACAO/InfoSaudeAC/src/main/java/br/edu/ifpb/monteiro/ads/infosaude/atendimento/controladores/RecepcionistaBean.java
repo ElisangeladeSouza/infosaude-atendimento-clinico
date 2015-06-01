@@ -24,7 +24,7 @@ public class RecepcionistaBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(RecepcionistaBean.class);
+    private static final Log LOGGER = LogFactory.getLog(RecepcionistaBean.class);
 
     @Inject
     private Recepcionista recepcionista;
@@ -72,9 +72,9 @@ public class RecepcionistaBean implements Serializable {
             this.recepcionistaService.save(recepcionista);
             recepcionista = new Recepcionista();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

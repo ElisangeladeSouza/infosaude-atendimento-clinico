@@ -24,7 +24,7 @@ public class OdontologoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(OdontologoBean.class);
+    private static final Log LOGGER = LogFactory.getLog(OdontologoBean.class);
 
     @Inject
     private Odontologo odontologo;
@@ -80,9 +80,9 @@ public class OdontologoBean implements Serializable {
             this.odontologoService.save(odontologo);
             odontologo = new Odontologo();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

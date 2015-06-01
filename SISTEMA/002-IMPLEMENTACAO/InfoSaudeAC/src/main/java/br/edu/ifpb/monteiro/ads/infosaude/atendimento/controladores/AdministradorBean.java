@@ -24,7 +24,7 @@ public class AdministradorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(AdministradorBean.class);
+    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);
 
     @Inject
     private Administrador administrador;
@@ -72,9 +72,9 @@ public class AdministradorBean implements Serializable {
             this.administradorService.save(administrador);
             administrador = new Administrador();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

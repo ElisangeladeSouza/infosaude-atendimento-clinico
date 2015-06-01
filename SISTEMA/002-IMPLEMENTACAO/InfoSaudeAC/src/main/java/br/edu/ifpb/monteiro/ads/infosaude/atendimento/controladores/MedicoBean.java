@@ -24,7 +24,7 @@ public class MedicoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(MedicoBean.class);
+    private static final Log LOGGER = LogFactory.getLog(MedicoBean.class);
 
     @Inject
     private Medico medico;
@@ -72,9 +72,9 @@ public class MedicoBean implements Serializable {
             this.medicoService.save(medico);
             medico = new Medico();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

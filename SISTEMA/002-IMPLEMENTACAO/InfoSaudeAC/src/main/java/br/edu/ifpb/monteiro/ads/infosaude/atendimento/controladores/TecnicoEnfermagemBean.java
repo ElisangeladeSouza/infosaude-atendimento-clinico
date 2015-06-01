@@ -23,8 +23,8 @@ import org.apache.commons.logging.LogFactory;
 public class TecnicoEnfermagemBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    private static final Log log = LogFactory.getLog(TecnicoEnfermagemBean.class);
+
+    private static final Log LOGGER = LogFactory.getLog(TecnicoEnfermagemBean.class);
 
     @Inject
     private TecnicoEnfermagem tecnicoEnfermagem;
@@ -80,9 +80,9 @@ public class TecnicoEnfermagemBean implements Serializable {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
             tecnicoEnfermagem = new TecnicoEnfermagem();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 

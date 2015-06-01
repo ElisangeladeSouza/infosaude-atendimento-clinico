@@ -21,7 +21,7 @@ public class MarcacaoConsultaBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log log = LogFactory.getLog(MarcacaoConsultaBean.class);
+    private static final Log LOGGER = LogFactory.getLog(MarcacaoConsultaBean.class);
 
     @Inject
     private MarcacaoConsulta marcacaoConsulta;
@@ -47,9 +47,9 @@ public class MarcacaoConsultaBean implements Serializable {
             this.marcacaoConsultaService.save(marcacaoConsulta);
             marcacaoConsulta = new MarcacaoConsulta();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException ex) {
+        } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
+            LOGGER.warn(rollback);
         }
     }
 
