@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PacienteService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -14,10 +15,10 @@ import javax.faces.convert.FacesConverter;
  */
 @FacesConverter(forClass = Paciente.class)
 public class PacienteConverter implements Converter {
-    
+
     private final PacienteService pacienteService;
 
-    public PacienteConverter() {
+    public PacienteConverter() throws UBSException {
         this.pacienteService = CDIServiceLocator.getBean(PacienteService.class);
     }
 
@@ -42,5 +43,5 @@ public class PacienteConverter implements Converter {
         }
         return "";
     }
-    
+
 }

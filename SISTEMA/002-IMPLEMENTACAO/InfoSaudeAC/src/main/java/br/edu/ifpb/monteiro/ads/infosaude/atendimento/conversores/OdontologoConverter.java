@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.OdontologoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -13,7 +14,7 @@ public class OdontologoConverter implements Converter {
 
     private final OdontologoService odontologoService;
 
-    public OdontologoConverter() {
+    public OdontologoConverter() throws UBSException {
         this.odontologoService = CDIServiceLocator.getBean(OdontologoService.class);
     }
 

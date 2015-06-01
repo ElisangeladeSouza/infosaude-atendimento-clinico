@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import java.util.Set;
 
 import javax.enterprise.context.spi.CreationalContext;
@@ -7,20 +8,28 @@ import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class CDIServiceLocator {
 
-    private static BeanManager getBeanManager() {
+    private static final Log LOGGER = LogFactory.getLog(CDIServiceLocator.class);
+
+    private CDIServiceLocator() {
+    }
+
+    private static BeanManager getBeanManager() throws UBSException {
         try {
             InitialContext initialContext = new InitialContext();
             return (BeanManager) initialContext.lookup("java:comp/BeanManager");
         } catch (NamingException e) {
-            throw new RuntimeException("Não pôde encontrar BeanManager no JNDI.");
+            LOGGER.error(e);
+            throw new UBSException("Não pôde encontrar BeanManager no JNDI.", e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> T getBean(Class<T> clazz) {
+    public static <T> T getBean(Class<T> clazz) throws UBSException {
         BeanManager bm = getBeanManager();
         Set<Bean<?>> beans = (Set<Bean<?>>) bm.getBeans(clazz);
 
@@ -31,9 +40,8 @@ public class CDIServiceLocator {
         Bean<T> bean = (Bean<T>) beans.iterator().next();
 
         CreationalContext<T> ctx = bm.createCreationalContext(bean);
-        T o = (T) bm.getReference(bean, clazz, ctx);
 
-        return o;
+        return (T) bm.getReference(bean, clazz, ctx);
     }
 
 }

@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.MarcacaoConsulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.MarcacaoConsultaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -13,7 +14,7 @@ public class MarcacaoConsultaConverter implements Converter {
 
     private final MarcacaoConsultaService marcacaoConsultaService;
 
-    public MarcacaoConsultaConverter() {
+    public MarcacaoConsultaConverter() throws UBSException {
         this.marcacaoConsultaService = CDIServiceLocator.getBean(MarcacaoConsultaService.class);
     }
 

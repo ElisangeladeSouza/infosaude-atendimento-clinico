@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -17,7 +18,7 @@ public class TecnicoEnfermagemConverter implements Converter {
 
     private final TecnicoEnfermagemService tecnicoEnfermagemService;
 
-    public TecnicoEnfermagemConverter() {
+    public TecnicoEnfermagemConverter() throws UBSException {
         this.tecnicoEnfermagemService = CDIServiceLocator.getBean(TecnicoEnfermagemService.class);
     }
 

@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -8,17 +9,16 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-
 /**
  *
  * @author elisangela
  */
 @FacesConverter(forClass = Exame.class)
 public class ExameConverter implements Converter {
-    
-     private final ExameService exameService;
 
-    public ExameConverter() {
+    private final ExameService exameService;
+
+    public ExameConverter() throws UBSException {
         this.exameService = CDIServiceLocator.getBean(ExameService.class);
     }
 
@@ -43,5 +43,5 @@ public class ExameConverter implements Converter {
         }
         return "";
     }
-    
+
 }
