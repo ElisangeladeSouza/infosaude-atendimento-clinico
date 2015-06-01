@@ -12,7 +12,8 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
 /**
- * Empacota o tratador de exceções do JSF e faz com que esse tra
+ * Empacota o tratador de exceções do JSF e funciona como uma camada acima do mesmo para tratar as exceções capturadas
+ * @see http://docs.oracle.com/javaee/6/api/javax/faces/context/ExceptionHandler.html
  *
  * @author cassio
  */
@@ -38,7 +39,7 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
      * @throws FacesException
      */
     @Override
-    public void handle() throws FacesException {
+    public void handle(){
         //Todos os eventos de exceções são enfileirados nesse iterador.
         Iterator<ExceptionQueuedEvent> eventos = getUnhandledExceptionQueuedEvents().iterator();
         /*
