@@ -9,6 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Esta classe representa um DAO genérico e contém todos os métodos básicos para
@@ -20,6 +22,8 @@ import javax.persistence.criteria.Root;
 public abstract class DaoAbstrato<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private static final Log LOGGER = LogFactory.getLog(DaoAbstrato.class);
 
     @Inject
     private transient EntityManager entityManager;
@@ -100,6 +104,7 @@ public abstract class DaoAbstrato<T> implements Serializable {
             createQuery.where(predicate);
             return entityManager.createQuery(createQuery).getSingleResult();
         } catch (Exception e) {
+            LOGGER.warn(e);
             throw new UBSException("Informação não encontrada");
         }
     }
