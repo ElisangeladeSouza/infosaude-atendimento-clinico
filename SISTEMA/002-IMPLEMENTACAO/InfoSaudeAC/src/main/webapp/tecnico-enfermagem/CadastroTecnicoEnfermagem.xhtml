@@ -98,14 +98,14 @@
                             <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{tecnicoEnfermagemBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{tecnicoEnfermagemBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
+                                <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 20px"/>
                             <p:selectOneMenu id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}" filter="true" filterMatchMode="startsWith">
                                 <f:validateBean />
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{tecnicoEnfermagemBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
+                                <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
 
                             <h:outputLabel/>

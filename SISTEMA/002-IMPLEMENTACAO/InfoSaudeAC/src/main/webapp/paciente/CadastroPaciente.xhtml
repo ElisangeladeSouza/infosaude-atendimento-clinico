@@ -100,13 +100,13 @@
                             <p:selectOneMenu id="estado" value="#{pacienteBean.paciente.enderecoEstado}" style="margin-left: 43px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{pacienteBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{pacienteBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
+                                <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 45px"/>
                             <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" filter="true" filterMatchMode="startsWith">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{pacienteBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
+                                <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
 
                         </h:panelGrid>

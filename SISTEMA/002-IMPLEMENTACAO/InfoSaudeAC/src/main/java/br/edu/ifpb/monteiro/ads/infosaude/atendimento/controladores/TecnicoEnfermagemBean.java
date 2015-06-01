@@ -1,13 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -40,33 +37,14 @@ public class TecnicoEnfermagemBean implements Serializable {
 
     private transient List<TecnicoEnfermagem> tecnicos;
 
-    private transient List<Estados> estados = new ArrayList<>();
-    private transient List<String> cidades = new ArrayList<>();
-
     public TecnicoEnfermagemBean() {
-        estados = Arrays.asList(Estados.values());
-    }
 
-    public List<Estados> getEstados() {
-        return estados;
-    }
-
-    public void setEstados(List<Estados> estados) {
-        this.estados = estados;
-    }
-
-    public List<String> getCidades() {
-        return cidades;
-    }
-
-    public void setCidades(List<String> cidades) {
-        this.cidades = cidades;
     }
 
     public void carregarCidades() {
-        cidades.clear();
+        PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(tecnicoEnfermagem.getEnderecoEstado().getCodigo())) {
-            cidades.add(cidadesFiltradas);
+            PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
 

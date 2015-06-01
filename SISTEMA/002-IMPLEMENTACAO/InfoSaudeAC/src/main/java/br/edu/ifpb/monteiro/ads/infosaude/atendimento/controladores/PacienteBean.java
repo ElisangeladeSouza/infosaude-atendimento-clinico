@@ -1,13 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PacienteService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -23,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
 public class PacienteBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private static final Log LOGGER = LogFactory.getLog(PacienteBean.class);
 
     @Inject
@@ -40,33 +37,13 @@ public class PacienteBean implements Serializable {
 
     private transient List<Paciente> pacientes;
 
-    private transient List<Estados> estados = new ArrayList<>();
-    private transient List<String> cidades = new ArrayList<>();
-
     public PacienteBean() {
-        estados = Arrays.asList(Estados.values());
-    }
-
-    public List<Estados> getEstados() {
-        return estados;
-    }
-
-    public void setEstados(List<Estados> estados) {
-        this.estados = estados;
-    }
-
-    public List<String> getCidades() {
-        return cidades;
-    }
-
-    public void setCidades(List<String> cidades) {
-        this.cidades = cidades;
     }
 
     public void carregarCidades() {
-        cidades.clear();
+        PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(paciente.getEnderecoEstado().getCodigo())) {
-            cidades.add(cidadesFiltradas);
+            PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
 
