@@ -12,6 +12,8 @@ import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -21,6 +23,8 @@ import javax.persistence.RollbackException;
 public class AdministradorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    private static final Log log = LogFactory.getLog(AdministradorBean.class);
 
     @Inject
     private Administrador administrador;
@@ -70,6 +74,7 @@ public class AdministradorBean implements Serializable {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         } catch (RollbackException ex) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
+            log.warn("O CPF informado já está cadastrado. Informe outro CPF.");
         }
     }
 
