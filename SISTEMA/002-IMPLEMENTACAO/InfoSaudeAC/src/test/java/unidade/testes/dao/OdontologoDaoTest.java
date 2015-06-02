@@ -74,18 +74,21 @@ public class OdontologoDaoTest {
         odontologoDao.getEntityManager().getTransaction().begin();
         odontologoDao.salvar(odontologo);
         odontologoDao.getEntityManager().getTransaction().commit();
-     
-        Odontologo novoOdontologo = new Odontologo();
-        
-        try {
 
-            novoOdontologo = (Odontologo) odontologoDao.findAll();
+        listaOdontologos = (List<Odontologo>) new ArrayList<Odontologo>();
+        listaOdontologos = odontologoDao.findAll();
 
-        } catch (Exception ex) {
-            Logger.getLogger(OdontologoDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        for (Odontologo odontologo1 : listaOdontologos) {
+
+            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+                id = odontologo1.getId();
+            }
         }
-
-        assertEquals(odontologo.getId(), novoOdontologo.getId());
+        
+        Odontologo novoOdontologo = new Odontologo();
+        novoOdontologo = odontologoDao.findById(id);
+        assertEquals(odontologo.getCpf(), novoOdontologo.getCpf());
+        
     }
 
     @Test 
@@ -114,17 +117,19 @@ public class OdontologoDaoTest {
         odontologoDao.salvar(odontologo);
         odontologoDao.getEntityManager().getTransaction().commit();
      
-        Odontologo novoOdontologo = new Odontologo();
-        
-        try {
+        listaOdontologos = (List<Odontologo>) new ArrayList<Odontologo>();
+        listaOdontologos = odontologoDao.findAll();
 
-            novoOdontologo = (Odontologo) odontologoDao.findAll();
+        for (Odontologo odontologo1 : listaOdontologos) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(OdontologoDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+                id = odontologo1.getId();
+            }
         }
-
-        assertEquals(odontologo.getId(), novoOdontologo.getId());
+        
+        Odontologo novoOdontologo = new Odontologo();
+        novoOdontologo = odontologoDao.findById(id);
+        assertEquals(odontologo.getCpf(), novoOdontologo.getCpf());
     }
     
     @Test (expected = Exception.class)

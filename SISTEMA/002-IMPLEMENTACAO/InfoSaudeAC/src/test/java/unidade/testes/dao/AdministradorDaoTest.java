@@ -60,7 +60,7 @@ public class AdministradorDaoTest {
         administrador.setNome("ADMINISTRADOR SOBRENOME");
 	administrador.setCpf("52645149847");
 	administrador.setCartaoSus("898 0001 0121 0004");
-	administrador.setEmail("administrador.sobrenome@domain.com");
+	administrador.setEmail("");
 	administrador.setCorOuRaca("");
 	administrador.setEnderecoBairro("");
 	administrador.setEnderecoCep("");
@@ -75,17 +75,21 @@ public class AdministradorDaoTest {
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
      
-        Administrador novoAdministrador = new Administrador();
         
-        try {
+        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
+        listaAdministradores = administradorDao.findAll();
 
-            novoAdministrador = (Administrador) administradorDao.findAll();
+        for (Administrador administrador1 : listaAdministradores) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(AdministradorDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (administrador1.getCpf().equals(administrador.getCpf())) {
+                id = administrador1.getId();
+            }
         }
-
-        assertEquals(administrador.getId(), novoAdministrador.getId());
+        
+        Administrador novoAdministrador = new Administrador();
+        novoAdministrador = administradorDao.findById(id);
+        
+        assertEquals(administrador.getCpf(), novoAdministrador.getCpf());
     }
 
     @Test 
@@ -112,18 +116,23 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-     
-        Administrador novoAdministrador = new Administrador();
-        
-        try {
 
-            novoAdministrador = (Administrador) administradorDao.findAll();
+        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
+        listaAdministradores = administradorDao.findAll();
 
-        } catch (Exception ex) {
-            Logger.getLogger(AdministradorDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        for (Administrador administrador1 : listaAdministradores) {
+
+            if (administrador1.getCpf().equals(administrador.getCpf())) {
+                id = administrador1.getId();
+            }
         }
+        
+        Administrador novoAdministrador = new Administrador();
+        novoAdministrador = administradorDao.findById(id);
+        
+        assertEquals(administrador.getCpf(), novoAdministrador.getCpf());
+        
 
-        assertEquals(administrador.getId(), novoAdministrador.getId());
     }
     
     @Test (expected = Exception.class)

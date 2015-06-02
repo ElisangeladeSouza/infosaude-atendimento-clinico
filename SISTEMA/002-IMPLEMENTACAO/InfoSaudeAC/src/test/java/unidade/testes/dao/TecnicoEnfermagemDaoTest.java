@@ -75,17 +75,20 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.salvar(tecnicoEnfermagem);
         tecnicoEnfermagemDao.getEntityManager().getTransaction().commit();
      
-        TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
-        
-        try {
+        listaTecnicosEnfermagem = (List<TecnicoEnfermagem>) new ArrayList<TecnicoEnfermagem>();
+        listaTecnicosEnfermagem = tecnicoEnfermagemDao.findAll();
 
-            novoTecnicoEnfermagem = (TecnicoEnfermagem) tecnicoEnfermagemDao.findAll();
+        for (TecnicoEnfermagem tecnicoEnfermagem1 : listaTecnicosEnfermagem) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(TecnicoEnfermagemDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (tecnicoEnfermagem1.getCpf().equals(tecnicoEnfermagem.getCpf())) {
+                id = tecnicoEnfermagem1.getId();
+            }
         }
-
-        assertEquals(tecnicoEnfermagem.getId(), novoTecnicoEnfermagem.getId());
+        
+        TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
+        novoTecnicoEnfermagem = tecnicoEnfermagemDao.findById(id);
+        assertEquals(tecnicoEnfermagem.getCpf(), novoTecnicoEnfermagem.getCpf());
+        
     }
 
     @Test 
@@ -114,17 +117,19 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.salvar(tecnicoEnfermagem);
         tecnicoEnfermagemDao.getEntityManager().getTransaction().commit();
      
-        TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
-        
-        try {
+        listaTecnicosEnfermagem = (List<TecnicoEnfermagem>) new ArrayList<TecnicoEnfermagem>();
+        listaTecnicosEnfermagem = tecnicoEnfermagemDao.findAll();
 
-            novoTecnicoEnfermagem = (TecnicoEnfermagem) tecnicoEnfermagemDao.findAll();
+        for (TecnicoEnfermagem tecnicoEnfermagem1 : listaTecnicosEnfermagem) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(TecnicoEnfermagemDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (tecnicoEnfermagem1.getCpf().equals(tecnicoEnfermagem.getCpf())) {
+                id = tecnicoEnfermagem1.getId();
+            }
         }
-
-        assertEquals(tecnicoEnfermagem.getId(), novoTecnicoEnfermagem.getId());
+        
+        TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
+        novoTecnicoEnfermagem = tecnicoEnfermagemDao.findById(id);
+        assertEquals(tecnicoEnfermagem.getCpf(), novoTecnicoEnfermagem.getCpf());
     }
     
     @Test (expected = Exception.class)

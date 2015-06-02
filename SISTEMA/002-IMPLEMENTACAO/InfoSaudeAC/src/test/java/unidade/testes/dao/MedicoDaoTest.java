@@ -76,22 +76,19 @@ public class MedicoDaoTest {
         medicoDao.getEntityManager().getTransaction().commit();
      
         
-        /**
-         salvar, capturar nome findAll e pegar o id para passar no findById.
-         */
-        
+        listaMedicos = (List<Medico>) new ArrayList<Medico>();
+        listaMedicos = medicoDao.findAll();
+
+        for (Medico medico1 : listaMedicos) {
+
+            if (medico1.getCpf().equals(medico.getCpf())) {
+                id = medico1.getId();
+            }
+        }
         
         Medico novoMedico = new Medico();
-        
-        try {
-
-            novoMedico = (Medico) medicoDao.findAll();
-
-        } catch (Exception ex) {
-            Logger.getLogger(MedicoDaoTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        assertEquals(medico.getId(), novoMedico.getId());
+        novoMedico = medicoDao.findById(id);
+        assertEquals(medico.getCpf(), novoMedico.getCpf());
     }
 
     @Test 
@@ -120,17 +117,19 @@ public class MedicoDaoTest {
         medicoDao.salvar(medico);
         medicoDao.getEntityManager().getTransaction().commit();
      
-        Medico novoMedico = new Medico();
-        
-        try {
+        listaMedicos = (List<Medico>) new ArrayList<Medico>();
+        listaMedicos = medicoDao.findAll();
 
-            novoMedico = (Medico) medicoDao.findAll();
+        for (Medico medico1 : listaMedicos) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(MedicoDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (medico1.getCpf().equals(medico.getCpf())) {
+                id = medico1.getId();
+            }
         }
-
-        assertEquals(medico.getId(), novoMedico.getId());
+        
+        Medico novoMedico = new Medico();
+        novoMedico = medicoDao.findById(id);
+        assertEquals(medico.getCpf(), novoMedico.getCpf());
     }
     
     @Test (expected = Exception.class)

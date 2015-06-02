@@ -75,17 +75,19 @@ public class PacienteDaoTest {
         pacienteDao.salvar(paciente);
         pacienteDao.getEntityManager().getTransaction().commit();
      
-        Paciente novoPaciente = new Paciente();
-        
-        try {
+        listaPacientes = (List<Paciente>) new ArrayList<Paciente>();
+        listaPacientes = pacienteDao.findAll();
 
-            novoPaciente = (Paciente) pacienteDao.findAll();
+        for (Paciente paciente1 : listaPacientes) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(PacienteDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (paciente1.getCpf().equals(paciente.getCpf())) {
+                id = paciente1.getId();
+            }
         }
-
-        assertEquals(paciente.getId(), novoPaciente.getId());
+        
+        Paciente novoPaciente = new Paciente();
+        novoPaciente = pacienteDao.findById(id);
+        assertEquals(paciente.getCpf(), novoPaciente.getCpf());
     }
 
     @Test 
@@ -114,17 +116,19 @@ public class PacienteDaoTest {
         pacienteDao.salvar(paciente);
         pacienteDao.getEntityManager().getTransaction().commit();
      
-        Paciente novoPaciente = new Paciente();
-        
-        try {
+        listaPacientes = (List<Paciente>) new ArrayList<Paciente>();
+        listaPacientes = pacienteDao.findAll();
 
-            novoPaciente = (Paciente) pacienteDao.findAll();
+        for (Paciente paciente1 : listaPacientes) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(PacienteDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (paciente1.getCpf().equals(paciente.getCpf())) {
+                id = paciente1.getId();
+            }
         }
-
-        assertEquals(paciente.getId(), novoPaciente.getId());
+        
+        Paciente novoPaciente = new Paciente();
+        novoPaciente = pacienteDao.findById(id);
+        assertEquals(paciente.getCpf(), novoPaciente.getCpf());
     }
     
     @Test (expected = Exception.class)

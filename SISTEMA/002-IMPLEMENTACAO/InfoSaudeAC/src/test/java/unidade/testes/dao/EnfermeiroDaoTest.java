@@ -76,17 +76,20 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.salvar(enfermeiro);
         enfermeiroDao.getEntityManager().getTransaction().commit();
      
-        Enfermeiro novoEnfermeiro = new Enfermeiro();
-        
-        try {
+        listaEnfermeiros = (List<Enfermeiro>) new ArrayList<Enfermeiro>();
+        listaEnfermeiros = enfermeiroDao.findAll();
 
-            novoEnfermeiro = (Enfermeiro) enfermeiroDao.findAll();
+        for (Enfermeiro enfermeiro1 : listaEnfermeiros) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(EnfermeiroDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (enfermeiro1.getCpf().equals(enfermeiro.getCpf())) {
+                id = enfermeiro1.getId();
+            }
         }
-
-        assertEquals(enfermeiro.getId(), novoEnfermeiro.getId());
+        
+        Enfermeiro novoEnfermeiro = new Enfermeiro();
+        novoEnfermeiro = enfermeiroDao.findById(id);
+        
+        assertEquals(enfermeiro.getCpf(), novoEnfermeiro.getCpf());
     }
 
     @Test 
@@ -115,17 +118,20 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.salvar(enfermeiro);
         enfermeiroDao.getEntityManager().getTransaction().commit();
      
-        Enfermeiro novoEnfermeiro = new Enfermeiro();
-        
-        try {
+        listaEnfermeiros = (List<Enfermeiro>) new ArrayList<Enfermeiro>();
+        listaEnfermeiros = enfermeiroDao.findAll();
 
-            novoEnfermeiro = (Enfermeiro) enfermeiroDao.findAll();
+        for (Enfermeiro enfermeiro1 : listaEnfermeiros) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(EnfermeiroDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (enfermeiro1.getCpf().equals(enfermeiro.getCpf())) {
+                id = enfermeiro1.getId();
+            }
         }
-
-        assertEquals(enfermeiro.getId(), novoEnfermeiro.getId());
+        
+        Enfermeiro novoEnfermeiro = new Enfermeiro();
+        novoEnfermeiro = enfermeiroDao.findById(id);
+        
+        assertEquals(enfermeiro.getCpf(), novoEnfermeiro.getCpf());
     }
     
     @Test (expected = Exception.class)

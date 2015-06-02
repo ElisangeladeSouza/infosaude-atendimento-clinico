@@ -74,17 +74,19 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.salvar(recepcionista);
         recepcionistaDao.getEntityManager().getTransaction().commit();
      
-        Recepcionista novoRecepcionista = new Recepcionista();
-        
-        try {
+        listaRecepcionistas = (List<Recepcionista>) new ArrayList<Recepcionista>();
+        listaRecepcionistas = recepcionistaDao.findAll();
 
-            novoRecepcionista = (Recepcionista) recepcionistaDao.findAll();
+        for (Recepcionista recepcionista1 : listaRecepcionistas) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(RecepcionistaDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (recepcionista1.getCpf().equals(recepcionista.getCpf())) {
+                id = recepcionista1.getId();
+            }
         }
-
-        assertEquals(recepcionista.getId(), novoRecepcionista.getId());
+        
+        Recepcionista novoRecepcionista = new Recepcionista();
+        novoRecepcionista = recepcionistaDao.findById(id);
+        assertEquals(recepcionista.getCpf(), novoRecepcionista.getCpf());
     }
 
     @Test 
@@ -112,17 +114,19 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.salvar(recepcionista);
         recepcionistaDao.getEntityManager().getTransaction().commit();
      
-        Recepcionista novoRecepcionista = new Recepcionista();
-        
-        try {
+        listaRecepcionistas = (List<Recepcionista>) new ArrayList<Recepcionista>();
+        listaRecepcionistas = recepcionistaDao.findAll();
 
-            novoRecepcionista = (Recepcionista) recepcionistaDao.findAll();
+        for (Recepcionista recepcionista1 : listaRecepcionistas) {
 
-        } catch (Exception ex) {
-            Logger.getLogger(RecepcionistaDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            if (recepcionista1.getCpf().equals(recepcionista.getCpf())) {
+                id = recepcionista1.getId();
+            }
         }
-
-        assertEquals(recepcionista.getId(), novoRecepcionista.getId());
+        
+        Recepcionista novoRecepcionista = new Recepcionista();
+        novoRecepcionista = recepcionistaDao.findById(id);
+        assertEquals(recepcionista.getCpf(), novoRecepcionista.getCpf());
     }
     
     @Test (expected = Exception.class)

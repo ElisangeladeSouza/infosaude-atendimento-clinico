@@ -58,18 +58,21 @@ public class ExameDaoTest {
         exameDao.salvar(exame);
         exameDao.getEntityManager().getTransaction().commit();
         
-        /**
-         salvar, capturar nome findAll e pegar o id para passar no findById.
-         */
-        Exame novoExame = new Exame();
-        
-        try {
-            novoExame = (Exame) exameDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(ExameDaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        listaExames = (List<Exame>) new ArrayList<Exame>();
+        listaExames = exameDao.findAll();
+
+        for (Exame exame1 : listaExames) {
+
+            if (exame1.getDescricao().equals(exame.getDescricao())) {
+                id = exame1.getId();
+            }
         }
         
-        assertEquals(exame.getId(), novoExame.getId());
+        Exame novoExame = new Exame();
+        novoExame = exameDao.findById(id);
+        
+        assertEquals(exame.getDescricao(), novoExame.getDescricao());
+        
     }
     
     @Test
