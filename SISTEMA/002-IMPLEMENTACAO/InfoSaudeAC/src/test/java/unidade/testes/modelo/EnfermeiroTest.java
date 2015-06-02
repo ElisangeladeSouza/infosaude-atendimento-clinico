@@ -1,6 +1,8 @@
 package unidade.testes.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Enfermeiro;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,6 +26,7 @@ public class EnfermeiroTest {
         enfermeiro.setCpf("065.748.982-42");
         enfermeiro.setRg("26475828");
         enfermeiro.setCartaoSus("65745437543");
+        enfermeiro.setDataNascimento(new Date());
         enfermeiro.setCorOuRaca("Branca");
         enfermeiro.setTelefone1("(83)33512678");
         enfermeiro.setTelefone2("(83)98474782");
@@ -33,6 +36,7 @@ public class EnfermeiroTest {
         enfermeiro.setEnderecoBairro("Centro");
         enfermeiro.setEnderecoCep("58500-000");
         enfermeiro.setEnderecoCidade("Monteiro");
+        enfermeiro.setEnderecoEstado(Estados.PB);
 
     }
 
@@ -43,6 +47,7 @@ public class EnfermeiroTest {
         System.out.println(enfermeiro.getCpf());
         System.out.println(enfermeiro.getRg());
         System.out.println(enfermeiro.getCartaoSus());
+        System.out.println(enfermeiro.getDataNascimento());
         System.out.println(enfermeiro.getCorOuRaca());
         System.out.println(enfermeiro.getTelefone1());
         System.out.println(enfermeiro.getTelefone2());
@@ -52,12 +57,15 @@ public class EnfermeiroTest {
         System.out.println(enfermeiro.getEnderecoBairro());
         System.out.println(enfermeiro.getEnderecoCep());
         System.out.println(enfermeiro.getEnderecoCidade());
+        System.out.println(enfermeiro.getEnderecoEstado());
 
         assertEquals("O nome esperado deve ser Maria", "Maria", enfermeiro.getNome());
         assertEquals("O coren esperado deve ser 748366354", "748366354", enfermeiro.getCoren());
         assertEquals("O cpf esperado deve ser 065.748.982-42", "065.748.982-42", enfermeiro.getCpf());
         assertEquals("O rg esperado deve ser 26475828", "26475828", enfermeiro.getRg());
         assertEquals("O cartão sus deve ser 65745437543", "65745437543", enfermeiro.getCartaoSus());
+        assertEquals("A data de nascimento deve ser "+ enfermeiro.getDataNascimento(), enfermeiro.getDataNascimento(), 
+                enfermeiro.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", enfermeiro.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", enfermeiro.getTelefone1());
         assertEquals("O telefone deve ser (83)98474782", "(83)98474782", enfermeiro.getTelefone2());
@@ -67,5 +75,7 @@ public class EnfermeiroTest {
         assertEquals("O bairro deve ser Centro", "Centro", enfermeiro.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", enfermeiro.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", enfermeiro.getEnderecoCidade());
+        assertEquals("O estado esperado deve ser "+ enfermeiro.getEnderecoEstado(), enfermeiro.getEnderecoEstado(), 
+                enfermeiro.getEnderecoEstado());
     }
 }

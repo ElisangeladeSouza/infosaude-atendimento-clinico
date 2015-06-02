@@ -1,6 +1,8 @@
 package unidade.testes.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,6 +26,7 @@ public class OdontologoTest {
         odontologo.setCpf("035.982.856-63");
         odontologo.setRg("26475828");
         odontologo.setCartaoSus("65745437543");
+        odontologo.setDataNascimento(new Date());
         odontologo.setCorOuRaca("Branca");
         odontologo.setTelefone1("(83)33512678");
         odontologo.setTelefone2("(83)98474782");
@@ -33,6 +36,7 @@ public class OdontologoTest {
         odontologo.setEnderecoBairro("Centro");
         odontologo.setEnderecoCep("58500-000");
         odontologo.setEnderecoCidade("Monteiro");
+        odontologo.setEnderecoEstado(Estados.PB);
 
     }
 
@@ -43,6 +47,7 @@ public class OdontologoTest {
         System.out.println(odontologo.getCpf());
         System.out.println(odontologo.getRg());
         System.out.println(odontologo.getCartaoSus());
+        System.out.println(odontologo.getDataNascimento());
         System.out.println(odontologo.getCorOuRaca());
         System.out.println(odontologo.getTelefone1());
         System.out.println(odontologo.getTelefone2());
@@ -52,12 +57,14 @@ public class OdontologoTest {
         System.out.println(odontologo.getEnderecoBairro());
         System.out.println(odontologo.getEnderecoCep());
         System.out.println(odontologo.getEnderecoCidade());
+        System.out.println(odontologo.getEnderecoEstado());
 
         assertEquals("O nome esperado deve ser Mariana", "Mariana", odontologo.getNome());
         assertEquals("O crm esperado deve ser 88665232", "88665232", odontologo.getCro());
         assertEquals("O cpf esperado deve ser 035.982.856-63", "035.982.856-63", odontologo.getCpf());
         assertEquals("O rg esperado deve ser 26475828", "26475828", odontologo.getRg());
         assertEquals("O cartão sus deve ser 65745437543", "65745437543", odontologo.getCartaoSus());
+        assertEquals("A data esperada deve ser " + odontologo.getDataNascimento(), odontologo.getDataNascimento(), odontologo.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", odontologo.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", odontologo.getTelefone1());
         assertEquals("O telefone deve ser (83)98474782", "(83)98474782", odontologo.getTelefone2());
@@ -67,6 +74,7 @@ public class OdontologoTest {
         assertEquals("O bairro deve ser Centro", "Centro", odontologo.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", odontologo.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", odontologo.getEnderecoCidade());
+        assertEquals("O estado esperado deve ser " + odontologo.getEnderecoEstado(), odontologo.getEnderecoEstado(), odontologo.getEnderecoEstado());
     }
 
 }

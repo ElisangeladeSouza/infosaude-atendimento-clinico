@@ -1,6 +1,8 @@
 package unidade.testes.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,6 +26,7 @@ public class TecnicoEnfermagemTest {
         tecnicoEnfermagem.setCpf("415.706.534-45");
         tecnicoEnfermagem.setRg("26475828");
         tecnicoEnfermagem.setCartaoSus("65745437543");
+        tecnicoEnfermagem.setDataNascimento(new Date());
         tecnicoEnfermagem.setCorOuRaca("Branca");
         tecnicoEnfermagem.setTelefone1("(83)33512678");
         tecnicoEnfermagem.setTelefone2("(83)98474782");
@@ -33,6 +36,7 @@ public class TecnicoEnfermagemTest {
         tecnicoEnfermagem.setEnderecoBairro("Centro");
         tecnicoEnfermagem.setEnderecoCep("58500-000");
         tecnicoEnfermagem.setEnderecoCidade("Monteiro");
+        tecnicoEnfermagem.setEnderecoEstado(Estados.PB);
 
     }
 
@@ -43,6 +47,7 @@ public class TecnicoEnfermagemTest {
         System.out.println(tecnicoEnfermagem.getCpf());
         System.out.println(tecnicoEnfermagem.getRg());
         System.out.println(tecnicoEnfermagem.getCartaoSus());
+        System.out.println(tecnicoEnfermagem.getDataNascimento());
         System.out.println(tecnicoEnfermagem.getCorOuRaca());
         System.out.println(tecnicoEnfermagem.getTelefone1());
         System.out.println(tecnicoEnfermagem.getTelefone2());
@@ -52,12 +57,15 @@ public class TecnicoEnfermagemTest {
         System.out.println(tecnicoEnfermagem.getEnderecoBairro());
         System.out.println(tecnicoEnfermagem.getEnderecoCep());
         System.out.println(tecnicoEnfermagem.getEnderecoCidade());
+        System.out.println(tecnicoEnfermagem.getEnderecoEstado());
 
         assertEquals("O nome esperado deve ser Joelton", "Joelton", tecnicoEnfermagem.getNome());
         assertEquals("O crm esperado deve ser 2789012", "2789012", tecnicoEnfermagem.getCoren());
         assertEquals("O cpf esperado deve ser 415.706.534-45", "415.706.534-45", tecnicoEnfermagem.getCpf());
         assertEquals("O rg esperado deve ser 26475828", "26475828", tecnicoEnfermagem.getRg());
         assertEquals("O cartão sus deve ser 65745437543", "65745437543", tecnicoEnfermagem.getCartaoSus());
+        assertEquals("A data esperada deve ser " + tecnicoEnfermagem.getDataNascimento(), tecnicoEnfermagem.getDataNascimento(), 
+                tecnicoEnfermagem.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", tecnicoEnfermagem.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", tecnicoEnfermagem.getTelefone1());
         assertEquals("O telefone deve ser (83)98474782", "(83)98474782", tecnicoEnfermagem.getTelefone2());
@@ -67,6 +75,8 @@ public class TecnicoEnfermagemTest {
         assertEquals("O bairro deve ser Centro", "Centro", tecnicoEnfermagem.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", tecnicoEnfermagem.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", tecnicoEnfermagem.getEnderecoCidade());
+        assertEquals("O estado esperado deve ser " + tecnicoEnfermagem.getEnderecoEstado(), tecnicoEnfermagem.getEnderecoEstado(), 
+                tecnicoEnfermagem.getEnderecoEstado());
     }
 
 }
