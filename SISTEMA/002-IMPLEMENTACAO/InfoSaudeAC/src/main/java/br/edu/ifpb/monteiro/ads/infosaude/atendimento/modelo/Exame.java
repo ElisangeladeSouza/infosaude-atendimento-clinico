@@ -22,6 +22,9 @@ public class Exame implements Serializable {
 
     @Column(name = "exame_descricao", length = 200, nullable = false)
     private String descricao;
+    
+    @Column(name = "exame_detalhes", length = 200)
+    private String detalhes;
 
     public Exame() {
     }
@@ -42,6 +45,14 @@ public class Exame implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getDetalhes() {
+        return detalhes;
+    }
+
+    public void setDetalhes(String detalhes) {
+        this.detalhes = detalhes;
     }
 
 }

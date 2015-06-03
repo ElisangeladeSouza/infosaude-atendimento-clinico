@@ -43,14 +43,9 @@ public class ExameBean implements Serializable {
     }
 
     public void salvar() throws UBSException {
-        try {
             this.exameService.save(exame);
             exame = new Exame();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException rollback) {
-            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            LOGGER.warn(rollback);
-        }
     }
 
     public void excluir() throws UBSException {

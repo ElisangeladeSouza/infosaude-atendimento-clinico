@@ -2,27 +2,23 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 /**
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
-public class MarcacaoConsulta implements Serializable {
+public class Atendimento implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @OneToOne(mappedBy = "fichaAtendimento")
-//    private Paciente paciente;
-
-    public MarcacaoConsulta() {
-    }
+//    @OneToOne(mappedBy = "atendimento")
+    private String fichaAtendimento;
 
     public Long getId() {
         return id;
@@ -31,5 +27,6 @@ public class MarcacaoConsulta implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
 
 }

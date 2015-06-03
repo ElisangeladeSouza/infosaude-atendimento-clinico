@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="fichaAtendimento" value="#{fichaAtendimentoBean.fichaAtendimento}"/>e
+    </f:metadata>
+
+    <ui:define id="uiTituloFichaAtendimento" name="titulo">#{fichaAtendimentoBean.editando ? msg.editCadastreTreatmentForm : msg.newRegisterTreatmentForm} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoFichaAtendimento" name="conteudo">
+
+        <p:fieldset id="fieldsetFichaAtendimento" legend="#{fichaAtendimentoBean.editando ? msg.editCadastreTreatmentForm : msg.newRegisterTreatmentForm}">
+
+            <h:form id="formCadastroFichaAtendimento">
+
+                <p:growl id="mensagens"/>
+
+                <h:inputHidden id="dataHora" value="#{fichaAtendimentoBean.fichaAtendimento.dataHora}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                </h:inputHidden>
+                
+                <h:panelGrid id="gridObrigatoriosFichaAtendimento" columns="2">
+
+
+                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" styleClass="upper" filter="true" filterMatchMode="contains">
+                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="destino" value="#{msg.destination}:"/>
+                    <p:inputText id="destino" value="#{fichaAtendimentoBean.fichaAtendimento.destino}" required="true" size="40" styleClass="upper"/>
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarFichaAtendimento" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{fichaAtendimentoBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/ficha-atendimento/PesquisaFichaAtendimento"
+                                  icon="fa fa-times" rendered="#{fichaAtendimentoBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreTreatmentForm}"
+                                  id="botaoPesquisar" outcome="/ficha-atendimento/PesquisaFichaAtendimento"
+                                  icon="ui-icon ui-icon-search" rendered="#{fichaAtendimentoBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+                <p:blockUI id="blockUIFichaAtendimento" block="formCadastroFichaAtendimento" trigger="botaoSalvar"/>
+
+            </h:form>
+
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

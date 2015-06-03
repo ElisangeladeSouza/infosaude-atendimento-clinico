@@ -43,6 +43,10 @@
                     <p:column headerText="#{msg.description}" width="80" filterMatchMode="contains" filterBy="#{exame.descricao}" filterStyle="width: 300px; display:none">
                         <h:outputText id="descricao" value="#{exame.descricao}"/>
                     </p:column>
+                    
+                    <p:column headerText="#{msg.details}" width="80" filterMatchMode="contains" filterBy="#{exame.detalhes}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="detalhes" value="#{exame.detalhes}"/>
+                    </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"

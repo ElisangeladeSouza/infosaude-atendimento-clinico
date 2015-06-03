@@ -3,6 +3,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,9 +27,14 @@ public class Paciente extends Pessoa implements Serializable {
     @Column(name = "paciente_altura", precision = 10, scale = 2)
     private double altura;
 
-    @Column(name = "pessoa_nome_mae", length = 100)
+    @Column(name = "paciente_nome_mae", length = 100)
     private String nomeDaMae;
 
+    @OneToOne
+    @JoinColumn(name = "ficha_atendimento_pk")
+    private FichaAtendimento fichaAtendimento;
+
+//    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
     }
 
@@ -69,6 +76,14 @@ public class Paciente extends Pessoa implements Serializable {
 
     public void setNomeDaMae(String nomeDaMae) {
         this.nomeDaMae = nomeDaMae;
+    }
+
+    public FichaAtendimento getFichaAtendimento() {
+        return fichaAtendimento;
+    }
+
+    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
+        this.fichaAtendimento = fichaAtendimento;
     }
 
 }
