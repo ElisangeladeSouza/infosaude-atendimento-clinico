@@ -8,8 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -19,8 +17,6 @@ import org.apache.commons.logging.LogFactory;
 public class FichaAtendimentoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    private static final Log LOGGER = LogFactory.getLog(FichaAtendimentoBean.class);
 
     @Inject
     private FichaAtendimento fichaAtendimento;

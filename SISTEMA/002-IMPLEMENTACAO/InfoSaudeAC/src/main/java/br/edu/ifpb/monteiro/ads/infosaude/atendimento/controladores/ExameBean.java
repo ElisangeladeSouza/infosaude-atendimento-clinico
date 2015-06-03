@@ -8,9 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.persistence.RollbackException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -21,8 +18,6 @@ public class ExameBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private static final Log LOGGER = LogFactory.getLog(ExameBean.class);
-
     @Inject
     private Exame exame;
 
