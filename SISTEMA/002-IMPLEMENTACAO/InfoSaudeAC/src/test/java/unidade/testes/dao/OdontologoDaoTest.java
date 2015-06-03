@@ -234,7 +234,7 @@ public class OdontologoDaoTest {
     
         Odontologo odontologo = new Odontologo();
         
-        odontologo.setNome("ODONTOLOGO III SOBRENOME");
+        odontologo.setNome("ODONTOLOGO IV SOBRENOME");
 	odontologo.setCpf("04747445820");
    
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -248,7 +248,7 @@ public class OdontologoDaoTest {
     
         Odontologo odontologo = new Odontologo();
         
-        odontologo.setNome("ODONTOLOGO III SOBRENOME");
+        odontologo.setNome("ODONTOLOGO V SOBRENOME");
 	odontologo.setCpf("04747445820");
         odontologo.setCro("15111");
         
@@ -264,7 +264,7 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
         Odontologo novoOdontologo = new Odontologo();
 		
-        odontologo.setNome("ODONTOLOGO II SOBRENOME");
+        odontologo.setNome("ODONTOLOGO VI SOBRENOME");
 	odontologo.setCpf("24239270960");
 	odontologo.setCro("15789");
 	odontologo.setCartaoSus("898 0006 9999 5555");
@@ -291,7 +291,7 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
         Odontologo novoOdontologo = new Odontologo();
 		
-        odontologo.setNome("ODONTOLOGO II SOBRENOME");
+        odontologo.setNome("ODONTOLOGO VII SOBRENOME");
 	odontologo.setCpf("02890781135");
 	odontologo.setCro("15789");
 	odontologo.setCartaoSus("898 0008 9999 5555");
@@ -317,7 +317,7 @@ public class OdontologoDaoTest {
     
         Odontologo odontologo = new Odontologo();
         
-        odontologo.setNome("ENTIDADE SOBRENOME");
+        odontologo.setNome("ENTIDADE VIII SOBRENOME");
 	odontologo.setCpf("91184468680");
 	odontologo.setCro("20011");
 	odontologo.setCartaoSus("898 2221 0121 9994");
@@ -333,7 +333,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setNome("ODONTOLOGO SOBRENOME");
+        odontologo.setNome("ODONTOLOGO IX SOBRENOME");
         odontologo.setCpf("02171614218");
         odontologo.setCro("20014");
         odontologo.setCartaoSus("756 0000 0000 0030");
@@ -354,7 +354,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setNome("ODONTOLOGO SOBRENOME");
+        odontologo.setNome("ODONTOLOGO X SOBRENOME");
         odontologo.setCpf("33022384521");
         odontologo.setCro("20015");
         odontologo.setCartaoSus("756 0000 0000 0031");
@@ -384,7 +384,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setNome("ODONTOLOGO SOBRENOME");
+        odontologo.setNome("ODONTOLOGO XI SOBRENOME");
         odontologo.setCpf("81516485467");
         odontologo.setCro("20016");
         odontologo.setCartaoSus("756 0000 0000 0035");
@@ -404,7 +404,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setNome("ODONTOLOGO SOBRENOME");
+        odontologo.setNome("ODONTOLOGO XII SOBRENOME");
         odontologo.setCpf("23646781963");
         odontologo.setCro("20017");
         odontologo.setCartaoSus("756 0000 0000 0034");

@@ -223,7 +223,7 @@ public class AdministradorDaoTest {
     
         Administrador administrador = new Administrador();
         
-        administrador.setNome("ADMINISTRADOR III SOBRENOME");
+        administrador.setNome("ADMINISTRADOR IV SOBRENOME");
 	administrador.setCpf("53406305792");
    
         administradorDao.getEntityManager().getTransaction().begin();
@@ -238,7 +238,7 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
         Administrador novoAdministrador = new Administrador();
 		
-        administrador.setNome("ADMINISTRADOR II SOBRENOME");
+        administrador.setNome("ADMINISTRADOR V SOBRENOME");
 	administrador.setCpf("17407400253");
 	administrador.setCartaoSus("898 0001 0121 0099");
 	administrador.setEmail("administrador.iisobrenome@domain.com");
@@ -263,12 +263,12 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
         Administrador novoAdministrador = new Administrador();
 		
-        administrador.setNome("ADMINISTRADOR II SOBRENOME");
+        administrador.setNome("ADMINISTRADOR VI SOBRENOME");
 	administrador.setCpf("17407400253");
 	administrador.setCartaoSus("898 0001 0121 0099");
 	administrador.setEmail("administrador.iisobrenome@domain.com");
 		
-	novoAdministrador.setNome("ADMINISTRADOR X SOBRENOME");
+	novoAdministrador.setNome("ADMINISTRADOR VII SOBRENOME");
 	novoAdministrador.setCpf("43622448326");
 	novoAdministrador.setCartaoSus("898 0001 0121 0099");
 	novoAdministrador.setEmail("administrador.xsobrenome@domain.com");
@@ -302,7 +302,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setNome("ADMINISTRADOR SOBRENOME");
+        administrador.setNome("ADMINISTRADOR VIII SOBRENOME ");
         administrador.setCpf("55456713314");
         administrador.setCartaoSus("756 0000 0000 0000");
         administrador.setEmail("administrador.sobrenome@domain.com");
@@ -322,7 +322,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setNome("ADMINISTRADOR SOBRENOME");
+        administrador.setNome("ADMINISTRADOR IX SOBRENOME");
         administrador.setCpf("81574762591");
         administrador.setCartaoSus("756 0000 0000 0001");
         administrador.setEmail("administrador.sobrenome@domain.com");
@@ -351,7 +351,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setNome("ADMINISTRADOR SOBRENOME");
+        administrador.setNome("ADMINISTRADOR X SOBRENOME");
         administrador.setCpf("82471569463");
         administrador.setCartaoSus("756 0000 0000 0002");
         administrador.setEmail("administrador.sobrenome@domain.com");
@@ -370,7 +370,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setNome("ADMINISTRADOR SOBRENOME");
+        administrador.setNome("ADMINISTRADOR XI SOBRENOME");
         administrador.setCpf("67338517177");
         administrador.setCartaoSus("756 0000 0000 0003");
         administrador.setEmail("administrador.sobrenome@domain.com");

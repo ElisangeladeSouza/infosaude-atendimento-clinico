@@ -234,7 +234,7 @@ public class TecnicoEnfermagemDaoTest {
     
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
         
-        tecnicoEnfermagem.setNome("TECENFERMAGEM III SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM IV SOBRENOME");
 	tecnicoEnfermagem.setCpf("60227394038");
    
         tecnicoEnfermagemDao.getEntityManager().getTransaction().begin();
@@ -248,7 +248,7 @@ public class TecnicoEnfermagemDaoTest {
     
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
         
-        tecnicoEnfermagem.setNome("TECENFERMAGEM III SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM V SOBRENOME");
 	tecnicoEnfermagem.setCpf("60227394038");
         tecnicoEnfermagem.setCoren("15111");
         
@@ -264,13 +264,13 @@ public class TecnicoEnfermagemDaoTest {
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
         TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
 		
-        tecnicoEnfermagem.setNome("TECENFERMAGEM II SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM VI SOBRENOME");
 	tecnicoEnfermagem.setCpf("64109694574");
 	tecnicoEnfermagem.setCoren("15789");
 	tecnicoEnfermagem.setCartaoSus("898 1021 9999 5555");
 	tecnicoEnfermagem.setEmail("tecenfermagem.iisobrenome@domain.com");
 		
-	novoTecnicoEnfermagem.setNome("TECENFERMAGEM X SOBRENOME");
+	novoTecnicoEnfermagem.setNome("TECENFERMAGEM VII SOBRENOME");
 	novoTecnicoEnfermagem.setCpf("64109694574");
 	novoTecnicoEnfermagem.setCoren("15000");
 	novoTecnicoEnfermagem.setCartaoSus("898 1025 9999 5555");
@@ -291,13 +291,13 @@ public class TecnicoEnfermagemDaoTest {
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
         TecnicoEnfermagem novoTecnicoEnfermagem = new TecnicoEnfermagem();
 		
-        tecnicoEnfermagem.setNome("TECENFERMAGEM II SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM VIII SOBRENOME");
 	tecnicoEnfermagem.setCpf("52943283720");
 	tecnicoEnfermagem.setCoren("15789");
 	tecnicoEnfermagem.setCartaoSus("898 1030 9999 5555");
 	tecnicoEnfermagem.setEmail("tecenfermagem.iisobrenome@domain.com");
 		
-	novoTecnicoEnfermagem.setNome("TECENFERMAGEM X SOBRENOME");
+	novoTecnicoEnfermagem.setNome("TECENFERMAGEM IX SOBRENOME");
 	novoTecnicoEnfermagem.setCpf("80553213377");
 	novoTecnicoEnfermagem.setCoren("15000");
 	novoTecnicoEnfermagem.setCartaoSus("898 1030 9999 5555");
@@ -317,7 +317,7 @@ public class TecnicoEnfermagemDaoTest {
     
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
         
-        tecnicoEnfermagem.setNome("ENTIDADE SOBRENOME");
+        tecnicoEnfermagem.setNome("ENTIDADE X SOBRENOME");
 	tecnicoEnfermagem.setCpf("91184468680");
 	tecnicoEnfermagem.setCoren("20002");
 	tecnicoEnfermagem.setCartaoSus("898 2221 0121 9994");
@@ -333,7 +333,7 @@ public class TecnicoEnfermagemDaoTest {
 
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
 
-        tecnicoEnfermagem.setNome("TECENFERMAGEM SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM XI SOBRENOME");
         tecnicoEnfermagem.setCpf("54010384298");
         tecnicoEnfermagem.setCoren("20005");
         tecnicoEnfermagem.setCartaoSus("756 0000 0000 0040");
@@ -354,7 +354,7 @@ public class TecnicoEnfermagemDaoTest {
 
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
 
-        tecnicoEnfermagem.setNome("TECENFERMAGEM SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM XII SOBRENOME");
         tecnicoEnfermagem.setCpf("42663305537");
         tecnicoEnfermagem.setCoren("20006");
         tecnicoEnfermagem.setCartaoSus("756 0000 0000 0041");
@@ -384,7 +384,7 @@ public class TecnicoEnfermagemDaoTest {
 
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
 
-        tecnicoEnfermagem.setNome("TECENFERMAGEM SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM XIII SOBRENOME");
         tecnicoEnfermagem.setCpf("33473652164");
         tecnicoEnfermagem.setCoren("20007");
         tecnicoEnfermagem.setCartaoSus("756 0000 0000 0042");
@@ -404,7 +404,7 @@ public class TecnicoEnfermagemDaoTest {
 
         TecnicoEnfermagem tecnicoEnfermagem = new TecnicoEnfermagem();
 
-        tecnicoEnfermagem.setNome("TECENFERMAGEM SOBRENOME");
+        tecnicoEnfermagem.setNome("TECENFERMAGEM XIV SOBRENOME");
         tecnicoEnfermagem.setCpf("22911472420");
         tecnicoEnfermagem.setCoren("20000");
         tecnicoEnfermagem.setCartaoSus("756 0000 0000 0045");
