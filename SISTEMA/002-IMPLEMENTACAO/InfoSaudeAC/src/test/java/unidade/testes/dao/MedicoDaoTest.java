@@ -96,7 +96,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("MEDICO I SOBRENOME");
+        medico.setNome("MEDICO II SOBRENOME");
 	medico.setCpf("12172667552");
 	medico.setCrm("15987");
 	medico.setCartaoSus("898 3301 0121 0009");
@@ -137,7 +137,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("MEDICO II SOBRENOME");
+        medico.setNome("MEDICO III SOBRENOME");
 	medico.setCpf("52712865170");
 	medico.setCrm("15789");
 	medico.setCartaoSus("898 0001 2121 0099");
@@ -169,7 +169,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("MEDICO III SOBRENOME");
+        medico.setNome("MEDICO IV SOBRENOME");
    
         medicoDao.getEntityManager().getTransaction().begin();
         medicoDao.salvar(medico);
@@ -234,7 +234,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("MEDICO III SOBRENOME");
+        medico.setNome("MEDICO V SOBRENOME");
 	medico.setCpf("85946691945");
    
         medicoDao.getEntityManager().getTransaction().begin();
@@ -248,7 +248,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("MEDICO III SOBRENOME");
+        medico.setNome("MEDICO VI SOBRENOME");
 	medico.setCpf("85946691945");
         medico.setCrm("15111");
         
@@ -264,13 +264,13 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
         Medico novoMedico = new Medico();
 		
-        medico.setNome("MEDICO II SOBRENOME");
+        medico.setNome("MEDICO VII SOBRENOME");
 	medico.setCpf("67877347359");
 	medico.setCrm("15789");
 	medico.setCartaoSus("898 0451 0121 0099");
 	medico.setEmail("medico.iisobrenome@domain.com");
 		
-	novoMedico.setNome("MEDICO X SOBRENOME");
+	novoMedico.setNome("MEDICO VIII SOBRENOME");
 	novoMedico.setCpf("67877347359");
 	novoMedico.setCrm("15000");
 	novoMedico.setCartaoSus("898 0071 0121 0901");
@@ -291,7 +291,7 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
         Medico novoMedico = new Medico();
 		
-        medico.setNome("MEDICO II SOBRENOME");
+        medico.setNome("MEDICO IX SOBRENOME");
 	medico.setCpf("07246785736");
 	medico.setCrm("15789");
 	medico.setCartaoSus("700 0001 0121 0099");
@@ -317,7 +317,7 @@ public class MedicoDaoTest {
     
         Medico medico = new Medico();
         
-        medico.setNome("ENTIDADE SOBRENOME");
+        medico.setNome("ENTIDADE X SOBRENOME");
 	medico.setCpf("91184468680");
 	medico.setCrm("17991");
 	medico.setCartaoSus("898 2221 0121 9994");
@@ -333,7 +333,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setNome("MEDICO SOBRENOME");
+        medico.setNome("MEDICO XI SOBRENOME");
         medico.setCpf("27198569323");
         medico.setCrm("17996");
         medico.setCartaoSus("898 0099 0707 8778");
@@ -354,7 +354,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setNome("MEDICO SOBRENOME");
+        medico.setNome("MEDICO XII SOBRENOME");
         medico.setCpf("50965876063");
         medico.setCrm("17997");
         medico.setCartaoSus("898 0099 0707 7887");
@@ -384,7 +384,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setNome("MEDICO SOBRENOME");
+        medico.setNome("MEDICO XIII SOBRENOME");
         medico.setCpf("68843868438");
         medico.setCrm("17998");
         medico.setCartaoSus("898 9876 0707 7887");
@@ -404,7 +404,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setNome("MEDICO SOBRENOME");
+        medico.setNome("MEDICO XIV SOBRENOME");
         medico.setCpf("05982316920");
         medico.setCrm("17999");
         medico.setCartaoSus("898 1234 9999 9876");

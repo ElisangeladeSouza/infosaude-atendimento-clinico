@@ -236,7 +236,7 @@ public class EnfermeiroDaoTest {
     
         Enfermeiro enfermeiro = new Enfermeiro();
         
-        enfermeiro.setNome("ENFERMEIRO III SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO IV SOBRENOME");
 	enfermeiro.setCpf("13261684798");
    
         enfermeiroDao.getEntityManager().getTransaction().begin();
@@ -250,7 +250,7 @@ public class EnfermeiroDaoTest {
     
         Enfermeiro enfermeiro = new Enfermeiro();
         
-        enfermeiro.setNome("ENFERMEIRO III SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO V SOBRENOME");
 	enfermeiro.setCpf("13261684798");
         enfermeiro.setCoren("15111");
         
@@ -266,7 +266,7 @@ public class EnfermeiroDaoTest {
         Enfermeiro enfermeiro = new Enfermeiro();
         Enfermeiro novoEnfermeiro = new Enfermeiro();
 		
-        enfermeiro.setNome("ENFERMEIRO II SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO VI SOBRENOME");
 	enfermeiro.setCpf("83381631632");
 	enfermeiro.setCoren("15789");
 	enfermeiro.setCartaoSus("898 0001 0121 0099");
@@ -293,13 +293,13 @@ public class EnfermeiroDaoTest {
         Enfermeiro enfermeiro = new Enfermeiro();
         Enfermeiro novoEnfermeiro = new Enfermeiro();
 		
-        enfermeiro.setNome("ENFERMEIRO II SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO VII SOBRENOME");
 	enfermeiro.setCpf("03545217302");
 	enfermeiro.setCoren("15789");
 	enfermeiro.setCartaoSus("898 0001 1121 0099");
 	enfermeiro.setEmail("enfermeiro.iisobrenome@domain.com");
 		
-	novoEnfermeiro.setNome("ENFERMEIRO X SOBRENOME");
+	novoEnfermeiro.setNome("ENFERMEIRO VIII SOBRENOME");
 	novoEnfermeiro.setCpf("13556845440");
 	novoEnfermeiro.setCoren("15000");
 	novoEnfermeiro.setCartaoSus("898 0001 1121 0099");
@@ -319,7 +319,7 @@ public class EnfermeiroDaoTest {
     
         Enfermeiro enfermeiro = new Enfermeiro();
         
-        enfermeiro.setNome("ENTIDADE SOBRENOME");
+        enfermeiro.setNome("ENTIDADE IX SOBRENOME");
 	enfermeiro.setCpf("91184468680");
 	enfermeiro.setCoren("19987");
 	enfermeiro.setCartaoSus("898 2221 0121 9994");
@@ -335,7 +335,7 @@ public class EnfermeiroDaoTest {
 
         Enfermeiro enfermeiro = new Enfermeiro();
 
-        enfermeiro.setNome("ENFERMEIRO SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO X SOBRENOME");
         enfermeiro.setCpf("03782681398");
         enfermeiro.setCoren("16000");
         enfermeiro.setCartaoSus("756 0000 0000 1010");
@@ -356,7 +356,7 @@ public class EnfermeiroDaoTest {
 
         Enfermeiro enfermeiro = new Enfermeiro();
 
-        enfermeiro.setNome("ENFERMEIRO SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO XI SOBRENOME");
         enfermeiro.setCpf("44198144540");
         enfermeiro.setCoren("16001");
         enfermeiro.setCartaoSus("756 0000 0000 1011");
@@ -386,7 +386,7 @@ public class EnfermeiroDaoTest {
 
         Enfermeiro enfermeiro = new Enfermeiro();
 
-        enfermeiro.setNome("ENFERMEIRO SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO XII SOBRENOME");
         enfermeiro.setCpf("70128316772");
         enfermeiro.setCoren("16002");
         enfermeiro.setCartaoSus("756 0000 0000 1012");
@@ -406,7 +406,7 @@ public class EnfermeiroDaoTest {
 
         Enfermeiro enfermeiro = new Enfermeiro();
 
-        enfermeiro.setNome("ENFERMEIRO SOBRENOME");
+        enfermeiro.setNome("ENFERMEIRO XIII SOBRENOME");
         enfermeiro.setCpf("63434855033");
         enfermeiro.setCoren("16003");
         enfermeiro.setCartaoSus("756 0000 0000 1013");
