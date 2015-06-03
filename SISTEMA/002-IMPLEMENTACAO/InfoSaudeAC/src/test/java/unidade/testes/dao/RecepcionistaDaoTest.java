@@ -7,8 +7,6 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.EntityManagerProducer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import org.junit.BeforeClass;
 import org.junit.Test;
