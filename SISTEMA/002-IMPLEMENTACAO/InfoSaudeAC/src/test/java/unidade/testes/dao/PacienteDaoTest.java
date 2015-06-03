@@ -220,7 +220,7 @@ public class PacienteDaoTest {
     
         Paciente paciente = new Paciente();
         
-        paciente.setNome("PACIENTE III SOBRENOME");
+        paciente.setNome("PACIENTE IV SOBRENOME");
 	paciente.setCpf("82086859848");
    
         pacienteDao.getEntityManager().getTransaction().begin();
@@ -236,12 +236,12 @@ public class PacienteDaoTest {
         Paciente paciente = new Paciente();
         Paciente novoPaciente = new Paciente();
 		
-        paciente.setNome("PACIENTE II SOBRENOME");
+        paciente.setNome("PACIENTE V SOBRENOME");
 	paciente.setCpf("17407400253");
 	paciente.setCartaoSus("898 0015 9999 5555");
 	paciente.setEmail("paciente.iisobrenome@domain.com");
 		
-	novoPaciente.setNome("PACIENTE X SOBRENOME");
+	novoPaciente.setNome("PACIENTE VI SOBRENOME");
 	novoPaciente.setCpf("17407400253");
 	novoPaciente.setCartaoSus("898 0016 9999 5555");
 	novoPaciente.setEmail("paciente.xsobrenome@domain.com");
@@ -261,12 +261,12 @@ public class PacienteDaoTest {
         Paciente paciente = new Paciente();
         Paciente novoPaciente = new Paciente();
 		
-        paciente.setNome("PACIENTE II SOBRENOME");
+        paciente.setNome("PACIENTE VII SOBRENOME");
 	paciente.setCpf("93951258292");
 	paciente.setCartaoSus("898 0014 9999 5555");
 	paciente.setEmail("paciente.iisobrenome@domain.com");
 		
-	novoPaciente.setNome("PACIENTE X SOBRENOME");
+	novoPaciente.setNome("PACIENTE VIII SOBRENOME");
 	novoPaciente.setCpf("42183667648");
 	novoPaciente.setCartaoSus("898 0014 9999 5555");
 	novoPaciente.setEmail("paciente.xsobrenome@domain.com");
@@ -285,7 +285,7 @@ public class PacienteDaoTest {
     
         Paciente paciente = new Paciente();
         
-        paciente.setNome("ENTIDADE SOBRENOME");
+        paciente.setNome("ENTIDADE IX SOBRENOME");
 	paciente.setCpf("91184468680");
 	paciente.setCartaoSus("898 2221 0121 9994");
 	paciente.setEmail("entidade.sobrenome@domain.com");
@@ -300,7 +300,7 @@ public class PacienteDaoTest {
 
         Paciente paciente = new Paciente();
 
-        paciente.setNome("PACIENTE SOBRENOME");
+        paciente.setNome("PACIENTE X SOBRENOME");
         paciente.setCpf("32955257303");
         paciente.setCartaoSus("756 0000 0000 0020");
         paciente.setEmail("paciente.sobrenome@domain.com");
@@ -320,7 +320,7 @@ public class PacienteDaoTest {
 
         Paciente paciente = new Paciente();
 
-        paciente.setNome("PACIENTE SOBRENOME");
+        paciente.setNome("PACIENTE XI SOBRENOME");
         paciente.setCpf("91528363710");
         paciente.setCartaoSus("756 0000 0000 0021");
         paciente.setEmail("paciente.sobrenome@domain.com");
@@ -349,7 +349,7 @@ public class PacienteDaoTest {
 
         Paciente paciente = new Paciente();
 
-        paciente.setNome("PACIENTE SOBRENOME");
+        paciente.setNome("PACIENTE XII SOBRENOME");
         paciente.setCpf("53381477420");
         paciente.setCartaoSus("756 0000 0000 0022");
         paciente.setEmail("paciente.sobrenome@domain.com");
@@ -368,7 +368,7 @@ public class PacienteDaoTest {
 
         Paciente paciente = new Paciente();
 
-        paciente.setNome("PACIENTE SOBRENOME");
+        paciente.setNome("PACIENTE XIII SOBRENOME");
         paciente.setCpf("83225445452");
         paciente.setCartaoSus("756 0000 0000 0023");
         paciente.setEmail("paciente.sobrenome@domain.com");
