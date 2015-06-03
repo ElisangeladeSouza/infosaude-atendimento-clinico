@@ -2,12 +2,15 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,6 +25,10 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne(mappedBy = "consulta")
+    @JoinColumn(name = "paciente_pk")
+    private Paciente paciente;
+
     @Lob
     @Column(name = "consulta_observacoes", length = 500)
     private String observacoes;
@@ -29,21 +36,32 @@ public class Consulta implements Serializable {
     @Column(name = "consulta_prescricao", length = 255)
     private String prescricao;
 
-    @Column(name = "consulta_requisicao_exames", length = 255)
-    private String requisicaoExames;
-
     @Column(name = "consulta_diagnostico", length = 255)
     private String diagnostico;
 
-    @Column(name = "consulta_sintomas", length = 255)
-    private String sintoma;
-    
-    @Column(name = "exame_cid", length = 50)
-    private String cid;
+    @Column(name = "consulta_procedimento", length = 255)
+    private String procedimento;
+
+    /*Ajustar como relacionamento*/
+    @Column(name = "consulta_atendimento", length = 255)
+    private String atendimento;
+
+    /*Ajustar como relacionamento*/
+    @Column(name = "consulta_requisicao_exame", length = 255)
+    private List<String> requisicaoExame;
+
+    @Column(name = "consulta_anamnese", length = 255)
+    private String anamnese;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "consulta_data_consulta")
+    @Column(name = "consulta_data")
     private Date data;
+
+    @Column(name = "consulta_exames")
+    private String exames;
+
+    @Column(name = "consulta_sintomas")
+    private String sintomas;
 
     public Long getId() {
         return id;
@@ -51,6 +69,14 @@ public class Consulta implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     public String getObservacoes() {
@@ -69,14 +95,6 @@ public class Consulta implements Serializable {
         this.prescricao = prescricao;
     }
 
-    public String getRequisicaoExames() {
-        return requisicaoExames;
-    }
-
-    public void setRequisicaoExames(String requisicaoExames) {
-        this.requisicaoExames = requisicaoExames;
-    }
-
     public String getDiagnostico() {
         return diagnostico;
     }
@@ -85,20 +103,12 @@ public class Consulta implements Serializable {
         this.diagnostico = diagnostico;
     }
 
-    public String getSintoma() {
-        return sintoma;
+    public String getSintomas() {
+        return sintomas;
     }
 
-    public void setSintoma(String sintoma) {
-        this.sintoma = sintoma;
-    }
-    
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
+    public void setSintomas(String sintomas) {
+        this.sintomas = sintomas;
     }
 
     public Date getData() {
@@ -109,5 +119,44 @@ public class Consulta implements Serializable {
         this.data = data;
     }
 
+    public String getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(String procedimento) {
+        this.procedimento = procedimento;
+    }
+
+    public String getAtendimento() {
+        return atendimento;
+    }
+
+    public void setAtendimento(String atendimento) {
+        this.atendimento = atendimento;
+    }
+
+    public List<String> getRequisicaoExame() {
+        return requisicaoExame;
+    }
+
+    public void setRequisicaoExame(List<String> requisicaoExame) {
+        this.requisicaoExame = requisicaoExame;
+    }
+
+    public String getAnamnese() {
+        return anamnese;
+    }
+
+    public void setAnamnese(String anamnese) {
+        this.anamnese = anamnese;
+    }
+
+    public String getExames() {
+        return exames;
+    }
+
+    public void setExames(String exames) {
+        this.exames = exames;
+    }
 
 }

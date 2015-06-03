@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import java.io.IOException;
 import java.util.Iterator;
 import javax.faces.FacesException;
@@ -12,8 +13,11 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
 /**
- * Empacota o tratador de exceções do JSF e funciona como uma camada acima do mesmo para tratar as exceções capturadas
- * @see http://docs.oracle.com/javaee/6/api/javax/faces/context/ExceptionHandler.html
+ * Empacota o tratador de exceções do JSF e funciona como uma camada acima do
+ * mesmo para tratar as exceções capturadas
+ *
+ * @see
+ * http://docs.oracle.com/javaee/6/api/javax/faces/context/ExceptionHandler.html
  *
  * @author cassio
  */
@@ -39,8 +43,8 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
      * @throws FacesException
      */
     @Override
-    public void handle(){
-        //Todos os eventos de exceções são enfileirados nesse iterador.
+    public void handle() {
+        //Todos os eventos de exceções são  enfileirados nesse iterador.
         Iterator<ExceptionQueuedEvent> eventos = getUnhandledExceptionQueuedEvents().iterator();
         /*
          Enquanto houverem eventos no iterador, pega o próximo evento. 
@@ -52,15 +56,27 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 
             //retorna a exceção lançada
             Throwable excecao = contexto.getException();
+            NegocioException negocioException = getNegocioException(excecao);
+
+            //Informa quando a mensagem é tratada para que ela não seja removida no finally
+            boolean handled = false;
 
             try {
                 /*Tratando as exceções capturadas*/
                 //Condição tratando o ViewExpiredException
                 if (excecao instanceof ViewExpiredException) {
                     redirecionar("/");//Redirecionando para a home
+                } else if (negocioException != null) {
+                    handled = true;
+                    FacesUtil.mensagemErro(negocioException.getMessage());
+                } else {
+                    handled = true;
+                    redirecionar("/erro.xhtml");
                 }
             } finally {
-                eventos.remove();
+                if (handled) {
+                    eventos.remove();
+                }
             }
         }
         //Diz que a exceção que capturamos foi tratada e que o tratador pode 
@@ -87,6 +103,15 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
         } catch (IOException iOException) {
             throw new FacesException(iOException);
         }
+    }
+
+    private NegocioException getNegocioException(Throwable exception) {
+        if (exception instanceof NegocioException) {
+            return (NegocioException) exception;
+        } else if (exception.getCause() != null) {
+            return getNegocioException(exception.getCause());
+        }
+        return null;
     }
 
 }

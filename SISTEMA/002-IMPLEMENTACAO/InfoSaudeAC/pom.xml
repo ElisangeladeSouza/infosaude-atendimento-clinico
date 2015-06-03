@@ -188,7 +188,7 @@
                         <exclude>**/aceitacao/testes/enfermeiro/**</exclude>
                         <exclude>**/aceitacao/testes/odontologo/**</exclude>
                         <exclude>**/aceitacao/testes/tecnico-enfermagem/**</exclude>
-                        <!--<exclude>**/unidade/**</exclude>-->
+                        <exclude>**/unidade/**</exclude>
                     </excludes>
                 </configuration>    
             </plugin>

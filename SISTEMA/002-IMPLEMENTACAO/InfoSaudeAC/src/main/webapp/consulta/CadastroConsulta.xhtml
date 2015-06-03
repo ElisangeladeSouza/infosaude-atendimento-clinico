@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="Consulta" value="#{consultaBean.consulta}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloConsulta" name="titulo">#{consultaBean.editando ? msg.editCadastreConsultant : msg.newRegisterConsultant} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoConsulta" name="conteudo">
+
+        <p:fieldset id="fieldsetConsulta" legend="#{consultaBean.editando ? msg.editCadastreConsultant : msg.newRegisterConsultant}">
+            <h:form id="formCadastroConsulta">
+                <p:growl id="mensagens"/>
+
+                <h:inputHidden id="dataHora" value="#{consultaBean.consulta.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                </h:inputHidden>
+
+                <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
+
+                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true" styleClass="upper" filter="true" filterMatchMode="contains">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="sintomas" value="#{msg.symptom}s:"/>
+                    <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}" styleClass="upper" size="20"/>
+
+                    <p:outputLabel for="anamnese" value="#{msg.anamnese}:"/>
+                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}" styleClass="upper"/>
+
+                    <p:outputLabel for="diagnostico" value="#{msg.diagnosis}:"/>
+                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" size="20"/>
+
+                    <p:outputLabel for="prescricao" value="#{msg.prescription}:"/>
+                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper"/>
+
+                    <p:outputLabel for="exames" value="#{msg.examination}s:"/>
+                    <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" styleClass="upper"/>
+
+                    <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
+                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}" styleClass="upper"/>
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{consultaBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/consulta/PesquisaConsulta"
+                                  icon="fa fa-times" rendered="#{consultaBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchConsultation}"
+                                  id="botaoPesquisar" outcome="/consulta/PesquisaConsulta"
+                                  icon="ui-icon ui-icon-search" rendered="#{consultaBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+                <p:blockUI id="blockUIConsulta" block="formCadastroConsulta" trigger="botaoSalvar"/>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

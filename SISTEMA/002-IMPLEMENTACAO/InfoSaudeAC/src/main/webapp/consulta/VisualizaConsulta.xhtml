@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="Consulta" value="#{consultaBean.consulta}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloConsulta" name="titulo">#{msg.viewCadastreDoctor} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoConsulta" name="conteudo">
+
+        <p:fieldset id="fieldsetExame" legend="#{msg.viewCadastreDoctor}">
+
+            <h:form id="formCadastroConsulta">
+
+                <p:fieldset id="visualizaPessoalConsulta" legend="#{msg.personal}">
+                    <h:panelGrid id="gridVisualizaPessoalConsulta" columns="2">
+
+                        <p:outputLabel for="data" value="#{msg.date}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="data" value="#{consultaBean.consulta.data}" styleClass="upper" />
+
+                        <p:outputLabel for="paciente" value="#{msg.patient}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="paciente" value="#{consultaBean.consulta.paciente}" styleClass="upper" />
+
+                        <p:outputLabel for="sintomas" value="#{msg.symptom}s.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="sintomas" value="#{consultaBean.consulta.sintomas}" styleClass="upper" />
+
+                        <p:outputLabel for="anamnese" value="#{msg.anamnese}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="anamnese" value="#{consultaBean.consulta.anamnese}" styleClass="upper" />
+
+                        <p:outputLabel for="diagnostico" value="#{msg.diagnosis}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" />
+
+                        <p:outputLabel for="prescricao" value="#{msg.prescription}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper" />
+
+                        <p:outputLabel for="exames" value="#{msg.examination}s.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="exames" value="#{consultaBean.consulta.exames}" styleClass="upper" />
+
+                        <p:outputLabel for="observacoes" value="#{msg.observations}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="observacoes" value="#{consultaBean.consulta.observacoes}" styleClass="upper" />
+
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/consulta/PesquisaConsulta"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+            </h:form>
+
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

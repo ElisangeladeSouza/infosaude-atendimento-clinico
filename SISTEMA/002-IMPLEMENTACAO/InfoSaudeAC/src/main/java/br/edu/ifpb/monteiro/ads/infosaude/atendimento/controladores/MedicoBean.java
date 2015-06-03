@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.MedicoService;
@@ -58,8 +59,8 @@ public class MedicoBean implements Serializable {
             medico = new Medico();
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         } catch (RollbackException rollback) {
-            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
             LOGGER.warn(rollback);
+            throw new NegocioException("O CPF informado já está cadastrado. Informe outro CPF.");
         }
     }
 

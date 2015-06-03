@@ -34,6 +34,10 @@ public class Paciente extends Pessoa implements Serializable {
     @JoinColumn(name = "ficha_atendimento_pk")
     private FichaAtendimento fichaAtendimento;
 
+    @OneToOne
+    @JoinColumn(name = "consulta_pk")
+    private Consulta consulta;
+
 //    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
     }
@@ -84,6 +88,14 @@ public class Paciente extends Pessoa implements Serializable {
 
     public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
         this.fichaAtendimento = fichaAtendimento;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
     }
 
 }
