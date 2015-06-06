@@ -39,11 +39,11 @@
                         <h:outputText id="id" value="#{fichaAtendimento.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{fichaAtendimento.paciente.nome}"/>
                     </p:column>
                     
-                    <p:column headerText="#{msg.destination}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.destination}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.destino}" filterStyle="width: 300px; display:none">
                         <h:outputText id="destino" value="#{fichaAtendimento.destino}"/>
                     </p:column>
 

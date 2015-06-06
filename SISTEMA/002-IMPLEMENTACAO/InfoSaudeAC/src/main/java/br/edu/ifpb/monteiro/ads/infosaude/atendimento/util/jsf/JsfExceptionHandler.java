@@ -11,6 +11,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Empacota o tratador de exceções do JSF e funciona como uma camada acima do
@@ -23,6 +25,8 @@ import javax.faces.event.ExceptionQueuedEventContext;
  */
 public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 
+    private static final Log LOGGER = LogFactory.getLog(JsfExceptionHandler.class);
+    
 //    Recebe o tratador de exceções do JSF através da atribuição do construtor da classe
     private final ExceptionHandler empacotado;
 
@@ -71,6 +75,7 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
                     FacesUtil.mensagemErro(negocioException.getMessage());
                 } else {
                     handled = true;
+                    LOGGER.error("Erro de sistema: " + excecao.getMessage(), excecao);
                     redirecionar("/erro.xhtml");
                 }
             } finally {
