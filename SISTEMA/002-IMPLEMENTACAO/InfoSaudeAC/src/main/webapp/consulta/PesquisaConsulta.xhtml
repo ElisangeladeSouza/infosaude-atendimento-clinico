@@ -39,7 +39,7 @@
                         <h:outputText value="#{consulta.id}"/>
                     </p:column>
 
-                    <p:column id="nome" headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{consulta.paciente}" filterStyle="width: 300px; display:none">
+                    <p:column id="nome" headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{consulta.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText value="#{consulta.paciente.nome}"/>
                     </p:column>
 
@@ -65,7 +65,7 @@
                             <f:setPropertyActionListener value="#{consulta}" target="#{consultaBean.consultaSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreDoctor}" message="#{msg.realyExcludeDoctor}"/>
+                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreConsultant}" message="#{msg.realyExcludeConsultant}"/>
 
                         </p:commandButton>
                     </p:column>
