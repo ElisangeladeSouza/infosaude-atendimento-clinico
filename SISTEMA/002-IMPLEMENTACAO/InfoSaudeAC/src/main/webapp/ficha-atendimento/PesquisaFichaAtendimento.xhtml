@@ -7,11 +7,11 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
-    <ui:define id="uiPesquisaFichaAtendimento" name="titulo">#{msg.searchCadastreExamination} | #{msg.systemName}</ui:define>
+    <ui:define id="uiPesquisaFichaAtendimento" name="titulo">#{msg.searchCadastreTreatmentForm} | #{msg.systemName}</ui:define>
 
     <ui:define id="conteudoPesquisaFichaAtendimento" name="conteudo">
         
-        <p:fieldset legend="#{msg.searchCadastreExamination}">
+        <p:fieldset legend="#{msg.searchCadastreTreatmentForm}">
             <h:form id="formPesquisaFichaAtendimento">
 
                 <p:growl id="mensagens"/>
@@ -64,7 +64,7 @@
                             <f:setPropertyActionListener value="#{fichaAtendimento}" target="#{fichaAtendimentoBean.fichaAtendimentoSelecionado}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreExamination}" message="#{msg.realyExcludeExamination}"/>
+                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreTreatmentForm}" message="#{msg.realyExcludeTreatmentForm}"/>
 
                         </p:commandButton>
                     </p:column>
