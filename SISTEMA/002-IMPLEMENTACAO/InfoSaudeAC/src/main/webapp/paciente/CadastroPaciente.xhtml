@@ -25,17 +25,17 @@
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:" style="margin-left: 20px"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{pacienteBean.paciente.cpf}" styleClass="upper" size="15"
+                                 value="#{pacienteBean.paciente.cpf}" styleClass="upper" size="20"
                                  validator="cpfValidator" converter="cpfConverter" style="margin-left: 5px"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:" style="margin-left: 20px"/>
                     <p:inputMask id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" mask="999 9999 9999 9999"
                                  required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 styleClass="upper" size="15" style="margin-left: 5px"/>
+                                 styleClass="upper" size="20" style="margin-left: 5px"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:" style="margin-left: 20px"/>
                     <p:inputText id="nome" value="#{pacienteBean.paciente.nome}" required="true" requiredMessage="#{msg.mandatoryName}" 
-                                 styleClass="upper" size="31" style="margin-left: 5px" maxlength="150"/>
+                                 styleClass="upper" size="38" style="margin-left: 5px" maxlength="150"/>
 
                 </h:panelGrid>
 
@@ -51,9 +51,9 @@
                             </p:selectOneMenu>  
 
                             <p:outputLabel for="altura" value="#{msg.height}:" style="margin-left: 23px"/>
-                            <p:inputText id="altura" size="9" styleClass="upper altura" maxlength="3" 
-                                         value="#{pacienteBean.paciente.altura}">
-                                <f:convertNumber type="number" />
+                            <p:inputText id="altura" size="9" styleClass="upper altura" maxlength="3"
+                                         value="#{pacienteBean.paciente.altura}" label="">
+                                <f:convertNumber type="number" integerOnly="true"/>
                             </p:inputText>
 
                             <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:"/>
@@ -72,7 +72,7 @@
                         </h:panelGrid>
                         <h:panelGrid columns="2">
                             <p:outputLabel for="nomeMae" value="#{msg.motherName}:" />
-                            <p:inputText id="nomeMae" size="31" styleClass="upper" value="#{pacienteBean.paciente.nomeDaMae}" style="margin-left: 3px" />
+                            <p:inputText id="nomeMae" size="38" styleClass="upper" value="#{pacienteBean.paciente.nomeDaMae}" style="margin-left: 3px" />
                         </h:panelGrid>
                     </p:tab>
 
@@ -80,14 +80,14 @@
                         <h:panelGrid columns="2">
                             <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
                             <p:inputText id="telefone1" styleClass="phone upper" value="#{pacienteBean.paciente.telefone1}" 
-                                         size="15" style="margin-left: 28px"/>
+                                         size="20" style="margin-left: 28px"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
                             <p:inputText id="telefone2" styleClass="phone upper" value="#{pacienteBean.paciente.telefone2}" 
-                                         size="15" style="margin-left: 28px"/>
+                                         size="20" style="margin-left: 28px"/>
 
                             <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{pacienteBean.paciente.email}" size="31" 
+                            <p:inputText id="email" styleClass="lower" value="#{pacienteBean.paciente.email}" size="38" 
                                          style="margin-left: 28px"/>
                         </h:panelGrid>
                     </p:tab>
@@ -103,7 +103,7 @@
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
-                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 45px"/>
+                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 5px"/>
                             <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" filter="true" filterMatchMode="startsWith">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
@@ -115,7 +115,7 @@
 
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
                             <p:inputText id="rua" value="#{pacienteBean.paciente.enderecoRua}" styleClass="upper" 
-                                         style="margin-left: 48px" size="31" maxlength="150"/>
+                                         style="margin-left: 48px" size="38" maxlength="150"/>
 
                             <p:inputText id="numero" value="#{pacienteBean.paciente.enderecoNumero}" styleClass="upper" 
                                          style="margin-left: 1px" size="6" maxlength="6" placeholder="Nº"/>
@@ -123,7 +123,7 @@
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
                             <p:inputText id="bairro" value="#{pacienteBean.paciente.enderecoBairro}" styleClass="upper" 
-                                         style="margin-left: 48px" size="31" maxlength="100"/>
+                                         style="margin-left: 48px" size="38" maxlength="100"/>
 
                             <p:inputMask mask="99999-999" id="cep" value="#{pacienteBean.paciente.enderecoCep}" styleClass="upper" 
                                          style="margin-left: 1px" size="6" maxlength="8" placeholder="CEP"/>
@@ -137,7 +137,7 @@
                         <h:panelGrid columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
                             <p:inputText id="rg" value="#{pacienteBean.paciente.rg}" styleClass="upper" 
-                                         size="15" maxlength="15"/>
+                                         size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>
 

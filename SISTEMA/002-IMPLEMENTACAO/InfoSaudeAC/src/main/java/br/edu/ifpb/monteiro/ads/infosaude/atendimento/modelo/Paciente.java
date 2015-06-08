@@ -21,6 +21,7 @@ public class Paciente extends Pessoa implements Serializable {
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSus;
 
+    
     @Column(name = "paciente_peso", precision = 10, scale = 2)
     private double peso;
 

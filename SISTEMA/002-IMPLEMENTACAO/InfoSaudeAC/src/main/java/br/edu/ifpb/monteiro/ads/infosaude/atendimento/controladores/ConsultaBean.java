@@ -31,9 +31,6 @@ public class ConsultaBean implements Serializable {
     @Inject
     private Consulta consultaSelecionada;
 
-    @Inject
-    private PessoaBean pessoaBean;
-
     private transient List<Consulta> consultas;
 
     public ConsultaBean() {
@@ -47,11 +44,13 @@ public class ConsultaBean implements Serializable {
     public void salvar() {
         this.consultaService.save(consulta);
         consulta = new Consulta();
+        LOGGER.info("Cadastro de consulta efetuado.");
         FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
     }
 
     public void excluir() throws UBSException {
         this.consultaService.delete(consultaSelecionada);
+        LOGGER.info("Exclusão de consulta efetuada.");
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
