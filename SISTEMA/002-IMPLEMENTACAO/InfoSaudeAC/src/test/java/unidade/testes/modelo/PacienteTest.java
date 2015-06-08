@@ -27,7 +27,7 @@ public class PacienteTest {
         paciente.setCartaoSus("65745437543");
         paciente.setDataNascimento(new Date());
         paciente.setCorOuRaca("Branca");
-        paciente.setAltura(170);
+        paciente.setAltura(170.0);
         paciente.setPeso(90.0);
         paciente.setNomeDaMae("Maria");
         paciente.setTelefone1("(83)33512678");

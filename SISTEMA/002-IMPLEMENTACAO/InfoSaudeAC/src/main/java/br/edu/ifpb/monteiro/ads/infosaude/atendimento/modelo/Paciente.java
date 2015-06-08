@@ -27,11 +27,11 @@ public class Paciente extends Pessoa implements Serializable {
 
     @DecimalMin(value = "0", message = "O peso deve ser um valor maior que 0(zero)")
     @Column(name = "paciente_peso", precision = 10, scale = 2)
-    private double peso;
+    private Double peso;
 
     @DecimalMin(value = "0", message = "A altura deve ser um valor maior que 0(zero)")
     @Column(name = "paciente_altura", precision = 10, scale = 2)
-    private double altura;
+    private Double altura;
 
     @Column(name = "paciente_nome_mae", length = 100)
     private String nomeDaMae;
@@ -48,19 +48,19 @@ public class Paciente extends Pessoa implements Serializable {
     public Paciente() {
     }
 
-    public double getPeso() {
+    public Double getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(Double peso) {
         this.peso = peso;
     }
 
-    public double getAltura() {
+    public Double getAltura() {
         return altura;
     }
 
-    public void setAltura(double altura) {
+    public void setAltura(Double altura) {
         this.altura = altura;
     }
 
