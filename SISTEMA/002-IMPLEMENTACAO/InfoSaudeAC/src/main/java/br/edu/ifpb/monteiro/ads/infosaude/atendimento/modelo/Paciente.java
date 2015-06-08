@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,16 +17,19 @@ public class Paciente extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @NotNull(message = "Um CPF deve ser informado")
     @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
+    @NotNull(message = "O cartão do SUS deve ser informado")
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSus;
 
-    
+    @DecimalMin(value = "0", message = "O peso deve ser um valor maior que 0(zero)")
     @Column(name = "paciente_peso", precision = 10, scale = 2)
     private double peso;
 
+    @DecimalMin(value = "0", message = "A altura deve ser um valor maior que 0(zero)")
     @Column(name = "paciente_altura", precision = 10, scale = 2)
     private double altura;
 
