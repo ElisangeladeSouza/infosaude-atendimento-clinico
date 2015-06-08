@@ -4,7 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
-    <!--Aponta para a fabrica de exceptionhandler gerenciado pelo JSF-->
+    <!--Aponta para a fabrica de exceptionhandler gerenciado pelo JSF, que trata exceções lançadas-->
     <factory>
         <exception-handler-factory>
             br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.JsfExceptionHandlerFactory
