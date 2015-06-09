@@ -8,14 +8,14 @@
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
-        <f:viewParam name="Consulta" value="#{consultaBean.consulta}"/>
+        <f:viewParam name="consulta" value="#{consultaBean.consulta}"/>
     </f:metadata>
 
     <ui:define id="uiTituloConsulta" name="titulo">#{msg.viewCadastreConsultant} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoConsulta" name="conteudo">
 
-        <p:fieldset id="fieldsetExame" legend="#{msg.viewCadastreConsultant}">
+        <p:fieldset id="fieldsetConsulta" legend="#{msg.viewCadastreConsultant}">
 
             <h:form id="formCadastroConsulta">
 
@@ -26,7 +26,7 @@
                         <p:outputLabel id="data" value="#{consultaBean.consulta.data}" styleClass="upper" />
 
                         <p:outputLabel for="paciente" value="#{msg.patient}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="paciente" value="#{consultaBean.consulta.paciente}" styleClass="upper" />
+                        <p:outputLabel id="paciente" value="#{consultaBean.consulta.paciente.nome}" styleClass="upper" />
 
                         <p:outputLabel for="sintomas" value="#{msg.symptom}s.............................:" style="font-weight: bold"/>
                         <p:outputLabel id="sintomas" value="#{consultaBean.consulta.sintomas}" styleClass="upper" />
@@ -57,12 +57,8 @@
                                   icon="ui-icon ui-icon-search">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
-
 </ui:composition>

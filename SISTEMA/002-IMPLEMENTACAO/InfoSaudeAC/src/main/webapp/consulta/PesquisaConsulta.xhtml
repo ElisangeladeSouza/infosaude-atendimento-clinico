@@ -35,18 +35,17 @@
                         </p:outputPanel>
                     </f:facet>
 
-                    <p:column id="id" headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{consulta.id}" filterStyle="width: 20px; display:none">
-                        <h:outputText value="#{consulta.id}"/>
+                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{consulta.id}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="id" value="#{consulta.id}"/>
                     </p:column>
 
-                    <p:column id="nome" headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{consulta.paciente.nome}" filterStyle="width: 300px; display:none">
-                        <h:outputText value="#{consulta.paciente.nome}"/>
+                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{consulta.paciente.nome}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="paciente" value="#{consulta.paciente.nome}"/>
                     </p:column>
 
                     <p:column headerText="#{msg.susCard}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.paciente.cartaoSus}" filterStyle="width: 80px; display:none">
                         <h:outputText id="crm" value="#{consulta.paciente.cartaoSus}"/>
                     </p:column>
-
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
@@ -69,7 +68,6 @@
 
                         </p:commandButton>
                     </p:column>
-
                 </p:dataTable>
             </h:form>
         </p:fieldset>
