@@ -48,7 +48,7 @@ public class Consulta implements Serializable {
 
     /*Ajustar como relacionamento*/
     @Column(name = "consulta_requisicao_exame", length = 255)
-    private List<String> requisicaoExame;
+    private transient List<String> requisicaoExame;
 
     @Column(name = "consulta_anamnese", length = 255)
     private String anamnese;
