@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -49,5 +50,24 @@ public class Enfermeiro extends Pessoa implements Serializable {
 
     public void setCorenEnfermeiro(String corenEnfermeiro) {
         this.corenEnfermeiro = corenEnfermeiro;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.cpfEnfermeiro);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Enfermeiro other = (Enfermeiro) obj;
+        return Objects.equals(this.cpfEnfermeiro, other.cpfEnfermeiro);
     }
 }
