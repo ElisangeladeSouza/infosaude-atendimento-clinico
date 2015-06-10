@@ -17,45 +17,47 @@ public class Enfermeiro extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    private String cpfEnfermeiro;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusEnfermeiro;
 
     @Column(name = "enfermeiro_coren", unique = true, length = 30)
-    private String coren;
+    private String corenEnfermeiro;
 
     public Enfermeiro() {
     }
 
-    public String getCoren() {
-        return coren;
+    public String getCpfEnfermeiro() {
+        return cpfEnfermeiro;
     }
 
-    public void setCoren(String coren) {
-        this.coren = coren;
+    public void setCpfEnfermeiro(String cpfEnfermeiro) {
+        this.cpfEnfermeiro = cpfEnfermeiro;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCartaoSusEnfermeiro() {
+        return cartaoSusEnfermeiro;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCartaoSusEnfermeiro(String cartaoSusEnfermeiro) {
+        this.cartaoSusEnfermeiro = cartaoSusEnfermeiro;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCorenEnfermeiro() {
+        return corenEnfermeiro;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
+    public void setCorenEnfermeiro(String corenEnfermeiro) {
+        this.corenEnfermeiro = corenEnfermeiro;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.cpf);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.cpfEnfermeiro);
+        hash = 37 * hash + Objects.hashCode(this.cartaoSusEnfermeiro);
+        hash = 37 * hash + Objects.hashCode(this.corenEnfermeiro);
         return hash;
     }
 
@@ -68,6 +70,13 @@ public class Enfermeiro extends Pessoa implements Serializable {
             return false;
         }
         final Enfermeiro other = (Enfermeiro) obj;
-        return Objects.equals(this.cpf, other.cpf);
+        if (!Objects.equals(this.cpfEnfermeiro, other.cpfEnfermeiro)) {
+            return false;
+        }
+        if (!Objects.equals(this.cartaoSusEnfermeiro, other.cartaoSusEnfermeiro)) {
+            return false;
+        }
+        return Objects.equals(this.corenEnfermeiro, other.corenEnfermeiro);
     }
+
 }
