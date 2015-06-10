@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -41,7 +42,6 @@ public class Paciente extends Pessoa implements Serializable {
     @JoinColumn(name = "consulta_pk")
     private Consulta consulta;
 
-//    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
     }
 
@@ -99,5 +99,27 @@ public class Paciente extends Pessoa implements Serializable {
 
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.cpf);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Paciente other = (Paciente) obj;
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        return true;
     }
 }

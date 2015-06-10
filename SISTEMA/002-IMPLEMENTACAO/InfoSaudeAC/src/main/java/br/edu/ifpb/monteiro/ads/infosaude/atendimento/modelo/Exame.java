@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Exame implements Serializable {
 
     @Column(name = "exame_descricao", length = 200, nullable = false)
     private String descricao;
-    
+
     @Column(name = "exame_detalhes", length = 200)
     private String detalhes;
 
@@ -51,6 +52,25 @@ public class Exame implements Serializable {
 
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Exame other = (Exame) obj;
+        return Objects.equals(this.id, other.id);
     }
 
 }
