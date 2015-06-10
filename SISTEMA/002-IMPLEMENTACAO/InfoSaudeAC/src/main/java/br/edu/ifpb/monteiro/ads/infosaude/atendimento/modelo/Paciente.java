@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,10 +16,11 @@ import javax.validation.constraints.DecimalMin;
 public class Paciente extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @NotNull(message = "Um CPF deve ser informado")
     @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
+    @NotNull(message = "O cartão do SUS deve ser informado")
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSus;
 

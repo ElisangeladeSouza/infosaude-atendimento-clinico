@@ -9,17 +9,17 @@
         <param-value>Development</param-value>
     </context-param>
     
-    <context-param>
-        <param-name>com.sun.faces.expressionFactory</param-name>
-        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
-    </context-param>
-    
-    <!--Listner para monitorar campos em que o zero aparece nos inputText do HTML-->
-    <!--    <listener>
-        <listener-class>
-            br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.ServletNoZEROField
-        </listener-class>
-    </listener>-->
+    <!--Habilita a compressão em GZIP para requisiçoes HTTP-->
+    <filter>
+        <filter-name>gzipResponseFilter</filter-name>
+        <filter-class>org.omnifaces.filter.GzipResponseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>gzipResponseFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
     
     <!-- Hide comments on code to avoid security breach and weight in the renderization page -->
     <context-param>
