@@ -3,7 +3,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 /**
@@ -21,10 +20,9 @@ public class CPFConverter implements Converter {
      * @param component
      * @param value
      * @return
-     * @throws ConverterException
      */
     @Override
-    public Object getAsObject(FacesContext context, UIComponent component, String value) throws ConverterException {
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
         String cpf = value;
         if (value != null && !"".equals(value)) {
             cpf = value.replaceAll("\\.", "").replaceAll("\\-", "");
@@ -40,10 +38,9 @@ public class CPFConverter implements Converter {
      * @param component
      * @param value
      * @return
-     * @throws ConverterException
      */
     @Override
-    public String getAsString(FacesContext context, UIComponent component, Object value) throws ConverterException {
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
 
         String cpf = (String) value;
         if (cpf != null && cpf.length() == 11) {
