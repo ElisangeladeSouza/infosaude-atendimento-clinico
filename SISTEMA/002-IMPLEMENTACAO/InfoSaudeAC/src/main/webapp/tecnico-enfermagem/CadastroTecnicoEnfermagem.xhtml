@@ -24,16 +24,16 @@
                 <h:panelGrid id="gridObrigatoriosTecnicoEnfermagem" columns="2">
 
                     <p:outputLabel for="coren" value="#{msg.coren}:"/>
-                    <p:inputText id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.coren}" styleClass="upper" required="true" 
+                    <p:inputText id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" styleClass="upper" required="true" 
                                  requiredMessage="#{msg.mandatoryCOREN}" size="40"/>
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpf}" styleClass="upper" size="40"
+                                 value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" styleClass="upper" size="40"
                                  validator="cpfValidator" converter="cpfConverter"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
-                    <p:inputMask id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSus}" mask="999 9999 9999 9999"
+                    <p:inputMask id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" mask="999 9999 9999 9999"
                                  required="true" requiredMessage="#{msg.mandatorySusCard}"
                                  styleClass="upper" size="40"/>
 

@@ -51,32 +51,4 @@ public class Enfermeiro extends Pessoa implements Serializable {
     public void setCorenEnfermeiro(String corenEnfermeiro) {
         this.corenEnfermeiro = corenEnfermeiro;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.cpfEnfermeiro);
-        hash = 37 * hash + Objects.hashCode(this.cartaoSusEnfermeiro);
-        hash = 37 * hash + Objects.hashCode(this.corenEnfermeiro);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Enfermeiro other = (Enfermeiro) obj;
-        if (!Objects.equals(this.cpfEnfermeiro, other.cpfEnfermeiro)) {
-            return false;
-        }
-        if (!Objects.equals(this.cartaoSusEnfermeiro, other.cartaoSusEnfermeiro)) {
-            return false;
-        }
-        return Objects.equals(this.corenEnfermeiro, other.corenEnfermeiro);
-    }
-
 }

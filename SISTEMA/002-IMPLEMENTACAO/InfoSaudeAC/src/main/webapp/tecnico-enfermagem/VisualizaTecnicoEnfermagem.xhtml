@@ -74,7 +74,7 @@
                 <p:fieldset id="visualizaDocumentosTecnicoEnfermagem" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridDocumentosTecnicoEnfermagem" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" styleClass="upper">
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
@@ -82,10 +82,10 @@
                         <p:outputLabel id="rg" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}" styleClass="upper"/>
 
                         <p:outputLabel for="coren" value="#{msg.coren}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.coren}" styleClass="upper"/>
+                        <p:outputLabel id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" styleClass="upper"/>
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" styleClass="upper"/>
                     </h:panelGrid>
                 </p:fieldset>
 

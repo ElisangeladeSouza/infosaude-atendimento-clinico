@@ -25,16 +25,16 @@
 
                     <p:outputLabel for="coren" value="#{msg.coren}:"/>
                     <p:inputText id="coren" required="true" requiredMessage="#{msg.mandatoryCOREN}"
-                                 value="#{enfermeiroBean.enfermeiro.coren}" styleClass="upper" size="40"/>
+                                 value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" styleClass="upper" size="40"/>
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{enfermeiroBean.enfermeiro.cpf}" styleClass="upper" size="40"
+                                 value="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" styleClass="upper" size="40"
                                  validator="cpfValidator" converter="cpfConverter"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
                     <p:inputMask id="cartaoSus" required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 mask="999 9999 9999 9999" value="#{enfermeiroBean.enfermeiro.cartaoSus}" 
+                                 mask="999 9999 9999 9999" value="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" 
                                  styleClass="upper" size="40"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>

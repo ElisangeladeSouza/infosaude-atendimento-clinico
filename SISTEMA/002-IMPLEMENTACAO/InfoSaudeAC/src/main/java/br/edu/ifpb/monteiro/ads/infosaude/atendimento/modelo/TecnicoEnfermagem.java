@@ -1,7 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -15,61 +14,38 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    private String cpfTecnicoEnfermagem;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusTecnicoEnfermagem;
 
     @Column(name = "tecnico_enfermagem_coren", unique = true, length = 50)
-    private String coren;
+    private String corenTecnicoEnfermagem;
 
     public TecnicoEnfermagem() {
     }
 
-    public String getCoren() {
-        return coren;
+    public String getCpfTecnicoEnfermagem() {
+        return cpfTecnicoEnfermagem;
     }
 
-    public void setCoren(String coren) {
-        this.coren = coren;
+    public void setCpfTecnicoEnfermagem(String cpfTecnicoEnfermagem) {
+        this.cpfTecnicoEnfermagem = cpfTecnicoEnfermagem;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCartaoSusTecnicoEnfermagem() {
+        return cartaoSusTecnicoEnfermagem;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCartaoSusTecnicoEnfermagem(String cartaoSusTecnicoEnfermagem) {
+        this.cartaoSusTecnicoEnfermagem = cartaoSusTecnicoEnfermagem;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCorenTecnicoEnfermagem() {
+        return corenTecnicoEnfermagem;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.cartaoSus);
-        hash = 89 * hash + Objects.hashCode(this.coren);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final TecnicoEnfermagem other = (TecnicoEnfermagem) obj;
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
-            return false;
-        }
-        return Objects.equals(this.coren, other.coren);
+    public void setCorenTecnicoEnfermagem(String corenTecnicoEnfermagem) {
+        this.corenTecnicoEnfermagem = corenTecnicoEnfermagem;
     }
 }

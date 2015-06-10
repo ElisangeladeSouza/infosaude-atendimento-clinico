@@ -74,7 +74,7 @@
                 <p:fieldset id="visualizaDocumentosEnfermerio" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosEnfermeiro" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{enfermeiroBean.enfermeiro.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" styleClass="upper">
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
@@ -82,10 +82,10 @@
                         <p:outputLabel id="rg" value="#{enfermeiroBean.enfermeiro.rg}" styleClass="upper"/>
 
                         <p:outputLabel for="coren" value="#{msg.coren}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{enfermeiroBean.enfermeiro.coren}" styleClass="upper"/>
+                        <p:outputLabel id="coren" value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" styleClass="upper"/>
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{enfermeiroBean.enfermeiro.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" styleClass="upper"/>
                     </h:panelGrid>
                 </p:fieldset>
 

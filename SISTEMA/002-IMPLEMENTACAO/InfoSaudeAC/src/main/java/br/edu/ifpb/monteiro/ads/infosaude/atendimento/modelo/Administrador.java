@@ -1,7 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -37,27 +36,5 @@ public class Administrador extends Pessoa implements Serializable {
 
     public void setCartaoSus(String cartaoSus) {
         this.cartaoSus = cartaoSus;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.cpf);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Administrador other = (Administrador) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
-        return true;
     }
 }
