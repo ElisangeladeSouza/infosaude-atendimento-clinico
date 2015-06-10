@@ -1,7 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
