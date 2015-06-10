@@ -28,8 +28,6 @@ public class Exame implements Serializable {
 
     public Exame() {
     }
-//    @ManyToOne
-//    private RequisicaoExame requisicaoExame;
 
     public Long getId() {
         return id;

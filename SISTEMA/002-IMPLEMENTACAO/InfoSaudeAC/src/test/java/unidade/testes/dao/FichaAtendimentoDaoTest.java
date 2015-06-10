@@ -78,7 +78,7 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         
         fichaAtendimento.setAtendimento("Atendimento 2");
-        fichaAtendimento.setDataHora(dateTimeUtilBean.getDateToday());
+        fichaAtendimento.setDataHora();
         fichaAtendimento.setDestino("Odontologo");
         
         fichaAtendimentoDao.getEntityManager().getTransaction().begin();
@@ -107,7 +107,7 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         
         fichaAtendimento.setAtendimento("Atendimento 3");
-        fichaAtendimento.setDataHora(dateTimeUtilBean.getDateToday());
+        fichaAtendimento.setDataHora();
         fichaAtendimento.setDestino("Médico");
         
         fichaAtendimentoDao.getEntityManager().getTransaction().begin();
@@ -126,7 +126,7 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         
         fichaAtendimento.setAtendimento("Atendimento 4");
-        fichaAtendimento.setDataHora(dateTimeUtilBean.getDateToday());
+        fichaAtendimento.setDataHora();
         fichaAtendimento.setDestino("Enfermeiro");
         
         fichaAtendimentoDao.getEntityManager().getTransaction().begin();
@@ -154,7 +154,7 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         
         fichaAtendimento.setAtendimento("Atendimento 5");
-        fichaAtendimento.setDataHora(dateTimeUtilBean.getDateToday());
+        fichaAtendimento.setDataHora();
         fichaAtendimento.setDestino("Técnico em Enfermagem");
         
         fichaAtendimentoDao.getEntityManager().getTransaction().begin();
@@ -172,7 +172,7 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         
         fichaAtendimento.setAtendimento("Atendimento 6");
-        fichaAtendimento.setDataHora(dateTimeUtilBean.getDateToday());
+        fichaAtendimento.setDataHora();
         fichaAtendimento.setDestino("Técnico em Enfermagem");
         
         fichaAtendimentoDao.getEntityManager().getTransaction().begin();

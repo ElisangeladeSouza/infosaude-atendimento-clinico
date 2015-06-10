@@ -11,6 +11,9 @@ import javax.faces.context.FacesContext;
  */
 public class FacesUtil {
 
+    private FacesUtil() {
+    }
+
     /**
      * Método que adiciona uma mensagem com nível de severidade de
      * <b>INFORMAÇÃO/SUCESSO</b>

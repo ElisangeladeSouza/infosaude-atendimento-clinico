@@ -70,7 +70,7 @@ public class FichaAtendimento implements Serializable {
         return dataHora;
     }
 
-    public void setDataHora(Date dataHora) {
+    public void setDataHora() {
         this.dataHora = new DateTimeUtilBean().dateHour();
     }
 

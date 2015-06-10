@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -47,6 +48,33 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
 
     public void setCartaoSus(String cartaoSus) {
         this.cartaoSus = cartaoSus;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.cpf);
+        hash = 17 * hash + Objects.hashCode(this.cartaoSus);
+        hash = 17 * hash + Objects.hashCode(this.coren);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TecnicoEnfermagem other = (TecnicoEnfermagem) obj;
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
+            return false;
+        }
+        return Objects.equals(this.coren, other.coren);
     }
 
 }
