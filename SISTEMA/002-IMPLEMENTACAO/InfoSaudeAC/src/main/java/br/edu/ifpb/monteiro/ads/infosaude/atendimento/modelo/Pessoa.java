@@ -34,7 +34,7 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Um nome deve ser informado")
+//    @NotNull(message = "Um nome deve ser informado")
     @Column(name = "pessoa_nome", nullable = false, length = 150)
     private String nome;
 
