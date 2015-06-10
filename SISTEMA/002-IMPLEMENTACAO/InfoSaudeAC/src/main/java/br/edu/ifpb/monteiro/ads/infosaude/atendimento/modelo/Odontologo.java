@@ -55,9 +55,8 @@ public class Odontologo extends Pessoa implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.cpf);
-        hash = 79 * hash + Objects.hashCode(this.cartaoSus);
-        hash = 79 * hash + Objects.hashCode(this.cro);
+        hash = 59 * hash + Objects.hashCode(this.cpf);
+        hash = 59 * hash + Objects.hashCode(this.cro);
         return hash;
     }
 
@@ -73,10 +72,11 @@ public class Odontologo extends Pessoa implements Serializable {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
+        if (!Objects.equals(this.cro, other.cro)) {
             return false;
         }
-        return Objects.equals(this.cro, other.cro);
+        return true;
     }
+
 
 }

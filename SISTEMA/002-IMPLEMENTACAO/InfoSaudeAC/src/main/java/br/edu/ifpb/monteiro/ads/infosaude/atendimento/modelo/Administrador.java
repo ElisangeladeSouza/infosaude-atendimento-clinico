@@ -41,9 +41,8 @@ public class Administrador extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.cpf);
-        hash = 17 * hash + Objects.hashCode(this.cartaoSus);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.cpf);
         return hash;
     }
 
@@ -59,7 +58,6 @@ public class Administrador extends Pessoa implements Serializable {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
-        return Objects.equals(this.cartaoSus, other.cartaoSus);
+        return true;
     }
-
 }

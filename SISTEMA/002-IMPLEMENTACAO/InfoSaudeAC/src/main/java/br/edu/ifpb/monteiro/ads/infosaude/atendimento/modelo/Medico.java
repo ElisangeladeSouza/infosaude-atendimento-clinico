@@ -54,10 +54,9 @@ public class Medico extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.cpf);
-        hash = 89 * hash + Objects.hashCode(this.cartaoSus);
-        hash = 89 * hash + Objects.hashCode(this.crm);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.cpf);
+        hash = 19 * hash + Objects.hashCode(this.crm);
         return hash;
     }
 
@@ -73,10 +72,9 @@ public class Medico extends Pessoa implements Serializable {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
+        if (!Objects.equals(this.crm, other.crm)) {
             return false;
         }
-        return Objects.equals(this.crm, other.crm);
+        return true;
     }
-
 }

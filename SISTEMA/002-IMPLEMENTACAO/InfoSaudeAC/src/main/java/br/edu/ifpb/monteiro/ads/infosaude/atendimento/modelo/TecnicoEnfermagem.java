@@ -52,10 +52,9 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.cpf);
-        hash = 17 * hash + Objects.hashCode(this.cartaoSus);
-        hash = 17 * hash + Objects.hashCode(this.coren);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.cartaoSus);
+        hash = 89 * hash + Objects.hashCode(this.coren);
         return hash;
     }
 
@@ -68,13 +67,9 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
             return false;
         }
         final TecnicoEnfermagem other = (TecnicoEnfermagem) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
         if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
             return false;
         }
         return Objects.equals(this.coren, other.coren);
     }
-
 }

@@ -54,10 +54,8 @@ public class Enfermeiro extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 13 * hash + Objects.hashCode(this.cpf);
-        hash = 13 * hash + Objects.hashCode(this.cartaoSus);
-        hash = 13 * hash + Objects.hashCode(this.coren);
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.cpf);
         return hash;
     }
 
@@ -70,13 +68,6 @@ public class Enfermeiro extends Pessoa implements Serializable {
             return false;
         }
         final Enfermeiro other = (Enfermeiro) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
-            return false;
-        }
-        return Objects.equals(this.coren, other.coren);
+        return Objects.equals(this.cpf, other.cpf);
     }
-
 }

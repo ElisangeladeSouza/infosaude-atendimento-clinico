@@ -104,9 +104,8 @@ public class Paciente extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.cpf);
-        hash = 37 * hash + Objects.hashCode(this.cartaoSus);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.cartaoSus);
         return hash;
     }
 
@@ -119,13 +118,9 @@ public class Paciente extends Pessoa implements Serializable {
             return false;
         }
         final Paciente other = (Paciente) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
         if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
             return false;
         }
         return true;
     }
-
 }
