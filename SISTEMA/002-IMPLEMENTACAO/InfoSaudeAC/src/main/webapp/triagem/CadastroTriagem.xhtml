@@ -23,13 +23,11 @@
 
                 <h:panelGrid id="gridObrigatoriosTriagem" columns="2">
 
-                    <p:outputLabel for="codigo" value="#{msg.code}"/>
-                    <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" requiredMessage="#{msg.aDescriptionIsRequired}" 
-                                 required="true" size="10" styleClass="upper"/>
+                    <p:outputLabel for="codigo" value="#{msg.code}: "/>
+                    <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" required="true" size="10" styleClass="upper"/>
 
-                    <p:outputLabel for="data" value="#{msg.date}" />
-                    <p:calendar id="data" value="#{triagemBean.triagem.data}" requiredMessage="#{msg.aDescriptionIsRequired}"
-                                required="true" navigator="true" pattern="dd/MM/yyyy hh:MM:ss" 
+                    <p:outputLabel for="data" value="#{msg.date}: " />
+                    <p:calendar id="data" value="#{triagemBean.triagem.data}" required="true" navigator="true" pattern="dd/MM/yyyy hh:MM:ss" 
                                 yearRange="c-150:c+0" size="20" locale="pt">
                         <f:convertDateTime type="both"/>
                     </p:calendar>

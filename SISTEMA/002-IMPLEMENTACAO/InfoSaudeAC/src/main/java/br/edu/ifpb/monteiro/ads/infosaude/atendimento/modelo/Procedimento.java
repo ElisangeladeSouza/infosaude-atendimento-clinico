@@ -1,45 +1,35 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author elisangela
+ * @author cassio
  */
 @Entity
-public class Triagem implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+public class Procedimento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @NotNull(message = "Um codigo deve ser informado")
-    @Column(name = "triagem_codigo", length = 20, nullable = false)
+
+    @NotNull(message = "É necessário informar um código")
+    @Column(name = "procedimento_codigo", length = 20, nullable = false)
     private String codigo;
 
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "triagem_data")
-    private Date data;
+    @Lob
+    @NotNull(message = "É necessário informar uma descrição")
+    @Column(name = "procedimento_descricao", nullable = false)
+    private String descricao;
 
-    @Column(name = "triagem_destino", length = 50)
-    private String destino;
-
-    public Triagem() {
-    }
-    
     public Long getId() {
         return id;
     }
@@ -56,26 +46,18 @@ public class Triagem implements Serializable {
         this.codigo = codigo;
     }
 
-    public Date getData() {
-        return data;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 83 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -87,7 +69,8 @@ public class Triagem implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Triagem other = (Triagem) obj;
+        final Procedimento other = (Procedimento) obj;
         return Objects.equals(this.id, other.id);
     }
+
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="procedimento" value="#{procedimentoBean.procedimento}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloProcedimento" name="titulo">#{procedimentoBean.editando ? msg.editCadastreProcedure : msg.newRegisterProcedure} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoProcedimento" name="conteudo">
+
+        <p:fieldset id="fieldsetProcedimento" legend="#{procedimentoBean.editando ? msg.editCadastreProcedure : msg.newRegisterProcedure}">
+
+            <h:form id="formCadastroProcedimento">
+
+                <p:growl id="mensagens"/>
+
+                <h:panelGrid id="gridObrigatoriosProcedimento" columns="2">
+
+                    <p:outputLabel for="codigo" value="#{msg.code}: "/>
+                    <p:inputText id="codigo" value="#{procedimentoBean.procedimento.codigo}" required="true"/>
+
+                    <p:outputLabel for="descricao" value="#{msg.description}: " />
+                    <p:inputText id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"/>
+                    
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarProcedimento" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{procedimentoBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/procedimento/PesquisaProcedimento"
+                                  icon="fa fa-times" rendered="#{procedimentoBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreProcedure}"
+                                  id="botaoPesquisar" outcome="/procedimento/PesquisaProcedimento"
+                                  icon="ui-icon ui-icon-search" rendered="#{procedimentoBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+                <p:blockUI id="blockUIExame" block="formCadastroProcedimento" trigger="botaoSalvar"/>
+
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
