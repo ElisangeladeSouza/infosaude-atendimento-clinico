@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="triagem" value="#{triagemBean.triagem}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloTriagem" name="titulo">#{msg.viewCadastreScreening} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoTriagem" name="conteudo">
+
+        <p:fieldset id="fieldsetTriagem" legend="#{msg.viewCadastreScreening}">
+
+            <h:form id="formCadastroTriagem">
+
+                <p:fieldset id="visualizaPessoalTriagem" legend="#{msg.personal}">
+                    <h:panelGrid id="gridVisualizaPessoalTriagem" columns="2">
+
+                        <p:outputLabel for="codigo" value="#{msg.code}...........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="codigo" value="#{triagemBean.triagem.codigo}" styleClass="upper" />
+
+                        <p:outputLabel for="data" value="#{msg.date}..............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="data" value="#{triagemBean.triagem.data}" styleClass="upper" >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                        </p:outputLabel>
+
+                        <p:outputLabel for="destino" value="#{msg.destination}....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="destino" value="#{triagemBean.triagem.destino}" styleClass="upper"/>
+
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:toolbar id="toolbarTriagem" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/triagem/PesquisaTriagem"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

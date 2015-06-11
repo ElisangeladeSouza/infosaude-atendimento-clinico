@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="triagem" value="#{triagemBean.triagem}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloTriagem" name="titulo">#{triagemBean.editando ? msg.editCadastreScreening : msg.newRegisterScreening} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoTriagem" name="conteudo">
+
+        <p:fieldset id="fieldsetTriagem" legend="#{triagemBean.editando ? msg.editCadastreScreening : msg.newRegisterScreening}">
+
+            <h:form id="formCadastroTriagem">
+
+                <p:growl id="mensagens"/>
+
+                <h:panelGrid id="gridObrigatoriosTriagem" columns="2">
+
+                    <p:outputLabel for="codigo" value="#{msg.code}"/>
+                    <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" requiredMessage="#{msg.aDescriptionIsRequired}" 
+                                 required="true" size="10" styleClass="upper"/>
+
+                    <p:outputLabel for="data" value="#{msg.date}" />
+                    <p:calendar id="data" value="#{triagemBean.triagem.data}" requiredMessage="#{msg.aDescriptionIsRequired}"
+                                required="true" navigator="true" pattern="dd/MM/yyyy hh:MM:ss" 
+                                yearRange="c-150:c+0" size="20" locale="pt">
+                        <f:convertDateTime type="both"/>
+                    </p:calendar>
+
+                    <p:outputLabel for="destino" value="#{msg.destination}"/>
+                    <p:selectOneMenu id="destino" value="#{triagemBean.triagem.destino}"/>
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarTriagem" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{triagemBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/triagem/PesquisaTriagem"
+                                  icon="fa fa-times" rendered="#{triagemBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreScreening}"
+                                  id="botaoPesquisar" outcome="/triagem/PesquisaTriagem"
+                                  icon="ui-icon ui-icon-search" rendered="#{triagemBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+
+                <p:blockUI id="blockUIExame" block="formCadastroTriagem" trigger="botaoSalvar"/>
+
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
