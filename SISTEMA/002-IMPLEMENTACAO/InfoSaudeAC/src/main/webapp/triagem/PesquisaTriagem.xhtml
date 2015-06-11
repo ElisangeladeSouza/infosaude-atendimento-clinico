@@ -10,9 +10,9 @@
     <ui:define id="uiPesquisaTriagem" name="titulo">#{msg.searchCadastreScreening} | #{msg.systemName}</ui:define>
 
     <ui:define id="conteudoPesquisaTriagem" name="conteudo">
-        
+
         <p:fieldset legend="#{msg.searchCadastreScreening}">
-            
+
             <h:form id="formPesquisaTriagem">
 
                 <p:growl id="mensagens"/>
@@ -36,22 +36,24 @@
                         </p:outputPanel>
                     </f:facet>
 
-                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{triagem.id}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{triagem.id}" filterStyle="width: 10px; display:none">
                         <h:outputText id="id" value="#{triagem.id}"/>
                     </p:column>
-                    
-                    <p:column headerText="#{msg.date}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{triagem.data}" filterStyle="width: 50px; display:none">
-                        <h:outputText id="data" value="#{triagem.data}"/>
+
+                    <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{triagem.data}" filterStyle="width: 60px; display:none">
+                        <h:outputText id="data" value="#{triagem.data}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                        </h:outputText>
                     </p:column>
-                    
-                    <p:column headerText="#{msg.code}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{triagem.codigo}" filterStyle="width: 30px; display:none">
+
+                    <p:column headerText="#{msg.code}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{triagem.codigo}" filterStyle="width: 30px; display:none">
                         <h:outputText id="codigo" value="#{triagem.codigo}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.destination}" width="80" filterMatchMode="contains" filterBy="#{triagem.destino}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.destination}" width="150" filterMatchMode="contains" filterBy="#{triagem.destino}" filterStyle="width: 200px; display:none">
                         <h:outputText id="destino" value="#{triagem.destino}"/>
                     </p:column>
-                    
+
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
                                   outcome="/triagem/VisualizaTriagem">
