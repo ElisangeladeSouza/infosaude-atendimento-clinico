@@ -21,7 +21,7 @@ public class AdministradorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);//NOPMD
+    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);// NOSONAR
 
     @Inject
     private Administrador administrador;
@@ -37,35 +37,35 @@ public class AdministradorBean implements Serializable {
 
     private transient List<Administrador> administradores;
 
-    public AdministradorBean() {//NOPMD
+    public AdministradorBean() {// NOSONAR
     }
 
     public void carregarCidades() {
-        PessoaBean.cidades.clear();//NOPMD
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {//NOPMD
-            PessoaBean.cidades.add(cidadesFiltradas);//NOPMD
+        PessoaBean.cidades.clear();// NOSONAR
+        for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {// NOSONAR
+            PessoaBean.cidades.add(cidadesFiltradas);// NOSONAR
         }
     }
 
     public List<Administrador> getAdministradores() {
-        this.administradores = administradorService.findAll();//NOPMD
-        return administradores;//NOPMD
+        this.administradores = administradorService.findAll();// NOSONAR
+        return administradores;// NOSONAR
     }
 
     public void salvar() throws UBSException {
-        try {//NOPMD
-            this.administradorService.save(administrador);//NOPMD
-            administrador = new Administrador();//NOPMD
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");//NOPMD
-        } catch (RollbackException rollback) {//NOPMD
-            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");//NOPMD
-            LOGGER.warn(rollback);//NOPMD
+        try {// NOSONAR
+            this.administradorService.save(administrador);// NOSONAR
+            administrador = new Administrador();// NOSONAR
+            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");// NOSONAR
+        } catch (RollbackException rollback) {// NOSONAR
+            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");// NOSONAR
+            LOGGER.warn(rollback);// NOSONAR
         }
     }
 
     public void excluir() throws UBSException {
-        this.administradorService.delete(administradorSelecionado);//NOPMD
-        FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");//NOPMD
+        this.administradorService.delete(administradorSelecionado);// NOSONAR
+        FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");// NOSONAR
     }
 
     /*
@@ -73,31 +73,31 @@ public class AdministradorBean implements Serializable {
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
     public boolean getEditando() {
-        return this.administrador.getId() != null;//NOPMD
+        return this.administrador.getId() != null;// NOSONAR
     }
 
     public Administrador getAdministradorSelecionado() {
-        return administradorSelecionado;//NOPMD
+        return administradorSelecionado;// NOSONAR
     }
 
     public void setAdministradorSelecionado(Administrador administradorSelecionado) {
-        this.administradorSelecionado = administradorSelecionado;//NOPMD
+        this.administradorSelecionado = administradorSelecionado;// NOSONAR
     }
 
     public Administrador getAdministrador() {
-        return administrador;//NOPMD
+        return administrador;// NOSONAR
     }
 
     public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;//NOPMD
+        this.administrador = administrador;// NOSONAR
     }
 
     public AdministradorService getAdministradorService() {
-        return administradorService;//NOPMD
+        return administradorService;// NOSONAR
     }
 
     public void setAdministradorService(AdministradorService administradorService) {
-        this.administradorService = administradorService;//NOPMD
+        this.administradorService = administradorService;// NOSONAR
     }
 
 }
