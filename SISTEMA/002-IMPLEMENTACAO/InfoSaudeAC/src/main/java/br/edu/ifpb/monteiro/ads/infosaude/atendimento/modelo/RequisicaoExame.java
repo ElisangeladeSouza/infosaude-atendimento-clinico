@@ -38,7 +38,7 @@ public class RequisicaoExame implements Serializable {
     private Date data;
 
     @OneToMany
-    private List<Exame> exames;
+    private transient List<Exame> exames;
 
     public Long getId() {
         return id;
