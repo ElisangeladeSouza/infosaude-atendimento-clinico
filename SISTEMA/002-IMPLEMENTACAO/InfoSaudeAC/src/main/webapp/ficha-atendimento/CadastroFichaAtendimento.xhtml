@@ -21,12 +21,11 @@
 
                 <p:growl id="mensagens"/>
 
-                <h:inputHidden id="dataHora" value="#{fichaAtendimentoBean.fichaAtendimento.dataHora}">
-                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                <h:inputHidden id="dataHora" value="#{fichaAtendimentoBean.fichaAtendimento.data}">
+                    <f:convertDateTime type="date" locale="pt_BR"/>
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosFichaAtendimento" columns="2">
-
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
                     <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" styleClass="upper" filter="true" filterMatchMode="contains">

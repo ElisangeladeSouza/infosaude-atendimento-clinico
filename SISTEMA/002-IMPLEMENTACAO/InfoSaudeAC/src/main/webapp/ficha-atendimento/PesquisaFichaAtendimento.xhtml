@@ -38,7 +38,11 @@
                     <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{fichaAtendimento.id}" filterStyle="width: 20px; display:none">
                         <h:outputText id="id" value="#{fichaAtendimento.id}"/>
                     </p:column>
-
+                    
+                    <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{fichaAtendimento.dataHora}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="data" value="#{fichaAtendimento.data}"/>
+                    </p:column>
+                    
                     <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{fichaAtendimento.paciente.nome}"/>
                     </p:column>

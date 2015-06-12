@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -31,9 +30,9 @@ public class FichaAtendimento implements Serializable {
     @Column(name = "ficha_atendimento_destino", nullable = false)
     private String destino;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "ficha_atendimento_data")
-    private Date dataHora;
+    private Date data;
 
 //    @OneToOne
     @Column(name = "ficha_atendimento")
@@ -66,12 +65,12 @@ public class FichaAtendimento implements Serializable {
         this.destino = destino;
     }
 
-    public Date getDataHora() {
-        return dataHora;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataHora() {
-        this.dataHora = new DateTimeUtilBean().dateHour();
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getAtendimento() {

@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -25,11 +26,10 @@ public class Triagem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotNull(message = "Um codigo deve ser informado")
+    @NotNull
     @Column(name = "triagem_codigo", length = 20, nullable = false)
     private String codigo;
 
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "triagem_data")
     private Date data;
@@ -60,8 +60,8 @@ public class Triagem implements Serializable {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData() {
+        this.data = new DateTimeUtilBean().dateHour();
     }
 
     public String getDestino() {

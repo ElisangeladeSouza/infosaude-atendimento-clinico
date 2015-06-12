@@ -21,12 +21,12 @@ public class Procedimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "É necessário informar um código")
+    @NotNull
     @Column(name = "procedimento_codigo", length = 20, nullable = false)
     private String codigo;
 
     @Lob
-    @NotNull(message = "É necessário informar uma descrição")
+    @NotNull
     @Column(name = "procedimento_descricao", nullable = false)
     private String descricao;
 
