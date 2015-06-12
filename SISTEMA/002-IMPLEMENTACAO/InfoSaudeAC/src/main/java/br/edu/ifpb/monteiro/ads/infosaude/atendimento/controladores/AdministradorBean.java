@@ -21,7 +21,7 @@ public class AdministradorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);
+    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);//NOPMD
 
     @Inject
     private Administrador administrador;
@@ -37,35 +37,35 @@ public class AdministradorBean implements Serializable {
 
     private transient List<Administrador> administradores;
 
-    public AdministradorBean() {
+    public AdministradorBean() {//NOPMD
     }
 
     public void carregarCidades() {
-        PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        PessoaBean.cidades.clear();//NOPMD
+        for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {//NOPMD
+            PessoaBean.cidades.add(cidadesFiltradas);//NOPMD
         }
     }
 
     public List<Administrador> getAdministradores() {
-        this.administradores = administradorService.findAll();
-        return administradores;
+        this.administradores = administradorService.findAll();//NOPMD
+        return administradores;//NOPMD
     }
 
     public void salvar() throws UBSException {
-        try {
-            this.administradorService.save(administrador);
-            administrador = new Administrador();
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        } catch (RollbackException rollback) {
-            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            LOGGER.warn(rollback);
+        try {//NOPMD
+            this.administradorService.save(administrador);//NOPMD
+            administrador = new Administrador();//NOPMD
+            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");//NOPMD
+        } catch (RollbackException rollback) {//NOPMD
+            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");//NOPMD
+            LOGGER.warn(rollback);//NOPMD
         }
     }
 
     public void excluir() throws UBSException {
-        this.administradorService.delete(administradorSelecionado);
-        FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        this.administradorService.delete(administradorSelecionado);//NOPMD
+        FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");//NOPMD
     }
 
     /*
@@ -73,31 +73,31 @@ public class AdministradorBean implements Serializable {
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
     public boolean getEditando() {
-        return this.administrador.getId() != null;
+        return this.administrador.getId() != null;//NOPMD
     }
 
     public Administrador getAdministradorSelecionado() {
-        return administradorSelecionado;
+        return administradorSelecionado;//NOPMD
     }
 
     public void setAdministradorSelecionado(Administrador administradorSelecionado) {
-        this.administradorSelecionado = administradorSelecionado;
+        this.administradorSelecionado = administradorSelecionado;//NOPMD
     }
 
     public Administrador getAdministrador() {
-        return administrador;
+        return administrador;//NOPMD
     }
 
     public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
+        this.administrador = administrador;//NOPMD
     }
 
     public AdministradorService getAdministradorService() {
-        return administradorService;
+        return administradorService;//NOPMD
     }
 
     public void setAdministradorService(AdministradorService administradorService) {
-        this.administradorService = administradorService;
+        this.administradorService = administradorService;//NOPMD
     }
 
 }
