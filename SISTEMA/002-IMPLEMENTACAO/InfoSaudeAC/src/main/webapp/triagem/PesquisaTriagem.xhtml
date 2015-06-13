@@ -50,10 +50,6 @@
                         <h:outputText id="codigo" value="#{triagem.codigo}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.destination}" width="150" filterMatchMode="contains" filterBy="#{triagem.destino}" filterStyle="width: 200px; display:none">
-                        <h:outputText id="destino" value="#{triagem.destino}"/>
-                    </p:column>
-
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
                                   outcome="/triagem/VisualizaTriagem">

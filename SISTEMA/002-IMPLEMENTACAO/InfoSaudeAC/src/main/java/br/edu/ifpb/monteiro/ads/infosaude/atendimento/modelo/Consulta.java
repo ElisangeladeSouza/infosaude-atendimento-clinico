@@ -26,22 +26,6 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "consulta")
-    @JoinColumn(name = "paciente_pk")
-    private Paciente paciente;
-    
-    @OneToOne
-    @JoinColumn(name = "ficha_atendimento_pk")
-    private FichaAtendimento fichaAtendimento;
-    
-    @OneToOne
-    @JoinColumn(name = "triagem_pk")
-    private Triagem triagem;
-    
-    @OneToOne
-    @JoinColumn(name = "consulta_pk")
-    private Consulta consulta;
-
     @Lob
     @Column(name = "consulta_observacoes", length = 500)
     private String observacoes;
@@ -51,10 +35,6 @@ public class Consulta implements Serializable {
 
     @Column(name = "consulta_diagnostico", length = 255)
     private String diagnostico;
-
-    /*Ajustar como relacionamento*/
-    @Column(name = "consulta_requisicao_exame", length = 255)
-    private transient List<String> requisicaoExame;
 
     @Column(name = "consulta_anamnese", length = 255)
     private String anamnese;
@@ -68,6 +48,26 @@ public class Consulta implements Serializable {
 
     @Column(name = "consulta_sintomas")
     private String sintomas;
+
+    @OneToOne(mappedBy = "consulta")
+    @JoinColumn(name = "paciente_pk")
+    private Paciente paciente;
+
+    @OneToOne
+    @JoinColumn(name = "ficha_atendimento_pk")
+    private FichaAtendimento fichaAtendimento;
+
+    @OneToOne
+    @JoinColumn(name = "triagem_pk")
+    private Triagem triagem;
+
+    @OneToOne
+    @JoinColumn(name = "procedimento_pk")
+    private Procedimento procedimento;
+    
+    @OneToOne
+    @JoinColumn(name = "requisicao_exame_pk")
+    private  RequisicaoExame requisicaoExame;
 
     public Long getId() {
         return id;
@@ -125,11 +125,11 @@ public class Consulta implements Serializable {
         this.data = data;
     }
 
-    public List<String> getRequisicaoExame() {
+    public RequisicaoExame getRequisicaoExame() {
         return requisicaoExame;
     }
 
-    public void setRequisicaoExame(List<String> requisicaoExame) {
+    public void setRequisicaoExame(RequisicaoExame requisicaoExame) {
         this.requisicaoExame = requisicaoExame;
     }
 
@@ -165,14 +165,14 @@ public class Consulta implements Serializable {
         this.triagem = triagem;
     }
 
-    public Consulta getConsulta() {
-        return consulta;
+    public Procedimento getProcedimento() {
+        return procedimento;
     }
 
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
+    public void setProcedimento(Procedimento procedimento) {
+        this.procedimento = procedimento;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;

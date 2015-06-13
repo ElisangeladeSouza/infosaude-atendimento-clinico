@@ -47,8 +47,11 @@ public class EnfermeiroBean implements Serializable {
         }
     }
 
-    public List<Enfermeiro> getEnfermeiros() {
+    private void buscarEnfermeiros() {
         this.enfermeiros = enfermeiroService.findAll();
+    }
+    
+    public List<Enfermeiro> getEnfermeiros() {
         return enfermeiros;
     }
 

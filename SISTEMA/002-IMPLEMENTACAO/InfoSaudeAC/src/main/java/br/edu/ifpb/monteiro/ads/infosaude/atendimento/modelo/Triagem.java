@@ -21,13 +21,13 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class Triagem implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @NotNull
     @Column(name = "triagem_codigo", length = 20, nullable = false)
     private String codigo;
@@ -36,13 +36,10 @@ public class Triagem implements Serializable {
     @Column(name = "triagem_data")
     private Date data;
 
-    @Column(name = "triagem_destino", length = 50)
-    private String destino;
-    
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
     private FichaAtendimento fichaAtendimento;
-    
+
     @OneToOne
     @JoinColumn(name = "consulta_pk")
     private Consulta consulta;
@@ -50,10 +47,10 @@ public class Triagem implements Serializable {
     @OneToOne
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
-    
+
     public Triagem() {
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -76,14 +73,6 @@ public class Triagem implements Serializable {
 
     public void setData() {
         this.data = new DateTimeUtilBean().dateHour();
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
     }
 
     public FichaAtendimento getFichaAtendimento() {
@@ -109,7 +98,7 @@ public class Triagem implements Serializable {
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
