@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -36,7 +38,19 @@ public class Triagem implements Serializable {
 
     @Column(name = "triagem_destino", length = 50)
     private String destino;
+    
+    @OneToOne
+    @JoinColumn(name = "ficha_atendimento_pk")
+    private FichaAtendimento fichaAtendimento;
+    
+    @OneToOne
+    @JoinColumn(name = "consulta_pk")
+    private Consulta consulta;
 
+    @OneToOne
+    @JoinColumn(name = "procedimento_pk")
+    private Procedimento procedimento;
+    
     public Triagem() {
     }
     
@@ -72,6 +86,30 @@ public class Triagem implements Serializable {
         this.destino = destino;
     }
 
+    public FichaAtendimento getFichaAtendimento() {
+        return fichaAtendimento;
+    }
+
+    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
+        this.fichaAtendimento = fichaAtendimento;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
+    public Procedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(Procedimento procedimento) {
+        this.procedimento = procedimento;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

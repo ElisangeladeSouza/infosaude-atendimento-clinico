@@ -34,9 +34,18 @@ public class FichaAtendimento implements Serializable {
     @Column(name = "ficha_atendimento_data")
     private Date data;
 
-//    @OneToOne
-    @Column(name = "ficha_atendimento")
-    private String atendimento;
+    @OneToOne(mappedBy = "fichaAtendimento")
+    @JoinColumn(name = "triagem_pk")
+    private Triagem triagem;
+    
+    @OneToOne(mappedBy = "fichaAtendimento")
+    @JoinColumn(name = "consulta_pk")
+    private Consulta consulta;
+    
+    @OneToOne(mappedBy = "fichaAtendimento")
+    @JoinColumn(name = "procedimento_pk")
+    private Procedimento procedimento;
+    
 
     public FichaAtendimento() {
     }
@@ -73,12 +82,28 @@ public class FichaAtendimento implements Serializable {
         this.data = data;
     }
 
-    public String getAtendimento() {
-        return atendimento;
+    public Triagem getTriagem() {
+        return triagem;
     }
 
-    public void setAtendimento(String atendimento) {
-        this.atendimento = atendimento;
+    public void setTriagem(Triagem triagem) {
+        this.triagem = triagem;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
+    public Procedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(Procedimento procedimento) {
+        this.procedimento = procedimento;
     }
 
 }

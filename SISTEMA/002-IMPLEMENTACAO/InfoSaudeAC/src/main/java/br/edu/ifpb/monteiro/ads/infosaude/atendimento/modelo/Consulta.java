@@ -29,6 +29,18 @@ public class Consulta implements Serializable {
     @OneToOne(mappedBy = "consulta")
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
+    
+    @OneToOne
+    @JoinColumn(name = "ficha_atendimento_pk")
+    private FichaAtendimento fichaAtendimento;
+    
+    @OneToOne
+    @JoinColumn(name = "triagem_pk")
+    private Triagem triagem;
+    
+    @OneToOne
+    @JoinColumn(name = "consulta_pk")
+    private Consulta consulta;
 
     @Lob
     @Column(name = "consulta_observacoes", length = 500)
@@ -39,13 +51,6 @@ public class Consulta implements Serializable {
 
     @Column(name = "consulta_diagnostico", length = 255)
     private String diagnostico;
-
-    @Column(name = "consulta_procedimento", length = 255)
-    private String procedimento;
-
-    /*Ajustar como relacionamento*/
-    @Column(name = "consulta_atendimento", length = 255)
-    private String atendimento;
 
     /*Ajustar como relacionamento*/
     @Column(name = "consulta_requisicao_exame", length = 255)
@@ -120,22 +125,6 @@ public class Consulta implements Serializable {
         this.data = data;
     }
 
-    public String getProcedimento() {
-        return procedimento;
-    }
-
-    public void setProcedimento(String procedimento) {
-        this.procedimento = procedimento;
-    }
-
-    public String getAtendimento() {
-        return atendimento;
-    }
-
-    public void setAtendimento(String atendimento) {
-        this.atendimento = atendimento;
-    }
-
     public List<String> getRequisicaoExame() {
         return requisicaoExame;
     }
@@ -160,6 +149,30 @@ public class Consulta implements Serializable {
         this.exames = exames;
     }
 
+    public FichaAtendimento getFichaAtendimento() {
+        return fichaAtendimento;
+    }
+
+    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
+        this.fichaAtendimento = fichaAtendimento;
+    }
+
+    public Triagem getTriagem() {
+        return triagem;
+    }
+
+    public void setTriagem(Triagem triagem) {
+        this.triagem = triagem;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

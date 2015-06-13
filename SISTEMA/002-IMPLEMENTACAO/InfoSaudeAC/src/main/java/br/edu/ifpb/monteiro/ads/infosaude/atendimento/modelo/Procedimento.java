@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -29,7 +31,19 @@ public class Procedimento implements Serializable {
     @NotNull
     @Column(name = "procedimento_descricao", nullable = false)
     private String descricao;
+    
+    @OneToOne
+    @JoinColumn(name = "ficha_atendimento_pk")
+    private FichaAtendimento fichaAtendimento;
+    
+    @OneToOne
+    @JoinColumn(name = "triagem_pk")
+    private Triagem triagem;
 
+    
+    public Procedimento() {
+    }
+    
     public Long getId() {
         return id;
     }
@@ -54,6 +68,22 @@ public class Procedimento implements Serializable {
         this.descricao = descricao;
     }
 
+    public FichaAtendimento getFichaAtendimento() {
+        return fichaAtendimento;
+    }
+
+    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
+        this.fichaAtendimento = fichaAtendimento;
+    }
+
+    public Triagem getTriagem() {
+        return triagem;
+    }
+
+    public void setTriagem(Triagem triagem) {
+        this.triagem = triagem;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
