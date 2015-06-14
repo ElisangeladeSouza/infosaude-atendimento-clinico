@@ -28,13 +28,16 @@
                 <h:panelGrid id="gridObrigatoriosFichaAtendimento" columns="2">
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" styleClass="upper" filter="true" filterMatchMode="contains">
+                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" filter="true" filterMatchMode="contains">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}" class="upper"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="destino" value="#{msg.destination}:"/>
-                    <p:inputText id="destino" value="#{fichaAtendimentoBean.fichaAtendimento.destino}" required="true" size="40" styleClass="upper"/>
+                    <p:selectOneMenu id="destino" value="#{fichaAtendimentoBean.fichaAtendimento.destino}" required="true">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaAtendimentoBean.destinos}" var="destinos" itemLabel="#{destinos.descricao}" itemValue="#{destinos}" class="upper"/>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
 

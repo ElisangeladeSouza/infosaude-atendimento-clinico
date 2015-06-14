@@ -1,10 +1,13 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Destino;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.FichaAtendimentoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -28,8 +31,15 @@ public class FichaAtendimentoBean implements Serializable {
     private FichaAtendimento fichaAtendimentoSelecionado;
 
     private transient List<FichaAtendimento> fichaAtendimentos;
+    
+    private transient List<Destino> destinos = new ArrayList<>();
 
     public FichaAtendimentoBean() {
+        this.destinos = Arrays.asList(Destino.values());
+    }
+
+    public List<Destino> getDestinos() {
+        return destinos;
     }
 
     public List<FichaAtendimento> getFichaAtendimentos() {

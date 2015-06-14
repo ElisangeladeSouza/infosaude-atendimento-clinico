@@ -1,7 +1,9 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Destino;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -29,9 +31,9 @@ public class FichaAtendimento implements Serializable {
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
 
-//    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name = "ficha_atendimento_destino", nullable = false)
-    private String destino;
+    private Destino destino;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "ficha_atendimento_data")
@@ -69,11 +71,11 @@ public class FichaAtendimento implements Serializable {
         this.paciente = paciente;
     }
 
-    public String getDestino() {
+    public Destino getDestino() {
         return destino;
     }
 
-    public void setDestino(String destino) {
+    public void setDestino(Destino destino) {
         this.destino = destino;
     }
 
@@ -107,6 +109,25 @@ public class FichaAtendimento implements Serializable {
 
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final FichaAtendimento other = (FichaAtendimento) obj;
+        return Objects.equals(this.id, other.id);
     }
 
 }

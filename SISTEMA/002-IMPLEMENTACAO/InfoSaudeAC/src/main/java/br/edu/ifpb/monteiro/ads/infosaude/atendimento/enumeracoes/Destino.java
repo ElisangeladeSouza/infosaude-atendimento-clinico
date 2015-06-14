@@ -10,10 +10,10 @@ import java.io.Serializable;
  */
 public enum Destino implements Serializable {
 
-    TRIAGEM("Carteira de Identidade"),
-    ODONTOLOGO("Cartão do SUS"),
-    PROCEDIMENTO("CPF"),
-    MEDICO("COREN");
+    PROCEDIMENTO("Procedimento"),
+    ODONTOLOGO("Odontólogo"),
+    MEDICO("Médico"),
+    TRIAGEM("Triagem");
 
     private final String descricao;
 
