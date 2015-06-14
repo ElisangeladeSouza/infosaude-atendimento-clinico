@@ -29,7 +29,7 @@ public class FichaAtendimento implements Serializable {
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     @Column(name = "ficha_atendimento_destino", nullable = false)
     private String destino;
 

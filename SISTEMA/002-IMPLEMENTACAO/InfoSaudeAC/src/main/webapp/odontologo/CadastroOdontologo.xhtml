@@ -25,21 +25,21 @@
 
                     <p:outputLabel for="cro" value="#{msg.cro}:"/>
                     <p:inputText id="cro" required="true" requiredMessage="#{msg.mandatoryCRO}"
-                                 value="#{odontologoBean.odontologo.cro}" styleClass="upper" size="40"/>
+                                 value="#{odontologoBean.odontologo.cro}" styleClass="upper" size="40" maxlength="30"/>
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
                                  value="#{odontologoBean.odontologo.cpf}" styleClass="upper" validator="cpfValidator" 
-                                 converter="cpfConverter" size="40"/>
+                                 converter="cpfConverter" size="40" maxlength="11"/>
 
 
-                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
+                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/> 
                     <p:inputMask id="cartaoSus" mask="999 9999 9999 9999" required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 value="#{odontologoBean.odontologo.cartaoSus}" styleClass="upper" size="40"/>
+                                 value="#{odontologoBean.odontologo.cartaoSus}" styleClass="upper" size="40" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>
                     <p:inputText id="nome" value="#{odontologoBean.odontologo.nome}" required="true"
-                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40"/>
+                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40" maxlength="150"/>
                 </h:panelGrid>
 
                 <p:tabView id="tabViewDadosOdontologo">
@@ -64,13 +64,14 @@
                     <p:tab id="tabContatoOdontologo" title="#{msg.contact}">
                         <h:panelGrid id="gridContatoOdontologo" columns="2">
                             <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone1}" size="25"/>
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone1}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone2}" size="25"/>
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone2}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{odontologoBean.odontologo.email}" size="25" validatorMessage="E-mail incorreto">
+                            <p:inputText id="email" styleClass="lower" value="#{odontologoBean.odontologo.email}" size="25" 
+                                         validatorMessage="E-mail com formato incorreto" maxlength="100">
                                 
                             </p:inputText>
                         </h:panelGrid>
@@ -79,16 +80,16 @@
                     <p:tab id="tabEnderecoOdonotologo" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoOdontologo" columns="4">
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{odontologoBean.odontologo.enderecoRua}" styleClass="upper" size="40"/>
+                            <p:inputText id="rua" value="#{odontologoBean.odontologo.enderecoRua}" styleClass="upper" size="40" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{odontologoBean.odontologo.enderecoNumero}" styleClass="upper" size="16"/>
+                            <p:inputText id="numero" value="#{odontologoBean.odontologo.enderecoNumero}" styleClass="upper" size="16" maxlength="6"/>
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}" styleClass="upper" size="40"/>
+                            <p:inputText id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}" styleClass="upper" size="40" maxlength="100"/>
 
                             <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{odontologoBean.odontologo.enderecoCep}" styleClass="upper" size="16"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{odontologoBean.odontologo.enderecoCep}" styleClass="upper" size="16" maxlength="8"/>
 
                             <p:outputLabel for="estado" value="#{msg.state}:" />
                             <p:selectOneMenu id="estado" value="#{odontologoBean.odontologo.enderecoEstado}">
@@ -111,7 +112,7 @@
                     <p:tab id="tabDocumentosOdontologo" title="#{msg.documentation}">
                         <h:panelGrid id="gridDocumentosOdontologo" columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{odontologoBean.odontologo.rg}" styleClass="upper" size="20"/>
+                            <p:inputText id="rg" value="#{odontologoBean.odontologo.rg}" styleClass="upper" size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>
 

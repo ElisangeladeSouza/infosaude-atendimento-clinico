@@ -36,16 +36,16 @@ public class FichaAtendimentoDaoTest {
         fichaAtendimentoDao.setEntityManager(entityManager);    
     }
     
-    @Test (expected = Exception.class)
-    public void testSalvarFichaAtendimentoNull() {
-
-        FichaAtendimento fichaAtendimento = new FichaAtendimento();
-        
-        fichaAtendimentoDao.getEntityManager().getTransaction().begin();
-        fichaAtendimentoDao.salvar(fichaAtendimento);
-        fichaAtendimentoDao.getEntityManager().getTransaction().commit();
-        
-    }
+//    @Test (expected = Exception.class)
+//    public void testSalvarFichaAtendimentoNull() {
+//
+//        FichaAtendimento fichaAtendimento = new FichaAtendimento();
+//        
+//        fichaAtendimentoDao.getEntityManager().getTransaction().begin();
+//        fichaAtendimentoDao.salvar(fichaAtendimento);
+//        fichaAtendimentoDao.getEntityManager().getTransaction().commit();
+//        
+//    }
     
 //    @Test 
 //    public void testSalvarFichaAtendimentoCamposObrigatorios(){

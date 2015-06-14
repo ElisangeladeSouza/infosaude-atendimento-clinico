@@ -34,19 +34,19 @@
                     <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}" styleClass="upper" size="20"/>
 
                     <p:outputLabel for="anamnese" value="#{msg.anamnese}:"/>
-                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}" styleClass="upper"/>
+                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}" styleClass="upper" maxlength="255"/>
 
                     <p:outputLabel for="diagnostico" value="#{msg.diagnosis}:"/>
-                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" size="20"/>
+                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" size="20" maxlength="255"/>
 
                     <p:outputLabel for="prescricao" value="#{msg.prescription}:"/>
-                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper"/>
+                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper" maxlength="255"/>
 
                     <p:outputLabel for="exames" value="#{msg.examination}s:"/>
                     <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" styleClass="upper"/>
 
                     <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
-                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}" styleClass="upper"/>
+                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}" styleClass="upper" maxlength="500"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">

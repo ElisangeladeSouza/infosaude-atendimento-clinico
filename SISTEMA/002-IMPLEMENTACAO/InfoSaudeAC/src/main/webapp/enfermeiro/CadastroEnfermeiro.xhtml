@@ -25,21 +25,21 @@
 
                     <p:outputLabel for="coren" value="#{msg.coren}:"/>
                     <p:inputText id="coren" required="true" requiredMessage="#{msg.mandatoryCOREN}"
-                                 value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" styleClass="upper" size="40"/>
+                                 value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" styleClass="upper" size="40" maxlength="30"/>
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
                                  value="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" styleClass="upper" size="40"
-                                 validator="cpfValidator" converter="cpfConverter"/>
+                                 validator="cpfValidator" converter="cpfConverter" maxlength="11"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
                     <p:inputMask id="cartaoSus" required="true" requiredMessage="#{msg.mandatorySusCard}"
                                  mask="999 9999 9999 9999" value="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" 
-                                 styleClass="upper" size="40"/>
+                                 styleClass="upper" size="40" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>
                     <p:inputText id="nome" value="#{enfermeiroBean.enfermeiro.nome}" required="true"
-                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40"/>
+                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40" maxlength="150"/>
 
                 </h:panelGrid>
 
@@ -66,13 +66,14 @@
                     <p:tab id="tabContatoEnfermeiro" title="#{msg.contact}">
                         <h:panelGrid id="gridContatoEnfermeiro" columns="2">
                             <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{enfermeiroBean.enfermeiro.telefone1}" size="25"/>
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{enfermeiroBean.enfermeiro.telefone1}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{enfermeiroBean.enfermeiro.telefone2}" size="25"/>
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{enfermeiroBean.enfermeiro.telefone2}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{enfermeiroBean.enfermeiro.email}" size="25" validatorMessage="E-mail incorreto">
+                            <p:inputText id="email" styleClass="lower" value="#{enfermeiroBean.enfermeiro.email}" size="25" 
+                                         validatorMessage="E-mail com formato incorreto" maxlength="100">
                                 
                             </p:inputText>
                         </h:panelGrid>
@@ -81,16 +82,16 @@
                     <p:tab id="tabEnderecoEnfermeiro" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoEnfermeiro" columns="4">
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{enfermeiroBean.enfermeiro.enderecoRua}" styleClass="upper" size="40"/>
+                            <p:inputText id="rua" value="#{enfermeiroBean.enfermeiro.enderecoRua}" styleClass="upper" size="40" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{enfermeiroBean.enfermeiro.enderecoNumero}" styleClass="upper" size="16"/>
+                            <p:inputText id="numero" value="#{enfermeiroBean.enfermeiro.enderecoNumero}" styleClass="upper" size="16" maxlength="6"/>
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{enfermeiroBean.enfermeiro.enderecoBairro}" styleClass="upper" size="40"/>
+                            <p:inputText id="bairro" value="#{enfermeiroBean.enfermeiro.enderecoBairro}" styleClass="upper" size="40" maxlength="100"/>
 
                             <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{enfermeiroBean.enfermeiro.enderecoCep}" styleClass="upper" size="16"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{enfermeiroBean.enfermeiro.enderecoCep}" styleClass="upper" size="16" maxlength="8"/>
 
                             <p:outputLabel for="estado" value="#{msg.state}:" />
                             <p:selectOneMenu id="estado" value="#{enfermeiroBean.enfermeiro.enderecoEstado}">
@@ -113,7 +114,7 @@
                     <p:tab id="tabDocumentosEnfermeiro" title="#{msg.documentation}">
                         <h:panelGrid id="gridDocumentosEnfermeiro" columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{enfermeiroBean.enfermeiro.rg}" styleClass="upper" size="20"/>
+                            <p:inputText id="rg" value="#{enfermeiroBean.enfermeiro.rg}" styleClass="upper" size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>
 

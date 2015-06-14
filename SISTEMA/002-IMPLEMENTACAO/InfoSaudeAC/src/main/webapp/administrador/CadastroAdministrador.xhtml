@@ -26,16 +26,16 @@
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
                                  value="#{administradorBean.administrador.cpf}" styleClass="upper" size="40"
-                                 validator="cpfValidator" converter="cpfConverter"/>
+                                 validator="cpfValidator" converter="cpfConverter" maxlength="11"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
                     <p:inputMask id="cartaoSus" required="true" requiredMessage="#{msg.mandatorySusCard}"
                                  mask="999 9999 9999 9999" value="#{administradorBean.administrador.cartaoSus}" 
-                                 styleClass="upper" size="40"/>
+                                 styleClass="upper" size="40" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>
                     <p:inputText id="nome" value="#{administradorBean.administrador.nome}" required="true"
-                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40"/>
+                                 requiredMessage="#{msg.mandatoryName}" styleClass="upper" size="40" maxlength="150"/>
 
                 </h:panelGrid>
 
@@ -62,13 +62,14 @@
                     <p:tab id="tabContatoAdministrador" title="#{msg.contact}">
                         <h:panelGrid id="gridContatoMedico" columns="2">
                             <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{administradorBean.administrador.telefone1}" size="25"/>
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{administradorBean.administrador.telefone1}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{administradorBean.administrador.telefone2}" size="25"/>
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{administradorBean.administrador.telefone2}" size="25" maxlength="20"/>
 
                             <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{administradorBean.administrador.email}" size="25" validatorMessage="E-mail incorreto">
+                            <p:inputText id="email" styleClass="lower" value="#{administradorBean.administrador.email}" size="25" 
+                                         validatorMessage="E-mail com formato incorreto" maxlength="100">
                                 
                             </p:inputText>
                         </h:panelGrid>
@@ -77,16 +78,16 @@
                     <p:tab id="tabEnderecoAdministrador" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoAdministrador" columns="4">
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{administradorBean.administrador.enderecoRua}" styleClass="upper" size="40"/>
+                            <p:inputText id="rua" value="#{administradorBean.administrador.enderecoRua}" styleClass="upper" size="40" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{administradorBean.administrador.enderecoNumero}" styleClass="upper" size="16"/>
+                            <p:inputText id="numero" value="#{administradorBean.administrador.enderecoNumero}" styleClass="upper" size="16" maxlength="6"/>
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{administradorBean.administrador.enderecoBairro}" styleClass="upper" size="40"/>
+                            <p:inputText id="bairro" value="#{administradorBean.administrador.enderecoBairro}" styleClass="upper" size="40" maxlength="100"/>
 
                             <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{administradorBean.administrador.enderecoCep}" styleClass="upper" size="16"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{administradorBean.administrador.enderecoCep}" styleClass="upper" size="16" maxlength="8"/>
 
                             <p:outputLabel for="estado" value="#{msg.state}:" />
                             <p:selectOneMenu id="estado" value="#{administradorBean.administrador.enderecoEstado}">
@@ -109,7 +110,7 @@
                     <p:tab id="tabDocumentosAdministrador" title="#{msg.documentation}">
                         <h:panelGrid id="gridDocumentosAdministrador" columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{administradorBean.administrador.rg}" styleClass="upper" size="20"/>
+                            <p:inputText id="rg" value="#{administradorBean.administrador.rg}" styleClass="upper" size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>
 

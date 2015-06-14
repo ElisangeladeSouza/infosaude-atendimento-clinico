@@ -25,7 +25,7 @@
 
                     <p:outputLabel for="codigo" value="#{msg.code}: "/>
                     <p:inputText id="codigo" value="#{procedimentoBean.procedimento.codigo}" required="true"
-                                 requiredMessage="#{msg.aCodeIsRequired}"/>
+                                 requiredMessage="#{msg.aCodeIsRequired}" maxlength="20"/>
 
                     <p:outputLabel for="descricao" value="#{msg.description}: " />
                     <p:inputText id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"
