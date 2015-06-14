@@ -6,15 +6,12 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RequisicaoExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.primefaces.model.DualListModel;
 
 /**
  *
@@ -26,34 +23,21 @@ public class RequisicaoExameBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private static final Log LOGGER = LogFactory.getLog(RequisicaoExameBean.class);
-    
-    private DualListModel<String> exames;
 
     @Inject
     private RequisicaoExame requisicaoExame;
-    
+
     @Inject
     private RequisicaoExameService requisicaoExameService;
 
     @Inject
     private RequisicaoExame requisicaoExameSelecionado;
-    
+
     private List<Exame> examesCadastradosNoBanco;
 
     private transient List<RequisicaoExame> requisicaoExames;
 
     public RequisicaoExameBean() {
-    }
-    
-    @PostConstruct
-    public void init(){
-        List<String> examesDisponiveis = new ArrayList<>();
-        List<String> examesSelecionados = new ArrayList<>();
-
-//        for (int i = 0; i < 10; i++) {
-//            
-//        }
-        
     }
 
     public List<RequisicaoExame> getRequisicaoExames() {
@@ -109,12 +93,8 @@ public class RequisicaoExameBean implements Serializable {
         this.requisicaoExameService = requisicaoExameService;
     }
 
-    public DualListModel<String> getExames() {
-        return exames;
-    }
-
     public List<Exame> getExamesCadastradosNoBanco() {
         return examesCadastradosNoBanco;
     }
-    
+
 }
