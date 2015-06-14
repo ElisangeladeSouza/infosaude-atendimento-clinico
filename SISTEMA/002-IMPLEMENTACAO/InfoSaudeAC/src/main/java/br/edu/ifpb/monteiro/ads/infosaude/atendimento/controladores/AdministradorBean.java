@@ -17,7 +17,7 @@ import org.apache.commons.logging.LogFactory;
  * @author elisangela
  */
 @Model
-public class AdministradorBean implements Serializable {
+public class AdministradorBean implements Serializable {//NOSONAR
 
     private static final long serialVersionUID = 1L;
 
@@ -100,4 +100,4 @@ public class AdministradorBean implements Serializable {
         this.administradorService = administradorService;
     }
 
-}
+}//NOSONAR

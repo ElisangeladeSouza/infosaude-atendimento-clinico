@@ -52,7 +52,6 @@ public class EnfermeiroBean implements Serializable {
     public List<Enfermeiro> getEnfermeiros() {
         if (enfermeiros == null) {
             this.enfermeiros = enfermeiroService.findAll();
-            System.err.println("CHAMOU O GET ENFERMEIROS");
         }
         return enfermeiros;
     }

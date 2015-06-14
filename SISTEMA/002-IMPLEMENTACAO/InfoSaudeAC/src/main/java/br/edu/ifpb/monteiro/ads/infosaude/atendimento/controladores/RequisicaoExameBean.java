@@ -1,7 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RequisicaoExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
