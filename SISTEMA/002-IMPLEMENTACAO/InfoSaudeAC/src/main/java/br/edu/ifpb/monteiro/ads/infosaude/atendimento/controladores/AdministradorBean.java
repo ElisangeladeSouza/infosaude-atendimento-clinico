@@ -37,17 +37,17 @@ public class AdministradorBean implements Serializable {
 
     private transient List<Administrador> administradores;
 
-    public AdministradorBean() {
+    public AdministradorBean() {//NOSONAR
     }
 
-    public void carregarCidades() {
+    public void carregarCidades() {//NOSONAR
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
 
-    public List<Administrador> getAdministradores() {
+    public List<Administrador> getAdministradores() {//NOSONAR
         this.administradores = administradorService.findAll();
         return administradores;
     }
@@ -72,31 +72,31 @@ public class AdministradorBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
-    public boolean getEditando() {
+    public boolean getEditando() {//NOSONAR
         return this.administrador.getId() != null;
     }
 
-    public Administrador getAdministradorSelecionado() {
+    public Administrador getAdministradorSelecionado() {//NOSONAR
         return administradorSelecionado;
     }
 
-    public void setAdministradorSelecionado(Administrador administradorSelecionado) {
+    public void setAdministradorSelecionado(Administrador administradorSelecionado) {//NOSONAR
         this.administradorSelecionado = administradorSelecionado;
     }
 
-    public Administrador getAdministrador() {
+    public Administrador getAdministrador() {//NOSONAR
         return administrador;
     }
 
-    public void setAdministrador(Administrador administrador) {
+    public void setAdministrador(Administrador administrador) {//NOSONAR
         this.administrador = administrador;
     }
 
-    public AdministradorService getAdministradorService() {
+    public AdministradorService getAdministradorService() {//NOSONAR
         return administradorService;
     }
 
-    public void setAdministradorService(AdministradorService administradorService) {
+    public void setAdministradorService(AdministradorService administradorService) {//NOSONAR
         this.administradorService = administradorService;
     }
 

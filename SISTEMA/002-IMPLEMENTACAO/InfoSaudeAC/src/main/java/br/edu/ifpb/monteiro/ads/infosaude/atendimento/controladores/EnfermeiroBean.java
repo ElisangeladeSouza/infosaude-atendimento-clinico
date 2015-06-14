@@ -6,8 +6,10 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.EnfermeiroService
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
-import javax.enterprise.inject.Model;
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.RollbackException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,7 +18,8 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author elisangela
  */
-@Model
+@Named
+@ViewScoped
 public class EnfermeiroBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,11 +50,11 @@ public class EnfermeiroBean implements Serializable {
         }
     }
 
-    private void buscarEnfermeiros() {
-        this.enfermeiros = enfermeiroService.findAll();
-    }
-    
     public List<Enfermeiro> getEnfermeiros() {
+        if (enfermeiros == null) {
+            this.enfermeiros = enfermeiroService.findAll();
+            System.err.println("CHAMOU O GET ENFERMEIROS");
+        }
         return enfermeiros;
     }
 
