@@ -6,7 +6,6 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.EnfermeiroService
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

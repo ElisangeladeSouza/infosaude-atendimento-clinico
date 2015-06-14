@@ -33,8 +33,6 @@ public class RequisicaoExameBean implements Serializable {
     @Inject
     private RequisicaoExame requisicaoExameSelecionado;
 
-    private List<Exame> examesCadastradosNoBanco;
-
     private transient List<RequisicaoExame> requisicaoExames;
 
     public RequisicaoExameBean() {
@@ -91,10 +89,6 @@ public class RequisicaoExameBean implements Serializable {
 
     public void setRequisicaoExameService(RequisicaoExameService requisicaoExameService) {
         this.requisicaoExameService = requisicaoExameService;
-    }
-
-    public List<Exame> getExamesCadastradosNoBanco() {
-        return examesCadastradosNoBanco;
     }
 
 }
