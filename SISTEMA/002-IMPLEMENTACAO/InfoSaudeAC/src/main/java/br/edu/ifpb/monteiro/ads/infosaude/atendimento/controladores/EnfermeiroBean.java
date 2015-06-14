@@ -6,9 +6,8 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.EnfermeiroService
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.RollbackException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,8 +16,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author elisangela
  */
-@Named
-@ViewScoped
+@Model
 public class EnfermeiroBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
