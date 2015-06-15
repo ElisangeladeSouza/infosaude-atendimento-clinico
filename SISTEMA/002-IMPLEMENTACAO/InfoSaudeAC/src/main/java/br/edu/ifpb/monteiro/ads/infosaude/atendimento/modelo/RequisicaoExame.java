@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * 
+ *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity

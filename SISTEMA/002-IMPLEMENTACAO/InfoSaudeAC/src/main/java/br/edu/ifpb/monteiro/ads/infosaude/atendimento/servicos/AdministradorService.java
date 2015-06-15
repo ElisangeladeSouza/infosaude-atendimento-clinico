@@ -27,7 +27,9 @@ public class AdministradorService implements Serializable {
 
     @Transactional
     public void save(Administrador administrador) {
-        this.administradorDAO.salvar(administrador);
+        if (administrador != null) {
+            this.administradorDAO.salvar(administrador);
+        }
     }
 
     @Transactional

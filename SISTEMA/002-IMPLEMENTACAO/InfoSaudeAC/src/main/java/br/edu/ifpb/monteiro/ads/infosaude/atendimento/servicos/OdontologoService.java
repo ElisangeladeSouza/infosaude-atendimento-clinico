@@ -27,7 +27,9 @@ public class OdontologoService implements Serializable {
 
     @Transactional
     public void save(Odontologo odontologo) {
-        odontologoDAO.salvar(odontologo);
+        if (odontologo != null) {
+            odontologoDAO.salvar(odontologo);
+        }
     }
 
     @Transactional

@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -71,8 +70,8 @@ public class Triagem implements Serializable {
         return data;
     }
 
-    public void setData() {
-        this.data = new DateTimeUtilBean().dateHour();
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public FichaAtendimento getFichaAtendimento() {

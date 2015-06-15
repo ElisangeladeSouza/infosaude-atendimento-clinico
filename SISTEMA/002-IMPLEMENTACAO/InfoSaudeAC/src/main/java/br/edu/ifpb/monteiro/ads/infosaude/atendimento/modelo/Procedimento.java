@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -31,19 +34,22 @@ public class Procedimento implements Serializable {
     @NotNull
     @Column(name = "procedimento_descricao", nullable = false)
     private String descricao;
-    
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "procedimento_data")
+    private Date data;
+
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
     private FichaAtendimento fichaAtendimento;
-    
+
     @OneToOne
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 
-    
     public Procedimento() {
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -68,6 +74,14 @@ public class Procedimento implements Serializable {
         this.descricao = descricao;
     }
 
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
     public FichaAtendimento getFichaAtendimento() {
         return fichaAtendimento;
     }
@@ -83,7 +97,7 @@ public class Procedimento implements Serializable {
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;

@@ -8,11 +8,11 @@ import java.io.Serializable;
  * @author elisangela
  */
 public class ExameDao extends DaoAbstrato<Exame> implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     public ExameDao() {
         super(Exame.class);
     }
-    
+
 }

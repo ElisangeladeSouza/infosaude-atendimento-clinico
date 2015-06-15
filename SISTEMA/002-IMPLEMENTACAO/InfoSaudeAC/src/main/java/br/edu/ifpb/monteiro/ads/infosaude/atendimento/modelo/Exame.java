@@ -1,11 +1,14 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,9 +25,13 @@ public class Exame implements Serializable {
 
     @Column(name = "exame_descricao", length = 200, nullable = false)
     private String descricao;
-    
+
     @Column(name = "exame_detalhes", length = 200)
     private String detalhes;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "exame_data")
+    private Date data;
 
     public Exame() {
     }
@@ -51,6 +58,14 @@ public class Exame implements Serializable {
 
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 
 }

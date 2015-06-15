@@ -27,8 +27,8 @@ public class UtilBean implements Serializable {
         context.setViewRoot(viewRoot);
         context.renderResponse();
     }
-    
-    public String redirecionarPara(String pagina){
-        return pagina+"?faces-redirect=true";
+
+    public String redirecionarPara(String pagina) {
+        return pagina + "?faces-redirect=true";
     }
 }

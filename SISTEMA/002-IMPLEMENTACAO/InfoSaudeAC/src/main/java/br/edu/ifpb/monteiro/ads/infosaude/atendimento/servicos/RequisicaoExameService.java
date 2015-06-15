@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RequisicaoExameDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
@@ -27,7 +28,10 @@ public class RequisicaoExameService implements Serializable {
 
     @Transactional
     public void save(RequisicaoExame requisicaoExame) {
-        this.requisicaoExameDao.salvar(requisicaoExame);
+        if (requisicaoExame != null) {
+            requisicaoExame.setData(new DateTimeUtilBean().getDateToday());
+            this.requisicaoExameDao.salvar(requisicaoExame);
+        }
     }
 
     @Transactional

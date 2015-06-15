@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.TecnicoEnfermagemDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
@@ -24,7 +25,9 @@ public class TecnicoEnfermagemService implements Serializable {
 
     @Transactional
     public void save(TecnicoEnfermagem tecnicoEnfermagem) {
-        tecnicoEnfermagemDAO.salvar(tecnicoEnfermagem);
+        if (tecnicoEnfermagem != null) {
+            tecnicoEnfermagemDAO.salvar(tecnicoEnfermagem);
+        }
     }
 
     @Transactional

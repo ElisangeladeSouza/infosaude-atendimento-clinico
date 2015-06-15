@@ -13,15 +13,16 @@ import javax.validation.Payload;
 
 /**
  * Anotação para validar um número de CEP
+ *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-@Target({METHOD, FIELD,ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Constraint(validatedBy = {})
 public @interface CEP {
-    
+
     Class<?>[] groups() default {};
-    
+
     Class<? extends Payload>[] payload() default {};
-    
+
 }

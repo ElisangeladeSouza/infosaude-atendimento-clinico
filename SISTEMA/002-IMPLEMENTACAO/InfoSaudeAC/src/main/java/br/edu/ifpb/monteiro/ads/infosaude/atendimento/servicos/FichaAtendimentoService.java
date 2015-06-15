@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.FichaAtendimentoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
@@ -27,7 +28,10 @@ public class FichaAtendimentoService implements Serializable {
 
     @Transactional
     public void save(FichaAtendimento fichaAtendimento) {
-        this.fichaAtendimentoDao.salvar(fichaAtendimento);
+        if (fichaAtendimento != null) {
+            fichaAtendimento.setData(new DateTimeUtilBean().getDateToday());
+            this.fichaAtendimentoDao.salvar(fichaAtendimento);
+        }
     }
 
     @Transactional

@@ -30,7 +30,7 @@ public class EntityManagerProducer {
     public EntityManagerProducer() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("InfoSaudePU");
     }
-    
+
     // Sobrecarga de método para unidade de persistência dos testes com hsqldb
     public EntityManagerProducer(String unidadePersistenciaTestes) {
         this.entityManagerFactory = Persistence.createEntityManagerFactory(unidadePersistenciaTestes);

@@ -27,7 +27,9 @@ public class PacienteService implements Serializable {
 
     @Transactional
     public void save(Paciente paciente) {
-        this.pacienteDao.salvar(paciente);
+        if (paciente != null) {
+            this.pacienteDao.salvar(paciente);
+        }
     }
 
     @Transactional

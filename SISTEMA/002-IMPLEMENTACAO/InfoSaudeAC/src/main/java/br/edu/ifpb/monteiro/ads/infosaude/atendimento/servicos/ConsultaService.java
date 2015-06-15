@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ConsultaDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
@@ -27,7 +28,10 @@ public class ConsultaService implements Serializable {
 
     @Transactional
     public void save(Consulta consulta) {
-        this.consultaDao.salvar(consulta);
+        if (consulta != null) {
+            consulta.setData(new DateTimeUtilBean().getDateToday());
+            this.consultaDao.salvar(consulta);
+        }
     }
 
     @Transactional

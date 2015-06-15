@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author elisangela
  */
 public class ProcedimentoDao extends DaoAbstrato<Procedimento> implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     public ProcedimentoDao() {

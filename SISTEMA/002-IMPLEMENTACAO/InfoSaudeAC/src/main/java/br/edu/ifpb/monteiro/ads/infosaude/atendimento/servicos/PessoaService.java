@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.PessoaDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Pessoa;
@@ -27,7 +28,9 @@ public class PessoaService implements Serializable {
 
     @Transactional
     public void save(Pessoa pessoa) {
-        this.pessoaDAO.salvar(pessoa);
+        if (pessoa != null) {
+            this.pessoaDAO.salvar(pessoa);
+        }
     }
 
     @Transactional

@@ -27,7 +27,9 @@ public class EnfermeiroService implements Serializable {
 
     @Transactional
     public void save(Enfermeiro enfermeiro) {
-        this.enfermeiroDAO.salvar(enfermeiro);
+        if (enfermeiro != null) {
+            this.enfermeiroDAO.salvar(enfermeiro);
+        }
     }
 
     @Transactional

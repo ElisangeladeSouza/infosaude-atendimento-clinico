@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
 public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 
     private static final Log LOGGER = LogFactory.getLog(JsfExceptionHandler.class);
-    
+
 //    Recebe o tratador de exceções do JSF através da atribuição do construtor da classe
     private final ExceptionHandler empacotado;
 

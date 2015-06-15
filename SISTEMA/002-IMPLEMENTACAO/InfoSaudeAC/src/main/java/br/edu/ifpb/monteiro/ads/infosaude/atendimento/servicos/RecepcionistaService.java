@@ -27,7 +27,9 @@ public class RecepcionistaService implements Serializable {
 
     @Transactional
     public void save(Recepcionista recepcionista) {
-        recepcionistaDAO.salvar(recepcionista);
+        if (recepcionista != null) {
+            recepcionistaDAO.salvar(recepcionista);
+        }
     }
 
     @Transactional

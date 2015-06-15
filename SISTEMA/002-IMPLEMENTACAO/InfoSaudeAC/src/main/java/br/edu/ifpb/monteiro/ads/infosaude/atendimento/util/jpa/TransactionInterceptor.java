@@ -33,7 +33,7 @@ public class TransactionInterceptor implements Serializable {
 
     public TransactionInterceptor() {
     }
-    
+
     /* The annotation @AroundInvoke sign this method for to be called automatically before the 
      method annotated with @Transactional */
     @AroundInvoke

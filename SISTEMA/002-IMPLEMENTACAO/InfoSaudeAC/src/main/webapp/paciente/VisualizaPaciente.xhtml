@@ -26,7 +26,7 @@
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}................:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{pacienteBean.paciente.dataNascimento}">
-                            <f:convertDateTime type="date" locale="pt_BR"/>
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </p:outputLabel> 
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>

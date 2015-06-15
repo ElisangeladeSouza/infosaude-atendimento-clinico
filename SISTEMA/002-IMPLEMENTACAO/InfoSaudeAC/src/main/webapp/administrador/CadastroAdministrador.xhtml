@@ -48,7 +48,7 @@
                             <p:calendar id="dataNascimento" value="#{administradorBean.administrador.dataNascimento}" 
                                         navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
                                         yearRange="c-150:c+0" size="9" locale="pt" mask="true">
-                                <f:convertDateTime type="date" locale="pt_BR"/>
+                                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                             </p:calendar>
 
                             <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>

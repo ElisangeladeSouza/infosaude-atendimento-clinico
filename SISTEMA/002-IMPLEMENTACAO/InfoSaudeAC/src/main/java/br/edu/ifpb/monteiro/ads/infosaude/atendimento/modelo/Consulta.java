@@ -65,10 +65,10 @@ public class Consulta implements Serializable {
     @OneToOne
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
-    
+
     @OneToOne
     @JoinColumn(name = "requisicao_exame_pk")
-    private  RequisicaoExame requisicaoExame;
+    private RequisicaoExame requisicaoExame;
 
     public Long getId() {
         return id;

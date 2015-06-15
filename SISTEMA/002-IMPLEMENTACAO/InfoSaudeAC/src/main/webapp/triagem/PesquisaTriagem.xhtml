@@ -42,7 +42,7 @@
 
                     <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{triagem.data}" filterStyle="width: 60px; display:none">
                         <h:outputText id="data" value="#{triagem.data}">
-                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy hh:MM"/>
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </h:outputText>
                     </p:column>
 
