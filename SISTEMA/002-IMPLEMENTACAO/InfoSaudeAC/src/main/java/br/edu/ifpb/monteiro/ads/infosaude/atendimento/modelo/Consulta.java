@@ -13,6 +13,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -29,6 +30,7 @@ public class Consulta implements Serializable {
     @Column(name = "consulta_observacoes", length = 500)
     private String observacoes;
 
+    @NotNull
     @Column(name = "consulta_prescricao", length = 255)
     private String prescricao;
 

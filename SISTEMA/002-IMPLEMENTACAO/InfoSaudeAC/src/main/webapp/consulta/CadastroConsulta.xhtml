@@ -25,7 +25,8 @@
 
                 <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true" styleClass="upper" filter="true" filterMatchMode="contains">
+                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true" styleClass="upper" 
+                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}" class="upper"/>
                     </p:selectOneMenu>
@@ -40,7 +41,8 @@
                     <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" size="20" maxlength="255"/>
 
                     <p:outputLabel for="prescricao" value="#{msg.prescription}:"/>
-                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper" maxlength="255"/>
+                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper" maxlength="255"
+                                     required="true" requiredMessage="#{msg.aPrescriptionIsRequired}"/>
 
                     <p:outputLabel for="exames" value="#{msg.examination}s:"/>
                     <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" styleClass="upper"/>
