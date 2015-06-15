@@ -201,17 +201,8 @@
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.7</version>
                 <configuration>
-                    <formats>
-                        <format>xml</format>
-                        <format>html</format>
-                    </formats>
                     <instrumentation>
                         <ignoreTrivial>true</ignoreTrivial>
-                        <excludes>
-                            <exclude>**/some/trivial/classes/**</exclude>
-                            <exclude>**/modelo/**</exclude>
-                            <exclude>**/controladores/**</exclude>
-                        </excludes>
                     </instrumentation>
                 </configuration>
                 <executions>
