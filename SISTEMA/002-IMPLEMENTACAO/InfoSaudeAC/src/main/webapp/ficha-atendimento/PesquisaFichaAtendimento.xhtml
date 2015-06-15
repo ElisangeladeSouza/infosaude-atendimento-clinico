@@ -40,7 +40,9 @@
                     </p:column>
                     
                     <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{fichaAtendimento.data}" filterStyle="width: 20px; display:none">
-                        <h:outputText id="data" value="#{fichaAtendimento.data}"/>
+                        <h:outputText id="data" value="#{fichaAtendimento.data}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </h:outputText>
                     </p:column>
                     
                     <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
