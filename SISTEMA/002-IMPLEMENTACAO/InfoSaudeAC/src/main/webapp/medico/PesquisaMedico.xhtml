@@ -71,13 +71,14 @@
                                          action="#{medicoBean.excluir}" process="@this" update="datatablePesquisaMedico">
                             <f:setPropertyActionListener value="#{medico}" target="#{medicoBean.medicoSelecionado}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
-
+                            
                             <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreDoctor}" message="#{msg.realyExcludeDoctor}"/>
 
                         </p:commandButton>
                     </p:column>
 
                 </p:dataTable>
+                
             </h:form>
         </p:fieldset>
     </ui:define>

@@ -56,8 +56,12 @@ public class TecnicoEnfermagemBean implements Serializable {
     public void salvar() throws UBSException {
         try {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
+            if (getEditando()) {
+                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            } else {
+                FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+            }
             tecnicoEnfermagem = new TecnicoEnfermagem();
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
             LOGGER.warn(rollback);

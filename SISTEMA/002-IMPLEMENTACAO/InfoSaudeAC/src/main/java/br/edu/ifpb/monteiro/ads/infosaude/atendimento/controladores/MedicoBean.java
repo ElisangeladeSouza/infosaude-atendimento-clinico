@@ -36,6 +36,9 @@ public class MedicoBean implements Serializable {
     @Inject
     private PessoaBean pessoaBean;
 
+    @Inject
+    UtilBean utilBean;
+
     private transient List<Medico> medicos;
 
     public MedicoBean() {
@@ -56,8 +59,12 @@ public class MedicoBean implements Serializable {
     public void salvar() throws UBSException {
         try {
             this.medicoService.save(medico);
+            if (getEditando()) {
+                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            } else {
+                FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+            }
             medico = new Medico();
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         } catch (RollbackException rollback) {
             LOGGER.warn(rollback);
             throw new NegocioException("O CPF informado já está cadastrado. Informe outro CPF.");

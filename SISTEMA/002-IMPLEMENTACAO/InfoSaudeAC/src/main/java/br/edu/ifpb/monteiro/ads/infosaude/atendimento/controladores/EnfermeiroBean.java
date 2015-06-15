@@ -48,17 +48,19 @@ public class EnfermeiroBean implements Serializable {
     }
 
     public List<Enfermeiro> getEnfermeiros() {
-        if (enfermeiros == null) {
-            this.enfermeiros = enfermeiroService.findAll();
-        }
+        this.enfermeiros = enfermeiroService.findAll();
         return enfermeiros;
     }
 
     public void salvar() throws UBSException {
         try {
             this.enfermeiroService.save(enfermeiro);
+            if (getEditando()) {
+                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            } else {
+                FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+            }
             enfermeiro = new Enfermeiro();
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
             LOGGER.warn(rollback);

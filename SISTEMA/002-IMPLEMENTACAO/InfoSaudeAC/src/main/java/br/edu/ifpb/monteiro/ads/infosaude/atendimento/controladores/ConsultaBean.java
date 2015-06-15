@@ -43,9 +43,12 @@ public class ConsultaBean implements Serializable {
 
     public void salvar() {
         this.consultaService.save(consulta);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+        } else {
+            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+        }
         consulta = new Consulta();
-        LOGGER.info("Cadastro de consulta efetuado.");
-        FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
     }
 
     public void excluir() throws UBSException {

@@ -13,6 +13,7 @@ public enum Destino implements Serializable {
     PROCEDIMENTO("Procedimento"),
     ODONTOLOGO("Odontólogo"),
     MEDICO("Médico"),
+    ENFERMEIRO("Enfermeiro"),
     TRIAGEM("Triagem");
 
     private final String descricao;

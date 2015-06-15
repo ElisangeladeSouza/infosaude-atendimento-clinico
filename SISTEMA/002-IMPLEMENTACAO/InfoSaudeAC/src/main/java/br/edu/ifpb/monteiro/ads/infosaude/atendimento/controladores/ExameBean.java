@@ -17,7 +17,7 @@ import javax.inject.Inject;
 public class ExameBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private Exame exame;
 
@@ -38,9 +38,13 @@ public class ExameBean implements Serializable {
     }
 
     public void salvar() throws UBSException {
-            this.exameService.save(exame);
-            exame = new Exame();
+        this.exameService.save(exame);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+        } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+        }
+        exame = new Exame();
     }
 
     public void excluir() throws UBSException {

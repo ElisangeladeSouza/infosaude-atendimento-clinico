@@ -15,9 +15,9 @@ import javax.inject.Inject;
  */
 @Model
 public class TriagemBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private Triagem triagem;
 
@@ -38,9 +38,13 @@ public class TriagemBean implements Serializable {
     }
 
     public void salvar() throws UBSException {
-            this.triagemService.save(triagem);
-            triagem = new Triagem();
+        this.triagemService.save(triagem);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+        } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+        }
+        triagem = new Triagem();
     }
 
     public void excluir() throws UBSException {

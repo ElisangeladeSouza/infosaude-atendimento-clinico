@@ -31,7 +31,7 @@ public class FichaAtendimentoBean implements Serializable {
     private FichaAtendimento fichaAtendimentoSelecionado;
 
     private transient List<FichaAtendimento> fichaAtendimentos;
-    
+
     private transient List<Destino> destinos = new ArrayList<>();
 
     public FichaAtendimentoBean() {
@@ -49,8 +49,12 @@ public class FichaAtendimentoBean implements Serializable {
 
     public void salvar() throws UBSException {
         this.fichaAtendimentoService.save(fichaAtendimento);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+        } else {
+            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+        }
         fichaAtendimento = new FichaAtendimento();
-        FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
     }
 
     public void excluir() throws UBSException {

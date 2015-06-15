@@ -3,7 +3,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.RacaCor;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +27,7 @@ public class PessoaBean implements Serializable {
     private final transient List<RacaCor> racas;
 
     private static transient List<Estados> estados = new ArrayList<>();
-    
+
     static transient List<String> cidades = new ArrayList<>();
 
     public PessoaBean() {
@@ -70,12 +69,6 @@ public class PessoaBean implements Serializable {
 
     public void setBotaoEditar(boolean botaoEditar) {
         this.botaoEditar = botaoEditar;
-    }
-
-    public void verificaSeEmailValido(String email) {
-        if (!email.matches("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$")) {
-            FacesUtil.mensagemErro("E-mail inválido. Digite um e-mail on formato: usuario@dominio");
-        }
     }
 
     public List<String> retornaCidades(int codigoUF) {

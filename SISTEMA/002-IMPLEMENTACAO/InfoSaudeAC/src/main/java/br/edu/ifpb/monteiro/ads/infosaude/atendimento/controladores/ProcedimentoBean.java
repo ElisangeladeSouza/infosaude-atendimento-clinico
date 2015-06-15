@@ -10,14 +10,14 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * 
+ *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Model
 public class ProcedimentoBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private Procedimento procedimento;
 
@@ -38,9 +38,13 @@ public class ProcedimentoBean implements Serializable {
     }
 
     public void salvar() throws UBSException {
-            this.procedimentoService.save(procedimento);
-            procedimento = new Procedimento();
+        this.procedimentoService.save(procedimento);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+        } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+        }
+        procedimento = new Procedimento();
     }
 
     public void excluir() throws UBSException {
