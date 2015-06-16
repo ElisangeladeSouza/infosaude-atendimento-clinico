@@ -25,10 +25,10 @@
 
                 <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true" styleClass="upper" 
+                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" styleClass="upper" 
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}" class="upper"/>
+                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento}" class="upper"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s:"/>
