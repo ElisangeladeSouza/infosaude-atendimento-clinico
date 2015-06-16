@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RecepcionistaService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -48,8 +51,6 @@ public class RecepcionistaServiceTest {
         recepcionista.setNome("BELLA PRINCE");
         recepcionista.setCpf("78135746130");
         
-        recepcionistaService.save(recepcionista);
-        
         when(recepcionistaService.findById(1L)).thenReturn(recepcionista);
         novoRecepcionista = recepcionistaService.findById(1L);
         assertEquals("BELLA PRINCE", recepcionista.getNome());
@@ -69,13 +70,30 @@ public class RecepcionistaServiceTest {
         recepcionista.setNome("LUCIANA MORENO");
         recepcionista.setCpf("13193944343");
         recepcionista.setCartaoSus("123 4567 8920 9876");
-        recepcionistaService.save(recepcionista);
         
         when(recepcionistaService.findById(1L)).thenReturn(recepcionista);
         novoRecepcionista = recepcionistaService.findById(1L);
         assertEquals("LUCIANA MORENO", recepcionista.getNome());
         assertEquals("13193944343", recepcionista.getCpf());
         assertEquals("123 4567 8920 9876", recepcionista.getCartaoSus());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<Recepcionista> listaRecepcionistas = new ArrayList<>();
+        
+        recepcionista.setNome("LUCIUS MALLAFYORI");
+        recepcionista.setCpf("31422203565");
+        recepcionista.setCartaoSus("585 9876 4444 7890");
+        
+        listaRecepcionistas = (List<Recepcionista>) new ArrayList<Recepcionista>();
+        listaRecepcionistas.add(recepcionista);
+    
+        when(recepcionistaService.findAll()).thenReturn(listaRecepcionistas);
+        
+        assertFalse(listaRecepcionistas.isEmpty());
         
     }
     

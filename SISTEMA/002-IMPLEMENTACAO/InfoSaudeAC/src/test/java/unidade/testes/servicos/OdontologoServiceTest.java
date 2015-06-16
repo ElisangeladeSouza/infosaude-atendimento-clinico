@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.OdontologoService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -49,8 +52,6 @@ public class OdontologoServiceTest {
         odontologo.setNome("ISABELLE MAURICE");
         odontologo.setCpf("09827885685");
         
-        odontologoService.save(odontologo);
-        
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
         assertEquals("ISABELLE MAURICE", odontologo.getNome());
@@ -72,7 +73,6 @@ public class OdontologoServiceTest {
         odontologo.setCpf("88378682862");
         odontologo.setCartaoSus("123 9876 1234 9876");
         odontologo.setCro("19147");
-        odontologoService.save(odontologo);
         
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
@@ -80,6 +80,24 @@ public class OdontologoServiceTest {
         assertEquals("88378682862", odontologo.getCpf());
         assertEquals("19147", odontologo.getCro());
         assertEquals("123 9876 1234 9876", odontologo.getCartaoSus());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<Odontologo> listaOdontologos = new ArrayList<>();
+        
+        odontologo.setNome("LUCIUS MALLAFYORI");
+        odontologo.setCpf("31422203565");
+        odontologo.setCartaoSus("585 9876 4444 7890");
+        
+        listaOdontologos = (List<Odontologo>) new ArrayList<Odontologo>();
+        listaOdontologos.add(odontologo);
+    
+        when(odontologoService.findAll()).thenReturn(listaOdontologos);
+        
+        assertFalse(listaOdontologos.isEmpty());
         
     }
     

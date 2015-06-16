@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -47,10 +50,9 @@ public class AdministradorServiceTest {
         administrador.setCartaoSus("777 1234 1111 9876");
         administrador.setNome("MARTA SANHASSU");
         administrador.setCpf("65076065884");
-        
-        administradorService.save(administrador);
-        
+  
         when(administradorService.findById(1L)).thenReturn(administrador);
+        
         novoAdministrador = administradorService.findById(1L);
         assertEquals("MARTA SANHASSU", administrador.getNome());
         assertEquals("65076065884", administrador.getCpf());
@@ -64,18 +66,35 @@ public class AdministradorServiceTest {
     }
     
     @Test
-    public void testFindByIdExistente() {
+    public void testFindById() {
         
         administrador.setNome("LUIS VITON");
         administrador.setCpf("15489262303");
         administrador.setCartaoSus("585 5678 0000 5432");
-        administradorService.save(administrador);
         
         when(administradorService.findById(1L)).thenReturn(administrador);
         administrador = administradorService.findById(1L);
         assertEquals("LUIS VITON", administrador.getNome());
         assertEquals("15489262303", administrador.getCpf());
         assertEquals("585 5678 0000 5432", administrador.getCartaoSus());
+        
+    }
+ 
+    @Test
+    public void testFindAll(){
+    
+        List<Administrador> listaAdministradores = new ArrayList<>();
+        
+        administrador.setNome("LUCIUS MALLAFYORI");
+        administrador.setCpf("31422203565");
+        administrador.setCartaoSus("585 9876 4444 7890");
+        
+        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
+        listaAdministradores.add(administrador);
+    
+        when(administradorService.findAll()).thenReturn(listaAdministradores);
+        
+        assertFalse(listaAdministradores.isEmpty());
         
     }
     

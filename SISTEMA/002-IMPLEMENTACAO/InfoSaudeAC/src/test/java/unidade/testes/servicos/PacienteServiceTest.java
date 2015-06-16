@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PacienteService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -48,8 +51,6 @@ public class PacienteServiceTest {
         paciente.setNome("PRISCILLA LUCIA");
         paciente.setCpf("01438218494");
         
-        pacienteService.save(paciente);
-        
         when(pacienteService.findById(1L)).thenReturn(paciente);
         novoPaciente = pacienteService.findById(1L);
         assertEquals("PRISCILLA LUCIA", paciente.getNome());
@@ -69,13 +70,30 @@ public class PacienteServiceTest {
         paciente.setNome("MARCIA MINEIRO");
         paciente.setCpf("72409668607");
         paciente.setCartaoSus("585 9874 1234 9876");
-        pacienteService.save(paciente);
         
         when(pacienteService.findById(1L)).thenReturn(paciente);
         novoPaciente = pacienteService.findById(1L);
         assertEquals("MARCIA MINEIRO", paciente.getNome());
         assertEquals("72409668607", paciente.getCpf());
         assertEquals("585 9874 1234 9876", paciente.getCartaoSus());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<Paciente> listaPacientes = new ArrayList<>();
+        
+        paciente.setNome("LUCIUS MALLAFYORI");
+        paciente.setCpf("31422203565");
+        paciente.setCartaoSus("585 9876 4444 7890");
+        
+        listaPacientes = (List<Paciente>) new ArrayList<Paciente>();
+        listaPacientes.add(paciente);
+    
+        when(pacienteService.findAll()).thenReturn(listaPacientes);
+        
+        assertFalse(listaPacientes.isEmpty());
         
     }
     

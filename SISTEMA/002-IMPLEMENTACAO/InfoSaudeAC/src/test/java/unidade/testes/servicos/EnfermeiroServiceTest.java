@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Enfermeiro;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.EnfermeiroService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -49,8 +52,6 @@ public class EnfermeiroServiceTest {
         enfermeiro.setNome("NONA SENHORA");
         enfermeiro.setCpfEnfermeiro("78010752851");
         
-        enfermeiroService.save(enfermeiro);
-        
         when(enfermeiroService.findById(1L)).thenReturn(enfermeiro);
         novoEnfermeiro = enfermeiroService.findById(1L);
         assertEquals("NONA SENHORA", enfermeiro.getNome());
@@ -72,7 +73,6 @@ public class EnfermeiroServiceTest {
         enfermeiro.setCpfEnfermeiro("60817159819");
         enfermeiro.setCartaoSusEnfermeiro("585 9876 1234 9876");
         enfermeiro.setCorenEnfermeiro("10001");
-        enfermeiroService.save(enfermeiro);
         
         when(enfermeiroService.findById(1L)).thenReturn(enfermeiro);
         novoEnfermeiro = enfermeiroService.findById(1L);
@@ -80,6 +80,24 @@ public class EnfermeiroServiceTest {
         assertEquals("60817159819", enfermeiro.getCpfEnfermeiro());
         assertEquals("10001", enfermeiro.getCorenEnfermeiro());
         assertEquals("585 9876 1234 9876", enfermeiro.getCartaoSusEnfermeiro());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<Enfermeiro> listaEnfermeiros = new ArrayList<>();
+        
+        enfermeiro.setNome("LUCIUS MALLAFYORI");
+        enfermeiro.setCpfEnfermeiro("31422203565");
+        enfermeiro.setCartaoSusEnfermeiro("585 9876 4444 7890");
+        
+        listaEnfermeiros = (List<Enfermeiro>) new ArrayList<Enfermeiro>();
+        listaEnfermeiros.add(enfermeiro);
+    
+        when(enfermeiroService.findAll()).thenReturn(listaEnfermeiros);
+        
+        assertFalse(listaEnfermeiros.isEmpty());
         
     }
     

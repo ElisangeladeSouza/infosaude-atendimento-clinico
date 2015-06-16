@@ -10,6 +10,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagem
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -51,8 +52,6 @@ public class TecnicoEnfermagemServiceTest {
         tecnicoEnfermagem.setNome("BELLA BEAST");
         tecnicoEnfermagem.setCpfTecnicoEnfermagem("60578164809");
         
-        tecnicoEnfermagemService.save(tecnicoEnfermagem);
-        
         when(tecnicoEnfermagemService.findById(1L)).thenReturn(tecnicoEnfermagem);
         novoTecnicoEnfermagem = tecnicoEnfermagemService.findById(1L);
         assertEquals("BELLA BEAST", tecnicoEnfermagem.getNome());
@@ -74,7 +73,6 @@ public class TecnicoEnfermagemServiceTest {
         tecnicoEnfermagem.setCpfTecnicoEnfermagem("31422203565");
         tecnicoEnfermagem.setCartaoSusTecnicoEnfermagem("585 9876 4444 7890");
         tecnicoEnfermagem.setCorenTecnicoEnfermagem("19700");
-        tecnicoEnfermagemService.save(tecnicoEnfermagem);
         
         when(tecnicoEnfermagemService.findById(1L)).thenReturn(tecnicoEnfermagem);
         novoTecnicoEnfermagem = tecnicoEnfermagemService.findById(1L);
@@ -82,6 +80,25 @@ public class TecnicoEnfermagemServiceTest {
         assertEquals("31422203565", tecnicoEnfermagem.getCpfTecnicoEnfermagem());
         assertEquals("19700", tecnicoEnfermagem.getCorenTecnicoEnfermagem());
         assertEquals("585 9876 4444 7890", tecnicoEnfermagem.getCartaoSusTecnicoEnfermagem());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<TecnicoEnfermagem> listaTecnicosEnfermagem = new ArrayList<>();
+        
+        tecnicoEnfermagem.setNome("LUCIUS MALLAFYORI");
+        tecnicoEnfermagem.setCpfTecnicoEnfermagem("31422203565");
+        tecnicoEnfermagem.setCartaoSusTecnicoEnfermagem("585 9876 4444 7890");
+        tecnicoEnfermagem.setCorenTecnicoEnfermagem("19700");
+        
+        listaTecnicosEnfermagem = (List<TecnicoEnfermagem>) new ArrayList<TecnicoEnfermagem>();
+        listaTecnicosEnfermagem.add(tecnicoEnfermagem);
+    
+        when(tecnicoEnfermagemService.findAll()).thenReturn(listaTecnicosEnfermagem);
+        
+        assertFalse(listaTecnicosEnfermagem.isEmpty());
         
     }
     

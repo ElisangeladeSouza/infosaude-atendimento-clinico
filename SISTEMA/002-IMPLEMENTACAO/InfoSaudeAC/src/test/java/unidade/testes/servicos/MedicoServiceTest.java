@@ -7,7 +7,10 @@ package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.MedicoService;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -49,8 +52,6 @@ public class MedicoServiceTest {
         medico.setNome("NONA BELLA");
         medico.setCpf("46359114208");
         
-        medicoService.save(medico);
-        
         when(medicoService.findById(1L)).thenReturn(medico);
         novoMedico = medicoService.findById(1L);
         assertEquals("NONA BELLA", medico.getNome());
@@ -72,7 +73,6 @@ public class MedicoServiceTest {
         medico.setCpf("67147470206");
         medico.setCartaoSus("585 9876 0000 9876");
         medico.setCrm("19147");
-        medicoService.save(medico);
         
         when(medicoService.findById(1L)).thenReturn(medico);
         novoMedico = medicoService.findById(1L);
@@ -80,6 +80,24 @@ public class MedicoServiceTest {
         assertEquals("67147470206", medico.getCpf());
         assertEquals("19147", medico.getCrm());
         assertEquals("585 9876 0000 9876", medico.getCartaoSus());
+        
+    }
+    
+    @Test
+    public void testFindAll(){
+    
+        List<Medico> listaMedicos = new ArrayList<>();
+        
+        medico.setNome("LUCIUS MALLAFYORI");
+        medico.setCpf("31422203565");
+        medico.setCartaoSus("585 9876 4444 7890");
+        
+        listaMedicos = (List<Medico>) new ArrayList<Medico>();
+        listaMedicos.add(medico);
+    
+        when(medicoService.findAll()).thenReturn(listaMedicos);
+        
+        assertFalse(listaMedicos.isEmpty());
         
     }
     
