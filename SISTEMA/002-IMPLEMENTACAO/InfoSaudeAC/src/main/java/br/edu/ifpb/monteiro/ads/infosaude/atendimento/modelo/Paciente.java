@@ -39,7 +39,7 @@ public class Paciente extends Pessoa implements Serializable {
     private FichaAtendimento fichaAtendimento;
 
     @OneToOne
-    @JoinColumn(name = "consulta_pk")
+    @JoinColumn(name = "consulta_pk", referencedColumnName = "id")
     private Consulta consulta;
 
 //    @Column(name = "paciente_ficha_atendimento")

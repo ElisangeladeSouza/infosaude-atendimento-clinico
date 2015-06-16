@@ -24,8 +24,6 @@
       <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/CidadesEstadosBrasil.sql"/>-->
     </properties>
   </persistence-unit>
-  
-  
   <!--Configuração para o ambiente de testes com o HSQLDB-->
   <persistence-unit name="InfoSaudePU_Testes" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>

@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,7 +52,7 @@ public class Consulta implements Serializable {
     private String sintomas;
 
     @OneToOne(mappedBy = "consulta")
-    @JoinColumn(name = "paciente_pk")
+    @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
     private Paciente paciente;
 
     @OneToOne
