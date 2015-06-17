@@ -34,6 +34,13 @@
                     <p:outputLabel for="descricao" value="#{msg.description}: " />
                     <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"
                                  requiredMessage="#{msg.aDescriptionIsRequired}" />
+                    
+<!--                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.paciente}" required="true"  
+                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
+                    </p:selectOneMenu>-->
 
                 </h:panelGrid>
 

@@ -47,6 +47,10 @@ public class Procedimento implements Serializable {
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 
+    @OneToOne(mappedBy = "procedimento")
+    @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
+    private Paciente paciente;
+
     public Procedimento() {
     }
 
@@ -96,6 +100,14 @@ public class Procedimento implements Serializable {
 
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     @Override

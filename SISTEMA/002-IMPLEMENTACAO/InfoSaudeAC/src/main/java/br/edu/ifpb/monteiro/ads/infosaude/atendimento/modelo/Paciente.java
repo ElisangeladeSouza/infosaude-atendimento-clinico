@@ -42,6 +42,14 @@ public class Paciente extends Pessoa implements Serializable {
     @JoinColumn(name = "consulta_pk", referencedColumnName = "id")
     private Consulta consulta;
 
+    @OneToOne
+    @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
+    private Procedimento procedimento;
+
+    @OneToOne
+    @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
+    private Triagem triagem;
+
 //    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
     }
@@ -101,4 +109,21 @@ public class Paciente extends Pessoa implements Serializable {
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
     }
+
+    public Procedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(Procedimento procedimento) {
+        this.procedimento = procedimento;
+    }
+
+    public Triagem getTriagem() {
+        return triagem;
+    }
+
+    public void setTriagem(Triagem triagem) {
+        this.triagem = triagem;
+    }
+
 }

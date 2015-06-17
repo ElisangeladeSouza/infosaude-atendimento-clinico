@@ -49,6 +49,10 @@
                     <p:column headerText="#{msg.code}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{triagem.codigo}" filterStyle="width: 30px; display:none">
                         <h:outputText id="codigo" value="#{triagem.codigo}"/>
                     </p:column>
+                    
+                    <p:column headerText="#{msg.patient}" style="text-align: center" width="140" filterMatchMode="exact" filterBy="#{triagem.paciente.nome}" filterStyle="width: 50px; display:none">
+                        <h:outputText id="paciente" value="#{triagem.paciente.nome}"/>
+                    </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
@@ -62,14 +66,14 @@
                             <p:tooltip for="botaoEditar" value="#{msg.editSelectedRow}"/>
                         </p:button>
 
-                        <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
+<!--                        <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
                                          action="#{triagemBean.excluir}" process="@this" update="datatablePesquisaTriagem">
                             <f:setPropertyActionListener value="#{triagem}" target="#{triagemBean.triagemSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
                             <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreScreening}" message="#{msg.realyExcludeScreening}"/>
 
-                        </p:commandButton>
+                        </p:commandButton>-->
                     </p:column>
 
                 </p:dataTable>
