@@ -73,7 +73,7 @@
                             <p:outputLabel for="email" value="#{msg.email}:"/>
                             <p:inputText id="email" styleClass="lower" value="#{medicoBean.medico.email}" size="25" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100">
-                                
+
                             </p:inputText>
                         </h:panelGrid>
                     </p:tab>
@@ -109,7 +109,7 @@
 
                             <h:outputLabel/>
                         </h:panelGrid>
-                        
+
                     </p:tab>
 
                     <p:tab id="tabDocumentosMedico" title="#{msg.documentation}">
@@ -128,7 +128,7 @@
                                          action="#{medicoBean.salvar}"  id="botaoSalvar" 
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
-                        
+
                         <p:button style="font-size: 13px;" value="#{msg.cancel}"
                                   id="botaoCancelar" outcome="/medico/PesquisaMedico"
                                   icon="fa fa-times" rendered="#{medicoBean.editando}" 
@@ -147,7 +147,7 @@
                 </p:toolbar>
 
                 <p:blockUI id="blockUIMedico" block="formCadastroMedico" trigger="botaoSalvar"/>
-                
+
             </h:form>
 
         </p:fieldset>

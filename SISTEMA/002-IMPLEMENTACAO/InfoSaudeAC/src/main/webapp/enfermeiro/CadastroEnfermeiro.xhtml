@@ -14,7 +14,7 @@
     <ui:define id="uiTituloEnfermeiro" name="titulo">#{enfermeiroBean.editando ? msg.editCadastreNurse : msg.newRegisterNurse} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoEnfermeiro" name="conteudo">
-        
+
         <p:fieldset id="fieldsetEnfermeiro" legend="#{enfermeiroBean.editando ? msg.editCadastreNurse : msg.newRegisterNurse}">
 
             <h:form id="formCadastroEnfermeiro">
@@ -74,7 +74,7 @@
                             <p:outputLabel for="email" value="#{msg.email}:"/>
                             <p:inputText id="email" styleClass="lower" value="#{enfermeiroBean.enfermeiro.email}" size="25" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100">
-                                
+
                             </p:inputText>
                         </h:panelGrid>
                     </p:tab>

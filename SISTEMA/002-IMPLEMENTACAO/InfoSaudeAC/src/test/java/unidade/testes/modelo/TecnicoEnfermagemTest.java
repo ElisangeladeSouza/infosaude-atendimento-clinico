@@ -3,9 +3,9 @@ package unidade.testes.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -64,7 +64,7 @@ public class TecnicoEnfermagemTest {
         assertEquals("O cpf esperado deve ser 415.706.534-45", "415.706.534-45", tecnicoEnfermagem.getCpfTecnicoEnfermagem());
         assertEquals("O rg esperado deve ser 26475828", "26475828", tecnicoEnfermagem.getRg());
         assertEquals("O cartão sus deve ser 65745437543", "65745437543", tecnicoEnfermagem.getCartaoSusTecnicoEnfermagem());
-        assertEquals("A data esperada deve ser " + tecnicoEnfermagem.getDataNascimento(), tecnicoEnfermagem.getDataNascimento(), 
+        assertEquals("A data esperada deve ser " + tecnicoEnfermagem.getDataNascimento(), tecnicoEnfermagem.getDataNascimento(),
                 tecnicoEnfermagem.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", tecnicoEnfermagem.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", tecnicoEnfermagem.getTelefone1());
@@ -75,7 +75,7 @@ public class TecnicoEnfermagemTest {
         assertEquals("O bairro deve ser Centro", "Centro", tecnicoEnfermagem.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", tecnicoEnfermagem.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", tecnicoEnfermagem.getEnderecoCidade());
-        assertEquals("O estado esperado deve ser " + tecnicoEnfermagem.getEnderecoEstado(), tecnicoEnfermagem.getEnderecoEstado(), 
+        assertEquals("O estado esperado deve ser " + tecnicoEnfermagem.getEnderecoEstado(), tecnicoEnfermagem.getEnderecoEstado(),
                 tecnicoEnfermagem.getEnderecoEstado());
     }
 

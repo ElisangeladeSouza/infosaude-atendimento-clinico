@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import java.util.Set;
-
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;

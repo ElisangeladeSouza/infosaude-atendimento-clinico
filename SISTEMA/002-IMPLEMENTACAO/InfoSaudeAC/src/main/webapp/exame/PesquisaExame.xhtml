@@ -10,9 +10,9 @@
     <ui:define id="uiPesquisaExame" name="titulo">#{msg.searchCadastreExamination} | #{msg.systemName}</ui:define>
 
     <ui:define id="conteudoPesquisaExame" name="conteudo">
-        
+
         <p:fieldset legend="#{msg.searchCadastreExamination}">
-            
+
             <h:form id="formPesquisaExame">
 
                 <p:growl id="mensagens"/>
@@ -43,7 +43,7 @@
                     <p:column headerText="#{msg.description}" width="80" filterMatchMode="contains" filterBy="#{exame.descricao}" filterStyle="width: 300px; display:none">
                         <h:outputText id="descricao" value="#{exame.descricao}"/>
                     </p:column>
-                    
+
                     <p:column headerText="#{msg.details}" width="80" filterMatchMode="contains" filterBy="#{exame.detalhes}" filterStyle="width: 300px; display:none">
                         <h:outputText id="detalhes" value="#{exame.detalhes}"/>
                     </p:column>

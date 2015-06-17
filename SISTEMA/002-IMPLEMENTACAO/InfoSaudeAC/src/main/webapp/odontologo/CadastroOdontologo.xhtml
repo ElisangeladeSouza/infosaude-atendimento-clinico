@@ -14,7 +14,7 @@
     <ui:define id="uiTituloOdontologo" name="titulo">#{odontologoBean.editando ? msg.editCadastreDentist : msg.newRegisterDentist} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoOdontologo" name="conteudo">
-        
+
         <p:fieldset id="fieldsetOdontologo" legend="#{odontologoBean.editando ? msg.editCadastreDentist : msg.newRegisterDentist}">
 
             <h:form id="formCadastroOdontologo">
@@ -72,7 +72,7 @@
                             <p:outputLabel for="email" value="#{msg.email}:"/>
                             <p:inputText id="email" styleClass="lower" value="#{odontologoBean.odontologo.email}" size="25" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100">
-                                
+
                             </p:inputText>
                         </h:panelGrid>
                     </p:tab>

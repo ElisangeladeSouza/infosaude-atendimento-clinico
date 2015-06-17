@@ -1,12 +1,11 @@
 package unidade.testes.modelo;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -57,21 +56,20 @@ public class AdministradorTest {
         System.out.println(administrador.getRg());
         System.out.println(administrador.getTelefone1());
 
-
         assertEquals("O cpf esperado deve ser 271.503.479-24", "271.503.479-24", administrador.getCpf());
         assertEquals("O cartão sus esperado deve ser 2340956716582", "2340956716582", administrador.getCartaoSus());
         assertEquals("O nome esperado deve ser Maria de Lurdes", "Maria de Lurdes", administrador.getNome());
-        assertEquals("A data esperada deve ser "+ administrador.getDataNascimento(), administrador.getDataNascimento(), 
+        assertEquals("A data esperada deve ser " + administrador.getDataNascimento(), administrador.getDataNascimento(),
                 administrador.getDataNascimento());
         assertEquals("A cor/raça esperada deve ser BRANCA", "BRANCA", administrador.getCorOuRaca());
         assertEquals("O email esperado deve ser maria@gmail.com", "maria@gmail.com", administrador.getEmail());
         assertEquals("O bairro esperado deve ser Centro", "Centro", administrador.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", administrador.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", administrador.getEnderecoCidade());
-        assertEquals("O estado esperado deve ser "+ administrador.getEnderecoEstado(), administrador.getEnderecoEstado(), 
+        assertEquals("O estado esperado deve ser " + administrador.getEnderecoEstado(), administrador.getEnderecoEstado(),
                 administrador.getEnderecoEstado());
         assertEquals("O número esperado deve ser 88", "88", administrador.getEnderecoNumero());
-        assertEquals("A rua esperada deve ser Rua Francisco de Alcântara Torres", "Rua Francisco de Alcântara Torres", 
+        assertEquals("A rua esperada deve ser Rua Francisco de Alcântara Torres", "Rua Francisco de Alcântara Torres",
                 administrador.getEnderecoRua());
         assertEquals("O rg esperado deve ser 8926371", "8926371", administrador.getRg());
         assertEquals("O telefone esperado deve ser (83) 999467281", "(83) 999467281", administrador.getTelefone1());

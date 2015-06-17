@@ -22,36 +22,35 @@ import org.mockito.MockitoAnnotations;
  * @author wilde
  */
 public class OdontologoServiceTest {
-   
+
     private static Odontologo odontologo;
     private static Odontologo novoOdontologo;
-    
+
     @Mock
     private OdontologoService odontologoService;
-    
-    
+
     public OdontologoServiceTest() {
-        
+
         odontologoService = new OdontologoService();
-        
+
     }
-    
+
     @Before
     public void setUp() {
-   
+
         MockitoAnnotations.initMocks(this);
         odontologo = new Odontologo();
         novoOdontologo = new Odontologo();
     }
-    
+
     @Test
-    public void testSaveCamposObrigatorios(){
-    
+    public void testSaveCamposObrigatorios() {
+
         odontologo.setCartaoSus("777 9876 8877 2244");
         odontologo.setCro("9687");
         odontologo.setNome("ISABELLE MAURICE");
         odontologo.setCpf("09827885685");
-        
+
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
         assertEquals("ISABELLE MAURICE", odontologo.getNome());
@@ -59,46 +58,46 @@ public class OdontologoServiceTest {
         assertEquals("9687", odontologo.getCro());
         assertEquals("777 9876 8877 2244", odontologo.getCartaoSus());
     }
-    
+
     @Test(expected = Exception.class)
-    public void testFindByIdInexistente(){
+    public void testFindByIdInexistente() {
         when(odontologoService.findById(0L)).thenThrow(new Exception());
         odontologo = odontologoService.findById(0L);
     }
-    
+
     @Test
     public void testFindByIdExistente() {
-        
+
         odontologo.setNome("LUIS ARTHUR");
         odontologo.setCpf("88378682862");
         odontologo.setCartaoSus("123 9876 1234 9876");
         odontologo.setCro("19147");
-        
+
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
         assertEquals("LUIS ARTHUR", odontologo.getNome());
         assertEquals("88378682862", odontologo.getCpf());
         assertEquals("19147", odontologo.getCro());
         assertEquals("123 9876 1234 9876", odontologo.getCartaoSus());
-        
+
     }
-    
+
     @Test
-    public void testFindAll(){
-    
+    public void testFindAll() {
+
         List<Odontologo> listaOdontologos = new ArrayList<>();
-        
+
         odontologo.setNome("LUCIUS MALLAFYORI");
         odontologo.setCpf("31422203565");
         odontologo.setCartaoSus("585 9876 4444 7890");
-        
+
         listaOdontologos = (List<Odontologo>) new ArrayList<Odontologo>();
         listaOdontologos.add(odontologo);
-    
+
         when(odontologoService.findAll()).thenReturn(listaOdontologos);
-        
+
         assertFalse(listaOdontologos.isEmpty());
-        
+
     }
-    
+
 }

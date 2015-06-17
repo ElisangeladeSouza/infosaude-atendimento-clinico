@@ -3,21 +3,21 @@ package unidade.testes.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author elisangela
  */
 public class OdontologoTest {
-    
+
     private Odontologo odontologo;
 
     public OdontologoTest() {
     }
-    
+
     @Before
     public void setUp() {
         odontologo = new Odontologo();

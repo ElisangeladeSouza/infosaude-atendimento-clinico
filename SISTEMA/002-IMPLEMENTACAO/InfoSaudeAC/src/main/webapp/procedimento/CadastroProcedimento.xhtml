@@ -20,7 +20,7 @@
             <h:form id="formCadastroProcedimento">
 
                 <p:growl id="mensagens"/>
-                
+
                 <h:inputHidden id="data" value="#{procedimentoBean.procedimento.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -34,7 +34,7 @@
                     <p:outputLabel for="descricao" value="#{msg.description}: " />
                     <p:inputText id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"
                                  requiredMessage="#{msg.aDescriptionIsRequired}"/>
-                    
+
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarProcedimento" style="margin-top: 10px;">

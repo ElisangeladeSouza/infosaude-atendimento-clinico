@@ -1,8 +1,8 @@
 package unidade.testes.conversores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores.CPFConverter;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

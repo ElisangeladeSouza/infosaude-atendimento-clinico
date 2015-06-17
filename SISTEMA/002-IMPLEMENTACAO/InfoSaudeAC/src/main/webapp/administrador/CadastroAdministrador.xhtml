@@ -14,7 +14,7 @@
     <ui:define id="uiTituloAdministrador" name="titulo">#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoAdministrador" name="conteudo">
-        
+
         <p:fieldset id="fieldsetAdministrador" legend="#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator}">
 
             <h:form id="formCadastroAdministrador">
@@ -70,7 +70,7 @@
                             <p:outputLabel for="email" value="#{msg.email}:"/>
                             <p:inputText id="email" styleClass="lower" value="#{administradorBean.administrador.email}" size="25" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100">
-                                
+
                             </p:inputText>
                         </h:panelGrid>
                     </p:tab>

@@ -7,9 +7,11 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.EntityManagerProd
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -181,7 +183,7 @@ public class PessoaDaoTest {
         pessoa.setRg("9825672");
         pessoa.setTelefone1("(83) 999783624");
         pessoa.setTelefone2("(41) 999129645");
-        
+
         pessoaDao.getEntityManager().getTransaction().begin();
         pessoaDao.salvar(pessoa);
         pessoaDao.getEntityManager().getTransaction().commit();
@@ -200,7 +202,7 @@ public class PessoaDaoTest {
 
         assertEquals(pessoa.getNome(), novaPessoa.getNome());
     }
-    
+
     @Test
     public void testFindByIdInexistente() {
         Pessoa pessoa = new Pessoa();
@@ -216,16 +218,16 @@ public class PessoaDaoTest {
         pessoa.setRg("2814278");
         pessoa.setTelefone1("(41) 836475869");
         pessoa.setTelefone2("(41) 920456573");
-        
+
         pessoaDao.getEntityManager().getTransaction().begin();
         pessoaDao.salvar(pessoa);
         pessoaDao.getEntityManager().getTransaction().commit();
-        
+
         Pessoa novaPessoa = new Pessoa();
-        
+
         assertNull(novaPessoa = pessoaDao.findById(0L));
     }
-    
+
     @Test
     public void testDelete() {
         Pessoa pessoa = new Pessoa();
@@ -241,7 +243,7 @@ public class PessoaDaoTest {
         pessoa.setRg("9274816");
         pessoa.setTelefone1("(83) 830946782");
         pessoa.setTelefone2("(41) 184658456");
-        
+
         pessoaDao.getEntityManager().getTransaction().begin();
         pessoaDao.salvar(pessoa);
         pessoaDao.getEntityManager().getTransaction().commit();
@@ -257,7 +259,7 @@ public class PessoaDaoTest {
             }
         }
         pessoaDao.delete(pessoa);
-        
+
         assertNull(pessoaDao.findById(id));
     }
 

@@ -3,7 +3,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -192,6 +191,11 @@ public class Consulta implements Serializable {
         }
         final Consulta other = (Consulta) obj;
         return Objects.equals(this.id, other.id);
+    }
+
+    @Override
+    public String toString() {
+        return paciente.getNome();
     }
 
 }

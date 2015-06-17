@@ -26,10 +26,10 @@
                     <p:outputLabel for="descricao" value="#{msg.description}:"/>
                     <p:inputText id="descricao" value="#{exameBean.exame.descricao}" requiredMessage="#{msg.aDescriptionIsRequired}"
                                  required="true" size="20" styleClass="upper" maxlength="200"/>
-                    
+
                     <p:outputLabel for="detalhes" value="#{msg.details}:"/>
                     <p:inputTextarea id="detalhes" value="#{exameBean.exame.detalhes}" requiredMessage="#{msg.aDetailsIsRequired}"
-                                 required="true" styleClass="upper" maxlength="200"/>
+                                     required="true" styleClass="upper" maxlength="200"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarExame" style="margin-top: 10px;">
@@ -38,7 +38,7 @@
                                          action="#{exameBean.salvar}"  id="botaoSalvar" 
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
-                        
+
                         <p:button style="font-size: 13px;" value="#{msg.cancel}"
                                   id="botaoCancelar" outcome="/exame/PesquisaExame"
                                   icon="fa fa-times" rendered="#{exameBean.editando}" 
@@ -57,7 +57,7 @@
                 </p:toolbar>
 
                 <p:blockUI id="blockUIExame" block="formCadastroExame" trigger="botaoSalvar"/>
-                
+
             </h:form>
         </p:fieldset>
     </ui:define>

@@ -3,9 +3,9 @@ package unidade.testes.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
 import java.util.Date;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -60,7 +60,7 @@ public class RecepcionistaTest {
         assertEquals("O cpf esperado deve ser 173.375.113-02", "173.375.113-02", recepcionista.getCpf());
         assertEquals("O cartão sus esperado deve ser 78263710923", "78263710923", recepcionista.getCartaoSus());
         assertEquals("O nome esperado deve ser Fabiana Costa", "Fabiana Costa", recepcionista.getNome());
-        assertEquals("A data esperada deve ser " + recepcionista.getDataNascimento(), recepcionista.getDataNascimento(), 
+        assertEquals("A data esperada deve ser " + recepcionista.getDataNascimento(), recepcionista.getDataNascimento(),
                 recepcionista.getDataNascimento());
         assertEquals("A cor/raça esperada deve ser PARDA", "PARDA", recepcionista.getCorOuRaca());
         assertEquals("O email esperado deve ser fabiana@gmail.com", "fabiana@gmail.com", recepcionista.getEmail());
@@ -69,7 +69,7 @@ public class RecepcionistaTest {
         assertEquals("O bairro esperado deve ser Alto da Bela Vista", "Alto da Bela Vista", recepcionista.getEnderecoBairro());
         assertEquals("O cep esperado deve ser 58500-000", "58500-000", recepcionista.getEnderecoCep());
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", recepcionista.getEnderecoCidade());
-        assertEquals("O estado esperado deve ser " + recepcionista.getEnderecoEstado(), recepcionista.getEnderecoEstado(), 
+        assertEquals("O estado esperado deve ser " + recepcionista.getEnderecoEstado(), recepcionista.getEnderecoEstado(),
                 recepcionista.getEnderecoEstado());
         assertEquals("O número esperado deve ser 28", "28", recepcionista.getEnderecoNumero());
         assertEquals("A rua esperada deve ser Rua Euclides da Cunha", "Rua Euclides da Cunha",

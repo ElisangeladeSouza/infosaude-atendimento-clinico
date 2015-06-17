@@ -24,18 +24,18 @@
                 <h:inputHidden id="dataHora" value="#{requisicaoExameBean.requisicaoExame.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
-                
+
                 <h:panelGrid id="gridObrigatoriosExame" columns="2">
 
                     <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}:"/>
                     <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" styleClass="upper"/>
-                    
+
                     <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
                     <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" styleClass="upper"/>
-                    
+
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
                     <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" styleClass="upper"/>
-                    
+
                     <p:pickList id="listaExames" value="#{requisicaoExameBean.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>
 
                 </h:panelGrid>
@@ -46,13 +46,13 @@
                                          action="#{requisicaoExameBean.salvar}"  id="botaoSalvar" 
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
-                        
+
                     </f:facet>
 
                 </p:toolbar>
 
                 <p:blockUI id="blockUIExame" block="formCadastroExame" trigger="botaoSalvar"/>
-                
+
             </h:form>
         </p:fieldset>
     </ui:define>

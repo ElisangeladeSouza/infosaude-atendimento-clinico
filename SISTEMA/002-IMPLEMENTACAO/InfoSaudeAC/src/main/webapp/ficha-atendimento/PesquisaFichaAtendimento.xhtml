@@ -10,7 +10,7 @@
     <ui:define id="uiPesquisaFichaAtendimento" name="titulo">#{msg.searchCadastreTreatmentForm} | #{msg.systemName}</ui:define>
 
     <ui:define id="conteudoPesquisaFichaAtendimento" name="conteudo">
-        
+
         <p:fieldset legend="#{msg.searchCadastreTreatmentForm}">
             <h:form id="formPesquisaFichaAtendimento">
 
@@ -38,17 +38,17 @@
                     <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{fichaAtendimento.id}" filterStyle="width: 20px; display:none">
                         <h:outputText id="id" value="#{fichaAtendimento.id}"/>
                     </p:column>
-                    
+
                     <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{fichaAtendimento.data}" filterStyle="width: 20px; display:none">
                         <h:outputText id="data" value="#{fichaAtendimento.data}">
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </h:outputText>
                     </p:column>
-                    
+
                     <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{fichaAtendimento.paciente.nome}"/>
                     </p:column>
-                    
+
                     <p:column headerText="#{msg.destination}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.destino}" filterStyle="width: 300px; display:none">
                         <h:outputText id="destino" value="#{fichaAtendimento.destino}"/>
                     </p:column>

@@ -39,12 +39,12 @@
                         <h:outputText id="id" value="#{consulta.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="paciente" value="#{consulta.fichaAtendimento.paciente.nome}"/>
+                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{consulta.paciente.nome}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="paciente" value="#{consulta.paciente.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.cartaoSus}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="crm" value="#{consulta.fichaAtendimento.paciente.cartaoSus}"/>
+                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.paciente.cartaoSus}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="crm" value="#{consulta.paciente.cartaoSus}"/>
                     </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">

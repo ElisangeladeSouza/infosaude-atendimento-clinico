@@ -10,12 +10,12 @@
     <ui:define id="uiPesquisaRecepcionista" name="titulo">#{msg.searchCadastreReceptionist} | #{msg.systemName}</ui:define>
 
     <ui:define id="conteudoPesquisaRecepcionista" name="conteudo">
-        
+
         <p:fieldset legend="#{msg.searchCadastreReceptionist}">
             <h:form id="formPesquisarecepcionista">
 
                 <p:growl id="mensagens"/>
-                
+
                 <p:toolbar >
                     <f:facet name="right">
                         <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" outcome="/recepcionista/CadastroRecepcionista"/>
@@ -53,7 +53,7 @@
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
-                                outcome="/recepcionista/VisualizaRecepcionista">
+                                  outcome="/recepcionista/VisualizaRecepcionista">
                             <f:param name="recepcionista" value="#{recepcionista.id}"/>
                             <p:tooltip for="botaoVisualizar" value="#{msg.viewSelectedRowDetails}"/>
                         </p:button>                

@@ -8,9 +8,11 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.EntityManagerProd
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

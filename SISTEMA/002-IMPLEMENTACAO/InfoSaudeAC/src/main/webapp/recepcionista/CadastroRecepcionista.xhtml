@@ -14,7 +14,7 @@
     <ui:define id="uiTituloRecepcionista" name="titulo">#{recepcionistaBean.editando ? msg.editCadastreReceptionist : msg.newRegisterReceptionist} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoRecepcionista" name="conteudo">
-        
+
         <p:fieldset id="fieldsetRecepcionista" legend="#{recepcionistaBean.editando ? msg.editCadastreReceptionist : msg.newRegisterReceptionist}">
 
             <h:form id="formCadastroRecepcionista">
@@ -68,7 +68,7 @@
                             <p:outputLabel for="email" value="#{msg.email}:"/>
                             <p:inputText id="email" styleClass="lower" value="#{recepcionistaBean.recepcionista.email}" size="25" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100">
-                                
+
                             </p:inputText>
                         </h:panelGrid>
                     </p:tab>

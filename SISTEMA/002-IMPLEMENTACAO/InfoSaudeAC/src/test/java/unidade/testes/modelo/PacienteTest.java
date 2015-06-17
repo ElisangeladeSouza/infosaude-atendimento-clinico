@@ -3,21 +3,21 @@ package unidade.testes.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author elisangela
  */
 public class PacienteTest {
-    
-     private Paciente paciente;
+
+    private Paciente paciente;
 
     public PacienteTest() {
     }
-    
+
     @Before
     public void setUp() {
         paciente = new Paciente();
@@ -78,5 +78,5 @@ public class PacienteTest {
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", paciente.getEnderecoCidade());
         assertEquals("O estado esperado deve ser " + paciente.getEnderecoEstado(), paciente.getEnderecoEstado(), paciente.getEnderecoEstado());
     }
-    
+
 }
