@@ -36,9 +36,6 @@ public class MedicoBean implements Serializable {
     @Inject
     private PessoaBean pessoaBean;
 
-    @Inject
-    UtilBean utilBean;
-
     private transient List<Medico> medicos;
 
     public MedicoBean() {
