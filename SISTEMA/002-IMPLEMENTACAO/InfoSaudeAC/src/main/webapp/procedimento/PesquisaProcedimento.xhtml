@@ -40,12 +40,17 @@
                         <h:outputText id="id" value="#{procedimento.id}"/>
                     </p:column>
                     
-                    
                     <p:column headerText="#{msg.code}" style="text-align: center" width="20" filterMatchMode="exact" filterBy="#{procedimento.codigo}" filterStyle="width: 30px; display:none">
                         <h:outputText id="codigo" value="#{procedimento.codigo}"/>
                     </p:column>
+                    
+                    <p:column headerText="#{msg.date}" style="text-align: center" width="20" filterMatchMode="exact" filterBy="#{procedimento.data}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="data" value="#{procedimento.data}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </h:outputText>
+                    </p:column>
 
-                    <p:column headerText="#{msg.description}" style="text-align: center" width="170" filterMatchMode="exact" filterBy="#{procedimento.descricao}" filterStyle="width: 50px; display:none">
+                    <p:column headerText="#{msg.description}" style="text-align: center" width="140" filterMatchMode="exact" filterBy="#{procedimento.descricao}" filterStyle="width: 50px; display:none">
                         <h:outputText id="descricao" value="#{procedimento.descricao}"/>
                     </p:column>
                     
