@@ -23,15 +23,15 @@
                     <h:panelGrid id="gridVisualizaPessoalFichaAtendimento" columns="2">
 
                         <p:outputLabel for="data" value="#{msg.date}......................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="data" value="#{fichaAtendimentoBean.fichaAtendimento.data}" styleClass="upper" >
+                        <p:outputLabel id="data" value="#{fichaAtendimentoBean.fichaAtendimento.data}"  >
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="nomePaciente" value="#{msg.name}....................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nomePaciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente.nome}" styleClass="upper" />
+                        <p:outputLabel id="nomePaciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente.nome}"  />
 
                         <p:outputLabel for="destino" value="#{msg.destination}.................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="destino" value="#{fichaAtendimentoBean.fichaAtendimento.destino}" styleClass="upper" />
+                        <p:outputLabel id="destino" value="#{fichaAtendimentoBean.fichaAtendimento.destino}"  />
 
                     </h:panelGrid>
                 </p:fieldset>

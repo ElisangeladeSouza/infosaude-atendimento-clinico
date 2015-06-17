@@ -25,17 +25,17 @@
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:" style="margin-left: 20px"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{pacienteBean.paciente.cpf}" styleClass="upper" size="20"
+                                 value="#{pacienteBean.paciente.cpf}"  size="20"
                                  validator="cpfValidator" converter="cpfConverter" style="margin-left: 5px" maxlength="11"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:" style="margin-left: 20px"/>
                     <p:inputMask id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" mask="999 9999 9999 9999"
                                  required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 styleClass="upper" size="20" style="margin-left: 5px" maxlength="20"/>
+                                  size="20" style="margin-left: 5px" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:" style="margin-left: 20px"/>
                     <p:inputText id="nome" value="#{pacienteBean.paciente.nome}" required="true" requiredMessage="#{msg.mandatoryName}" 
-                                 styleClass="upper" size="38" style="margin-left: 5px" maxlength="150"/>
+                                 size="38" style="margin-left: 5px" maxlength="150"/>
 
                 </h:panelGrid>
 
@@ -72,7 +72,7 @@
                         </h:panelGrid>
                         <h:panelGrid columns="2">
                             <p:outputLabel for="nomeMae" value="#{msg.motherName}:" />
-                            <p:inputText id="nomeMae" size="38" styleClass="upper" value="#{pacienteBean.paciente.nomeDaMae}" 
+                            <p:inputText id="nomeMae" size="38" value="#{pacienteBean.paciente.nomeDaMae}" 
                                          style="margin-left: 3px" maxlength="100"/>
                         </h:panelGrid>
                     </p:tab>
@@ -115,18 +115,18 @@
                         <h:panelGrid columns="4">
 
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{pacienteBean.paciente.enderecoRua}" styleClass="upper" 
+                            <p:inputText id="rua" value="#{pacienteBean.paciente.enderecoRua}"  
                                          style="margin-left: 48px" size="38" maxlength="150"/>
 
-                            <p:inputText id="numero" value="#{pacienteBean.paciente.enderecoNumero}" styleClass="upper" 
+                            <p:inputText id="numero" value="#{pacienteBean.paciente.enderecoNumero}"  
                                          style="margin-left: 1px" size="10" maxlength="6" placeholder="Nº" />
                             <h:outputLabel/>
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{pacienteBean.paciente.enderecoBairro}" styleClass="upper" 
+                            <p:inputText id="bairro" value="#{pacienteBean.paciente.enderecoBairro}"  
                                          style="margin-left: 48px" size="38" maxlength="100"/>
 
-                            <p:inputMask mask="99999-999" id="cep" value="#{pacienteBean.paciente.enderecoCep}" styleClass="upper" 
+                            <p:inputMask mask="99999-999" id="cep" value="#{pacienteBean.paciente.enderecoCep}"  
                                          style="margin-left: 1px" size="10" maxlength="8" placeholder="CEP"/>
                             <h:outputLabel/>
 
@@ -137,7 +137,7 @@
                     <p:tab title="#{msg.documentation}">
                         <h:panelGrid columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{pacienteBean.paciente.rg}" styleClass="upper" 
+                            <p:inputText id="rg" value="#{pacienteBean.paciente.rg}"  
                                          size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>

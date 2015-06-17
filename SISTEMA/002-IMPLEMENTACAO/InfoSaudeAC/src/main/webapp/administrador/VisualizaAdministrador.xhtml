@@ -22,7 +22,7 @@
                 <p:fieldset id="VisualizaPessoalAdministrador" legend="#{msg.personal}">
                     <h:panelGrid id="gridVisualizaPessoalAdministrador" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{administradorBean.administrador.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{administradorBean.administrador.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{administradorBean.administrador.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{administradorBean.administrador.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -51,19 +51,19 @@
                 <p:fieldset id="fieldsetEnderecoAdministrador" legend="#{msg.address}" style="margin-top: 15px" >
                     <h:panelGrid columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{administradorBean.administrador.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{administradorBean.administrador.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{administradorBean.administrador.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{administradorBean.administrador.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{administradorBean.administrador.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{administradorBean.administrador.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{administradorBean.administrador.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{administradorBean.administrador.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{administradorBean.administrador.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{administradorBean.administrador.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{administradorBean.administrador.enderecoEstado}"/>
@@ -74,15 +74,15 @@
                 <p:fieldset id="fieldsetDocumentosAdministrador" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentos" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{administradorBean.administrador.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{administradorBean.administrador.cpf}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{administradorBean.administrador.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{administradorBean.administrador.rg}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{administradorBean.administrador.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{administradorBean.administrador.cartaoSus}" />
                     </h:panelGrid>
                 </p:fieldset>
 

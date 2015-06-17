@@ -22,7 +22,7 @@
                 <p:fieldset id="visualizaPessoalRecepcionista" legend="#{msg.personal}">
                     <h:panelGrid id="gridVisualizaPessoalRecepcionista" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{recepcionistaBean.recepcionista.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{recepcionistaBean.recepcionista.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{recepcionistaBean.recepcionista.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{recepcionistaBean.recepcionista.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -51,19 +51,19 @@
                 <p:fieldset id="visualizaEnderecoRecepcionista" legend="#{msg.address}" style="margin-top: 15px" >
                     <h:panelGrid id="gridVisualizaRecepcionista" columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{recepcionistaBean.recepcionista.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{recepcionistaBean.recepcionista.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{recepcionistaBean.recepcionista.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{recepcionistaBean.recepcionista.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{recepcionistaBean.recepcionista.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{recepcionistaBean.recepcionista.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{recepcionistaBean.recepcionista.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{recepcionistaBean.recepcionista.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{recepcionistaBean.recepcionista.enderecoEstado}"/>
@@ -74,15 +74,15 @@
                 <p:fieldset id="visualizaDocumentosRecepcionista" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosRecepcionista" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{recepcionistaBean.recepcionista.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{recepcionistaBean.recepcionista.cpf}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{recepcionistaBean.recepcionista.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{recepcionistaBean.recepcionista.rg}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{recepcionistaBean.recepcionista.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{recepcionistaBean.recepcionista.cartaoSus}" />
                     </h:panelGrid>
                 </p:fieldset>
 

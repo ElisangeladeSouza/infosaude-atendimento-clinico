@@ -22,7 +22,7 @@
                 <p:fieldset id="visualizaPessoalOdontologo" legend="#{msg.personal}">
                     <h:panelGrid id="gridVisualizaPessoalOdontologo" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{odontologoBean.odontologo.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{odontologoBean.odontologo.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{odontologoBean.odontologo.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{odontologoBean.odontologo.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -51,19 +51,19 @@
                 <p:fieldset id="visualizaEnderecoOdontologo" legend="#{msg.address}" style="margin-top: 15px" >
                     <h:panelGrid id="gridVisalizaEnderecoOdontologo" columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{odontologoBean.odontologo.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{odontologoBean.odontologo.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{odontologoBean.odontologo.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{odontologoBean.odontologo.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{odontologoBean.odontologo.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{odontologoBean.odontologo.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{odontologoBean.odontologo.enderecoEstado}"/>
@@ -74,18 +74,18 @@
                 <p:fieldset id="visualizaDocumentosOdontologo" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosOdontologo" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{odontologoBean.odontologo.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{odontologoBean.odontologo.cpf}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{odontologoBean.odontologo.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{odontologoBean.odontologo.rg}" />
 
                         <p:outputLabel for="coren" value="#{msg.cro}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{odontologoBean.odontologo.cro}" styleClass="upper"/>
+                        <p:outputLabel id="coren" value="#{odontologoBean.odontologo.cro}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{odontologoBean.odontologo.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{odontologoBean.odontologo.cartaoSus}" />
                     </h:panelGrid>
                 </p:fieldset>
 

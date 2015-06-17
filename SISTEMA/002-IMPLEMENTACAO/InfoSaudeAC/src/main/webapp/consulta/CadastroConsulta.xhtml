@@ -25,30 +25,30 @@
 
                 <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true" styleClass="upper" 
+                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true"  
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s:"/>
-                    <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}" styleClass="upper" size="20"/>
+                    <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}"  size="20"/>
 
                     <p:outputLabel for="anamnese" value="#{msg.anamnese}:"/>
-                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}" styleClass="upper" maxlength="255"/>
+                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}"  maxlength="255"/>
 
                     <p:outputLabel for="diagnostico" value="#{msg.diagnosis}:"/>
-                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}" styleClass="upper" size="20" maxlength="255"/>
+                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}"  size="20" maxlength="255"/>
 
                     <p:outputLabel for="prescricao" value="#{msg.prescription}:"/>
-                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}" styleClass="upper" maxlength="255"
+                    <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}"  maxlength="255"
                                      required="true" requiredMessage="#{msg.aPrescriptionIsRequired}"/>
 
                     <p:outputLabel for="exames" value="#{msg.examination}s:"/>
-                    <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" styleClass="upper"/>
+                    <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" />
 
                     <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
-                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}" styleClass="upper" maxlength="500"/>
+                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">

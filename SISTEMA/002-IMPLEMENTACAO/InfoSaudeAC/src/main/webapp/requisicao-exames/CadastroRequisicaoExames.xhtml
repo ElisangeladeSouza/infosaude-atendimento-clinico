@@ -28,13 +28,13 @@
                 <h:panelGrid id="gridObrigatoriosExame" columns="2">
 
                     <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}:"/>
-                    <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" styleClass="upper"/>
+                    <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" />
 
                     <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
-                    <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" styleClass="upper"/>
+                    <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" />
 
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
-                    <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" styleClass="upper"/>
+                    <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" />
 
                     <p:pickList id="listaExames" value="#{requisicaoExameBean.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>
 

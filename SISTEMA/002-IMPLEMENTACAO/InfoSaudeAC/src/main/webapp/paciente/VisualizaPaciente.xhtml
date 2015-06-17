@@ -22,7 +22,7 @@
                 <p:fieldset id="visualizaPessoalPaciente" legend="#{msg.personal}">
                     <h:panelGrid id="gridVisualizaPessoalPaciente" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{pacienteBean.paciente.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{pacienteBean.paciente.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}................:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{pacienteBean.paciente.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{pacienteBean.paciente.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
 
                         <p:outputLabel for="peso" value="#{msg.weight}...............................:" style="font-weight: bold"/>
                         <p:outputLabel id="peso" value="#{pacienteBean.paciente.peso} Kg"/>
@@ -41,7 +41,7 @@
 
                         <p:outputLabel for="nomeMae" value="#{msg.motherName}................:" style="font-weight: bold"/>
                         <p:outputLabel id="nomeMae" value="#{pacienteBean.paciente.nomeDaMae}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -61,19 +61,19 @@
                 <p:fieldset id="visualizaEnderecoPaciente" legend="#{msg.address}" style="margin-top: 15px;" >
                     <h:panelGrid id="gridVisualizaEnderecoPaciente" columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{pacienteBean.paciente.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{pacienteBean.paciente.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{pacienteBean.paciente.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{pacienteBean.paciente.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{pacienteBean.paciente.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{pacienteBean.paciente.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{pacienteBean.paciente.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{pacienteBean.paciente.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{pacienteBean.paciente.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style="font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{pacienteBean.paciente.enderecoEstado}"/>
@@ -84,15 +84,15 @@
                 <p:fieldset id="visualizaDocumentosPaciente" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosPaciente" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{pacienteBean.paciente.cpf}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{pacienteBean.paciente.cpf}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}.............:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{pacienteBean.paciente.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{pacienteBean.paciente.rg}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}...................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" />
                     </h:panelGrid>
                 </p:fieldset>
 

@@ -24,22 +24,22 @@
                 <h:panelGrid id="gridObrigatoriosTecnicoEnfermagem" columns="2">
 
                     <p:outputLabel for="coren" value="#{msg.coren}:"/>
-                    <p:inputText id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" styleClass="upper" required="true" 
+                    <p:inputText id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}"  required="true" 
                                  requiredMessage="#{msg.mandatoryCOREN}" size="40" maxlength="50"/>
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" styleClass="upper" size="40"
+                                 value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}"  size="40"
                                  validator="cpfValidator" converter="cpfConverter" maxlength="11"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
                     <p:inputMask id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" mask="999 9999 9999 9999"
                                  required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 styleClass="upper" size="40" maxlength="20"/>
+                                  size="40" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>
                     <p:inputText id="nome" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.nome}" required="true" requiredMessage="#{msg.mandatoryName}" 
-                                 styleClass="upper" size="40" maxlength="150"/>
+                                  size="40" maxlength="150"/>
 
                 </h:panelGrid>
 
@@ -83,17 +83,17 @@
                     <p:tab id="tabEnderecoTecnicoEnfermagem" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoTecnicoEnfermagem" columns="4">
                             <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}" styleClass="upper" size="40" maxlength="150"/>
+                            <p:inputText id="rua" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}"  size="40" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}" styleClass="upper" size="16" maxlength="6"/>
+                            <p:inputText id="numero" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}"  size="16" maxlength="6"/>
 
                             <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}" styleClass="upper" size="40" maxlength="100"/>
+                            <p:inputText id="bairro" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}"  size="40" maxlength="100"/>
 
                             <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
                             <p:inputMask mask="99999-999" id="cep" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}" 
-                                         styleClass="upper" size="16" maxlength="8"/>
+                                          size="16" maxlength="8"/>
 
                             <p:outputLabel for="estado" value="#{msg.state}:" />
                             <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}">
@@ -116,7 +116,7 @@
                     <p:tab id="tabDocumentosTencicoEnfermagem" title="#{msg.documentation}">
                         <h:panelGrid id="gridDocumentosTecnicoEnfermagem" columns="2">
                             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}" styleClass="upper" size="20" maxlength="15"/>
+                            <p:inputText id="rg" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}"  size="20" maxlength="15"/>
                         </h:panelGrid>
                     </p:tab>
 

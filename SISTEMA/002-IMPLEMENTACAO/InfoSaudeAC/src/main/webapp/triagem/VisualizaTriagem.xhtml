@@ -23,10 +23,10 @@
                     <h:panelGrid id="gridVisualizaPessoalTriagem" columns="2">
 
                         <p:outputLabel for="codigo" value="#{msg.code}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="codigo" value="#{triagemBean.triagem.codigo}" styleClass="upper" />
+                        <p:outputLabel id="codigo" value="#{triagemBean.triagem.codigo}"  />
 
                         <p:outputLabel for="data" value="#{msg.date}..............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="data" value="#{triagemBean.triagem.data}" styleClass="upper" >
+                        <p:outputLabel id="data" value="#{triagemBean.triagem.data}"  >
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </p:outputLabel>
 

@@ -22,7 +22,7 @@
                 <p:fieldset id="visualizaPessoalEnfermeiro" legend="#{msg.personal}">
                     <h:panelGrid id="gridVisualizaPessoalEnfermeiro" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{enfermeiroBean.enfermeiro.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{enfermeiroBean.enfermeiro.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{enfermeiroBean.enfermeiro.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{enfermeiroBean.enfermeiro.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -51,19 +51,19 @@
                 <p:fieldset id="visualizaEnderecoEnfemeiro" legend="#{msg.address}" style="margin-top: 15px" >
                     <h:panelGrid id="gridVisualizaEnderecoEnfermeiro" columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{enfermeiroBean.enfermeiro.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{enfermeiroBean.enfermeiro.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{enfermeiroBean.enfermeiro.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{enfermeiroBean.enfermeiro.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{enfermeiroBean.enfermeiro.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{enfermeiroBean.enfermeiro.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{enfermeiroBean.enfermeiro.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{enfermeiroBean.enfermeiro.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{enfermeiroBean.enfermeiro.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{enfermeiroBean.enfermeiro.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{enfermeiroBean.enfermeiro.enderecoEstado}"/>
@@ -74,18 +74,18 @@
                 <p:fieldset id="visualizaDocumentosEnfermerio" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosEnfermeiro" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{enfermeiroBean.enfermeiro.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{enfermeiroBean.enfermeiro.rg}" />
 
                         <p:outputLabel for="coren" value="#{msg.coren}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" styleClass="upper"/>
+                        <p:outputLabel id="coren" value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" />
                     </h:panelGrid>
                 </p:fieldset>
 

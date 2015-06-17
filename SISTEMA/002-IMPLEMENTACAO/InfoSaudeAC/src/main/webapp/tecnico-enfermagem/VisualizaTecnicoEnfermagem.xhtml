@@ -22,7 +22,7 @@
                 <p:fieldset id="visualizaPessoalTecnicoEnfermagem" legend="#{msg.personal}">
                     <h:panelGrid id="gridPessoalTecnicoEnfermagem" columns="2">
                         <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.nome}" styleClass="upper" />
+                        <p:outputLabel id="nome" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.nome}"  />
 
                         <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
                         <p:outputLabel id="dataNascimento" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.dataNascimento}">
@@ -31,7 +31,7 @@
 
                         <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
                         <p:outputLabel id="racaCor" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corOuRaca}"
-                                       styleClass="upper"/>
+                                       />
                     </h:panelGrid>
                 </p:fieldset>
 
@@ -51,19 +51,19 @@
                 <p:fieldset id="visualizaEnderecoTecnicoEnfermagem" legend="#{msg.address}" style="margin-top: 15px;" >
                     <h:panelGrid id="gridEnderecoTecnicoEnfermagem" columns="2">
                         <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}" styleClass="upper" />
+                        <p:outputLabel id="rua" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}"  />
 
                         <p:outputLabel for="numero" value="#{msg.number}.........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}" styleClass="upper" />
+                        <p:outputLabel id="numero" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}"  />
 
                         <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}" styleClass="upper"/>
+                        <p:outputLabel id="bairro" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}" />
 
                         <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}" styleClass="upper" />
+                        <p:outputLabel id="cep" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}"  />
 
                         <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}" styleClass="upper" />
+                        <p:outputLabel id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}"  />
 
                         <p:outputLabel for="estado" value="#{msg.state}...........................:" style="font-weight: bold"/>
                         <p:outputLabel id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}"/>
@@ -74,18 +74,18 @@
                 <p:fieldset id="visualizaDocumentosTecnicoEnfermagem" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridDocumentosTecnicoEnfermagem" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" styleClass="upper">
+                        <p:outputLabel id="cpf" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
                         <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}" styleClass="upper"/>
+                        <p:outputLabel id="rg" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}" />
 
                         <p:outputLabel for="coren" value="#{msg.coren}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" styleClass="upper"/>
+                        <p:outputLabel id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" styleClass="upper"/>
+                        <p:outputLabel id="cartaoSus" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" />
                     </h:panelGrid>
                 </p:fieldset>
 
