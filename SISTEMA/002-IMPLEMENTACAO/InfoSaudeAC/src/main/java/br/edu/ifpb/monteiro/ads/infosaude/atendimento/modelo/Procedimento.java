@@ -112,9 +112,9 @@ public class Procedimento implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashProcedimento = 3;
+        hashProcedimento = 83 * hashProcedimento + Objects.hashCode(this.id);
+        return hashProcedimento;
     }
 
     @Override

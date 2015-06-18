@@ -2,6 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -66,6 +67,25 @@ public class Exame implements Serializable {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    @Override
+    public int hashCode() {
+        int hashExame = 5;
+        hashExame = 37 * hashExame + Objects.hashCode(this.id);
+        return hashExame;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Exame other = (Exame) obj;
+        return Objects.equals(this.id, other.id);
     }
 
 }

@@ -90,9 +90,9 @@ public class RequisicaoExame implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashRequisicaoExame = 7;
+        hashRequisicaoExame = 13 * hashRequisicaoExame + Objects.hashCode(this.id);
+        return hashRequisicaoExame;
     }
 
     @Override

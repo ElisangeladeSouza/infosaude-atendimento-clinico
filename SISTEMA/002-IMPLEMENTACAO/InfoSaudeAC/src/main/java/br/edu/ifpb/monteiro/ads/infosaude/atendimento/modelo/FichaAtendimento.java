@@ -112,9 +112,9 @@ public class FichaAtendimento implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashFicha = 5;
+        hashFicha = 79 * hashFicha + Objects.hashCode(this.id);
+        return hashFicha;
     }
 
     @Override

@@ -54,9 +54,9 @@ public class Enfermeiro extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.cpfEnfermeiro);
-        return hash;
+        int hashEnfermeiro = 7;
+        hashEnfermeiro = 23 * hashEnfermeiro + Objects.hashCode(this.cpfEnfermeiro);
+        return hashEnfermeiro;
     }
 
     @Override

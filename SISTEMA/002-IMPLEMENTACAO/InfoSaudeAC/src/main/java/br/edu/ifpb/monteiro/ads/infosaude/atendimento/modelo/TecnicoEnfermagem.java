@@ -52,9 +52,9 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.cpfTecnicoEnfermagem);
-        return hash;
+        int hashTecnicoEnfermagem = 7;
+        hashTecnicoEnfermagem = 47 * hashTecnicoEnfermagem + Objects.hashCode(this.cpfTecnicoEnfermagem);
+        return hashTecnicoEnfermagem;
     }
 
     @Override

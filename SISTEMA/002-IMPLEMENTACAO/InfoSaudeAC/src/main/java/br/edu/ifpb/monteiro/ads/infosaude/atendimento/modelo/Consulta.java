@@ -176,9 +176,9 @@ public class Consulta implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 11 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashConsulta = 3;
+        hashConsulta = 11 * hashConsulta + Objects.hashCode(this.id);
+        return hashConsulta;
     }
 
     @Override

@@ -112,9 +112,9 @@ public class Triagem implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashTriagem = 3;
+        hashTriagem = 53 * hashTriagem + Objects.hashCode(this.id);
+        return hashTriagem;
     }
 
     @Override

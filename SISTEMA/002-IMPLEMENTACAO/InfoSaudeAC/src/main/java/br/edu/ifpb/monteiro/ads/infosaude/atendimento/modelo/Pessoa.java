@@ -195,9 +195,9 @@ public class Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.id);
-        return hash;
+        int hashPessoa = 5;
+        hashPessoa = 37 * hashPessoa + Objects.hashCode(this.id);
+        return hashPessoa;
     }
 
     @Override
