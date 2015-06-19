@@ -77,118 +77,233 @@ public class Pessoa implements Serializable {
     @Column(name = "pessoa_cor_raca", length = 15)
     private String corOuRaca;
 
+    /**
+     *
+     */
     public Pessoa() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRg() {
         return rg;
     }
 
+    /**
+     *
+     * @param rg
+     */
     public void setRg(String rg) {
         this.rg = rg;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEnderecoRua() {
         return enderecoRua;
     }
 
+    /**
+     *
+     * @param enderecoRua
+     */
     public void setEnderecoRua(String enderecoRua) {
         this.enderecoRua = enderecoRua;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEnderecoNumero() {
         return enderecoNumero;
     }
 
+    /**
+     *
+     * @param enderecoNumero
+     */
     public void setEnderecoNumero(String enderecoNumero) {
         this.enderecoNumero = enderecoNumero;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEnderecoBairro() {
         return enderecoBairro;
     }
 
+    /**
+     *
+     * @param enderecoBairro
+     */
     public void setEnderecoBairro(String enderecoBairro) {
         this.enderecoBairro = enderecoBairro;
     }
 
+    /**
+     *
+     * @return
+     */
     public Estados getEnderecoEstado() {
         return enderecoEstado;
     }
 
+    /**
+     *
+     * @param enderecoEstado
+     */
     public void setEnderecoEstado(Estados enderecoEstado) {
         this.enderecoEstado = enderecoEstado;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEnderecoCidade() {
         return enderecoCidade;
     }
 
+    /**
+     *
+     * @param enderecoCidade
+     */
     public void setEnderecoCidade(String enderecoCidade) {
         this.enderecoCidade = enderecoCidade;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEnderecoCep() {
         return enderecoCep;
     }
 
+    /**
+     *
+     * @param enderecoCep
+     */
     public void setEnderecoCep(String enderecoCep) {
         this.enderecoCep = enderecoCep;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDataNascimento() {
         return dataNascimento;
     }
 
+    /**
+     *
+     * @param dataNascimento
+     */
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTelefone1() {
         return telefone1;
     }
 
+    /**
+     *
+     * @param telefone1
+     */
     public void setTelefone1(String telefone1) {
         this.telefone1 = telefone1;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTelefone2() {
         return telefone2;
     }
 
+    /**
+     *
+     * @param telefone2
+     */
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCorOuRaca() {
         return corOuRaca;
     }
 
+    /**
+     *
+     * @param corOuRaca
+     */
     public void setCorOuRaca(String corOuRaca) {
         this.corOuRaca = corOuRaca;
     }

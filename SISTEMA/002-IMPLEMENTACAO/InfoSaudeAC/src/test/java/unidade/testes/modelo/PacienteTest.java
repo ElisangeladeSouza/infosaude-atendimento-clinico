@@ -15,9 +15,15 @@ public class PacienteTest {
 
     private Paciente paciente;
 
+    /**
+     *
+     */
     public PacienteTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         paciente = new Paciente();
@@ -42,6 +48,9 @@ public class PacienteTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(paciente.getNome());

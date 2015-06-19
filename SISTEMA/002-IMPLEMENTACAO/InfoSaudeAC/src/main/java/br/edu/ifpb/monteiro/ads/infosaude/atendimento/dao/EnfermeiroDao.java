@@ -11,6 +11,9 @@ public class EnfermeiroDao extends DaoAbstrato<Enfermeiro> implements Serializab
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public EnfermeiroDao() {
         super(Enfermeiro.class);
     }

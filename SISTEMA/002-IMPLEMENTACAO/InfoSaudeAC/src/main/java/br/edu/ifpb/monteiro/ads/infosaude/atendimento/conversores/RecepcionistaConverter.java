@@ -18,10 +18,21 @@ public class RecepcionistaConverter implements Converter {
 
     private final RecepcionistaService recepcionistaService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public RecepcionistaConverter() throws UBSException {
         this.recepcionistaService = CDIServiceLocator.getBean(RecepcionistaService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class RecepcionistaConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

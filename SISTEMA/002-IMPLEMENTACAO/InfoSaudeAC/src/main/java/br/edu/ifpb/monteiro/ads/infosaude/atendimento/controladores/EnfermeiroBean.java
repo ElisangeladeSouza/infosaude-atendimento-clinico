@@ -37,9 +37,15 @@ public class EnfermeiroBean implements Serializable {
 
     private transient List<Enfermeiro> enfermeiros;
 
+    /**
+     *
+     */
     public EnfermeiroBean() {
     }
 
+    /**
+     *
+     */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(enfermeiro.getEnderecoEstado().getCodigo())) {
@@ -47,11 +53,19 @@ public class EnfermeiroBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Enfermeiro> getEnfermeiros() {
         this.enfermeiros = enfermeiroService.findAll();
         return enfermeiros;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.enfermeiroService.save(enfermeiro);
@@ -67,6 +81,10 @@ public class EnfermeiroBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.enfermeiroService.delete(enfermeiroSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -76,30 +94,60 @@ public class EnfermeiroBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.enfermeiro.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Enfermeiro getEnfermeiroSelecionado() {
         return enfermeiroSelecionado;
     }
 
+    /**
+     *
+     * @param enfermeiroSelecionado
+     */
     public void setEnfermeiroSelecionado(Enfermeiro enfermeiroSelecionado) {
         this.enfermeiroSelecionado = enfermeiroSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Enfermeiro getEnfermeiro() {
         return enfermeiro;
     }
 
+    /**
+     *
+     * @param enfermeiro
+     */
     public void setEnfermeiro(Enfermeiro enfermeiro) {
         this.enfermeiro = enfermeiro;
     }
 
+    /**
+     *
+     * @return
+     */
     public EnfermeiroService getEnfermeiroService() {
         return enfermeiroService;
     }
 
+    /**
+     *
+     * @param enfermeiroService
+     */
     public void setEnfermeiroService(EnfermeiroService enfermeiroService) {
         this.enfermeiroService = enfermeiroService;
     }

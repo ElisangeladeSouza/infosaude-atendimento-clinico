@@ -11,6 +11,9 @@ public class TriagemDao extends DaoAbstrato<Triagem> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public TriagemDao() {
         super(Triagem.class);
     }

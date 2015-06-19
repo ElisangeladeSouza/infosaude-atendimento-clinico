@@ -15,9 +15,15 @@ public class TecnicoEnfermagemTest {
 
     private TecnicoEnfermagem tecnicoEnfermagem;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         tecnicoEnfermagem = new TecnicoEnfermagem();
@@ -40,6 +46,9 @@ public class TecnicoEnfermagemTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(tecnicoEnfermagem.getNome());

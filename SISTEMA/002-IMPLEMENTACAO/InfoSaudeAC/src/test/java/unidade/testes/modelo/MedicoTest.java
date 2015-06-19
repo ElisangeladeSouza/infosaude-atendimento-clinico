@@ -15,9 +15,15 @@ public class MedicoTest {
 
     private Medico medico;
 
+    /**
+     *
+     */
     public MedicoTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         medico = new Medico();
@@ -39,6 +45,9 @@ public class MedicoTest {
         medico.setEnderecoEstado(Estados.PB);
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(medico.getNome());

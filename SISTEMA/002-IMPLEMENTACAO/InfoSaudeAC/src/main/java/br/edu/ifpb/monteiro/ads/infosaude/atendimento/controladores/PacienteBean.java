@@ -37,9 +37,15 @@ public class PacienteBean implements Serializable {
 
     private transient List<Paciente> pacientes;
 
+    /**
+     *
+     */
     public PacienteBean() {
     }
 
+    /**
+     *
+     */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(paciente.getEnderecoEstado().getCodigo())) {
@@ -47,11 +53,19 @@ public class PacienteBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Paciente> getPacientes() {
         this.pacientes = pacienteService.findAll();
         return pacientes;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.pacienteService.save(paciente);
@@ -67,6 +81,10 @@ public class PacienteBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.pacienteService.delete(pacienteSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -76,30 +94,60 @@ public class PacienteBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.paciente.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Paciente getPaciente() {
         return paciente;
     }
 
+    /**
+     *
+     * @param paciente
+     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
+    /**
+     *
+     * @return
+     */
     public PacienteService getPacienteService() {
         return pacienteService;
     }
 
+    /**
+     *
+     * @param pacienteService
+     */
     public void setPacienteService(PacienteService pacienteService) {
         this.pacienteService = pacienteService;
     }
 
+    /**
+     *
+     * @return
+     */
     public Paciente getPacienteSelecionado() {
         return pacienteSelecionado;
     }
 
+    /**
+     *
+     * @param pacienteSelecionado
+     */
     public void setPacienteSelecionado(Paciente pacienteSelecionado) {
         this.pacienteSelecionado = pacienteSelecionado;
     }

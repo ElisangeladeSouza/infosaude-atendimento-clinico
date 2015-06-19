@@ -30,10 +30,18 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 //    Recebe o tratador de exceções do JSF através da atribuição do construtor da classe
     private final ExceptionHandler empacotado;
 
+    /**
+     *
+     * @param wrapped
+     */
     public JsfExceptionHandler(ExceptionHandler wrapped) {
         this.empacotado = wrapped;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ExceptionHandler getWrapped() {
         return this.empacotado;

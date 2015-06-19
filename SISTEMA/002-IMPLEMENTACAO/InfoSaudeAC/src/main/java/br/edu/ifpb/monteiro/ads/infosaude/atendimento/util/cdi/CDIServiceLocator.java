@@ -10,6 +10,10 @@ import javax.naming.NamingException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ *
+ * @author cassio
+ */
 public class CDIServiceLocator {
 
     private static final Log LOGGER = LogFactory.getLog(CDIServiceLocator.class);
@@ -27,6 +31,13 @@ public class CDIServiceLocator {
         }
     }
 
+    /**
+     *
+     * @param <T>
+     * @param clazz
+     * @return
+     * @throws UBSException
+     */
     @SuppressWarnings("unchecked")
     public static <T> T getBean(Class<T> clazz) throws UBSException {
         BeanManager bm = getBeanManager();

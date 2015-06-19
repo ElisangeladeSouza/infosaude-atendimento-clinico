@@ -15,9 +15,15 @@ public class RecepcionistaTest {
 
     private Recepcionista recepcionista;
 
+    /**
+     *
+     */
     public RecepcionistaTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         recepcionista = new Recepcionista();
@@ -39,6 +45,9 @@ public class RecepcionistaTest {
         recepcionista.setRg("9217406");
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(recepcionista.getCpfRecepcionista());

@@ -18,10 +18,21 @@ public class TecnicoEnfermagemConverter implements Converter {
 
     private final TecnicoEnfermagemService tecnicoEnfermagemService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public TecnicoEnfermagemConverter() throws UBSException {
         this.tecnicoEnfermagemService = CDIServiceLocator.getBean(TecnicoEnfermagemService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class TecnicoEnfermagemConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

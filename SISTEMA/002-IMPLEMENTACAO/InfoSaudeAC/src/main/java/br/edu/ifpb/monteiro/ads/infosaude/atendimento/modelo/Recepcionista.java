@@ -20,21 +20,40 @@ public class Recepcionista extends Pessoa implements Serializable {
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSusRecepcionista;
 
+    /**
+     *
+     */
     public Recepcionista() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCpfRecepcionista() {
         return cpfRecepcionista;
     }
 
+    /**
+     *
+     * @param cpfRecepcionista
+     */
     public void setCpfRecepcionista(String cpfRecepcionista) {
         this.cpfRecepcionista = cpfRecepcionista;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCartaoSusRecepcionista() {
         return cartaoSusRecepcionista;
     }
 
+    /**
+     *
+     * @param cartaoSusRecepcionista
+     */
     public void setCartaoSusRecepcionista(String cartaoSusRecepcionista) {
         this.cartaoSusRecepcionista = cartaoSusRecepcionista;
     }

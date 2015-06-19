@@ -23,9 +23,16 @@ public class ConsultaService implements Serializable {
     @Inject
     private ConsultaDao consultaDao;
 
+    /**
+     *
+     */
     public ConsultaService() {
     }
 
+    /**
+     *
+     * @param consulta
+     */
     @Transactional
     public void save(Consulta consulta) {
         if (consulta != null) {
@@ -34,15 +41,29 @@ public class ConsultaService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param consulta
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Consulta consulta) throws UBSException {
         consultaDao.delete(findById(consulta.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Consulta findById(Long id) {
         return consultaDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Consulta> findAll() {
         return consultaDao.findAll();
     }

@@ -37,10 +37,16 @@ public class TecnicoEnfermagemBean implements Serializable {
 
     private transient List<TecnicoEnfermagem> tecnicos;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemBean() {
 
     }
 
+    /**
+     *
+     */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(tecnicoEnfermagem.getEnderecoEstado().getCodigo())) {
@@ -48,11 +54,19 @@ public class TecnicoEnfermagemBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<TecnicoEnfermagem> getTecnicos() {
         this.tecnicos = tecnicoEnfermagemService.findAll();
         return tecnicos;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
@@ -68,6 +82,10 @@ public class TecnicoEnfermagemBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.tecnicoEnfermagemService.delete(tecnicoEnfermagemSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -77,30 +95,60 @@ public class TecnicoEnfermagemBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.tecnicoEnfermagem.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public TecnicoEnfermagem getTecnicoEnfermagemSelecionado() {
         return tecnicoEnfermagemSelecionado;
     }
 
+    /**
+     *
+     * @param tecnicoEnfermagemSelecionado
+     */
     public void setTecnicoEnfermagemSelecionado(TecnicoEnfermagem tecnicoEnfermagemSelecionado) {
         this.tecnicoEnfermagemSelecionado = tecnicoEnfermagemSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public TecnicoEnfermagem getTecnicoEnfermagem() {
         return tecnicoEnfermagem;
     }
 
+    /**
+     *
+     * @param tecnicoEnfermagem
+     */
     public void setTecnicoEnfermagem(TecnicoEnfermagem tecnicoEnfermagem) {
         this.tecnicoEnfermagem = tecnicoEnfermagem;
     }
 
+    /**
+     *
+     * @return
+     */
     public TecnicoEnfermagemService getTecnicoEnfermagemService() {
         return tecnicoEnfermagemService;
     }
 
+    /**
+     *
+     * @param tecnicoEnfermagemService
+     */
     public void setTecnicoEnfermagemService(TecnicoEnfermagemService tecnicoEnfermagemService) {
         this.tecnicoEnfermagemService = tecnicoEnfermagemService;
     }

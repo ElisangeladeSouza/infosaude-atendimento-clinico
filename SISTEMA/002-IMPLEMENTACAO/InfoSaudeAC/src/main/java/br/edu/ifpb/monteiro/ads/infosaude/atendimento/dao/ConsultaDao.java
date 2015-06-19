@@ -11,6 +11,9 @@ public class ConsultaDao extends DaoAbstrato<Consulta> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public ConsultaDao() {
         super(Consulta.class);
     }

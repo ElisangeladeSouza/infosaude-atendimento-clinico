@@ -19,9 +19,16 @@ public class TecnicoEnfermagemService implements Serializable {
     @Inject
     private TecnicoEnfermagemDao tecnicoEnfermagemDAO;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemService() {
     }
 
+    /**
+     *
+     * @param tecnicoEnfermagem
+     */
     @Transactional
     public void save(TecnicoEnfermagem tecnicoEnfermagem) {
         if (tecnicoEnfermagem != null) {
@@ -29,15 +36,29 @@ public class TecnicoEnfermagemService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param tecnicoEnfermagem
+     * @throws UBSException
+     */
     @Transactional
     public void delete(TecnicoEnfermagem tecnicoEnfermagem) throws UBSException {
         tecnicoEnfermagemDAO.delete(findById(tecnicoEnfermagem.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<TecnicoEnfermagem> findAll() {
         return tecnicoEnfermagemDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public TecnicoEnfermagem findById(Long id) {
         return tecnicoEnfermagemDAO.findById(id);
     }

@@ -18,10 +18,21 @@ public class AdministradorConverter implements Converter {
 
     private final AdministradorService administradorService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public AdministradorConverter() throws UBSException {
         this.administradorService = CDIServiceLocator.getBean(AdministradorService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class AdministradorConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

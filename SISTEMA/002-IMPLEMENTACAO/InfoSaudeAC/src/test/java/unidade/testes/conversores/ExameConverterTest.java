@@ -15,15 +15,26 @@ import org.junit.Test;
  */
 public class ExameConverterTest {
     
+    /**
+     *
+     */
     public ExameConverterTest() {
     }
     
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testGetAsObject() throws UBSException {
         ExameConverter exameConverter = new ExameConverter();
         exameConverter.getAsObject(null, null, null);
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testGetAsString() throws UBSException {
         ExameConverter exameConverter = new ExameConverter();

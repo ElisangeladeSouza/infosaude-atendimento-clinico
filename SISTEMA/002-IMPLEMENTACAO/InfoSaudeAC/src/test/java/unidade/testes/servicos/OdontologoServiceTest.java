@@ -29,12 +29,18 @@ public class OdontologoServiceTest {
     @Mock
     private OdontologoService odontologoService;
 
+    /**
+     *
+     */
     public OdontologoServiceTest() {
 
         odontologoService = new OdontologoService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class OdontologoServiceTest {
         novoOdontologo = new Odontologo();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -59,12 +68,18 @@ public class OdontologoServiceTest {
         assertEquals("777 9876 8877 2244", odontologo.getCartaoSusOdontologo());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(odontologoService.findById(0L)).thenThrow(new Exception());
         odontologo = odontologoService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdExistente() {
 
@@ -82,6 +97,9 @@ public class OdontologoServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

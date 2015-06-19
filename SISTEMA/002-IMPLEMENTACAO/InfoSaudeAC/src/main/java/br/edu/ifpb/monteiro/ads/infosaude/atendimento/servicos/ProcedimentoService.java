@@ -23,9 +23,16 @@ public class ProcedimentoService implements Serializable {
     @Inject
     private ProcedimentoDao procedimentoDao;
 
+    /**
+     *
+     */
     public ProcedimentoService() {
     }
 
+    /**
+     *
+     * @param procedimento
+     */
     @Transactional
     public void save(Procedimento procedimento) {
         if (procedimento != null) {
@@ -34,15 +41,29 @@ public class ProcedimentoService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param procedimento
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Procedimento procedimento) throws UBSException {
         procedimentoDao.delete(findById(procedimento.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Procedimento findById(Long id) {
         return procedimentoDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Procedimento> findAll() {
         return procedimentoDao.findAll();
     }

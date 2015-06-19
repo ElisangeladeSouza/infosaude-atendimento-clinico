@@ -30,6 +30,9 @@ public abstract class DaoAbstrato<T> implements Serializable {
 
     private Class<T> entity;
 
+    /**
+     *
+     */
     public DaoAbstrato() {
     }
 
@@ -94,6 +97,13 @@ public abstract class DaoAbstrato<T> implements Serializable {
         return entityManager.find(entity, id);
     }
 
+    /**
+     *
+     * @param campo
+     * @param valor
+     * @return
+     * @throws UBSException
+     */
     public T buscarPorCampo(String campo, Object valor) throws UBSException {
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

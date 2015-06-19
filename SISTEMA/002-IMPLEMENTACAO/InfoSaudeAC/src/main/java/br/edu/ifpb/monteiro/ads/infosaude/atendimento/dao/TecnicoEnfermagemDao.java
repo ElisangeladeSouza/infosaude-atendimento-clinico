@@ -11,6 +11,9 @@ public class TecnicoEnfermagemDao extends DaoAbstrato<TecnicoEnfermagem> impleme
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemDao() {
         super(TecnicoEnfermagem.class);
     }

@@ -33,14 +33,24 @@ public class ConsultaBean implements Serializable {
 
     private transient List<Consulta> consultas;
 
+    /**
+     *
+     */
     public ConsultaBean() {
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Consulta> getConsultas() {
         this.consultas = consultaService.findAll();
         return consultas;
     }
 
+    /**
+     *
+     */
     public void salvar() {
         this.consultaService.save(consulta);
         if (getEditando()) {
@@ -51,6 +61,10 @@ public class ConsultaBean implements Serializable {
         consulta = new Consulta();
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.consultaService.delete(consultaSelecionada);
         LOGGER.info("Exclusão de consulta efetuada.");
@@ -61,30 +75,60 @@ public class ConsultaBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.consulta.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Consulta getConsultaSelecionada() {
         return consultaSelecionada;
     }
 
+    /**
+     *
+     * @param consultaSelecionada
+     */
     public void setConsultaSelecionada(Consulta consultaSelecionada) {
         this.consultaSelecionada = consultaSelecionada;
     }
 
+    /**
+     *
+     * @return
+     */
     public Consulta getConsulta() {
         return consulta;
     }
 
+    /**
+     *
+     * @param consulta
+     */
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
     }
 
+    /**
+     *
+     * @return
+     */
     public ConsultaService getConsultaService() {
         return consultaService;
     }
 
+    /**
+     *
+     * @param consultaService
+     */
     public void setConsultaService(ConsultaService consultaService) {
         this.consultaService = consultaService;
     }

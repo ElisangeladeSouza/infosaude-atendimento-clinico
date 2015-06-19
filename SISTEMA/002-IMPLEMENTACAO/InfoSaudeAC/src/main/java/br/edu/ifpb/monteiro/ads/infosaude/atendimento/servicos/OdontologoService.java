@@ -22,9 +22,16 @@ public class OdontologoService implements Serializable {
     @Inject
     private OdontologoDao odontologoDAO;
 
+    /**
+     *
+     */
     public OdontologoService() {
     }
 
+    /**
+     *
+     * @param odontologo
+     */
     @Transactional
     public void save(Odontologo odontologo) {
         if (odontologo != null) {
@@ -32,15 +39,29 @@ public class OdontologoService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param odontologo
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Odontologo odontologo) throws UBSException {
         odontologoDAO.delete(findById(odontologo.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Odontologo> findAll() {
         return odontologoDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Odontologo findById(Long id) {
         return odontologoDAO.findById(id);
     }

@@ -11,6 +11,9 @@ public class FichaAtendimentoDao extends DaoAbstrato<FichaAtendimento> implement
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public FichaAtendimentoDao() {
         super(FichaAtendimento.class);
     }

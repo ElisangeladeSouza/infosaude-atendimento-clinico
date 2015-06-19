@@ -34,12 +34,18 @@ public class TriagemServiceTest {
     @Mock
     private TriagemService triagemService;
 
+    /**
+     *
+     */
     public TriagemServiceTest() {
 
         triagemService = new TriagemService();
 
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
 
@@ -48,6 +54,9 @@ public class TriagemServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -56,6 +65,9 @@ public class TriagemServiceTest {
         novaTriagem = new Triagem();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
 
@@ -63,6 +75,9 @@ public class TriagemServiceTest {
         triagem = triagemService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -76,6 +91,9 @@ public class TriagemServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
 
@@ -84,6 +102,9 @@ public class TriagemServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

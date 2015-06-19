@@ -34,12 +34,18 @@ public class ExameServiceTest {
     @Mock
     private ExameService exameService;
 
+    /**
+     *
+     */
     public ExameServiceTest() {
 
         exameService = new ExameService();
 
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
 
@@ -48,6 +54,9 @@ public class ExameServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -56,6 +65,9 @@ public class ExameServiceTest {
         novoExame = new Exame();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
 
@@ -63,6 +75,9 @@ public class ExameServiceTest {
         exame = exameService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -76,6 +91,9 @@ public class ExameServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
 
@@ -84,6 +102,9 @@ public class ExameServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

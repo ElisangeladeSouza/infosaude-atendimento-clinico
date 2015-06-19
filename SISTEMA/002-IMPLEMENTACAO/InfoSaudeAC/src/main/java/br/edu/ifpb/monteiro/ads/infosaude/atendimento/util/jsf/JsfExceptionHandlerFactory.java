@@ -12,10 +12,18 @@ public class JsfExceptionHandlerFactory extends ExceptionHandlerFactory {
 
     private final ExceptionHandlerFactory exceptionHandlerFactory;
 
+    /**
+     *
+     * @param exceptionHandlerFactory
+     */
     public JsfExceptionHandlerFactory(ExceptionHandlerFactory exceptionHandlerFactory) {
         this.exceptionHandlerFactory = exceptionHandlerFactory;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ExceptionHandler getExceptionHandler() {
         return new JsfExceptionHandler(exceptionHandlerFactory.getExceptionHandler());

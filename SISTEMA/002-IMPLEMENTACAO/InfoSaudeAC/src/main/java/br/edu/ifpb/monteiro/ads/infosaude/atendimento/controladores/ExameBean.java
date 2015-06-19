@@ -29,14 +29,25 @@ public class ExameBean implements Serializable {
 
     private transient List<Exame> exames;
 
+    /**
+     *
+     */
     public ExameBean() {
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Exame> getExames() {
         this.exames = exameService.findAll();
         return exames;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         this.exameService.save(exame);
         if (getEditando()) {
@@ -47,6 +58,10 @@ public class ExameBean implements Serializable {
         exame = new Exame();
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.exameService.delete(exameSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -56,30 +71,60 @@ public class ExameBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.exame.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Exame getExameSelecionado() {
         return exameSelecionado;
     }
 
+    /**
+     *
+     * @param exameSelecionado
+     */
     public void setExameSelecionado(Exame exameSelecionado) {
         this.exameSelecionado = exameSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Exame getExame() {
         return exame;
     }
 
+    /**
+     *
+     * @param exame
+     */
     public void setExame(Exame exame) {
         this.exame = exame;
     }
 
+    /**
+     *
+     * @return
+     */
     public ExameService getExameService() {
         return exameService;
     }
 
+    /**
+     *
+     * @param exameService
+     */
     public void setExameService(ExameService exameService) {
         this.exameService = exameService;
     }

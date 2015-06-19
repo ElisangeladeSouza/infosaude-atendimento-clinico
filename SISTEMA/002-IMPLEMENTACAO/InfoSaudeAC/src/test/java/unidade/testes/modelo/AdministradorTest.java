@@ -15,9 +15,15 @@ public class AdministradorTest {
 
     private Administrador administrador = new Administrador();
 
+    /**
+     *
+     */
     public AdministradorTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         administrador = new Administrador();
@@ -39,6 +45,9 @@ public class AdministradorTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(administrador.getCpfAdministrador());

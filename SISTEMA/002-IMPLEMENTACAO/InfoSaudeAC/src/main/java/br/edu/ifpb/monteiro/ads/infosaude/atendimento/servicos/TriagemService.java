@@ -23,9 +23,16 @@ public class TriagemService implements Serializable {
     @Inject
     private TriagemDao triagemDao;
 
+    /**
+     *
+     */
     public TriagemService() {
     }
 
+    /**
+     *
+     * @param triagem
+     */
     @Transactional
     public void save(Triagem triagem) {
         if (triagem != null) {
@@ -34,15 +41,29 @@ public class TriagemService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param triagem
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Triagem triagem) throws UBSException {
         triagemDao.delete(findById(triagem.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Triagem findById(Long id) {
         return triagemDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Triagem> findAll() {
         return triagemDao.findAll();
     }

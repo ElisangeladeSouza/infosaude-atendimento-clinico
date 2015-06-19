@@ -27,9 +27,15 @@ public class AdministradorDaoTest {
     private static List<Administrador> listaAdministradores;
     private static Long id;
 
+    /**
+     *
+     */
     public AdministradorDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         administradorDao = new AdministradorDao();
@@ -39,6 +45,9 @@ public class AdministradorDaoTest {
         administradorDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNull() {
 
@@ -50,6 +59,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarAdministradorCamposObrigatorios() {
 
@@ -89,6 +101,9 @@ public class AdministradorDaoTest {
         assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarAdministradorTodosCampos() {
 
@@ -131,6 +146,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorDuplicado() {
 
@@ -162,6 +180,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNome() {
 
@@ -175,6 +196,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorCpf() {
 
@@ -188,6 +212,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorSus() {
 
@@ -201,6 +228,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorEmail() {
 
@@ -214,6 +244,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNomeCpf() {
 
@@ -228,6 +261,9 @@ public class AdministradorDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorCpfDuplicado() {
 
@@ -253,6 +289,9 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorSusDuplicado() {
 
@@ -278,6 +317,9 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -293,6 +335,9 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 
@@ -313,6 +358,9 @@ public class AdministradorDaoTest {
         assertFalse(0 == listaAdministradores.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -342,6 +390,9 @@ public class AdministradorDaoTest {
         assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -361,6 +412,9 @@ public class AdministradorDaoTest {
         assertNull(novoAdministrador = administradorDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

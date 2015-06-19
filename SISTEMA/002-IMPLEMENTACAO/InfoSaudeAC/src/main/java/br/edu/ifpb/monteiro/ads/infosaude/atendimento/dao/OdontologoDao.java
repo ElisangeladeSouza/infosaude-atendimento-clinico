@@ -11,6 +11,9 @@ public class OdontologoDao extends DaoAbstrato<Odontologo> implements Serializab
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public OdontologoDao() {
         super(Odontologo.class);
     }

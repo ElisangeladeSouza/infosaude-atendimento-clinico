@@ -22,9 +22,16 @@ public class MedicoService implements Serializable {
     @Inject
     private MedicoDao medicoDao;
 
+    /**
+     *
+     */
     public MedicoService() {
     }
 
+    /**
+     *
+     * @param medico
+     */
     @Transactional
     public void save(Medico medico) {
         if (medico != null) {
@@ -32,15 +39,29 @@ public class MedicoService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param medico
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Medico medico) throws UBSException {
         medicoDao.delete(findById(medico.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Medico findById(Long id) {
         return medicoDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Medico> findAll() {
         return medicoDao.findAll();
     }

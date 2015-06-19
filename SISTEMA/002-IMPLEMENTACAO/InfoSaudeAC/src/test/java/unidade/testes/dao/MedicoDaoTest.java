@@ -27,9 +27,15 @@ public class MedicoDaoTest {
     private static List<Medico> listaMedicos;
     private static Long id;
 
+    /**
+     *
+     */
     public MedicoDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         medicoDao = new MedicoDao();
@@ -39,6 +45,9 @@ public class MedicoDaoTest {
         medicoDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNull() {
 
@@ -50,6 +59,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarMedicoCamposObrigatorios() {
 
@@ -89,6 +101,9 @@ public class MedicoDaoTest {
         assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarMedicoTodosCampos() {
 
@@ -130,6 +145,9 @@ public class MedicoDaoTest {
         assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoDuplicado() {
 
@@ -162,6 +180,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNome() {
 
@@ -175,6 +196,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCpf() {
 
@@ -188,6 +212,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCrm() {
 
@@ -201,6 +228,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoSus() {
 
@@ -214,6 +244,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoEmail() {
 
@@ -227,6 +260,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNomeCpf() {
 
@@ -241,6 +277,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNomeCpfCrm() {
 
@@ -256,6 +295,9 @@ public class MedicoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCpfDuplicado() {
 
@@ -283,6 +325,9 @@ public class MedicoDaoTest {
         medicoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarMedicoSusDuplicado() {
 
@@ -310,6 +355,9 @@ public class MedicoDaoTest {
         medicoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -326,6 +374,9 @@ public class MedicoDaoTest {
         medicoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 
@@ -347,6 +398,9 @@ public class MedicoDaoTest {
         assertFalse(0 == listaMedicos.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -377,6 +431,9 @@ public class MedicoDaoTest {
         assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -397,6 +454,9 @@ public class MedicoDaoTest {
         assertNull(novoMedico = medicoDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

@@ -9,15 +9,30 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+/**
+ *
+ * @author cassio
+ */
 @FacesConverter(forClass = RequisicaoExame.class)
 public class RequisicaoExameConverter implements Converter {
 
     private final RequisicaoExameService requisicaoExameService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public RequisicaoExameConverter() throws UBSException {
         this.requisicaoExameService = CDIServiceLocator.getBean(RequisicaoExameService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -29,6 +44,13 @@ public class RequisicaoExameConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

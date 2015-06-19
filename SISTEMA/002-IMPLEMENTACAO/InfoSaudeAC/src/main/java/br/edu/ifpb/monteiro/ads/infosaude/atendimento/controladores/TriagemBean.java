@@ -29,14 +29,25 @@ public class TriagemBean implements Serializable {
 
     private transient List<Triagem> triagens;
 
+    /**
+     *
+     */
     public TriagemBean() {
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Triagem> getTriagens() {
         this.triagens = triagemService.findAll();
         return triagens;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         this.triagemService.save(triagem);
         if (getEditando()) {
@@ -47,6 +58,10 @@ public class TriagemBean implements Serializable {
         triagem = new Triagem();
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.triagemService.delete(triagemSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -56,30 +71,60 @@ public class TriagemBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.triagem.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Triagem getTriagemSelecionada() {
         return triagemSelecionada;
     }
 
+    /**
+     *
+     * @param triagemSelecionada
+     */
     public void setTriagemSelecionada(Triagem triagemSelecionada) {
         this.triagemSelecionada = triagemSelecionada;
     }
 
+    /**
+     *
+     * @return
+     */
     public Triagem getTriagem() {
         return triagem;
     }
 
+    /**
+     *
+     * @param triagem
+     */
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
 
+    /**
+     *
+     * @return
+     */
     public TriagemService getTriagemService() {
         return triagemService;
     }
 
+    /**
+     *
+     * @param triagemService
+     */
     public void setTriagemService(TriagemService triagemService) {
         this.triagemService = triagemService;
     }

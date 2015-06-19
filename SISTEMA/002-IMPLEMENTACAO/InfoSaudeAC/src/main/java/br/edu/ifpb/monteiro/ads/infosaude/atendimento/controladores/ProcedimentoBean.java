@@ -29,14 +29,25 @@ public class ProcedimentoBean implements Serializable {
 
     private transient List<Procedimento> procedimentos;
 
+    /**
+     *
+     */
     public ProcedimentoBean() {
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Procedimento> getProcedimentos() {
         this.procedimentos = procedimentoService.findAll();
         return procedimentos;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         this.procedimentoService.save(procedimento);
         if (getEditando()) {
@@ -47,6 +58,10 @@ public class ProcedimentoBean implements Serializable {
         procedimento = new Procedimento();
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.procedimentoService.delete(procedimentoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -56,30 +71,60 @@ public class ProcedimentoBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.procedimento.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Procedimento getProcedimentoSelecionado() {
         return procedimentoSelecionado;
     }
 
+    /**
+     *
+     * @param procedimentoSelecionado
+     */
     public void setProcedimentoSelecionado(Procedimento procedimentoSelecionado) {
         this.procedimentoSelecionado = procedimentoSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Procedimento getProcedimento() {
         return procedimento;
     }
 
+    /**
+     *
+     * @param procedimento
+     */
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }
 
+    /**
+     *
+     * @return
+     */
     public ProcedimentoService getProcedimentoService() {
         return procedimentoService;
     }
 
+    /**
+     *
+     * @param procedimentoService
+     */
     public void setProcedimentoService(ProcedimentoService procedimentoService) {
         this.procedimentoService = procedimentoService;
     }

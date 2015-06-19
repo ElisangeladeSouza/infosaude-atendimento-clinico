@@ -29,12 +29,18 @@ public class TecnicoEnfermagemServiceTest {
     @Mock
     private TecnicoEnfermagemService tecnicoEnfermagemService;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemServiceTest() {
 
         tecnicoEnfermagemService = new TecnicoEnfermagemService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class TecnicoEnfermagemServiceTest {
         novoTecnicoEnfermagem = new TecnicoEnfermagem();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -59,12 +68,18 @@ public class TecnicoEnfermagemServiceTest {
         assertEquals("123 9876 9876 1234", tecnicoEnfermagem.getCartaoSusTecnicoEnfermagem());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(tecnicoEnfermagemService.findById(0L)).thenThrow(new Exception());
         tecnicoEnfermagem = tecnicoEnfermagemService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdExistente() {
 
@@ -82,6 +97,9 @@ public class TecnicoEnfermagemServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

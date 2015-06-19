@@ -29,12 +29,18 @@ public class AdministradorServiceTest {
     @Mock
     private AdministradorService administradorService;
 
+    /**
+     *
+     */
     public AdministradorServiceTest() {
 
         administradorService = new AdministradorService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class AdministradorServiceTest {
         novoAdministrador = new Administrador();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -58,12 +67,18 @@ public class AdministradorServiceTest {
         assertEquals("777 1234 1111 9876", administrador.getCartaoSusAdministrador());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(administradorService.findById(0L)).thenThrow(new Exception());
         administrador = administradorService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -79,6 +94,9 @@ public class AdministradorServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

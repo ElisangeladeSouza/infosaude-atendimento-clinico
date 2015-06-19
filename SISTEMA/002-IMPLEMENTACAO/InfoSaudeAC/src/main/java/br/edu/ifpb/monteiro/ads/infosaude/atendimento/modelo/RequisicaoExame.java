@@ -40,50 +40,98 @@ public class RequisicaoExame implements Serializable {
     @OneToMany
     private transient List<Exame> exames;
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSolicitanteCnes() {
         return solicitanteCnes;
     }
 
+    /**
+     *
+     * @param solicitanteCnes
+     */
     public void setSolicitanteCnes(String solicitanteCnes) {
         this.solicitanteCnes = solicitanteCnes;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSolicitanteEndereco() {
         return solicitanteEndereco;
     }
 
+    /**
+     *
+     * @param solicitanteEndereco
+     */
     public void setSolicitanteEndereco(String solicitanteEndereco) {
         this.solicitanteEndereco = solicitanteEndereco;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSolicitanteCidade() {
         return solicitanteCidade;
     }
 
+    /**
+     *
+     * @param solicitanteCidade
+     */
     public void setSolicitanteCidade(String solicitanteCidade) {
         this.solicitanteCidade = solicitanteCidade;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getData() {
         return data;
     }
 
+    /**
+     *
+     * @param data
+     */
     public void setData(Date data) {
         this.data = data;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Exame> getExames() {
         return exames;
     }
 
+    /**
+     *
+     * @param exames
+     */
     public void setExames(List<Exame> exames) {
         this.exames = exames;
     }

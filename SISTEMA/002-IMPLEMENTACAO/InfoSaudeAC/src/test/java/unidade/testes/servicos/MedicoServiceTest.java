@@ -29,12 +29,18 @@ public class MedicoServiceTest {
     @Mock
     private MedicoService medicoService;
 
+    /**
+     *
+     */
     public MedicoServiceTest() {
 
         medicoService = new MedicoService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class MedicoServiceTest {
         novoMedico = new Medico();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -59,12 +68,18 @@ public class MedicoServiceTest {
         assertEquals("777 9876 9876 2225", medico.getCartaoSusMedico());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(medicoService.findById(0L)).thenThrow(new Exception());
         medico = medicoService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdExistente() {
 
@@ -82,6 +97,9 @@ public class MedicoServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

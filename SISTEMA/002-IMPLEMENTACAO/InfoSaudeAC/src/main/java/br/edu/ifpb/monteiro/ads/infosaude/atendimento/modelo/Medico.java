@@ -25,29 +25,56 @@ public class Medico extends Pessoa implements Serializable {
     @Column(name = "medico_crm", unique = true, length = 30)
     private String crm;
 
+    /**
+     *
+     */
     public Medico() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCrm() {
         return crm;
     }
 
+    /**
+     *
+     * @param crm
+     */
     public void setCrm(String crm) {
         this.crm = crm;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCpfMedico() {
         return cpfMedico;
     }
 
+    /**
+     *
+     * @param cpfMedico
+     */
     public void setCpfMedico(String cpfMedico) {
         this.cpfMedico = cpfMedico;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCartaoSusMedico() {
         return cartaoSusMedico;
     }
 
+    /**
+     *
+     * @param cartaoSusMedico
+     */
     public void setCartaoSusMedico(String cartaoSusMedico) {
         this.cartaoSusMedico = cartaoSusMedico;
     }

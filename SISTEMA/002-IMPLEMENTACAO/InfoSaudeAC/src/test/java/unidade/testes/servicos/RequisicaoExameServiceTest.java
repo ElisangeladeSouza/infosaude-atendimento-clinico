@@ -38,12 +38,18 @@ public class RequisicaoExameServiceTest {
     @Mock
     private RequisicaoExameService requisicaoExameService;
 
+    /**
+     *
+     */
     public RequisicaoExameServiceTest() {
 
         requisicaoExameService = new RequisicaoExameService();
 
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
 
@@ -59,6 +65,9 @@ public class RequisicaoExameServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -67,6 +76,9 @@ public class RequisicaoExameServiceTest {
         novaRequisicaoExame = new RequisicaoExame();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
 
@@ -74,6 +86,9 @@ public class RequisicaoExameServiceTest {
         requisicaoExame = requisicaoExameService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -90,6 +105,9 @@ public class RequisicaoExameServiceTest {
         assertEquals("Centro", novaRequisicaoExame.getSolicitanteEndereco());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
 
@@ -98,6 +116,9 @@ public class RequisicaoExameServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

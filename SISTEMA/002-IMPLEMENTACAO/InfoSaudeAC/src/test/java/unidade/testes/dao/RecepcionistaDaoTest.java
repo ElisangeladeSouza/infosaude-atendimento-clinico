@@ -26,9 +26,15 @@ public class RecepcionistaDaoTest {
     private static List<Recepcionista> listaRecepcionistas;
     private static Long id;
 
+    /**
+     *
+     */
     public RecepcionistaDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         recepcionistaDao = new RecepcionistaDao();
@@ -38,6 +44,9 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNull() {
 
@@ -49,6 +58,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarRecepcionistaCamposObrigatorios() {
 
@@ -87,6 +99,9 @@ public class RecepcionistaDaoTest {
         assertEquals(recepcionista.getCpfRecepcionista(), novoRecepcionista.getCpfRecepcionista());
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarRecepcionistaTodosCampos() {
 
@@ -127,6 +142,9 @@ public class RecepcionistaDaoTest {
         assertEquals(recepcionista.getCpfRecepcionista(), novoRecepcionista.getCpfRecepcionista());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaDuplicado() {
 
@@ -158,6 +176,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNome() {
 
@@ -171,6 +192,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaCpf() {
 
@@ -184,6 +208,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaSus() {
 
@@ -197,6 +224,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaEmail() {
 
@@ -210,6 +240,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNomeCpf() {
 
@@ -224,6 +257,9 @@ public class RecepcionistaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaCpfDuplicado() {
 
@@ -249,6 +285,9 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaSusDuplicado() {
 
@@ -274,6 +313,9 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -289,6 +331,9 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -318,6 +363,9 @@ public class RecepcionistaDaoTest {
         assertEquals(recepcionista.getCpfRecepcionista(), novoRecepcionista.getCpfRecepcionista());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -337,6 +385,9 @@ public class RecepcionistaDaoTest {
         assertNull(novoRecepcionista = recepcionistaDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

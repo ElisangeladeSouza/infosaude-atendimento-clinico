@@ -19,23 +19,42 @@ public class DateTimeUtilBean implements Serializable {
     private Date date = new Date();
     Calendar calendar = new GregorianCalendar();
 
+    /**
+     *
+     */
     public DateTimeUtilBean() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDateToday() {
         return new Date();
     }
 
+    /**
+     *
+     * @return
+     */
     public Date dateHour() {
         this.date = new Timestamp(date.getTime());
         return date;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDate(Date date) {
         this.date = date;
     }

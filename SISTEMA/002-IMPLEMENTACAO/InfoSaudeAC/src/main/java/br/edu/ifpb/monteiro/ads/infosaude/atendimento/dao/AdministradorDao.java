@@ -11,6 +11,9 @@ public class AdministradorDao extends DaoAbstrato<Administrador> implements Seri
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public AdministradorDao() {
         super(Administrador.class);
     }

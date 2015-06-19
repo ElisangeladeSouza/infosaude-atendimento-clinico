@@ -20,9 +20,16 @@ public class ExameService implements Serializable {
     @Inject
     private ExameDao exameDao;
 
+    /**
+     *
+     */
     public ExameService() {
     }
 
+    /**
+     *
+     * @param exame
+     */
     @Transactional
     public void save(Exame exame) {
         if (exame != null) {
@@ -31,15 +38,29 @@ public class ExameService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param exame
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Exame exame) throws UBSException {
         exameDao.delete(findById(exame.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Exame findById(Long id) {
         return exameDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Exame> findAll() {
         return exameDao.findAll();
     }

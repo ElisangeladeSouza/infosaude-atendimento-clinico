@@ -22,9 +22,16 @@ public class PacienteService implements Serializable {
     @Inject
     private PacienteDao pacienteDao;
 
+    /**
+     *
+     */
     public PacienteService() {
     }
 
+    /**
+     *
+     * @param paciente
+     */
     @Transactional
     public void save(Paciente paciente) {
         if (paciente != null) {
@@ -32,15 +39,29 @@ public class PacienteService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param paciente
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Paciente paciente) throws UBSException {
         pacienteDao.delete(findById(paciente.getId()));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Paciente findById(Long id) {
         return pacienteDao.findById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Paciente> findAll() {
         return pacienteDao.findAll();
     }

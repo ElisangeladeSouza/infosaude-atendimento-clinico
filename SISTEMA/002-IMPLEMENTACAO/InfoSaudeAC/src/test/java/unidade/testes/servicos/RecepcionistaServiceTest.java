@@ -29,12 +29,18 @@ public class RecepcionistaServiceTest {
     @Mock
     private RecepcionistaService recepcionistaService;
 
+    /**
+     *
+     */
     public RecepcionistaServiceTest() {
 
         recepcionistaService = new RecepcionistaService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class RecepcionistaServiceTest {
         novoRecepcionista = new Recepcionista();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -57,12 +66,18 @@ public class RecepcionistaServiceTest {
         assertEquals("777 1234 5678 9012", recepcionista.getCartaoSusRecepcionista());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(recepcionistaService.findById(0L)).thenThrow(new Exception());
         recepcionista = recepcionistaService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdExistente() {
 
@@ -78,6 +93,9 @@ public class RecepcionistaServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

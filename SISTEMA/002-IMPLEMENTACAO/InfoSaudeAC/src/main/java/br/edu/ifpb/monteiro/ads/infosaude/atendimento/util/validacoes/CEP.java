@@ -21,8 +21,16 @@ import javax.validation.Payload;
 @Constraint(validatedBy = {})
 public @interface CEP {
 
+    /**
+     *
+     * @return
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return
+     */
     Class<? extends Payload>[] payload() default {};
 
 }

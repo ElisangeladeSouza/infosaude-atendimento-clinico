@@ -19,9 +19,15 @@ public class FichaAtendimentoDaoTest {
     private static EntityManager entityManager;
     private static FichaAtendimentoDao fichaAtendimentoDao;
     
+    /**
+     *
+     */
     public FichaAtendimentoDaoTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         
@@ -31,7 +37,9 @@ public class FichaAtendimentoDaoTest {
        fichaAtendimentoDao.setEntityManager(entityManager);    
     }
     
-
+    /**
+     *
+     */
     @Test (expected = Exception.class)
     public void testSalvarFichaAtendimentoNull() {
 
@@ -43,6 +51,10 @@ public class FichaAtendimentoDaoTest {
         
     }
     
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testBuscarPorCampoNull() throws UBSException{
         
@@ -52,6 +64,9 @@ public class FichaAtendimentoDaoTest {
         
     }
     
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 

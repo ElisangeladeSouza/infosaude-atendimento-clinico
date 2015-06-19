@@ -15,9 +15,15 @@ public class EnfermeiroTest {
 
     private Enfermeiro enfermeiro;
 
+    /**
+     *
+     */
     public EnfermeiroTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         enfermeiro = new Enfermeiro();
@@ -40,6 +46,9 @@ public class EnfermeiroTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(enfermeiro.getNome());

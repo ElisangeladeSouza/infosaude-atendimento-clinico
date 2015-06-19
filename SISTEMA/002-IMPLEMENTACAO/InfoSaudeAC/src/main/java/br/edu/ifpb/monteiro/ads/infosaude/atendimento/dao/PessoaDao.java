@@ -13,10 +13,18 @@ public class PessoaDao extends DaoAbstrato<Pessoa> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public PessoaDao() {
         super(Pessoa.class);
     }
 
+    /**
+     *
+     * @param codigoUF
+     * @return
+     */
     public List<String> retornaCidades(int codigoUF) {
         Query createQuery;
         createQuery = getEntityManager().createNativeQuery("SELECT c.nome FROM cidades c where c.estado = " + codigoUF);

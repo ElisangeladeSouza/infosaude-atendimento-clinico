@@ -30,47 +30,91 @@ public class PessoaBean implements Serializable {
 
     static transient List<String> cidades = new ArrayList<>();
 
+    /**
+     *
+     */
     public PessoaBean() {
         racas = Arrays.asList(RacaCor.values());
         estados = Arrays.asList(Estados.values());
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Estados> getEstados() {
         return estados;
     }
 
+    /**
+     *
+     * @param estados
+     */
     public void setEstados(List<Estados> estados) {
         PessoaBean.estados = estados;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getCidades() {
         return cidades;
     }
 
+    /**
+     *
+     * @param cidades
+     */
     public void setCidades(List<String> cidades) {
         PessoaBean.cidades = cidades;
     }
 
+    /**
+     *
+     * @return
+     */
     public PessoaService getPessoaService() {
         return pessoaService;
     }
 
+    /**
+     *
+     * @param pessoaService
+     */
     public void setPessoaService(PessoaService pessoaService) {
         this.pessoaService = pessoaService;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<RacaCor> getRacas() {
         return racas;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isBotaoEditar() {
         return botaoEditar;
     }
 
+    /**
+     *
+     * @param botaoEditar
+     */
     public void setBotaoEditar(boolean botaoEditar) {
         this.botaoEditar = botaoEditar;
     }
 
+    /**
+     *
+     * @param codigoUF
+     * @return
+     */
     public List<String> retornaCidades(int codigoUF) {
         return pessoaService.retornaCidades(codigoUF);
     }

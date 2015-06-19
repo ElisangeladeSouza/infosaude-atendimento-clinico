@@ -51,61 +51,120 @@ public class Triagem implements Serializable {
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
     private Paciente pacienteTriagem;
 
+    /**
+     *
+     */
     public Triagem() {
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCodigo() {
         return codigo;
     }
 
+    /**
+     *
+     * @param codigo
+     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getData() {
         return data;
     }
 
+    /**
+     *
+     * @param data
+     */
     public void setData(Date data) {
         this.data = data;
     }
 
+    /**
+     *
+     * @return
+     */
     public FichaAtendimento getFichaAtendimentoTriagem() {
         return fichaAtendimentoTriagem;
     }
 
+    /**
+     *
+     * @param fichaAtendimentoTriagem
+     */
     public void setFichaAtendimentoTriagem(FichaAtendimento fichaAtendimentoTriagem) {
         this.fichaAtendimentoTriagem = fichaAtendimentoTriagem;
     }
 
+    /**
+     *
+     * @return
+     */
     public Consulta getConsultaTriagem() {
         return consultaTriagem;
     }
 
+    /**
+     *
+     * @param consultaTriagem
+     */
     public void setConsultaTriagem(Consulta consultaTriagem) {
         this.consultaTriagem = consultaTriagem;
     }
 
+    /**
+     *
+     * @return
+     */
     public Procedimento getProcedimento() {
         return procedimentoTriagem;
     }
 
+    /**
+     *
+     * @param procedimento
+     */
     public void setProcedimento(Procedimento procedimento) {
         this.procedimentoTriagem = procedimento;
     }
 
+    /**
+     *
+     * @return
+     */
     public Paciente getPaciente() {
         return pacienteTriagem;
     }
 
+    /**
+     *
+     * @param paciente
+     */
     public void setPaciente(Paciente paciente) {
         this.pacienteTriagem = paciente;
     }

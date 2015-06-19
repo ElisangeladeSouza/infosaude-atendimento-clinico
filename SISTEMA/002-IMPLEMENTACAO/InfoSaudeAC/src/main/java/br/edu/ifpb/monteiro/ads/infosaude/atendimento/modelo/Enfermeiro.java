@@ -25,29 +25,56 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @Column(name = "enfermeiro_coren", unique = true, length = 30)
     private String corenEnfermeiro;
 
+    /**
+     *
+     */
     public Enfermeiro() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCpfEnfermeiro() {
         return cpfEnfermeiro;
     }
 
+    /**
+     *
+     * @param cpfEnfermeiro
+     */
     public void setCpfEnfermeiro(String cpfEnfermeiro) {
         this.cpfEnfermeiro = cpfEnfermeiro;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCartaoSusEnfermeiro() {
         return cartaoSusEnfermeiro;
     }
 
+    /**
+     *
+     * @param cartaoSusEnfermeiro
+     */
     public void setCartaoSusEnfermeiro(String cartaoSusEnfermeiro) {
         this.cartaoSusEnfermeiro = cartaoSusEnfermeiro;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCorenEnfermeiro() {
         return corenEnfermeiro;
     }
 
+    /**
+     *
+     * @param corenEnfermeiro
+     */
     public void setCorenEnfermeiro(String corenEnfermeiro) {
         this.corenEnfermeiro = corenEnfermeiro;
     }

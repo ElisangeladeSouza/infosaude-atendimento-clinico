@@ -11,6 +11,9 @@ public class RequisicaoExameDao extends DaoAbstrato<RequisicaoExame> implements 
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public RequisicaoExameDao() {
         super(RequisicaoExame.class);
     }

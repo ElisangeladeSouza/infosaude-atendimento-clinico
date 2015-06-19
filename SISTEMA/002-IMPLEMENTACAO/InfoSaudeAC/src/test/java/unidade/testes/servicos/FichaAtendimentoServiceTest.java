@@ -35,12 +35,18 @@ public class FichaAtendimentoServiceTest {
     @Mock
     private FichaAtendimentoService fichaAtendimentoService;
 
+    /**
+     *
+     */
     public FichaAtendimentoServiceTest() {
 
         fichaAtendimentoService = new FichaAtendimentoService();
 
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
 
@@ -49,6 +55,9 @@ public class FichaAtendimentoServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -57,6 +66,9 @@ public class FichaAtendimentoServiceTest {
         novaFichaAtendimento = new FichaAtendimento();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
 
@@ -64,6 +76,9 @@ public class FichaAtendimentoServiceTest {
         fichaAtendimento = fichaAtendimentoService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -77,6 +92,9 @@ public class FichaAtendimentoServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
 
@@ -85,6 +103,9 @@ public class FichaAtendimentoServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

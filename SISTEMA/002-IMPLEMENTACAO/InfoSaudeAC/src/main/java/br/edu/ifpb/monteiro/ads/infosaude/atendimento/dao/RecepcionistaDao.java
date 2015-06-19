@@ -11,6 +11,9 @@ public class RecepcionistaDao extends DaoAbstrato<Recepcionista> implements Seri
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public RecepcionistaDao() {
         super(Recepcionista.class);
     }

@@ -9,7 +9,14 @@ import java.io.Serializable;
  */
 public enum Sexo implements Serializable {
 
+    /**
+     *
+     */
     MASCULINO("Masculino"),
+
+    /**
+     *
+     */
     FEMININO("Feminino");
 
     private final String descricao;
@@ -18,6 +25,10 @@ public enum Sexo implements Serializable {
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }

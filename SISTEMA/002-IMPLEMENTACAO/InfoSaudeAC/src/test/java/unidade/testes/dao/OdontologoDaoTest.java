@@ -27,9 +27,15 @@ public class OdontologoDaoTest {
     private static List<Odontologo> listaOdontologos;
     private static Long id;
 
+    /**
+     *
+     */
     public OdontologoDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         odontologoDao = new OdontologoDao();
@@ -39,6 +45,9 @@ public class OdontologoDaoTest {
         odontologoDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNull() {
 
@@ -50,6 +59,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarOdontologoCamposObrigatorios() {
 
@@ -90,6 +102,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarOdontologoTodosCampos() {
 
@@ -131,6 +146,9 @@ public class OdontologoDaoTest {
         assertEquals(odontologo.getCpfOdontologo(), novoOdontologo.getCpfOdontologo());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoDuplicado() {
 
@@ -163,6 +181,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNome() {
 
@@ -176,6 +197,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCpf() {
 
@@ -189,6 +213,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCro() {
 
@@ -202,6 +229,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoSus() {
 
@@ -215,6 +245,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoEmail() {
 
@@ -228,6 +261,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNomeCpf() {
 
@@ -242,6 +278,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNomeCpfCro() {
 
@@ -257,6 +296,9 @@ public class OdontologoDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCpfDuplicado() {
 
@@ -284,6 +326,9 @@ public class OdontologoDaoTest {
         odontologoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoSusDuplicado() {
 
@@ -311,6 +356,9 @@ public class OdontologoDaoTest {
         odontologoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -327,6 +375,9 @@ public class OdontologoDaoTest {
         odontologoDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 
@@ -348,6 +399,9 @@ public class OdontologoDaoTest {
         assertFalse(0 == listaOdontologos.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -378,6 +432,9 @@ public class OdontologoDaoTest {
         assertEquals(odontologo.getCpfOdontologo(), novoOdontologo.getCpfOdontologo());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -398,6 +455,9 @@ public class OdontologoDaoTest {
         assertNull(novoOdontologo = odontologoDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

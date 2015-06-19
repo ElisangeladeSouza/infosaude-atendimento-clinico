@@ -15,9 +15,15 @@ public class OdontologoTest {
 
     private Odontologo odontologo;
 
+    /**
+     *
+     */
     public OdontologoTest() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         odontologo = new Odontologo();
@@ -40,6 +46,9 @@ public class OdontologoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreateObjetc() {
         System.out.println(odontologo.getNome());

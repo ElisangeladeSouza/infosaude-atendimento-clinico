@@ -22,9 +22,16 @@ public class EnfermeiroService implements Serializable {
     @Inject
     private EnfermeiroDao enfermeiroDAO;
 
+    /**
+     *
+     */
     public EnfermeiroService() {
     }
 
+    /**
+     *
+     * @param enfermeiro
+     */
     @Transactional
     public void save(Enfermeiro enfermeiro) {
         if (enfermeiro != null) {
@@ -32,15 +39,29 @@ public class EnfermeiroService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param enfermeiro
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Enfermeiro enfermeiro) throws UBSException {
         enfermeiroDAO.delete(findById(enfermeiro.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Enfermeiro> findAll() {
         return enfermeiroDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Enfermeiro findById(Long id) {
         return enfermeiroDAO.findById(id);
     }

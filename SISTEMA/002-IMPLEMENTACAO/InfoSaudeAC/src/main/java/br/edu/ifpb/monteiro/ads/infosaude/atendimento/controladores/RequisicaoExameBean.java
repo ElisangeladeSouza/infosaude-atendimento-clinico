@@ -34,14 +34,25 @@ public class RequisicaoExameBean implements Serializable {
 
     private transient List<RequisicaoExame> requisicaoExames;
 
+    /**
+     *
+     */
     public RequisicaoExameBean() {
     }
 
+    /**
+     *
+     * @return
+     */
     public List<RequisicaoExame> getRequisicaoExames() {
         this.requisicaoExames = requisicaoExameService.findAll();
         return requisicaoExames;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.requisicaoExameService.save(requisicaoExame);
@@ -57,6 +68,10 @@ public class RequisicaoExameBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.requisicaoExameService.delete(requisicaoExameSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -66,30 +81,60 @@ public class RequisicaoExameBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.requisicaoExame.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public RequisicaoExame getRequisicaoExameSelecionado() {
         return requisicaoExameSelecionado;
     }
 
+    /**
+     *
+     * @param requisicaoExameSelecionado
+     */
     public void setRequisicaoExameSelecionado(RequisicaoExame requisicaoExameSelecionado) {
         this.requisicaoExameSelecionado = requisicaoExameSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public RequisicaoExame getRequisicaoExame() {
         return requisicaoExame;
     }
 
+    /**
+     *
+     * @param requisicaoExame
+     */
     public void setRequisicaoExame(RequisicaoExame requisicaoExame) {
         this.requisicaoExame = requisicaoExame;
     }
 
+    /**
+     *
+     * @return
+     */
     public RequisicaoExameService getRequisicaoExameService() {
         return requisicaoExameService;
     }
 
+    /**
+     *
+     * @param requisicaoExameService
+     */
     public void setRequisicaoExameService(RequisicaoExameService requisicaoExameService) {
         this.requisicaoExameService = requisicaoExameService;
     }

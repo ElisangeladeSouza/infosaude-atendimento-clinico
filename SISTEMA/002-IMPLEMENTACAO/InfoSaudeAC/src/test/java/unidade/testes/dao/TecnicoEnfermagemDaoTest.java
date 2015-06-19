@@ -27,9 +27,15 @@ public class TecnicoEnfermagemDaoTest {
     private static List<TecnicoEnfermagem> listaTecnicosEnfermagem;
     private static Long id;
 
+    /**
+     *
+     */
     public TecnicoEnfermagemDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         tecnicoEnfermagemDao = new TecnicoEnfermagemDao();
@@ -39,6 +45,9 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemNull() {
 
@@ -50,6 +59,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarTecnicoEnfermagemCamposObrigatorios() {
 
@@ -90,6 +102,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarTecnicoEnfermagemTodosCampos() {
 
@@ -131,6 +146,9 @@ public class TecnicoEnfermagemDaoTest {
         assertEquals(tecnicoEnfermagem.getCpfTecnicoEnfermagem(), novoTecnicoEnfermagem.getCpfTecnicoEnfermagem());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemDuplicado() {
 
@@ -163,6 +181,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemNome() {
 
@@ -176,6 +197,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemCpf() {
 
@@ -189,6 +213,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemCoren() {
 
@@ -202,6 +229,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemSus() {
 
@@ -215,6 +245,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemEmail() {
 
@@ -228,6 +261,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemNomeCpf() {
 
@@ -242,6 +278,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemNomeCpfCoren() {
 
@@ -257,6 +296,9 @@ public class TecnicoEnfermagemDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemCpfDuplicado() {
 
@@ -284,6 +326,9 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarTecnicoEnfermagemSusDuplicado() {
 
@@ -311,6 +356,9 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -327,6 +375,9 @@ public class TecnicoEnfermagemDaoTest {
         tecnicoEnfermagemDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 
@@ -348,6 +399,9 @@ public class TecnicoEnfermagemDaoTest {
         assertFalse(0 == listaTecnicosEnfermagem.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -378,6 +432,9 @@ public class TecnicoEnfermagemDaoTest {
         assertEquals(tecnicoEnfermagem.getCpfTecnicoEnfermagem(), novoTecnicoEnfermagem.getCpfTecnicoEnfermagem());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -398,6 +455,9 @@ public class TecnicoEnfermagemDaoTest {
         assertNull(novoTecnicoEnfermagem = tecnicoEnfermagemDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

@@ -29,12 +29,18 @@ public class PacienteServiceTest {
     @Mock
     private PacienteService pacienteService;
 
+    /**
+     *
+     */
     public PacienteServiceTest() {
 
         pacienteService = new PacienteService();
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
@@ -43,6 +49,9 @@ public class PacienteServiceTest {
         novoPaciente = new Paciente();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -57,12 +66,18 @@ public class PacienteServiceTest {
         assertEquals("777 1234 7777 2225", paciente.getCartaoSus());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(pacienteService.findById(0L)).thenThrow(new Exception());
         paciente = pacienteService.findById(0L);
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdExistente() {
 
@@ -78,6 +93,9 @@ public class PacienteServiceTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 

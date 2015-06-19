@@ -10,12 +10,39 @@ import java.io.Serializable;
  */
 public enum Documentacao implements Serializable {
 
+    /**
+     *
+     */
     RG("Carteira de Identidade"),
+
+    /**
+     *
+     */
     CARTAO_SUS("Cartão do SUS"),
+
+    /**
+     *
+     */
     CPF("CPF"),
+
+    /**
+     *
+     */
     COREN("COREN"),
+
+    /**
+     *
+     */
     CRO("CRO"),
+
+    /**
+     *
+     */
     CRM("CRM"),
+
+    /**
+     *
+     */
     OUTRO("Outro");
 
     private final String descricao;
@@ -24,6 +51,10 @@ public enum Documentacao implements Serializable {
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }

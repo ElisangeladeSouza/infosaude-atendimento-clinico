@@ -34,37 +34,72 @@ public class Exame implements Serializable {
     @Column(name = "exame_data")
     private Date data;
 
+    /**
+     *
+     */
     public Exame() {
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }
 
+    /**
+     *
+     * @param descricao
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDetalhes() {
         return detalhes;
     }
 
+    /**
+     *
+     * @param detalhes
+     */
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getData() {
         return data;
     }
 
+    /**
+     *
+     * @param data
+     */
     public void setData(Date data) {
         this.data = data;
     }

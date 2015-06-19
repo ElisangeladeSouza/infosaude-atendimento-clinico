@@ -27,16 +27,30 @@ public class EntityManagerProducer {
 
     private final EntityManagerFactory entityManagerFactory;
 
+    /**
+     *
+     */
     public EntityManagerProducer() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("InfoSaudePU");
     }
 
     // Sobrecarga de método para unidade de persistência dos testes com hsqldb
-    public EntityManagerProducer(String unidadePersistenciaTestes) {
+
+    /**
+     *
+     * @param unidadePersistenciaTestes
+     */
+        public EntityManagerProducer(String unidadePersistenciaTestes) {
         this.entityManagerFactory = Persistence.createEntityManagerFactory(unidadePersistenciaTestes);
     }
 
     /* This method is a EntityManager Producer at each request, by the Annotations bellow.*/
+
+    /**
+     *
+     * @return
+     */
+    
     @Produces
     @RequestScoped
     public EntityManager create() {
@@ -44,6 +58,12 @@ public class EntityManagerProducer {
     }
 
     /* This method close the EntityManager when is requested */
+
+    /**
+     *
+     * @param entityManager
+     */
+    
     public void close(@Disposes EntityManager entityManager) {
         entityManager.close();
     }

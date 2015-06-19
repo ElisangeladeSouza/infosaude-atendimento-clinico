@@ -10,10 +10,29 @@ import java.io.Serializable;
  */
 public enum RacaCor implements Serializable {
 
+    /**
+     *
+     */
     BRANCA("Branca"),
+
+    /**
+     *
+     */
     PARDA("Parda"),
+
+    /**
+     *
+     */
     NEGRA("Negra"),
+
+    /**
+     *
+     */
     INDIGENA("Indígena"),
+
+    /**
+     *
+     */
     AMARELA("Amarela");
 
     private final String descricao;
@@ -22,6 +41,10 @@ public enum RacaCor implements Serializable {
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }

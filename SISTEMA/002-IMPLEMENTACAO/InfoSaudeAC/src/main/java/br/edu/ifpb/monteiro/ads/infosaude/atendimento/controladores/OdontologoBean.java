@@ -37,9 +37,15 @@ public class OdontologoBean implements Serializable {
 
     private transient List<Odontologo> odontologos;
 
+    /**
+     *
+     */
     public OdontologoBean() {
     }
 
+    /**
+     *
+     */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
@@ -47,11 +53,19 @@ public class OdontologoBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Odontologo> getOdontologos() {
         this.odontologos = odontologoService.findAll();
         return odontologos;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.odontologoService.save(odontologo);
@@ -67,6 +81,10 @@ public class OdontologoBean implements Serializable {
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.odontologoService.delete(odontologoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -76,30 +94,60 @@ public class OdontologoBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.odontologo.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Odontologo getOdontologoSelecionado() {
         return odontologoSelecionado;
     }
 
+    /**
+     *
+     * @param odontologoSelecionado
+     */
     public void setOdontologoSelecionado(Odontologo odontologoSelecionado) {
         this.odontologoSelecionado = odontologoSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Odontologo getOdontologo() {
         return odontologo;
     }
 
+    /**
+     *
+     * @param odontologo
+     */
     public void setOdontologo(Odontologo odontologo) {
         this.odontologo = odontologo;
     }
 
+    /**
+     *
+     * @return
+     */
     public OdontologoService getOdontologoService() {
         return odontologoService;
     }
 
+    /**
+     *
+     * @param odontologoService
+     */
     public void setOdontologoService(OdontologoService odontologoService) {
         this.odontologoService = odontologoService;
     }

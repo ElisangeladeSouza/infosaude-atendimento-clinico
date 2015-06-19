@@ -20,21 +20,40 @@ public class Administrador extends Pessoa implements Serializable {
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSusAdministrador;
 
+    /**
+     *
+     */
     public Administrador() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCpfAdministrador() {
         return cpfAdministrador;
     }
 
+    /**
+     *
+     * @param cpfAdministrador
+     */
     public void setCpfAdministrador(String cpfAdministrador) {
         this.cpfAdministrador = cpfAdministrador;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCartaoSusAdministrador() {
         return cartaoSusAdministrador;
     }
 
+    /**
+     *
+     * @param cartaoSusAdministrador
+     */
     public void setCartaoSusAdministrador(String cartaoSusAdministrador) {
         this.cartaoSusAdministrador = cartaoSusAdministrador;
     }

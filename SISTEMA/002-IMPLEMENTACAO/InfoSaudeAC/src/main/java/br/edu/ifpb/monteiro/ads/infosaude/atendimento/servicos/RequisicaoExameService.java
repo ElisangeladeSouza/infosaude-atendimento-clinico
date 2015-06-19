@@ -23,9 +23,16 @@ public class RequisicaoExameService implements Serializable {
     @Inject
     private RequisicaoExameDao requisicaoExameDao;
 
+    /**
+     *
+     */
     public RequisicaoExameService() {
     }
 
+    /**
+     *
+     * @param requisicaoExame
+     */
     @Transactional
     public void save(RequisicaoExame requisicaoExame) {
         if (requisicaoExame != null) {
@@ -34,15 +41,29 @@ public class RequisicaoExameService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param requisicaoExame
+     * @throws UBSException
+     */
     @Transactional
     public void delete(RequisicaoExame requisicaoExame) throws UBSException {
         requisicaoExameDao.delete(findById(requisicaoExame.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<RequisicaoExame> findAll() {
         return requisicaoExameDao.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public RequisicaoExame findById(Long id) {
         return requisicaoExameDao.findById(id);
     }

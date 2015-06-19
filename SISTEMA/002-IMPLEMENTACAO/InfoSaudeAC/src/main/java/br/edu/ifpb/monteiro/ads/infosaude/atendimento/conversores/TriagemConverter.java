@@ -18,10 +18,21 @@ public class TriagemConverter implements Converter {
 
     private final TriagemService triagemService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public TriagemConverter() throws UBSException {
         this.triagemService = CDIServiceLocator.getBean(TriagemService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class TriagemConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

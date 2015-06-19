@@ -11,6 +11,9 @@ public class ProcedimentoDao extends DaoAbstrato<Procedimento> implements Serial
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     */
     public ProcedimentoDao() {
         super(Procedimento.class);
     }

@@ -18,10 +18,21 @@ public class ProcedimentoConverter implements Converter {
 
     private final ProcedimentoService procedimentoService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public ProcedimentoConverter() throws UBSException {
         this.procedimentoService = CDIServiceLocator.getBean(ProcedimentoService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class ProcedimentoConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

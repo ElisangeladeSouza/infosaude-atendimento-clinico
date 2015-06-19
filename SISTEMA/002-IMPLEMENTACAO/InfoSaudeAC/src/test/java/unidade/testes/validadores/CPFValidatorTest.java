@@ -21,14 +21,22 @@ public class CPFValidatorTest {
     }
 
     //Este teste passa um cpf inválido e espera uma exceção
-    @Test(expected = ValidatorException.class)
+
+    /**
+     *
+     */
+        @Test(expected = ValidatorException.class)
     public void testeCPFInvalidoNumerosIguaisRetornaExcecao() {
         CPFValidator cpfValidator = new CPFValidator();
         cpfValidator.validate(null, null, "00000000000");
     }
 
     //Este teste passa um cpf em braco e espera uma exceção
-    @Test(expected = ValidatorException.class)
+
+    /**
+     *
+     */
+        @Test(expected = ValidatorException.class)
     public void testeCPFVazioRetornaExcecao() {
         CPFValidator cpfValidator = new CPFValidator();
         cpfValidator.validate(null, null, "");

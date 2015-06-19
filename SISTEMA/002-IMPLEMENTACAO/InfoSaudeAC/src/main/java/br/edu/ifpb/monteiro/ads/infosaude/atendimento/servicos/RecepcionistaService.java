@@ -22,9 +22,16 @@ public class RecepcionistaService implements Serializable {
     @Inject
     private RecepcionistaDao recepcionistaDAO;
 
+    /**
+     *
+     */
     public RecepcionistaService() {
     }
 
+    /**
+     *
+     * @param recepcionista
+     */
     @Transactional
     public void save(Recepcionista recepcionista) {
         if (recepcionista != null) {
@@ -32,15 +39,29 @@ public class RecepcionistaService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param recepcionista
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Recepcionista recepcionista) throws UBSException {
         recepcionistaDAO.delete(findById(recepcionista.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Recepcionista> findAll() {
         return recepcionistaDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Recepcionista findById(Long id) {
         return recepcionistaDAO.findById(id);
     }

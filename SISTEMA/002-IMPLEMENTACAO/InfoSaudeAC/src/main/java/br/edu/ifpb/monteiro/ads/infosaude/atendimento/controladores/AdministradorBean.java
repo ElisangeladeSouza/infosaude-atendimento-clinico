@@ -37,9 +37,15 @@ public class AdministradorBean implements Serializable {//NOSONAR
 
     private transient List<Administrador> administradores;
 
+    /**
+     *
+     */
     public AdministradorBean() {//NOSONAR
     }
 
+    /**
+     *
+     */
     public void carregarCidades() {//NOSONAR
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
@@ -47,11 +53,19 @@ public class AdministradorBean implements Serializable {//NOSONAR
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Administrador> getAdministradores() {//NOSONAR
         this.administradores = administradorService.findAll();
         return administradores;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         try {
             this.administradorService.save(administrador);
@@ -67,6 +81,10 @@ public class AdministradorBean implements Serializable {//NOSONAR
         }
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.administradorService.delete(administradorSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -76,30 +94,60 @@ public class AdministradorBean implements Serializable {//NOSONAR
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {//NOSONAR
         return this.administrador.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public Administrador getAdministradorSelecionado() {//NOSONAR
         return administradorSelecionado;
     }
 
+    /**
+     *
+     * @param administradorSelecionado
+     */
     public void setAdministradorSelecionado(Administrador administradorSelecionado) {//NOSONAR
         this.administradorSelecionado = administradorSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Administrador getAdministrador() {//NOSONAR
         return administrador;
     }
 
+    /**
+     *
+     * @param administrador
+     */
     public void setAdministrador(Administrador administrador) {//NOSONAR
         this.administrador = administrador;
     }
 
+    /**
+     *
+     * @return
+     */
     public AdministradorService getAdministradorService() {//NOSONAR
         return administradorService;
     }
 
+    /**
+     *
+     * @param administradorService
+     */
     public void setAdministradorService(AdministradorService administradorService) {//NOSONAR
         this.administradorService = administradorService;
     }

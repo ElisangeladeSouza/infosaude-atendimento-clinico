@@ -34,19 +34,34 @@ public class FichaAtendimentoBean implements Serializable {
 
     private transient List<Destino> destinos = new ArrayList<>();
 
+    /**
+     *
+     */
     public FichaAtendimentoBean() {
         this.destinos = Arrays.asList(Destino.values());
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Destino> getDestinos() {
         return destinos;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<FichaAtendimento> getFichaAtendimentos() {
         this.fichaAtendimentos = fichaAtendimentoService.findAll();
         return fichaAtendimentos;
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void salvar() throws UBSException {
         this.fichaAtendimentoService.save(fichaAtendimento);
         if (getEditando()) {
@@ -57,6 +72,10 @@ public class FichaAtendimentoBean implements Serializable {
         fichaAtendimento = new FichaAtendimento();
     }
 
+    /**
+     *
+     * @throws UBSException
+     */
     public void excluir() throws UBSException {
         this.fichaAtendimentoService.delete(fichaAtendimentoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
@@ -66,30 +85,60 @@ public class FichaAtendimentoBean implements Serializable {
      * Metodo que verifica se o objeto esta nulo quando for recuperado.
      * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public boolean getEditando() {
         return this.fichaAtendimento.getId() != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public FichaAtendimento getFichaAtendimentoSelecionado() {
         return fichaAtendimentoSelecionado;
     }
 
+    /**
+     *
+     * @param fichaAtendimentoSelecionado
+     */
     public void setFichaAtendimentoSelecionado(FichaAtendimento fichaAtendimentoSelecionado) {
         this.fichaAtendimentoSelecionado = fichaAtendimentoSelecionado;
     }
 
+    /**
+     *
+     * @return
+     */
     public FichaAtendimento getFichaAtendimento() {
         return fichaAtendimento;
     }
 
+    /**
+     *
+     * @param fichaAtendimento
+     */
     public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
         this.fichaAtendimento = fichaAtendimento;
     }
 
+    /**
+     *
+     * @return
+     */
     public FichaAtendimentoService getFichaAtendimentoService() {
         return fichaAtendimentoService;
     }
 
+    /**
+     *
+     * @param fichaAtendimentoService
+     */
     public void setFichaAtendimentoService(FichaAtendimentoService fichaAtendimentoService) {
         this.fichaAtendimentoService = fichaAtendimentoService;
     }

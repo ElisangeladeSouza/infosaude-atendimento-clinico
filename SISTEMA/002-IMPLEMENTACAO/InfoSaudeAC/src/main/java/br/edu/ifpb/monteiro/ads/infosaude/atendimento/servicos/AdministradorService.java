@@ -22,9 +22,16 @@ public class AdministradorService implements Serializable {
     @Inject
     private AdministradorDao administradorDAO;
 
+    /**
+     *
+     */
     public AdministradorService() {
     }
 
+    /**
+     *
+     * @param administrador
+     */
     @Transactional
     public void save(Administrador administrador) {
         if (administrador != null) {
@@ -32,15 +39,29 @@ public class AdministradorService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param administrador
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Administrador administrador) throws UBSException {
         administradorDAO.delete(findById(administrador.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Administrador> findAll() {
         return administradorDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Administrador findById(Long id) {
         return administradorDAO.findById(id);
     }

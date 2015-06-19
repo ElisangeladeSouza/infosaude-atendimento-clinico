@@ -22,9 +22,16 @@ public class PessoaService implements Serializable {
     @Inject
     private PessoaDao pessoaDAO;
 
+    /**
+     *
+     */
     public PessoaService() {
     }
 
+    /**
+     *
+     * @param pessoa
+     */
     @Transactional
     public void save(Pessoa pessoa) {
         if (pessoa != null) {
@@ -32,19 +39,38 @@ public class PessoaService implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param pessoa
+     * @throws UBSException
+     */
     @Transactional
     public void delete(Pessoa pessoa) throws UBSException {
         pessoaDAO.delete(findById(pessoa.getId()));
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Pessoa> findAll() {
         return pessoaDAO.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Pessoa findById(Long id) {
         return pessoaDAO.findById(id);
     }
 
+    /**
+     *
+     * @param codigoUF
+     * @return
+     */
     public List<String> retornaCidades(int codigoUF) {
         return pessoaDAO.retornaCidades(codigoUF);
     }

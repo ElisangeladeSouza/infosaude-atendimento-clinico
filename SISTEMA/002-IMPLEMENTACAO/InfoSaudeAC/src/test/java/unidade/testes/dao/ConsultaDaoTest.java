@@ -19,9 +19,15 @@ public class ConsultaDaoTest {
     private static EntityManager entityManager;
     private static ConsultaDao consultaDao;
     
+    /**
+     *
+     */
     public ConsultaDaoTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         
@@ -31,7 +37,9 @@ public class ConsultaDaoTest {
         consultaDao.setEntityManager(entityManager);    
     }
     
-
+    /**
+     *
+     */
     @Test (expected = Exception.class)
     public void testSalvarConsultaNull() {
 
@@ -43,6 +51,10 @@ public class ConsultaDaoTest {
         
     }
     
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testBuscarPorCampoNull() throws UBSException{
         
@@ -52,6 +64,9 @@ public class ConsultaDaoTest {
         
     }
     
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 

@@ -18,10 +18,21 @@ public class ExameConverter implements Converter {
 
     private final ExameService exameService;
 
+    /**
+     *
+     * @throws UBSException
+     */
     public ExameConverter() throws UBSException {
         this.exameService = CDIServiceLocator.getBean(ExameService.class);
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
@@ -33,6 +44,13 @@ public class ExameConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     *
+     * @param context
+     * @param component
+     * @param value
+     * @return
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 

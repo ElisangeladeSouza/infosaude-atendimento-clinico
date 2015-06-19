@@ -26,9 +26,15 @@ public class PessoaDaoTest {
     private static List<Pessoa> listaPessoas;
     private static Long id;
 
+    /**
+     *
+     */
     public PessoaDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         pessoaDao = new PessoaDao();
@@ -39,6 +45,9 @@ public class PessoaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarPessoaNull() {
         Pessoa pessoa = new Pessoa();
@@ -48,6 +57,9 @@ public class PessoaDaoTest {
         pessoaDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarPessoaCamposObrigatorios() {
         Pessoa pessoa = new Pessoa();
@@ -84,6 +96,9 @@ public class PessoaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarPessoaTodosCampos() {
         Pessoa pessoa = new Pessoa();
@@ -119,6 +134,9 @@ public class PessoaDaoTest {
         assertEquals(pessoa.getNome(), novaPessoa.getNome());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarPessoaEmail() {
 
@@ -132,6 +150,9 @@ public class PessoaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
         Pessoa pessoa = new Pessoa();
@@ -168,6 +189,9 @@ public class PessoaDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
         Pessoa pessoa = new Pessoa();
@@ -203,6 +227,9 @@ public class PessoaDaoTest {
         assertEquals(pessoa.getNome(), novaPessoa.getNome());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
         Pessoa pessoa = new Pessoa();
@@ -228,6 +255,9 @@ public class PessoaDaoTest {
         assertNull(novaPessoa = pessoaDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
         Pessoa pessoa = new Pessoa();

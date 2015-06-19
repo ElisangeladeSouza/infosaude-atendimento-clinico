@@ -24,9 +24,15 @@ public class ExameDaoTest {
     private static List<Exame> listaExames;
     private static Long id;
 
+    /**
+     *
+     */
     public ExameDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         exameDao = new ExameDao();
@@ -47,6 +53,9 @@ public class ExameDaoTest {
         exameDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void textSalvarExameCadastroCompleto() {
         Exame exame = new Exame();
@@ -74,6 +83,9 @@ public class ExameDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
         Exame exame = new Exame();
@@ -90,6 +102,9 @@ public class ExameDaoTest {
         assertFalse(0 == listaExames.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void textFindById() {
         Exame exame = new Exame();
@@ -116,6 +131,9 @@ public class ExameDaoTest {
 
     }
 
+    /**
+     *
+     */
     public void testFindByIdInexistente() {
         Exame exame = new Exame();
 
@@ -130,6 +148,9 @@ public class ExameDaoTest {
         assertNull(novoExame = exameDao.findById(0L));
     }
 
+    /**
+     *
+     */
     public void testDelete() {
         Exame exame = new Exame();
 

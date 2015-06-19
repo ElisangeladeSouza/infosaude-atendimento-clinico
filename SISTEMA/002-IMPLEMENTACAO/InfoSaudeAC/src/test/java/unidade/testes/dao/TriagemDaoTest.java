@@ -19,9 +19,15 @@ public class TriagemDaoTest {
     private static EntityManager entityManager;
     private static TriagemDao triagemDao;
     
+    /**
+     *
+     */
     public TriagemDaoTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         
@@ -31,7 +37,9 @@ public class TriagemDaoTest {
         triagemDao.setEntityManager(entityManager);    
     }
     
-
+    /**
+     *
+     */
     @Test (expected = Exception.class)
     public void testSalvarTriagemNull() {
 
@@ -43,6 +51,10 @@ public class TriagemDaoTest {
         
     }
     
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testBuscarPorCampoNull() throws UBSException{
         
@@ -52,6 +64,9 @@ public class TriagemDaoTest {
         
     }
     
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 

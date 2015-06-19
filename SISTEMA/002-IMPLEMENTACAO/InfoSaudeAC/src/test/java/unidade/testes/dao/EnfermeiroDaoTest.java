@@ -27,9 +27,15 @@ public class EnfermeiroDaoTest {
     private static List<Enfermeiro> listaEnfermeiros;
     private static Long id;
 
+    /**
+     *
+     */
     public EnfermeiroDaoTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         enfermeiroDao = new EnfermeiroDao();
@@ -39,6 +45,9 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.setEntityManager(entityManager);
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroNull() {
 
@@ -50,6 +59,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarEnfermeiroCamposObrigatorios() {
 
@@ -90,6 +102,9 @@ public class EnfermeiroDaoTest {
         assertEquals(enfermeiro.getCpfEnfermeiro(), novoEnfermeiro.getCpfEnfermeiro());
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarEnfermeiroTodosCampos() {
 
@@ -132,6 +147,9 @@ public class EnfermeiroDaoTest {
         assertEquals(enfermeiro.getCpfEnfermeiro(), novoEnfermeiro.getCpfEnfermeiro());
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroDuplicado() {
 
@@ -164,6 +182,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroNome() {
 
@@ -177,6 +198,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroCpf() {
 
@@ -190,6 +214,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroCoren() {
 
@@ -203,6 +230,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroSus() {
 
@@ -216,6 +246,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroEmail() {
 
@@ -229,6 +262,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroNomeCpf() {
 
@@ -243,6 +279,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroNomeCpfCoren() {
 
@@ -258,6 +297,9 @@ public class EnfermeiroDaoTest {
 
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroCpfDuplicado() {
 
@@ -285,6 +327,9 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test(expected = Exception.class)
     public void testSalvarEnfermeiroSusDuplicado() {
 
@@ -312,6 +357,9 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testSalvarCpfSusTodoSistema() {
 
@@ -328,6 +376,9 @@ public class EnfermeiroDaoTest {
         enfermeiroDao.getEntityManager().getTransaction().commit();
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindAll() {
 
@@ -349,6 +400,9 @@ public class EnfermeiroDaoTest {
         assertFalse(0 == listaEnfermeiros.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindById() {
 
@@ -379,6 +433,9 @@ public class EnfermeiroDaoTest {
         assertEquals(enfermeiro.getCpfEnfermeiro(), novoEnfermeiro.getCpfEnfermeiro());
     }
 
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
@@ -399,6 +456,9 @@ public class EnfermeiroDaoTest {
         assertNull(novoEnfermeiro = enfermeiroDao.findById(0L));
     }
 
+    /**
+     *
+     */
     @Test
     public void testDelete() {
 

@@ -19,9 +19,15 @@ public class RequisicaoExameDaoTest {
     private static EntityManager entityManager;
     private static RequisicaoExameDao requisicaoExameDao;
     
+    /**
+     *
+     */
     public RequisicaoExameDaoTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         
@@ -31,7 +37,10 @@ public class RequisicaoExameDaoTest {
         requisicaoExameDao.setEntityManager(entityManager);    
     }
     
-    
+    /**
+     *
+     * @throws UBSException
+     */
     @Test (expected = Exception.class)
     public void testBuscarPorCampoNull() throws UBSException{
         
@@ -41,6 +50,9 @@ public class RequisicaoExameDaoTest {
         
     }
     
+    /**
+     *
+     */
     @Test
     public void testFindByIdInexistente() {
 
