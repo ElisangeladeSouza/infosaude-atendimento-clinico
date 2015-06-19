@@ -1,9 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.PessoaDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Pessoa;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
