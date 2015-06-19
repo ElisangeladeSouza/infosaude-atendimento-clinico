@@ -37,19 +37,19 @@ public class Paciente extends Pessoa implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
-    private FichaAtendimento fichaAtendimento;
+    private FichaAtendimento fichaAtendimentoPaciente;
 
     @OneToOne
     @JoinColumn(name = "consulta_pk", referencedColumnName = "id")
-    private Consulta consulta;
+    private Consulta consultaPaciente;
 
     @OneToOne
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
-    private Procedimento procedimento;
+    private Procedimento procedimentoPaciente;
 
     @OneToOne
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
-    private Triagem triagem;
+    private Triagem triagemPaciente;
 
 //    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
@@ -95,36 +95,36 @@ public class Paciente extends Pessoa implements Serializable {
         this.nomeDaMae = nomeDaMae;
     }
 
-    public FichaAtendimento getFichaAtendimento() {
-        return fichaAtendimento;
+    public FichaAtendimento getFichaAtendimentoPaciente() {
+        return fichaAtendimentoPaciente;
     }
 
-    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
-        this.fichaAtendimento = fichaAtendimento;
+    public void setFichaAtendimentoPaciente(FichaAtendimento fichaAtendimentoPaciente) {
+        this.fichaAtendimentoPaciente = fichaAtendimentoPaciente;
     }
 
-    public Consulta getConsulta() {
-        return consulta;
+    public Consulta getConsultaPaciente() {
+        return consultaPaciente;
     }
 
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
+    public void setConsultaPaciente(Consulta consultaPaciente) {
+        this.consultaPaciente = consultaPaciente;
     }
 
-    public Procedimento getProcedimento() {
-        return procedimento;
+    public Procedimento getProcedimentoPaciente() {
+        return procedimentoPaciente;
     }
 
-    public void setProcedimento(Procedimento procedimento) {
-        this.procedimento = procedimento;
+    public void setProcedimentoPaciente(Procedimento procedimentoPaciente) {
+        this.procedimentoPaciente = procedimentoPaciente;
     }
 
-    public Triagem getTriagem() {
-        return triagem;
+    public Triagem getTriagemPaciente() {
+        return triagemPaciente;
     }
 
-    public void setTriagem(Triagem triagem) {
-        this.triagem = triagem;
+    public void setTriagemPaciente(Triagem triagemPaciente) {
+        this.triagemPaciente = triagemPaciente;
     }
 
     @Override

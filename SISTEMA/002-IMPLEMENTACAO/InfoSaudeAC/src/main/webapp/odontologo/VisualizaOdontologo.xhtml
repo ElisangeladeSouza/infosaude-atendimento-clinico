@@ -74,7 +74,7 @@
                 <p:fieldset id="visualizaDocumentosOdontologo" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentosOdontologo" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{odontologoBean.odontologo.cpf}" >
+                        <p:outputLabel id="cpf" value="#{odontologoBean.odontologo.cpfOdontologo}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
@@ -85,7 +85,7 @@
                         <p:outputLabel id="coren" value="#{odontologoBean.odontologo.cro}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{odontologoBean.odontologo.cartaoSus}" />
+                        <p:outputLabel id="cartaoSus" value="#{odontologoBean.odontologo.cartaoSusOdontologo}" />
                     </h:panelGrid>
                 </p:fieldset>
 

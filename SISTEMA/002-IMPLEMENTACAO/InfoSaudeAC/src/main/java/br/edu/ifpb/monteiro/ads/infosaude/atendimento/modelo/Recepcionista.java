@@ -14,36 +14,36 @@ public class Recepcionista extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    @Column(name = "pessoa_cpfRecepcionista", nullable = false, unique = true, length = 11)
+    private String cpfRecepcionista;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusRecepcionista;
 
     public Recepcionista() {
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfRecepcionista() {
+        return cpfRecepcionista;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfRecepcionista(String cpfRecepcionista) {
+        this.cpfRecepcionista = cpfRecepcionista;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCartaoSusRecepcionista() {
+        return cartaoSusRecepcionista;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
+    public void setCartaoSusRecepcionista(String cartaoSusRecepcionista) {
+        this.cartaoSusRecepcionista = cartaoSusRecepcionista;
     }
 
     @Override
     public int hashCode() {
         int hashRecepcionista = 5;
-        hashRecepcionista = 59 * hashRecepcionista + Objects.hashCode(this.cpf);
-        hashRecepcionista = 59 * hashRecepcionista + Objects.hashCode(this.cartaoSus);
+        hashRecepcionista = 59 * hashRecepcionista + Objects.hashCode(this.cpfRecepcionista);
+        hashRecepcionista = 59 * hashRecepcionista + Objects.hashCode(this.cartaoSusRecepcionista);
         return hashRecepcionista;
     }
 
@@ -56,9 +56,9 @@ public class Recepcionista extends Pessoa implements Serializable {
             return false;
         }
         final Recepcionista other = (Recepcionista) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        if (!Objects.equals(this.cpfRecepcionista, other.cpfRecepcionista)) {
             return false;
         }
-        return Objects.equals(this.cartaoSus, other.cartaoSus);
+        return Objects.equals(this.cartaoSusRecepcionista, other.cartaoSusRecepcionista);
     }
 }

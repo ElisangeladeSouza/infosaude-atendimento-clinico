@@ -23,9 +23,9 @@ public class MedicoTest {
         medico = new Medico();
         medico.setNome("João");
         medico.setCrm("4654543568");
-        medico.setCpf("682.316.676-28");
+        medico.setCpfMedico("682.316.676-28");
         medico.setRg("26475828");
-        medico.setCartaoSus("65745437543");
+        medico.setCartaoSusMedico("65745437543");
         medico.setDataNascimento(new Date());
         medico.setCorOuRaca("Branca");
         medico.setTelefone1("(83)33512678");
@@ -43,9 +43,9 @@ public class MedicoTest {
     public void testCreateObjetc() {
         System.out.println(medico.getNome());
         System.out.println(medico.getCrm());
-        System.out.println(medico.getCpf());
+        System.out.println(medico.getCpfMedico());
         System.out.println(medico.getRg());
-        System.out.println(medico.getCartaoSus());
+        System.out.println(medico.getCartaoSusMedico());
         System.out.println(medico.getDataNascimento());
         System.out.println(medico.getCorOuRaca());
         System.out.println(medico.getTelefone1());
@@ -60,9 +60,9 @@ public class MedicoTest {
 
         assertEquals("O nome esperado deve ser João", "João", medico.getNome());
         assertEquals("O crm esperado deve ser 4654543568", "4654543568", medico.getCrm());
-        assertEquals("O cpf esperado deve ser 682.316.676-28", "682.316.676-28", medico.getCpf());
+        assertEquals("O cpf esperado deve ser 682.316.676-28", "682.316.676-28", medico.getCpfMedico());
         assertEquals("O rg esperado deve ser 26475828", "26475828", medico.getRg());
-        assertEquals("O cartão sus deve ser 65745437543", "65745437543", medico.getCartaoSus());
+        assertEquals("O cartão sus deve ser 65745437543", "65745437543", medico.getCartaoSusMedico());
         assertEquals("O rg esperado deve ser " + medico.getDataNascimento(), medico.getDataNascimento(), medico.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", medico.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", medico.getTelefone1());

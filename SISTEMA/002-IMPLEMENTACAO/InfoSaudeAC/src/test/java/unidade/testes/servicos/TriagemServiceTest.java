@@ -67,12 +67,12 @@ public class TriagemServiceTest {
     public void testFindById() {
 
         triagem.setCodigo("00001");
-        triagem.setFichaAtendimento(fichaAtendimento);
+        triagem.setFichaAtendimentoTriagem(fichaAtendimento);
 
         when(triagemService.findById(1L)).thenReturn(triagem);
         novaTriagem = triagemService.findById(1L);
         assertEquals("00001", triagem.getCodigo());
-        assertEquals(fichaAtendimento.getId(), novaTriagem.getFichaAtendimento().getId());
+        assertEquals(fichaAtendimento.getId(), novaTriagem.getFichaAtendimentoTriagem().getId());
 
     }
 
@@ -88,7 +88,7 @@ public class TriagemServiceTest {
     public void testFindAll() {
 
         triagem.setCodigo("00001");
-        triagem.setFichaAtendimento(fichaAtendimento);
+        triagem.setFichaAtendimentoTriagem(fichaAtendimento);
 
         listaTriagems = (List<Triagem>) new ArrayList<Triagem>();
         listaTriagems.add(triagem);

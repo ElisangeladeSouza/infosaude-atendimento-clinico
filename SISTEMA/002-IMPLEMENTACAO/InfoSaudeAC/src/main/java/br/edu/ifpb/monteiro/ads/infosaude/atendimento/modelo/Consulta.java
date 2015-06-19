@@ -50,7 +50,7 @@ public class Consulta implements Serializable {
     @Column(name = "consulta_sintomas")
     private String sintomas;
 
-    @OneToOne(mappedBy = "consulta")
+    @OneToOne(mappedBy = "consultaPaciente")
     @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
     private Paciente paciente;
 

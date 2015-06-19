@@ -37,19 +37,19 @@ public class Triagem implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
-    private FichaAtendimento fichaAtendimento;
+    private FichaAtendimento fichaAtendimentoTriagem;
 
     @OneToOne
     @JoinColumn(name = "consulta_pk")
-    private Consulta consulta;
+    private Consulta consultaTriagem;
 
     @OneToOne
     @JoinColumn(name = "procedimento_pk")
-    private Procedimento procedimento;
+    private Procedimento procedimentoTriagem;
 
-    @OneToOne(mappedBy = "triagem")
+    @OneToOne(mappedBy = "triagemPaciente")
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
-    private Paciente paciente;
+    private Paciente pacienteTriagem;
 
     public Triagem() {
     }
@@ -78,36 +78,36 @@ public class Triagem implements Serializable {
         this.data = data;
     }
 
-    public FichaAtendimento getFichaAtendimento() {
-        return fichaAtendimento;
+    public FichaAtendimento getFichaAtendimentoTriagem() {
+        return fichaAtendimentoTriagem;
     }
 
-    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
-        this.fichaAtendimento = fichaAtendimento;
+    public void setFichaAtendimentoTriagem(FichaAtendimento fichaAtendimentoTriagem) {
+        this.fichaAtendimentoTriagem = fichaAtendimentoTriagem;
     }
 
-    public Consulta getConsulta() {
-        return consulta;
+    public Consulta getConsultaTriagem() {
+        return consultaTriagem;
     }
 
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
+    public void setConsultaTriagem(Consulta consultaTriagem) {
+        this.consultaTriagem = consultaTriagem;
     }
 
     public Procedimento getProcedimento() {
-        return procedimento;
+        return procedimentoTriagem;
     }
 
     public void setProcedimento(Procedimento procedimento) {
-        this.procedimento = procedimento;
+        this.procedimentoTriagem = procedimento;
     }
 
     public Paciente getPaciente() {
-        return paciente;
+        return pacienteTriagem;
     }
 
     public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+        this.pacienteTriagem = paciente;
     }
 
     @Override

@@ -23,7 +23,7 @@
                 </p:toolbar>
 
                 <p:dataTable id="datatablePesquisaMedico" var="medico" value="#{medicoBean.medicos}"
-                             paginatorAlwaysVisible="false" style="margin-top: 1px; text-transform: uppercase" rows="10" 
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaMedico"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
@@ -47,8 +47,8 @@
                         <h:outputText id="crm" value="#{medico.crm}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{medico.cpf}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="cpf" value="#{medico.cpf}" converter="cpfConverter"/>
+                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{medico.cpfMedico}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="cpf" value="#{medico.cpfMedico}" converter="cpfConverter"/>
                     </p:column>
 
                     <p:column headerText="#{msg.phone1}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{medico.telefone1}" filterStyle="width: 80px; display:none">

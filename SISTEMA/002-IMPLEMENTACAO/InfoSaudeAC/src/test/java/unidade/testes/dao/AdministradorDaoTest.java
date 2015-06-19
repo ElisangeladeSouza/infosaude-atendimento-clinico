@@ -56,8 +56,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR SOBRENOME");
-        administrador.setCpf("52645149847");
-        administrador.setCartaoSus("898 0001 0121 0004");
+        administrador.setCpfAdministrador("52645149847");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0004");
         administrador.setEmail("");
         administrador.setCorOuRaca("");
         administrador.setEnderecoBairro("");
@@ -78,7 +78,7 @@ public class AdministradorDaoTest {
 
         for (Administrador administrador1 : listaAdministradores) {
 
-            if (administrador1.getCpf().equals(administrador.getCpf())) {
+            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
                 id = administrador1.getId();
             }
         }
@@ -86,7 +86,7 @@ public class AdministradorDaoTest {
         Administrador novoAdministrador = new Administrador();
         novoAdministrador = administradorDao.findById(id);
 
-        assertEquals(administrador.getCpf(), novoAdministrador.getCpf());
+        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
     }
 
     @Test
@@ -95,8 +95,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR I SOBRENOME");
-        administrador.setCpf("23367341258");
-        administrador.setCartaoSus("898 0001 0121 0009");
+        administrador.setCpfAdministrador("23367341258");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0009");
         administrador.setEmail("administrador.isobrenome@domain.com");
         administrador.setCorOuRaca("PARDA");
         administrador.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -119,7 +119,7 @@ public class AdministradorDaoTest {
 
         for (Administrador administrador1 : listaAdministradores) {
 
-            if (administrador1.getCpf().equals(administrador.getCpf())) {
+            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
                 id = administrador1.getId();
             }
         }
@@ -127,7 +127,7 @@ public class AdministradorDaoTest {
         Administrador novoAdministrador = new Administrador();
         novoAdministrador = administradorDao.findById(id);
 
-        assertEquals(administrador.getCpf(), novoAdministrador.getCpf());
+        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
 
     }
 
@@ -137,8 +137,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR II SOBRENOME");
-        administrador.setCpf("17407400253");
-        administrador.setCartaoSus("898 0001 0121 0099");
+        administrador.setCpfAdministrador("17407400253");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
         administrador.setEmail("administrador.iisobrenome@domain.com");
         administrador.setCorOuRaca("PARDA");
         administrador.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -180,7 +180,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setCpf("53406305792");
+        administrador.setCpfAdministrador("53406305792");
 
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
@@ -193,7 +193,7 @@ public class AdministradorDaoTest {
 
         Administrador administrador = new Administrador();
 
-        administrador.setCartaoSus("898 0001 0121 0099");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
 
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
@@ -220,7 +220,7 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR IV SOBRENOME");
-        administrador.setCpf("53406305792");
+        administrador.setCpfAdministrador("53406305792");
 
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
@@ -235,13 +235,13 @@ public class AdministradorDaoTest {
         Administrador novoAdministrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR V SOBRENOME");
-        administrador.setCpf("17407400253");
-        administrador.setCartaoSus("898 0001 0121 0099");
+        administrador.setCpfAdministrador("17407400253");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
         administrador.setEmail("administrador.iisobrenome@domain.com");
 
         novoAdministrador.setNome("ADMINISTRADOR X SOBRENOME");
-        novoAdministrador.setCpf("17407400253");
-        novoAdministrador.setCartaoSus("898 0001 0121 0901");
+        novoAdministrador.setCpfAdministrador("17407400253");
+        novoAdministrador.setCartaoSusAdministrador("898 0001 0121 0901");
         novoAdministrador.setEmail("administrador.xsobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -260,13 +260,13 @@ public class AdministradorDaoTest {
         Administrador novoAdministrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR VI SOBRENOME");
-        administrador.setCpf("17407400253");
-        administrador.setCartaoSus("898 0001 0121 0099");
+        administrador.setCpfAdministrador("17407400253");
+        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
         administrador.setEmail("administrador.iisobrenome@domain.com");
 
         novoAdministrador.setNome("ADMINISTRADOR VII SOBRENOME");
-        novoAdministrador.setCpf("43622448326");
-        novoAdministrador.setCartaoSus("898 0001 0121 0099");
+        novoAdministrador.setCpfAdministrador("43622448326");
+        novoAdministrador.setCartaoSusAdministrador("898 0001 0121 0099");
         novoAdministrador.setEmail("administrador.xsobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -284,8 +284,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ENTIDADE SOBRENOME");
-        administrador.setCpf("91184468680");
-        administrador.setCartaoSus("898 2221 0121 9994");
+        administrador.setCpfAdministrador("91184468680");
+        administrador.setCartaoSusAdministrador("898 2221 0121 9994");
         administrador.setEmail("entidade.sobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -299,8 +299,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR VIII SOBRENOME ");
-        administrador.setCpf("55456713314");
-        administrador.setCartaoSus("756 0000 0000 0000");
+        administrador.setCpfAdministrador("55456713314");
+        administrador.setCartaoSusAdministrador("756 0000 0000 0000");
         administrador.setEmail("administrador.sobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -319,8 +319,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR IX SOBRENOME");
-        administrador.setCpf("81574762591");
-        administrador.setCartaoSus("756 0000 0000 0001");
+        administrador.setCpfAdministrador("81574762591");
+        administrador.setCartaoSusAdministrador("756 0000 0000 0001");
         administrador.setEmail("administrador.sobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -332,14 +332,14 @@ public class AdministradorDaoTest {
 
         for (Administrador administrador1 : listaAdministradores) {
 
-            if (administrador1.getCpf().equals(administrador.getCpf())) {
+            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
                 id = administrador1.getId();
             }
         }
 
         Administrador novoAdministrador = new Administrador();
         novoAdministrador = administradorDao.findById(id);
-        assertEquals(administrador.getCpf(), novoAdministrador.getCpf());
+        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
     }
 
     @Test
@@ -348,8 +348,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR X SOBRENOME");
-        administrador.setCpf("82471569463");
-        administrador.setCartaoSus("756 0000 0000 0002");
+        administrador.setCpfAdministrador("82471569463");
+        administrador.setCartaoSusAdministrador("756 0000 0000 0002");
         administrador.setEmail("administrador.sobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -367,8 +367,8 @@ public class AdministradorDaoTest {
         Administrador administrador = new Administrador();
 
         administrador.setNome("ADMINISTRADOR XI SOBRENOME");
-        administrador.setCpf("67338517177");
-        administrador.setCartaoSus("756 0000 0000 0003");
+        administrador.setCpfAdministrador("67338517177");
+        administrador.setCartaoSusAdministrador("756 0000 0000 0003");
         administrador.setEmail("administrador.sobrenome@domain.com");
 
         administradorDao.getEntityManager().getTransaction().begin();
@@ -380,7 +380,7 @@ public class AdministradorDaoTest {
 
         for (Administrador administrador1 : listaAdministradores) {
 
-            if (administrador1.getCpf().equals(administrador.getCpf())) {
+            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
                 id = administrador1.getId();
                 administrador = administrador1;
             }

@@ -56,9 +56,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO SOBRENOME");
-        medico.setCpf("23676316380");
+        medico.setCpfMedico("23676316380");
         medico.setCrm("17990");
-        medico.setCartaoSus("898 2221 0121 0004");
+        medico.setCartaoSusMedico("898 2221 0121 0004");
         medico.setEmail("medico.sobrenome@domain.com");
         medico.setCorOuRaca("");
         medico.setEnderecoBairro("");
@@ -79,14 +79,14 @@ public class MedicoDaoTest {
 
         for (Medico medico1 : listaMedicos) {
 
-            if (medico1.getCpf().equals(medico.getCpf())) {
+            if (medico1.getCpfMedico().equals(medico.getCpfMedico())) {
                 id = medico1.getId();
             }
         }
 
         Medico novoMedico = new Medico();
         novoMedico = medicoDao.findById(id);
-        assertEquals(medico.getCpf(), novoMedico.getCpf());
+        assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
     @Test
@@ -95,9 +95,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO II SOBRENOME");
-        medico.setCpf("12172667552");
+        medico.setCpfMedico("12172667552");
         medico.setCrm("15987");
-        medico.setCartaoSus("898 3301 0121 0009");
+        medico.setCartaoSusMedico("898 3301 0121 0009");
         medico.setEmail("medico.isobrenome@domain.com");
         medico.setCorOuRaca("PARDA");
         medico.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -120,14 +120,14 @@ public class MedicoDaoTest {
 
         for (Medico medico1 : listaMedicos) {
 
-            if (medico1.getCpf().equals(medico.getCpf())) {
+            if (medico1.getCpfMedico().equals(medico.getCpfMedico())) {
                 id = medico1.getId();
             }
         }
 
         Medico novoMedico = new Medico();
         novoMedico = medicoDao.findById(id);
-        assertEquals(medico.getCpf(), novoMedico.getCpf());
+        assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
     @Test(expected = Exception.class)
@@ -136,9 +136,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO III SOBRENOME");
-        medico.setCpf("52712865170");
+        medico.setCpfMedico("52712865170");
         medico.setCrm("15789");
-        medico.setCartaoSus("898 0001 2121 0099");
+        medico.setCartaoSusMedico("898 0001 2121 0099");
         medico.setEmail("medico.iisobrenome@domain.com");
         medico.setCorOuRaca("PARDA");
         medico.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -180,7 +180,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setCpf("93730345451");
+        medico.setCpfMedico("93730345451");
 
         medicoDao.getEntityManager().getTransaction().begin();
         medicoDao.salvar(medico);
@@ -206,7 +206,7 @@ public class MedicoDaoTest {
 
         Medico medico = new Medico();
 
-        medico.setCartaoSus("898 1101 0121 0099");
+        medico.setCartaoSusMedico("898 1101 0121 0099");
 
         medicoDao.getEntityManager().getTransaction().begin();
         medicoDao.salvar(medico);
@@ -233,7 +233,7 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO V SOBRENOME");
-        medico.setCpf("85946691945");
+        medico.setCpfMedico("85946691945");
 
         medicoDao.getEntityManager().getTransaction().begin();
         medicoDao.salvar(medico);
@@ -247,7 +247,7 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO VI SOBRENOME");
-        medico.setCpf("85946691945");
+        medico.setCpfMedico("85946691945");
         medico.setCrm("15111");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -263,15 +263,15 @@ public class MedicoDaoTest {
         Medico novoMedico = new Medico();
 
         medico.setNome("MEDICO VII SOBRENOME");
-        medico.setCpf("67877347359");
+        medico.setCpfMedico("67877347359");
         medico.setCrm("15789");
-        medico.setCartaoSus("898 0451 0121 0099");
+        medico.setCartaoSusMedico("898 0451 0121 0099");
         medico.setEmail("medico.iisobrenome@domain.com");
 
         novoMedico.setNome("MEDICO VIII SOBRENOME");
-        novoMedico.setCpf("67877347359");
+        novoMedico.setCpfMedico("67877347359");
         novoMedico.setCrm("15000");
-        novoMedico.setCartaoSus("898 0071 0121 0901");
+        novoMedico.setCartaoSusMedico("898 0071 0121 0901");
         novoMedico.setEmail("medico.xsobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -290,15 +290,15 @@ public class MedicoDaoTest {
         Medico novoMedico = new Medico();
 
         medico.setNome("MEDICO IX SOBRENOME");
-        medico.setCpf("07246785736");
+        medico.setCpfMedico("07246785736");
         medico.setCrm("15789");
-        medico.setCartaoSus("700 0001 0121 0099");
+        medico.setCartaoSusMedico("700 0001 0121 0099");
         medico.setEmail("medico.iisobrenome@domain.com");
 
         novoMedico.setNome("MEDICO X SOBRENOME");
-        novoMedico.setCpf("96331211403");
+        novoMedico.setCpfMedico("96331211403");
         novoMedico.setCrm("15000");
-        novoMedico.setCartaoSus("700 0001 0121 0099");
+        novoMedico.setCartaoSusMedico("700 0001 0121 0099");
         novoMedico.setEmail("medico.xsobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -316,9 +316,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("ENTIDADE X SOBRENOME");
-        medico.setCpf("91184468680");
+        medico.setCpfMedico("91184468680");
         medico.setCrm("17991");
-        medico.setCartaoSus("898 2221 0121 9994");
+        medico.setCartaoSusMedico("898 2221 0121 9994");
         medico.setEmail("entidade.sobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -332,9 +332,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO XI SOBRENOME");
-        medico.setCpf("27198569323");
+        medico.setCpfMedico("27198569323");
         medico.setCrm("17996");
-        medico.setCartaoSus("898 0099 0707 8778");
+        medico.setCartaoSusMedico("898 0099 0707 8778");
         medico.setEmail("medico.sobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -353,9 +353,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO XII SOBRENOME");
-        medico.setCpf("50965876063");
+        medico.setCpfMedico("50965876063");
         medico.setCrm("17997");
-        medico.setCartaoSus("898 0099 0707 7887");
+        medico.setCartaoSusMedico("898 0099 0707 7887");
         medico.setEmail("medico.sobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -367,14 +367,14 @@ public class MedicoDaoTest {
 
         for (Medico medico1 : listaMedicos) {
 
-            if (medico1.getCpf().equals(medico.getCpf())) {
+            if (medico1.getCpfMedico().equals(medico.getCpfMedico())) {
                 id = medico1.getId();
             }
         }
 
         Medico novoMedico = new Medico();
         novoMedico = medicoDao.findById(id);
-        assertEquals(medico.getCpf(), novoMedico.getCpf());
+        assertEquals(medico.getCpfMedico(), novoMedico.getCpfMedico());
     }
 
     @Test
@@ -383,9 +383,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO XIII SOBRENOME");
-        medico.setCpf("68843868438");
+        medico.setCpfMedico("68843868438");
         medico.setCrm("17998");
-        medico.setCartaoSus("898 9876 0707 7887");
+        medico.setCartaoSusMedico("898 9876 0707 7887");
         medico.setEmail("medico.sobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -403,9 +403,9 @@ public class MedicoDaoTest {
         Medico medico = new Medico();
 
         medico.setNome("MEDICO XIV SOBRENOME");
-        medico.setCpf("05982316920");
+        medico.setCpfMedico("05982316920");
         medico.setCrm("17999");
-        medico.setCartaoSus("898 1234 9999 9876");
+        medico.setCartaoSusMedico("898 1234 9999 9876");
         medico.setEmail("medico.sobrenome@domain.com");
 
         medicoDao.getEntityManager().getTransaction().begin();
@@ -417,7 +417,7 @@ public class MedicoDaoTest {
 
         for (Medico medico1 : listaMedicos) {
 
-            if (medico1.getCpf().equals(medico.getCpf())) {
+            if (medico1.getCpfMedico().equals(medico.getCpfMedico())) {
                 id = medico1.getId();
                 medico = medico1;
             }

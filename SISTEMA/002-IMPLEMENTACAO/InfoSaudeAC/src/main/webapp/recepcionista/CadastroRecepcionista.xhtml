@@ -25,13 +25,13 @@
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{recepcionistaBean.recepcionista.cpf}"  validator="cpfValidator" 
+                                 value="#{recepcionistaBean.recepcionista.cpfRecepcionista}"  validator="cpfValidator" 
                                  converter="cpfConverter" size="40" maxlength="11"/>
 
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
                     <p:inputMask id="cartaoSus" mask="999 9999 9999 9999" required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 value="#{recepcionistaBean.recepcionista.cartaoSus}"  size="40" maxlength="20"/>
+                                 value="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}"  size="40" maxlength="20"/>
 
                     <p:outputLabel for="nome" value="#{msg.name}:"/>
                     <p:inputText id="nome" value="#{recepcionistaBean.recepcionista.nome}" required="true"

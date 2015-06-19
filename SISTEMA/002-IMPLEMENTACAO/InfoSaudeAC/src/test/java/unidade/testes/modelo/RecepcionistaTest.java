@@ -22,8 +22,8 @@ public class RecepcionistaTest {
     public void setUp() {
         recepcionista = new Recepcionista();
 
-        recepcionista.setCpf("173.375.113-02");
-        recepcionista.setCartaoSus("78263710923");
+        recepcionista.setCpfRecepcionista("173.375.113-02");
+        recepcionista.setCartaoSusRecepcionista("78263710923");
         recepcionista.setNome("Fabiana Costa");
         recepcionista.setDataNascimento(new Date());
         recepcionista.setCorOuRaca("PARDA");
@@ -41,8 +41,8 @@ public class RecepcionistaTest {
 
     @Test
     public void testCreateObjetc() {
-        System.out.println(recepcionista.getCpf());
-        System.out.println(recepcionista.getCartaoSus());
+        System.out.println(recepcionista.getCpfRecepcionista());
+        System.out.println(recepcionista.getCartaoSusRecepcionista());
         System.out.println(recepcionista.getNome());
         System.out.println(recepcionista.getDataNascimento());
         System.out.println(recepcionista.getCorOuRaca());
@@ -57,8 +57,8 @@ public class RecepcionistaTest {
         System.out.println(recepcionista.getEnderecoRua());
         System.out.println(recepcionista.getRg());
 
-        assertEquals("O cpf esperado deve ser 173.375.113-02", "173.375.113-02", recepcionista.getCpf());
-        assertEquals("O cartão sus esperado deve ser 78263710923", "78263710923", recepcionista.getCartaoSus());
+        assertEquals("O cpf esperado deve ser 173.375.113-02", "173.375.113-02", recepcionista.getCpfRecepcionista());
+        assertEquals("O cartão sus esperado deve ser 78263710923", "78263710923", recepcionista.getCartaoSusRecepcionista());
         assertEquals("O nome esperado deve ser Fabiana Costa", "Fabiana Costa", recepcionista.getNome());
         assertEquals("A data esperada deve ser " + recepcionista.getDataNascimento(), recepcionista.getDataNascimento(),
                 recepcionista.getDataNascimento());

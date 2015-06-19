@@ -27,10 +27,6 @@ public class FichaAtendimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "paciente_pk")
-    private Paciente paciente;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "ficha_atendimento_destino", nullable = false)
     private Destino destino;
@@ -39,7 +35,11 @@ public class FichaAtendimento implements Serializable {
     @Column(name = "ficha_atendimento_data")
     private Date data;
 
-    @OneToOne(mappedBy = "fichaAtendimento")
+    @OneToOne
+    @JoinColumn(name = "paciente_pk")
+    private Paciente paciente;
+    
+    @OneToOne(mappedBy = "fichaAtendimentoTriagem")
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 

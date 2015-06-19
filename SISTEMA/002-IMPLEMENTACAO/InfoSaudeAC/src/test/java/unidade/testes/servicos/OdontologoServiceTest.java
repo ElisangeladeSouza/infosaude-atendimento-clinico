@@ -46,17 +46,17 @@ public class OdontologoServiceTest {
     @Test
     public void testSaveCamposObrigatorios() {
 
-        odontologo.setCartaoSus("777 9876 8877 2244");
+        odontologo.setCartaoSusOdontologo("777 9876 8877 2244");
         odontologo.setCro("9687");
         odontologo.setNome("ISABELLE MAURICE");
-        odontologo.setCpf("09827885685");
+        odontologo.setCpfOdontologo("09827885685");
 
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
         assertEquals("ISABELLE MAURICE", odontologo.getNome());
-        assertEquals("09827885685", odontologo.getCpf());
+        assertEquals("09827885685", odontologo.getCpfOdontologo());
         assertEquals("9687", odontologo.getCro());
-        assertEquals("777 9876 8877 2244", odontologo.getCartaoSus());
+        assertEquals("777 9876 8877 2244", odontologo.getCartaoSusOdontologo());
     }
 
     @Test(expected = Exception.class)
@@ -69,16 +69,16 @@ public class OdontologoServiceTest {
     public void testFindByIdExistente() {
 
         odontologo.setNome("LUIS ARTHUR");
-        odontologo.setCpf("88378682862");
-        odontologo.setCartaoSus("123 9876 1234 9876");
+        odontologo.setCpfOdontologo("88378682862");
+        odontologo.setCartaoSusOdontologo("123 9876 1234 9876");
         odontologo.setCro("19147");
 
         when(odontologoService.findById(1L)).thenReturn(odontologo);
         novoOdontologo = odontologoService.findById(1L);
         assertEquals("LUIS ARTHUR", odontologo.getNome());
-        assertEquals("88378682862", odontologo.getCpf());
+        assertEquals("88378682862", odontologo.getCpfOdontologo());
         assertEquals("19147", odontologo.getCro());
-        assertEquals("123 9876 1234 9876", odontologo.getCartaoSus());
+        assertEquals("123 9876 1234 9876", odontologo.getCartaoSusOdontologo());
 
     }
 
@@ -88,8 +88,8 @@ public class OdontologoServiceTest {
         List<Odontologo> listaOdontologos = new ArrayList<>();
 
         odontologo.setNome("LUCIUS MALLAFYORI");
-        odontologo.setCpf("31422203565");
-        odontologo.setCartaoSus("585 9876 4444 7890");
+        odontologo.setCpfOdontologo("31422203565");
+        odontologo.setCartaoSusOdontologo("585 9876 4444 7890");
 
         listaOdontologos = (List<Odontologo>) new ArrayList<Odontologo>();
         listaOdontologos.add(odontologo);

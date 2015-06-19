@@ -23,9 +23,9 @@ public class OdontologoTest {
         odontologo = new Odontologo();
         odontologo.setNome("Mariana");
         odontologo.setCro("88665232");
-        odontologo.setCpf("035.982.856-63");
+        odontologo.setCpfOdontologo("035.982.856-63");
         odontologo.setRg("26475828");
-        odontologo.setCartaoSus("65745437543");
+        odontologo.setCartaoSusOdontologo("65745437543");
         odontologo.setDataNascimento(new Date());
         odontologo.setCorOuRaca("Branca");
         odontologo.setTelefone1("(83)33512678");
@@ -44,9 +44,9 @@ public class OdontologoTest {
     public void testCreateObjetc() {
         System.out.println(odontologo.getNome());
         System.out.println(odontologo.getCro());
-        System.out.println(odontologo.getCpf());
+        System.out.println(odontologo.getCpfOdontologo());
         System.out.println(odontologo.getRg());
-        System.out.println(odontologo.getCartaoSus());
+        System.out.println(odontologo.getCartaoSusOdontologo());
         System.out.println(odontologo.getDataNascimento());
         System.out.println(odontologo.getCorOuRaca());
         System.out.println(odontologo.getTelefone1());
@@ -61,9 +61,9 @@ public class OdontologoTest {
 
         assertEquals("O nome esperado deve ser Mariana", "Mariana", odontologo.getNome());
         assertEquals("O crm esperado deve ser 88665232", "88665232", odontologo.getCro());
-        assertEquals("O cpf esperado deve ser 035.982.856-63", "035.982.856-63", odontologo.getCpf());
+        assertEquals("O cpf esperado deve ser 035.982.856-63", "035.982.856-63", odontologo.getCpfOdontologo());
         assertEquals("O rg esperado deve ser 26475828", "26475828", odontologo.getRg());
-        assertEquals("O cartão sus deve ser 65745437543", "65745437543", odontologo.getCartaoSus());
+        assertEquals("O cartão sus deve ser 65745437543", "65745437543", odontologo.getCartaoSusOdontologo());
         assertEquals("A data esperada deve ser " + odontologo.getDataNascimento(), odontologo.getDataNascimento(), odontologo.getDataNascimento());
         assertEquals("A cor ou raça deve ser Branca", "Branca", odontologo.getCorOuRaca());
         assertEquals("O telefone deve ser (83)33512678", "(83)33512678", odontologo.getTelefone1());

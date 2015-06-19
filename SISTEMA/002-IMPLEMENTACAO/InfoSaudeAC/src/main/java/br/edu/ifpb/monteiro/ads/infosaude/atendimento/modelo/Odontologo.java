@@ -16,11 +16,11 @@ public class Odontologo extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    @Column(name = "pessoa_cpfOdontologo", nullable = false, unique = true, length = 11)
+    private String cpfOdontologo;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusOdontologo;
 
     @Column(name = "odontologo_cro", unique = true, length = 30)
     private String cro;
@@ -36,27 +36,27 @@ public class Odontologo extends Pessoa implements Serializable {
         this.cro = cro;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfOdontologo() {
+        return cpfOdontologo;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfOdontologo(String cpfOdontologo) {
+        this.cpfOdontologo = cpfOdontologo;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCartaoSusOdontologo() {
+        return cartaoSusOdontologo;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
+    public void setCartaoSusOdontologo(String cartaoSusOdontologo) {
+        this.cartaoSusOdontologo = cartaoSusOdontologo;
     }
 
     @Override
     public int hashCode() {
         int hashOdontologo = 7;
-        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cpf);
-        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cartaoSus);
+        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cpfOdontologo);
+        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cartaoSusOdontologo);
         hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cro);
         return hashOdontologo;
     }
@@ -70,10 +70,10 @@ public class Odontologo extends Pessoa implements Serializable {
             return false;
         }
         final Odontologo other = (Odontologo) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        if (!Objects.equals(this.cpfOdontologo, other.cpfOdontologo)) {
             return false;
         }
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
+        if (!Objects.equals(this.cartaoSusOdontologo, other.cartaoSusOdontologo)) {
             return false;
         }
         return Objects.equals(this.cro, other.cro);

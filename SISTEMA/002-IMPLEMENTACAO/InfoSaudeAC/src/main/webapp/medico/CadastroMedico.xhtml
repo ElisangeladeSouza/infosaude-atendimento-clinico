@@ -29,11 +29,11 @@
 
                     <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
                     <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{medicoBean.medico.cpf}"  size="40"
+                                 value="#{medicoBean.medico.cpfMedico}"  size="40"
                                  validator="cpfValidator" converter="cpfConverter" maxlength="11"/>
 
                     <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
-                    <p:inputMask id="cartaoSus" value="#{medicoBean.medico.cartaoSus}" mask="999 9999 9999 9999"
+                    <p:inputMask id="cartaoSus" value="#{medicoBean.medico.cartaoSusMedico}" mask="999 9999 9999 9999"
                                  required="true" requiredMessage="#{msg.mandatorySusCard}"
                                   size="40" maxlength="20"/>
 

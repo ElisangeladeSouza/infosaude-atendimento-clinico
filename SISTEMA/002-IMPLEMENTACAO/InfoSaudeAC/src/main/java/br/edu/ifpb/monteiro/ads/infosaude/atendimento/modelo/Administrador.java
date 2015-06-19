@@ -14,36 +14,36 @@ public class Administrador extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    @Column(name = "pessoa_cpf_administrador", nullable = false, unique = true, length = 11)
+    private String cpfAdministrador;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusAdministrador;
 
     public Administrador() {
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfAdministrador() {
+        return cpfAdministrador;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfAdministrador(String cpfAdministrador) {
+        this.cpfAdministrador = cpfAdministrador;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCartaoSusAdministrador() {
+        return cartaoSusAdministrador;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
+    public void setCartaoSusAdministrador(String cartaoSusAdministrador) {
+        this.cartaoSusAdministrador = cartaoSusAdministrador;
     }
 
     @Override
     public int hashCode() {
         int hashAdministrador = 7;
-        hashAdministrador = 37 * hashAdministrador + Objects.hashCode(this.cpf);
-        hashAdministrador = 37 * hashAdministrador + Objects.hashCode(this.cartaoSus);
+        hashAdministrador = 37 * hashAdministrador + Objects.hashCode(this.cpfAdministrador);
+        hashAdministrador = 37 * hashAdministrador + Objects.hashCode(this.cartaoSusAdministrador);
         return hashAdministrador;
     }
 
@@ -56,9 +56,9 @@ public class Administrador extends Pessoa implements Serializable {
             return false;
         }
         final Administrador other = (Administrador) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        if (!Objects.equals(this.cpfAdministrador, other.cpfAdministrador)) {
             return false;
         }
-        return Objects.equals(this.cartaoSus, other.cartaoSus);
+        return Objects.equals(this.cartaoSusAdministrador, other.cartaoSusAdministrador);
     }
 }

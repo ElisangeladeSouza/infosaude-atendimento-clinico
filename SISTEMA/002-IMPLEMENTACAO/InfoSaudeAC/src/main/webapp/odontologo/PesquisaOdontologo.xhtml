@@ -23,7 +23,7 @@
                 </p:toolbar>
 
                 <p:dataTable id="datatablePesquisaOdontologo" var="odontologo" value="#{odontologoBean.odontologos}"
-                             paginatorAlwaysVisible="false" style="margin-top: 1px; text-transform: uppercase" rows="10" 
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaOdontologo"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
@@ -47,8 +47,8 @@
                         <h:outputText id="cro" value="#{odontologo.cro}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{odontologo.cpf}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="cpf" value="#{odontologo.cpf}" converter="cpfConverter"/>
+                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{odontologo.cpfOdontologo}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="cpf" value="#{odontologo.cpfOdontologo}" converter="cpfConverter"/>
                     </p:column>
 
                     <p:column headerText="#{msg.phone1}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{odontologo.telefone1}" filterStyle="width: 80px; display:none">

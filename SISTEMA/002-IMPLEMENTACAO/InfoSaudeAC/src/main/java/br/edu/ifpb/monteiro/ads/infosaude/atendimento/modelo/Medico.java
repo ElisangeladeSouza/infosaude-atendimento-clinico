@@ -16,11 +16,11 @@ public class Medico extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "pessoa_cpf", nullable = false, unique = true, length = 11)
-    private String cpf;
+    @Column(name = "pessoa_cpf_medico", nullable = false, unique = true, length = 11)
+    private String cpfMedico;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSus;
+    private String cartaoSusMedico;
 
     @Column(name = "medico_crm", unique = true, length = 30)
     private String crm;
@@ -36,27 +36,27 @@ public class Medico extends Pessoa implements Serializable {
         this.crm = crm;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfMedico() {
+        return cpfMedico;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfMedico(String cpfMedico) {
+        this.cpfMedico = cpfMedico;
     }
 
-    public String getCartaoSus() {
-        return cartaoSus;
+    public String getCartaoSusMedico() {
+        return cartaoSusMedico;
     }
 
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
+    public void setCartaoSusMedico(String cartaoSusMedico) {
+        this.cartaoSusMedico = cartaoSusMedico;
     }
 
     @Override
     public int hashCode() {
         int hashMedico = 7;
-        hashMedico = 67 * hashMedico + Objects.hashCode(this.cpf);
-        hashMedico = 67 * hashMedico + Objects.hashCode(this.cartaoSus);
+        hashMedico = 67 * hashMedico + Objects.hashCode(this.cpfMedico);
+        hashMedico = 67 * hashMedico + Objects.hashCode(this.cartaoSusMedico);
         return hashMedico;
     }
 
@@ -69,9 +69,9 @@ public class Medico extends Pessoa implements Serializable {
             return false;
         }
         final Medico other = (Medico) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        if (!Objects.equals(this.cpfMedico, other.cpfMedico)) {
             return false;
         }
-        return Objects.equals(this.cartaoSus, other.cartaoSus);
+        return Objects.equals(this.cartaoSusMedico, other.cartaoSusMedico);
     }
 }

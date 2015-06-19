@@ -47,7 +47,7 @@ public class Procedimento implements Serializable {
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 
-    @OneToOne(mappedBy = "procedimento")
+    @OneToOne(mappedBy = "procedimentoPaciente")
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Paciente paciente;
 

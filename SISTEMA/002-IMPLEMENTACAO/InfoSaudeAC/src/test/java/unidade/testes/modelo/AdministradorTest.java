@@ -22,8 +22,8 @@ public class AdministradorTest {
     public void setUp() {
         administrador = new Administrador();
 
-        administrador.setCpf("271.503.479-24");
-        administrador.setCartaoSus("2340956716582");
+        administrador.setCpfAdministrador("271.503.479-24");
+        administrador.setCartaoSusAdministrador("2340956716582");
         administrador.setNome("Maria de Lurdes");
         administrador.setDataNascimento(new Date());
         administrador.setCorOuRaca("BRANCA");
@@ -41,8 +41,8 @@ public class AdministradorTest {
 
     @Test
     public void testCreateObjetc() {
-        System.out.println(administrador.getCpf());
-        System.out.println(administrador.getCartaoSus());
+        System.out.println(administrador.getCpfAdministrador());
+        System.out.println(administrador.getCartaoSusAdministrador());
         System.out.println(administrador.getNome());
         System.out.println(administrador.getDataNascimento());
         System.out.println(administrador.getCorOuRaca());
@@ -56,8 +56,8 @@ public class AdministradorTest {
         System.out.println(administrador.getRg());
         System.out.println(administrador.getTelefone1());
 
-        assertEquals("O cpf esperado deve ser 271.503.479-24", "271.503.479-24", administrador.getCpf());
-        assertEquals("O cartão sus esperado deve ser 2340956716582", "2340956716582", administrador.getCartaoSus());
+        assertEquals("O cpf esperado deve ser 271.503.479-24", "271.503.479-24", administrador.getCpfAdministrador());
+        assertEquals("O cartão sus esperado deve ser 2340956716582", "2340956716582", administrador.getCartaoSusAdministrador());
         assertEquals("O nome esperado deve ser Maria de Lurdes", "Maria de Lurdes", administrador.getNome());
         assertEquals("A data esperada deve ser " + administrador.getDataNascimento(), administrador.getDataNascimento(),
                 administrador.getDataNascimento());

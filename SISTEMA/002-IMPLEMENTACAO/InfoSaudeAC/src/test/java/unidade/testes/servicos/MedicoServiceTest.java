@@ -46,17 +46,17 @@ public class MedicoServiceTest {
     @Test
     public void testSaveCamposObrigatorios() {
 
-        medico.setCartaoSus("777 9876 9876 2225");
+        medico.setCartaoSusMedico("777 9876 9876 2225");
         medico.setCrm("123456");
         medico.setNome("NONA BELLA");
-        medico.setCpf("46359114208");
+        medico.setCpfMedico("46359114208");
 
         when(medicoService.findById(1L)).thenReturn(medico);
         novoMedico = medicoService.findById(1L);
         assertEquals("NONA BELLA", medico.getNome());
-        assertEquals("46359114208", medico.getCpf());
+        assertEquals("46359114208", medico.getCpfMedico());
         assertEquals("123456", medico.getCrm());
-        assertEquals("777 9876 9876 2225", medico.getCartaoSus());
+        assertEquals("777 9876 9876 2225", medico.getCartaoSusMedico());
     }
 
     @Test(expected = Exception.class)
@@ -69,16 +69,16 @@ public class MedicoServiceTest {
     public void testFindByIdExistente() {
 
         medico.setNome("LUIS ALVIM");
-        medico.setCpf("67147470206");
-        medico.setCartaoSus("585 9876 0000 9876");
+        medico.setCpfMedico("67147470206");
+        medico.setCartaoSusMedico("585 9876 0000 9876");
         medico.setCrm("19147");
 
         when(medicoService.findById(1L)).thenReturn(medico);
         novoMedico = medicoService.findById(1L);
         assertEquals("LUIS ALVIM", medico.getNome());
-        assertEquals("67147470206", medico.getCpf());
+        assertEquals("67147470206", medico.getCpfMedico());
         assertEquals("19147", medico.getCrm());
-        assertEquals("585 9876 0000 9876", medico.getCartaoSus());
+        assertEquals("585 9876 0000 9876", medico.getCartaoSusMedico());
 
     }
 
@@ -88,8 +88,8 @@ public class MedicoServiceTest {
         List<Medico> listaMedicos = new ArrayList<>();
 
         medico.setNome("LUCIUS MALLAFYORI");
-        medico.setCpf("31422203565");
-        medico.setCartaoSus("585 9876 4444 7890");
+        medico.setCpfMedico("31422203565");
+        medico.setCartaoSusMedico("585 9876 4444 7890");
 
         listaMedicos = (List<Medico>) new ArrayList<Medico>();
         listaMedicos.add(medico);

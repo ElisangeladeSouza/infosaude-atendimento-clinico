@@ -56,9 +56,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO SOBRENOME");
-        odontologo.setCpf("80828988447");
+        odontologo.setCpfOdontologo("80828988447");
         odontologo.setCro("20010");
-        odontologo.setCartaoSus("898 0001 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0001 9999 5555");
         odontologo.setEmail("odontologo.sobrenome@domain.com");
         odontologo.setCorOuRaca("");
         odontologo.setEnderecoBairro("");
@@ -79,14 +79,14 @@ public class OdontologoDaoTest {
 
         for (Odontologo odontologo1 : listaOdontologos) {
 
-            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+            if (odontologo1.getCpfOdontologo().equals(odontologo.getCpfOdontologo())) {
                 id = odontologo1.getId();
             }
         }
 
         Odontologo novoOdontologo = new Odontologo();
         novoOdontologo = odontologoDao.findById(id);
-        assertEquals(odontologo.getCpf(), novoOdontologo.getCpf());
+        assertEquals(odontologo.getCpfOdontologo(), novoOdontologo.getCpfOdontologo());
 
     }
 
@@ -96,9 +96,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO I SOBRENOME");
-        odontologo.setCpf("86457937500");
+        odontologo.setCpfOdontologo("86457937500");
         odontologo.setCro("15987");
-        odontologo.setCartaoSus("898 0002 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0002 9999 5555");
         odontologo.setEmail("odontologo.isobrenome@domain.com");
         odontologo.setCorOuRaca("PARDA");
         odontologo.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -121,14 +121,14 @@ public class OdontologoDaoTest {
 
         for (Odontologo odontologo1 : listaOdontologos) {
 
-            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+            if (odontologo1.getCpfOdontologo().equals(odontologo.getCpfOdontologo())) {
                 id = odontologo1.getId();
             }
         }
 
         Odontologo novoOdontologo = new Odontologo();
         novoOdontologo = odontologoDao.findById(id);
-        assertEquals(odontologo.getCpf(), novoOdontologo.getCpf());
+        assertEquals(odontologo.getCpfOdontologo(), novoOdontologo.getCpfOdontologo());
     }
 
     @Test(expected = Exception.class)
@@ -137,9 +137,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO II SOBRENOME");
-        odontologo.setCpf("85463248400");
+        odontologo.setCpfOdontologo("85463248400");
         odontologo.setCro("15789");
-        odontologo.setCartaoSus("898 0003 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0003 9999 5555");
         odontologo.setEmail("odontologo.iisobrenome@domain.com");
         odontologo.setCorOuRaca("PARDA");
         odontologo.setDataNascimento(dateTimeUtilBean.getDateToday());
@@ -181,7 +181,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setCpf("01281363596");
+        odontologo.setCpfOdontologo("01281363596");
 
         odontologoDao.getEntityManager().getTransaction().begin();
         odontologoDao.salvar(odontologo);
@@ -207,7 +207,7 @@ public class OdontologoDaoTest {
 
         Odontologo odontologo = new Odontologo();
 
-        odontologo.setCartaoSus("898 0004 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0004 9999 5555");
 
         odontologoDao.getEntityManager().getTransaction().begin();
         odontologoDao.salvar(odontologo);
@@ -234,7 +234,7 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO IV SOBRENOME");
-        odontologo.setCpf("04747445820");
+        odontologo.setCpfOdontologo("04747445820");
 
         odontologoDao.getEntityManager().getTransaction().begin();
         odontologoDao.salvar(odontologo);
@@ -248,7 +248,7 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO V SOBRENOME");
-        odontologo.setCpf("04747445820");
+        odontologo.setCpfOdontologo("04747445820");
         odontologo.setCro("15111");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -264,15 +264,15 @@ public class OdontologoDaoTest {
         Odontologo novoOdontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO VI SOBRENOME");
-        odontologo.setCpf("24239270960");
+        odontologo.setCpfOdontologo("24239270960");
         odontologo.setCro("15789");
-        odontologo.setCartaoSus("898 0006 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0006 9999 5555");
         odontologo.setEmail("odontologo.iisobrenome@domain.com");
 
         novoOdontologo.setNome("ODONTOLOGO X SOBRENOME");
-        novoOdontologo.setCpf("24239270960");
+        novoOdontologo.setCpfOdontologo("24239270960");
         novoOdontologo.setCro("15000");
-        novoOdontologo.setCartaoSus("898 0007 9999 5555");
+        novoOdontologo.setCartaoSusOdontologo("898 0007 9999 5555");
         novoOdontologo.setEmail("odontologo.xsobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -291,15 +291,15 @@ public class OdontologoDaoTest {
         Odontologo novoOdontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO VII SOBRENOME");
-        odontologo.setCpf("02890781135");
+        odontologo.setCpfOdontologo("02890781135");
         odontologo.setCro("15789");
-        odontologo.setCartaoSus("898 0008 9999 5555");
+        odontologo.setCartaoSusOdontologo("898 0008 9999 5555");
         odontologo.setEmail("odontologo.iisobrenome@domain.com");
 
         novoOdontologo.setNome("ODONTOLOGO X SOBRENOME");
-        novoOdontologo.setCpf("12740714297");
+        novoOdontologo.setCpfOdontologo("12740714297");
         novoOdontologo.setCro("15000");
-        novoOdontologo.setCartaoSus("898 0008 9999 5555");
+        novoOdontologo.setCartaoSusOdontologo("898 0008 9999 5555");
         novoOdontologo.setEmail("odontologo.xsobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -317,9 +317,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ENTIDADE VIII SOBRENOME");
-        odontologo.setCpf("91184468680");
+        odontologo.setCpfOdontologo("91184468680");
         odontologo.setCro("20011");
-        odontologo.setCartaoSus("898 2221 0121 9994");
+        odontologo.setCartaoSusOdontologo("898 2221 0121 9994");
         odontologo.setEmail("entidade.sobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -333,9 +333,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO IX SOBRENOME");
-        odontologo.setCpf("02171614218");
+        odontologo.setCpfOdontologo("02171614218");
         odontologo.setCro("20014");
-        odontologo.setCartaoSus("756 0000 0000 0030");
+        odontologo.setCartaoSusOdontologo("756 0000 0000 0030");
         odontologo.setEmail("odontologo.sobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -354,9 +354,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO X SOBRENOME");
-        odontologo.setCpf("33022384521");
+        odontologo.setCpfOdontologo("33022384521");
         odontologo.setCro("20015");
-        odontologo.setCartaoSus("756 0000 0000 0031");
+        odontologo.setCartaoSusOdontologo("756 0000 0000 0031");
         odontologo.setEmail("odontologo.sobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -368,14 +368,14 @@ public class OdontologoDaoTest {
 
         for (Odontologo odontologo1 : listaOdontologos) {
 
-            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+            if (odontologo1.getCpfOdontologo().equals(odontologo.getCpfOdontologo())) {
                 id = odontologo1.getId();
             }
         }
 
         Odontologo novoOdontologo = new Odontologo();
         novoOdontologo = odontologoDao.findById(id);
-        assertEquals(odontologo.getCpf(), novoOdontologo.getCpf());
+        assertEquals(odontologo.getCpfOdontologo(), novoOdontologo.getCpfOdontologo());
     }
 
     @Test
@@ -384,9 +384,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO XI SOBRENOME");
-        odontologo.setCpf("81516485467");
+        odontologo.setCpfOdontologo("81516485467");
         odontologo.setCro("20016");
-        odontologo.setCartaoSus("756 0000 0000 0035");
+        odontologo.setCartaoSusOdontologo("756 0000 0000 0035");
         odontologo.setEmail("odontologo.sobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -404,9 +404,9 @@ public class OdontologoDaoTest {
         Odontologo odontologo = new Odontologo();
 
         odontologo.setNome("ODONTOLOGO XII SOBRENOME");
-        odontologo.setCpf("23646781963");
+        odontologo.setCpfOdontologo("23646781963");
         odontologo.setCro("20017");
-        odontologo.setCartaoSus("756 0000 0000 0034");
+        odontologo.setCartaoSusOdontologo("756 0000 0000 0034");
         odontologo.setEmail("odontologo.sobrenome@domain.com");
 
         odontologoDao.getEntityManager().getTransaction().begin();
@@ -418,7 +418,7 @@ public class OdontologoDaoTest {
 
         for (Odontologo odontologo1 : listaOdontologos) {
 
-            if (odontologo1.getCpf().equals(odontologo.getCpf())) {
+            if (odontologo1.getCpfOdontologo().equals(odontologo.getCpfOdontologo())) {
                 id = odontologo1.getId();
                 odontologo = odontologo1;
             }

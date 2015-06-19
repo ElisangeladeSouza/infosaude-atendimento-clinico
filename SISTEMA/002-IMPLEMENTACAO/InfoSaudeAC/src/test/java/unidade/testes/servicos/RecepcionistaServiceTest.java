@@ -46,15 +46,15 @@ public class RecepcionistaServiceTest {
     @Test
     public void testSaveCamposObrigatorios() {
 
-        recepcionista.setCartaoSus("777 1234 5678 9012");
+        recepcionista.setCartaoSusRecepcionista("777 1234 5678 9012");
         recepcionista.setNome("BELLA PRINCE");
-        recepcionista.setCpf("78135746130");
+        recepcionista.setCpfRecepcionista("78135746130");
 
         when(recepcionistaService.findById(1L)).thenReturn(recepcionista);
         novoRecepcionista = recepcionistaService.findById(1L);
         assertEquals("BELLA PRINCE", recepcionista.getNome());
-        assertEquals("78135746130", recepcionista.getCpf());
-        assertEquals("777 1234 5678 9012", recepcionista.getCartaoSus());
+        assertEquals("78135746130", recepcionista.getCpfRecepcionista());
+        assertEquals("777 1234 5678 9012", recepcionista.getCartaoSusRecepcionista());
     }
 
     @Test(expected = Exception.class)
@@ -67,14 +67,14 @@ public class RecepcionistaServiceTest {
     public void testFindByIdExistente() {
 
         recepcionista.setNome("LUCIANA MORENO");
-        recepcionista.setCpf("13193944343");
-        recepcionista.setCartaoSus("123 4567 8920 9876");
+        recepcionista.setCpfRecepcionista("13193944343");
+        recepcionista.setCartaoSusRecepcionista("123 4567 8920 9876");
 
         when(recepcionistaService.findById(1L)).thenReturn(recepcionista);
         novoRecepcionista = recepcionistaService.findById(1L);
         assertEquals("LUCIANA MORENO", recepcionista.getNome());
-        assertEquals("13193944343", recepcionista.getCpf());
-        assertEquals("123 4567 8920 9876", recepcionista.getCartaoSus());
+        assertEquals("13193944343", recepcionista.getCpfRecepcionista());
+        assertEquals("123 4567 8920 9876", recepcionista.getCartaoSusRecepcionista());
 
     }
 
@@ -84,8 +84,8 @@ public class RecepcionistaServiceTest {
         List<Recepcionista> listaRecepcionistas = new ArrayList<>();
 
         recepcionista.setNome("LUCIUS MALLAFYORI");
-        recepcionista.setCpf("31422203565");
-        recepcionista.setCartaoSus("585 9876 4444 7890");
+        recepcionista.setCpfRecepcionista("31422203565");
+        recepcionista.setCartaoSusRecepcionista("585 9876 4444 7890");
 
         listaRecepcionistas = (List<Recepcionista>) new ArrayList<Recepcionista>();
         listaRecepcionistas.add(recepcionista);

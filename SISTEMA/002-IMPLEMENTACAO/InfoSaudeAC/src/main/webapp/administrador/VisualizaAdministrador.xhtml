@@ -74,7 +74,7 @@
                 <p:fieldset id="fieldsetDocumentosAdministrador" legend="#{msg.documentation}" style="margin-top: 15px">
                     <h:panelGrid id="gridVisualizaDocumentos" columns="2">
                         <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{administradorBean.administrador.cpf}" >
+                        <p:outputLabel id="cpf" value="#{administradorBean.administrador.cpfAdministrador}" >
                             <f:converter converterId="cpfConverter"/>
                         </p:outputLabel>
 
@@ -82,7 +82,7 @@
                         <p:outputLabel id="rg" value="#{administradorBean.administrador.rg}" />
 
                         <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{administradorBean.administrador.cartaoSus}" />
+                        <p:outputLabel id="cartaoSus" value="#{administradorBean.administrador.cartaoSusAdministrador}" />
                     </h:panelGrid>
                 </p:fieldset>
 

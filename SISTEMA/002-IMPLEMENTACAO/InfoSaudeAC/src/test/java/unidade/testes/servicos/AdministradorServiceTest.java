@@ -46,16 +46,16 @@ public class AdministradorServiceTest {
     @Test
     public void testSaveCamposObrigatorios() {
 
-        administrador.setCartaoSus("777 1234 1111 9876");
+        administrador.setCartaoSusAdministrador("777 1234 1111 9876");
         administrador.setNome("MARTA SANHASSU");
-        administrador.setCpf("65076065884");
+        administrador.setCpfAdministrador("65076065884");
 
         when(administradorService.findById(1L)).thenReturn(administrador);
 
         novoAdministrador = administradorService.findById(1L);
         assertEquals("MARTA SANHASSU", administrador.getNome());
-        assertEquals("65076065884", administrador.getCpf());
-        assertEquals("777 1234 1111 9876", administrador.getCartaoSus());
+        assertEquals("65076065884", administrador.getCpfAdministrador());
+        assertEquals("777 1234 1111 9876", administrador.getCartaoSusAdministrador());
     }
 
     @Test(expected = Exception.class)
@@ -68,14 +68,14 @@ public class AdministradorServiceTest {
     public void testFindById() {
 
         administrador.setNome("LUIS VITON");
-        administrador.setCpf("15489262303");
-        administrador.setCartaoSus("585 5678 0000 5432");
+        administrador.setCpfAdministrador("15489262303");
+        administrador.setCartaoSusAdministrador("585 5678 0000 5432");
 
         when(administradorService.findById(1L)).thenReturn(administrador);
         administrador = administradorService.findById(1L);
         assertEquals("LUIS VITON", administrador.getNome());
-        assertEquals("15489262303", administrador.getCpf());
-        assertEquals("585 5678 0000 5432", administrador.getCartaoSus());
+        assertEquals("15489262303", administrador.getCpfAdministrador());
+        assertEquals("585 5678 0000 5432", administrador.getCartaoSusAdministrador());
 
     }
 
@@ -85,8 +85,8 @@ public class AdministradorServiceTest {
         List<Administrador> listaAdministradores = new ArrayList<>();
 
         administrador.setNome("LUCIUS MALLAFYORI");
-        administrador.setCpf("31422203565");
-        administrador.setCartaoSus("585 9876 4444 7890");
+        administrador.setCpfAdministrador("31422203565");
+        administrador.setCartaoSusAdministrador("585 9876 4444 7890");
 
         listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
         listaAdministradores.add(administrador);
