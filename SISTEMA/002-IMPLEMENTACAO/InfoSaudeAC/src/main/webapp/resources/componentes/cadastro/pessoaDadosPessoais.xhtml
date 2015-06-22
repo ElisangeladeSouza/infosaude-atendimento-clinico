@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <composite:interface>
+        <composite:attribute name="valueDataNascimento" required="true"/>
+        <composite:attribute name="valueCorRaca" required="true"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:panelGrid id="gridPessoalCC" columns="2">
+            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:"/>
+            <p:calendar id="dataNascimento" value="#{cc.attrs.valueDataNascimento}" 
+                        navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
+                        yearRange="c-150:c+0" size="9" locale="pt" mask="true">
+                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+            </p:calendar>
+
+            <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
+            <p:selectOneMenu id="racaCor" value="#{cc.attrs.valueCorRaca}">
+                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{racaCor}" itemLabel="#{raca.descricao}" var="raca"/>
+            </p:selectOneMenu>  
+        </h:panelGrid>
+
+    </composite:implementation>
+
+
+</html>

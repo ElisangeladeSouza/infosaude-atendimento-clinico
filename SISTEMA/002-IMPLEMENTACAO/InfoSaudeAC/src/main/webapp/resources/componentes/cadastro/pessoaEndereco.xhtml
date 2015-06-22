@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <composite:interface>
+        
+        <composite:attribute name="valueRua" required="true"/>
+        <composite:attribute name="valueNumero" required="true"/>
+        <composite:attribute name="valueBairro" required="true"/>
+        <composite:attribute name="valueCep" required="true"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:panelGrid columns="4">
+
+            <p:outputLabel for="rua" value="#{msg.street}:"/>
+            <p:inputText id="rua" value="#{cc.attrs.valueRua}"  
+                         style="margin-left: 48px" size="38" maxlength="150"/>
+
+            <p:inputText id="numero" value="#{cc.attrs.valueNumero}"  
+                         style="margin-left: 1px" size="10" maxlength="6" placeholder="Nº" />
+            <h:outputLabel/>
+
+            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
+            <p:inputText id="bairro" value="#{cc.attrs.valueBairro}"  
+                         style="margin-left: 48px" size="38" maxlength="100"/>
+
+            <p:inputMask mask="99999-999" id="cep" value="#{cc.attrs.valueCep}"  
+                         style="margin-left: 1px" size="10" maxlength="8" placeholder="CEP"/>
+            <h:outputLabel/>
+
+        </h:panelGrid>
+    </composite:implementation>
+
+
+</html>

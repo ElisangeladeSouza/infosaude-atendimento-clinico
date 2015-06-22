@@ -5,6 +5,7 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/cadastro"
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
@@ -23,25 +24,15 @@
 
                 <h:panelGrid columns="2">
 
-                    <p:outputLabel for="cpf" value="#{msg.cpf}:" style="margin-left: 20px"/>
-                    <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{pacienteBean.paciente.cpf}"  size="20"
-                                 validator="cpfValidator" converter="cpfConverter" style="margin-left: 5px" maxlength="11"/>
-
-                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:" style="margin-left: 20px"/>
-                    <p:inputMask id="cartaoSus" value="#{pacienteBean.paciente.cartaoSus}" mask="999 9999 9999 9999"
-                                 required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                  size="20" style="margin-left: 5px" maxlength="20"/>
-
-                    <p:outputLabel for="nome" value="#{msg.name}:" style="margin-left: 20px"/>
-                    <p:inputText id="nome" value="#{pacienteBean.paciente.nome}" required="true" requiredMessage="#{msg.mandatoryName}" 
-                                 size="38" style="margin-left: 5px" maxlength="150"/>
+                    <isac:pessoaCamposObrigatorios valueCpf="#{pacienteBean.paciente.cpf}" 
+                                                   valueCartaoSus="#{pacienteBean.paciente.cartaoSus}" 
+                                                   valueNome="#{pacienteBean.paciente.nome}"/>
 
                 </h:panelGrid>
 
                 <p:tabView id="tabViewDadosPaciente" style="padding-left: 0px">
 
-                    <p:tab title="#{msg.personal}">
+                    <p:tab id="tabPessoalPaciente" title="#{msg.personal}">
                         <h:panelGrid columns="4">
 
                             <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
@@ -70,6 +61,7 @@
                             </p:inputText>
 
                         </h:panelGrid>
+
                         <h:panelGrid columns="2">
                             <p:outputLabel for="nomeMae" value="#{msg.motherName}:" />
                             <p:inputText id="nomeMae" size="38" value="#{pacienteBean.paciente.nomeDaMae}" 
@@ -77,26 +69,14 @@
                         </h:panelGrid>
                     </p:tab>
 
-                    <p:tab title="#{msg.contact}">
-                        <h:panelGrid columns="2">
-                            <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{pacienteBean.paciente.telefone1}" 
-                                         size="20" style="margin-left: 28px" maxlength="20"/>
-
-                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{pacienteBean.paciente.telefone2}" 
-                                         size="20" style="margin-left: 28px" maxlength="20"/>
-
-                            <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{pacienteBean.paciente.email}" size="38" 
-                                         validatorMessage="E-mail com formato incorreto" style="margin-left: 28px" maxlength="100"/>
-                        </h:panelGrid>
+                    <p:tab id="tabContatoPaciente" title="#{msg.contact}">
+                        <isac:pessoaContato valueTelefone1="#{pacienteBean.paciente.telefone1}" 
+                                            valueTelefone2="#{pacienteBean.paciente.telefone2}" 
+                                            valueEmail="#{pacienteBean.paciente.email}"/>
                     </p:tab>
 
-                    <p:tab title="#{msg.address}">
-
-                        <h:panelGrid columns="4">
-
+                    <p:tab id="tabEnderecoPaciente" title="#{msg.address}">
+                        <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
                             <p:selectOneMenu id="estado" value="#{pacienteBean.paciente.enderecoEstado}" style="margin-left: 43px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{pacienteBean.carregarCidades}"/>
@@ -109,37 +89,16 @@
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
-
                         </h:panelGrid>
-
-                        <h:panelGrid columns="4">
-
-                            <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{pacienteBean.paciente.enderecoRua}"  
-                                         style="margin-left: 48px" size="38" maxlength="150"/>
-
-                            <p:inputText id="numero" value="#{pacienteBean.paciente.enderecoNumero}"  
-                                         style="margin-left: 1px" size="10" maxlength="6" placeholder="Nº" />
-                            <h:outputLabel/>
-
-                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{pacienteBean.paciente.enderecoBairro}"  
-                                         style="margin-left: 48px" size="38" maxlength="100"/>
-
-                            <p:inputMask mask="99999-999" id="cep" value="#{pacienteBean.paciente.enderecoCep}"  
-                                         style="margin-left: 1px" size="10" maxlength="8" placeholder="CEP"/>
-                            <h:outputLabel/>
-
-                        </h:panelGrid>
-
+                        
+                        <isac:pessoaEndereco valueRua="#{pacienteBean.paciente.enderecoRua}"
+                                             valueNumero="#{pacienteBean.paciente.enderecoNumero}"
+                                             valueBairro="#{pacienteBean.paciente.enderecoBairro}"
+                                             valueCep="#{pacienteBean.paciente.enderecoCep}"/>
                     </p:tab>
 
-                    <p:tab title="#{msg.documentation}">
-                        <h:panelGrid columns="2">
-                            <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{pacienteBean.paciente.rg}"  
-                                         size="20" maxlength="15"/>
-                        </h:panelGrid>
+                    <p:tab id="tabDocumentosPaciente" title="#{msg.documentation}">
+                        <isac:pessoaDocumentacao valueRg="#{pacienteBean.paciente.rg}"/>
                     </p:tab>
 
                 </p:tabView>

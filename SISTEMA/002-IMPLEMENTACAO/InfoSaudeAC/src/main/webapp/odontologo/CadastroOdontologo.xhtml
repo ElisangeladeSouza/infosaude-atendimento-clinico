@@ -5,6 +5,7 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/cadastro"
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
@@ -21,99 +22,51 @@
 
                 <p:growl id="mensagens"/>
 
-                <h:panelGrid id="gridObrigatoriosOdontologo" columns="2">
+                <isac:pessoaDocumentosSaude for="cro" valueOutput="#{msg.cro}" distanciaLabel="margin-left: 45px"
+                                            idInput="cro" requiredMessage="#{msg.mandatoryCRO}"
+                                            valueInput="#{odontologoBean.odontologo.cro}"/>
 
-                    <p:outputLabel for="cro" value="#{msg.cro}:"/>
-                    <p:inputText id="cro" required="true" requiredMessage="#{msg.mandatoryCRO}"
-                                 value="#{odontologoBean.odontologo.cro}"  size="40" maxlength="30"/>
-
-                    <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
-                    <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{odontologoBean.odontologo.cpfOdontologo}"  validator="cpfValidator" 
-                                 converter="cpfConverter" size="40" maxlength="11"/>
-
-
-                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/> 
-                    <p:inputMask id="cartaoSus" mask="999 9999 9999 9999" required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 value="#{odontologoBean.odontologo.cartaoSusOdontologo}"  size="40" maxlength="20"/>
-
-                    <p:outputLabel for="nome" value="#{msg.name}:"/>
-                    <p:inputText id="nome" value="#{odontologoBean.odontologo.nome}" required="true"
-                                 requiredMessage="#{msg.mandatoryName}"  size="40" maxlength="150"/>
-                </h:panelGrid>
+                <isac:pessoaCamposObrigatorios valueCpf="#{odontologoBean.odontologo.cpfOdontologo}" 
+                                               valueCartaoSus="#{odontologoBean.odontologo.cartaoSusOdontologo}" 
+                                               valueNome="#{odontologoBean.odontologo.nome}"/>
 
                 <p:tabView id="tabViewDadosOdontologo">
 
                     <p:tab id="tabPessoalOdontologo" title="#{msg.personal}">
-                        <h:panelGrid id="gridPessoalOdontologo" columns="2">
-                            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:" styleClass="teste"/>
-                            <p:calendar id="dataNascimento" value="#{odontologoBean.odontologo.dataNascimento}" 
-                                        navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
-                                        yearRange="c-150:c+0" size="9" locale="pt" mask="true">
-                                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                            </p:calendar>
-
-                            <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
-                            <p:selectOneMenu id="racaCor" value="#{odontologoBean.odontologo.corOuRaca}">
-                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{racaCor}" itemLabel="#{raca.descricao}" var="raca"/>
-                            </p:selectOneMenu>
-                        </h:panelGrid>
+                        <isac:pessoaDadosPessoais valueDataNascimento="#{odontologoBean.odontologo.dataNascimento}"
+                                                  valueCorRaca="#{odontologoBean.odontologo.corOuRaca}"/>
                     </p:tab>
 
                     <p:tab id="tabContatoOdontologo" title="#{msg.contact}">
-                        <h:panelGrid id="gridContatoOdontologo" columns="2">
-                            <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone1}" size="25" maxlength="20"/>
-
-                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone2}" size="25" maxlength="20"/>
-
-                            <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{odontologoBean.odontologo.email}" size="25" 
-                                         validatorMessage="E-mail com formato incorreto" maxlength="100">
-
-                            </p:inputText>
-                        </h:panelGrid>
+                        <isac:pessoaContato valueTelefone1="#{odontologoBean.odontologo.telefone1}" 
+                                            valueTelefone2="#{odontologoBean.odontologo.telefone2}" 
+                                            valueEmail="#{odontologoBean.odontologo.email}"/>
                     </p:tab>
 
                     <p:tab id="tabEnderecoOdonotologo" title="#{msg.address}">
-                        <h:panelGrid id="gridEnderecoOdontologo" columns="4">
-                            <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{odontologoBean.odontologo.enderecoRua}"  size="40" maxlength="150"/>
-
-                            <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{odontologoBean.odontologo.enderecoNumero}"  size="16" maxlength="6"/>
-
-                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}"  size="40" maxlength="100"/>
-
-                            <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{odontologoBean.odontologo.enderecoCep}"  size="16" maxlength="8"/>
-
+                        <h:panelGrid id="gridEnderecoCC" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{odontologoBean.odontologo.enderecoEstado}">
+                            <p:selectOneMenu id="estado" value="#{odontologoBean.odontologo.enderecoEstado}" style="margin-left: 43px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{odontologoBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
-                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 20px"/>
+                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
                             <p:selectOneMenu id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}" filter="true" filterMatchMode="startsWith">
-                                <f:validateBean />
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
-
-                            <h:outputLabel/>
                         </h:panelGrid>
+                        
+                        <isac:pessoaEndereco valueRua="#{odontologoBean.odontologo.enderecoRua}"
+                                             valueNumero="#{odontologoBean.odontologo.enderecoNumero}"
+                                             valueBairro="#{odontologoBean.odontologo.enderecoBairro}"
+                                             valueCep="#{odontologoBean.odontologo.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosOdontologo" title="#{msg.documentation}">
-                        <h:panelGrid id="gridDocumentosOdontologo" columns="2">
-                            <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{odontologoBean.odontologo.rg}"  size="20" maxlength="15"/>
-                        </h:panelGrid>
+                        <isac:pessoaDocumentacao valueRg="#{odontologoBean.odontologo.rg}"/>
                     </p:tab>
 
                 </p:tabView>

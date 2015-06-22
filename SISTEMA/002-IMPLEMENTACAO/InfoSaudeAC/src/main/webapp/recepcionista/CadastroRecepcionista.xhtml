@@ -5,6 +5,7 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/cadastro"
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
@@ -21,97 +22,47 @@
 
                 <p:growl id="mensagens"/>
 
-                <h:panelGrid id="gridObrigatoriosRecepcionista" columns="2">
-
-                    <p:outputLabel for="cpf" value="#{msg.cpf}:"/>
-                    <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
-                                 value="#{recepcionistaBean.recepcionista.cpfRecepcionista}"  validator="cpfValidator" 
-                                 converter="cpfConverter" size="40" maxlength="11"/>
-
-
-                    <p:outputLabel for="cartaoSus" value="#{msg.susCard}:"/>
-                    <p:inputMask id="cartaoSus" mask="999 9999 9999 9999" required="true" requiredMessage="#{msg.mandatorySusCard}"
-                                 value="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}"  size="40" maxlength="20"/>
-
-                    <p:outputLabel for="nome" value="#{msg.name}:"/>
-                    <p:inputText id="nome" value="#{recepcionistaBean.recepcionista.nome}" required="true"
-                                 requiredMessage="#{msg.mandatoryName}"  size="40" maxlength="150"/>
-                </h:panelGrid>
+                <isac:pessoaCamposObrigatorios valueCpf="#{recepcionistaBean.recepcionista.cpfRecepcionista}" 
+                                               valueCartaoSus="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}" 
+                                               valueNome="#{recepcionistaBean.recepcionista.nome}"/>
 
                 <p:tabView id="tabViewDadosRecepcionista">
 
                     <p:tab title="#{msg.personal}">
-                        <h:panelGrid id="gridPessoalRecepcionista" columns="2">
-                            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:" styleClass="teste"/>
-                            <p:calendar id="dataNascimento" value="#{recepcionistaBean.recepcionista.dataNascimento}" 
-                                        navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
-                                        yearRange="c-150:c+0" size="9" locale="pt" mask="true">
-                                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                            </p:calendar>
-
-                            <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
-                            <p:selectOneMenu id="racaCor" value="#{recepcionistaBean.recepcionista.corOuRaca}">
-                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{racaCor}" itemLabel="#{raca.descricao}" var="raca"/>
-                            </p:selectOneMenu>
-                        </h:panelGrid>
+                        <isac:pessoaDadosPessoais valueDataNascimento="#{recepcionistaBean.recepcionista.dataNascimento}"
+                                                  valueCorRaca="#{recepcionistaBean.recepcionista.corOuRaca}"/>
                     </p:tab>
 
                     <p:tab id="tabContatoRecepcionista" title="#{msg.contact}">
-                        <h:panelGrid id="gridContatoRecepcionista" columns="2">
-                            <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{recepcionistaBean.recepcionista.telefone1}" size="25" maxlength="20"/>
-
-                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{recepcionistaBean.recepcionista.telefone2}" size="25" maxlength="20"/>
-
-                            <p:outputLabel for="email" value="#{msg.email}:"/>
-                            <p:inputText id="email" styleClass="lower" value="#{recepcionistaBean.recepcionista.email}" size="25" 
-                                         validatorMessage="E-mail com formato incorreto" maxlength="100">
-
-                            </p:inputText>
-                        </h:panelGrid>
+                        <isac:pessoaContato valueTelefone1="#{recepcionistaBean.recepcionista.telefone1}" 
+                                            valueTelefone2="#{recepcionistaBean.recepcionista.telefone2}" 
+                                            valueEmail="#{recepcionistaBean.recepcionista.email}"/>
                     </p:tab>
 
                     <p:tab id="tabEnderecoRecepcionista" title="#{msg.address}">
-                        <h:panelGrid id="gridEnderecoRecepcionista" columns="4">
-                            <p:outputLabel for="rua" value="#{msg.street}:"/>
-                            <p:inputText id="rua" value="#{recepcionistaBean.recepcionista.enderecoRua}"  size="40" maxlength="150"/>
-
-                            <p:outputLabel for="numero" value="#{msg.number}:" style="margin-left: 20px"/>
-                            <p:inputText id="numero" value="#{recepcionistaBean.recepcionista.enderecoNumero}"  size="16" maxlength="6"/>
-
-                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{recepcionistaBean.recepcionista.enderecoBairro}"  size="40" maxlength="100"/>
-
-                            <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 20px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{recepcionistaBean.recepcionista.enderecoCep}"  size="16" maxlength="8"/>
-
-
+                        <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.enderecoEstado}">
+                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.enderecoEstado}" style="margin-left: 43px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{recepcionistaBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
-                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 20px"/>
+                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
                             <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}" filter="true" filterMatchMode="startsWith">
-                                <f:validateBean />
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
-
-                            <h:outputLabel/>
                         </h:panelGrid>
-
+                        
+                        <isac:pessoaEndereco valueRua="#{recepcionistaBean.recepcionista.enderecoRua}"
+                                             valueNumero="#{recepcionistaBean.recepcionista.enderecoNumero}"
+                                             valueBairro="#{recepcionistaBean.recepcionista.enderecoBairro}"
+                                             valueCep="#{recepcionistaBean.recepcionista.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosRecepcionista" title="#{msg.documentation}">
-                        <h:panelGrid id="gridDocumentosRecepcionista" columns="2">
-                            <p:outputLabel for="rg" value="#{msg.rg}:"/>
-                            <p:inputText id="rg" value="#{recepcionistaBean.recepcionista.rg}"  size="20" maxlength="15"/>
-                        </h:panelGrid>
+                        <isac:pessoaDocumentacao valueRg="#{recepcionistaBean.recepcionista.rg}"/>
                     </p:tab>
 
                 </p:tabView>

@@ -2,6 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RecepcionistaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
@@ -33,7 +34,7 @@ public class RecepcionistaBean implements Serializable {
     private Recepcionista recepcionistaSelecionado;
 
     @Inject
-    private PessoaBean pessoaBean;
+    private PessoaService pessoaService;
 
     private transient List<Recepcionista> recepcionistas;
 
@@ -48,7 +49,7 @@ public class RecepcionistaBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(recepcionista.getEnderecoEstado().getCodigo())) {
+        for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
@@ -90,16 +91,12 @@ public class RecepcionistaBean implements Serializable {
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
-    /*
-     * Metodo que verifica se o objeto esta nulo quando for recuperado.
-     * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
-     */
-
     /**
+     * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
+     * refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      *
      * @return
      */
-    
     public boolean getEditando() {
         return this.recepcionista.getId() != null;
     }

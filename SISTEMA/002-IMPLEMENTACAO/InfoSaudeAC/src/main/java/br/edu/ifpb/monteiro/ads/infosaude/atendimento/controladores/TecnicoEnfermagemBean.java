@@ -2,6 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
@@ -33,7 +34,7 @@ public class TecnicoEnfermagemBean implements Serializable {
     private TecnicoEnfermagem tecnicoEnfermagemSelecionado;
 
     @Inject
-    private PessoaBean pessoaBean;
+    private PessoaService pessoaService;
 
     private transient List<TecnicoEnfermagem> tecnicos;
 
@@ -49,7 +50,7 @@ public class TecnicoEnfermagemBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(tecnicoEnfermagem.getEnderecoEstado().getCodigo())) {
+        for (String cidadesFiltradas : pessoaService.retornaCidades(tecnicoEnfermagem.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
@@ -91,16 +92,12 @@ public class TecnicoEnfermagemBean implements Serializable {
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
-    /*
-     * Metodo que verifica se o objeto esta nulo quando for recuperado.
-     * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
-     */
-
     /**
+     * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
+     * refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      *
      * @return
      */
-    
     public boolean getEditando() {
         return this.tecnicoEnfermagem.getId() != null;
     }

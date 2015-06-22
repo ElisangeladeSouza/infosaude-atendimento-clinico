@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <composite:interface>
+        <composite:attribute name="valueTelefone1" required="true"/>
+        <composite:attribute name="valueTelefone2" required="true"/>
+        <composite:attribute name="valueEmail" required="true"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:panelGrid id="gridContatoCC" columns="2">
+            <p:outputLabel for="telefone1" value="#{msg.phone1}:"/>
+            <p:inputText id="telefone1" styleClass="phone upper" value="#{cc.attrs.valueTelefone1}" 
+                         size="20" style="margin-left: 28px" maxlength="20"/>
+
+            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
+            <p:inputText id="telefone2" styleClass="phone upper" value="#{cc.attrs.valueTelefone2}" 
+                         size="20" style="margin-left: 28px" maxlength="20"/>
+
+            <p:outputLabel for="email" value="#{msg.email}:"/>
+            <p:inputText id="email" styleClass="lower" value="#{cc.attrs.valueEmail}" size="38" 
+                         validatorMessage="E-mail com formato incorreto" style="margin-left: 28px" maxlength="100"/>
+        </h:panelGrid>
+    </composite:implementation>
+
+
+</html>

@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -33,12 +34,12 @@ public class AdministradorBean implements Serializable {//NOSONAR
     private Administrador administradorSelecionado;
 
     @Inject
-    private PessoaBean pessoaBean;
+    private PessoaService pessoaService;
 
     private transient List<Administrador> administradores;
 
     /**
-     *
+     * Construtor da classe
      */
     public AdministradorBean() {//NOSONAR
     }
@@ -48,7 +49,7 @@ public class AdministradorBean implements Serializable {//NOSONAR
      */
     public void carregarCidades() {//NOSONAR
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
+        for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
@@ -90,16 +91,12 @@ public class AdministradorBean implements Serializable {//NOSONAR
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
-    /*
-     * Metodo que verifica se o objeto esta nulo quando for recuperado.
-     * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
-     */
-
     /**
+     * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
+     * refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      *
      * @return
      */
-    
     public boolean getEditando() {//NOSONAR
         return this.administrador.getId() != null;
     }

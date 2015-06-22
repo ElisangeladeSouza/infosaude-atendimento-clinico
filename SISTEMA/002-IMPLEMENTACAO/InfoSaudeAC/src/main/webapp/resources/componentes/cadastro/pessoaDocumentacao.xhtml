@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <composite:interface>
+        <composite:attribute name="valueRg" required="true"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:panelGrid columns="2">
+            <p:outputLabel for="rg" value="#{msg.rg}:"/>
+            <p:inputText id="rg" value="#{cc.attrs.valueRg}"  
+                         size="20" maxlength="15"/>
+        </h:panelGrid>
+    </composite:implementation>
+
+
+</html>

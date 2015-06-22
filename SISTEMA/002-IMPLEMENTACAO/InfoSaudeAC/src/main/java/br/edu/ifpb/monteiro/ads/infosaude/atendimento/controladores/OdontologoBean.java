@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.OdontologoService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -33,7 +34,7 @@ public class OdontologoBean implements Serializable {
     private Odontologo odontologoSelecionado;
 
     @Inject
-    private PessoaBean pessoaBean;
+    private PessoaService pessoaService;
 
     private transient List<Odontologo> odontologos;
 
@@ -48,7 +49,7 @@ public class OdontologoBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaBean.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
+        for (String cidadesFiltradas : pessoaService.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
         }
     }
@@ -90,16 +91,12 @@ public class OdontologoBean implements Serializable {
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
-    /*
-     * Metodo que verifica se o objeto esta nulo quando for recuperado.
-     * Se sim, refere-se a um novo cadastro, senao refere-se a um produto a ser editado
-     */
-
     /**
+     * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
+     * refere-se a um novo cadastro, senao refere-se a um produto a ser editado
      *
      * @return
      */
-    
     public boolean getEditando() {
         return this.odontologo.getId() != null;
     }

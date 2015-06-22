@@ -8,6 +8,8 @@ import java.util.GregorianCalendar;
 import javax.enterprise.inject.Model;
 
 /**
+ * Classe utilitária que provê métodos relacionados a datas. Anotada como um
+ * Bean CDI, pode ser usada diretamente nas paginas tambem.
  *
  * @author cassio
  */
@@ -20,14 +22,14 @@ public class DateTimeUtilBean implements Serializable {
     Calendar calendar = new GregorianCalendar();
 
     /**
-     *
+     * Construtor da classe
      */
     public DateTimeUtilBean() {
 
     }
 
     /**
-     *
+     * Retorna a data de hoje incluindo a hora atual.
      * @return
      */
     public Date getDateToday() {

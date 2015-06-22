@@ -22,12 +22,8 @@ public class PessoaBean implements Serializable {
     @Inject
     private PessoaService pessoaService;
 
-    private boolean botaoEditar;
-
     private final transient List<RacaCor> racas;
-
     private static transient List<Estados> estados = new ArrayList<>();
-
     static transient List<String> cidades = new ArrayList<>();
 
     /**
@@ -93,30 +89,4 @@ public class PessoaBean implements Serializable {
     public List<RacaCor> getRacas() {
         return racas;
     }
-
-    /**
-     *
-     * @return
-     */
-    public boolean isBotaoEditar() {
-        return botaoEditar;
-    }
-
-    /**
-     *
-     * @param botaoEditar
-     */
-    public void setBotaoEditar(boolean botaoEditar) {
-        this.botaoEditar = botaoEditar;
-    }
-
-    /**
-     *
-     * @param codigoUF
-     * @return
-     */
-    public List<String> retornaCidades(int codigoUF) {
-        return pessoaService.retornaCidades(codigoUF);
-    }
-
 }
