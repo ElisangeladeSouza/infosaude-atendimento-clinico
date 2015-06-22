@@ -5,7 +5,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                template="/WEB-INF/templates/cabecalho.xhtml">
+                template="/WEB-INF/templates/cabecalho.xhtml"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/visualizacao">
 
     <f:metadata>
         <f:viewParam name="administrador" value="#{administradorBean.administrador}"/>
@@ -16,89 +17,31 @@
     <ui:define id="uiConteudoAdministrador" name="conteudo">
 
         <p:fieldset id="fieldsetAdministrador" legend="#{msg.viewCadastreAdministrator}">
-
             <h:form id="formCadastroAdministrador">
-
-                <p:fieldset id="VisualizaPessoalAdministrador" legend="#{msg.personal}">
-                    <h:panelGrid id="gridVisualizaPessoalAdministrador" columns="2">
-                        <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{administradorBean.administrador.nome}"  />
-
-                        <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
-                        <p:outputLabel id="dataNascimento" value="#{administradorBean.administrador.dataNascimento}">
-                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                        </p:outputLabel> 
-
-                        <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="racaCor" value="#{administradorBean.administrador.corOuRaca}"
-                                       />
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaContatoAdministrador" legend="#{msg.contact}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaContatoAdministrador" columns="2">
-                        <p:outputLabel for="telefone1" value="#{msg.phone1}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone1" styleClass="phone upper" value="#{administradorBean.administrador.telefone1}"/>
-
-                        <p:outputLabel for="telefone2" value="#{msg.phone2}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone2" styleClass="phone upper" value="#{administradorBean.administrador.telefone2}"/>
-
-                        <p:outputLabel for="email" value="#{msg.email}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="email" styleClass="lower" value="#{administradorBean.administrador.email}"/>
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="fieldsetEnderecoAdministrador" legend="#{msg.address}" style="margin-top: 15px" >
-                    <h:panelGrid columns="2">
-                        <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{administradorBean.administrador.enderecoRua}"  />
-
-                        <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{administradorBean.administrador.enderecoNumero}"  />
-
-                        <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{administradorBean.administrador.enderecoBairro}" />
-
-                        <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{administradorBean.administrador.enderecoCep}"  />
-
-                        <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{administradorBean.administrador.enderecoCidade}"  />
-
-                        <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="estado" value="#{administradorBean.administrador.enderecoEstado}"/>
-
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="fieldsetDocumentosAdministrador" legend="#{msg.documentation}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaDocumentos" columns="2">
-                        <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{administradorBean.administrador.cpfAdministrador}" >
-                            <f:converter converterId="cpfConverter"/>
-                        </p:outputLabel>
-
-                        <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{administradorBean.administrador.rg}" />
-
-                        <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{administradorBean.administrador.cartaoSusAdministrador}" />
-                    </h:panelGrid>
-                </p:fieldset>
-
+                <isac:pessoaVisualizaCadastro bairro="#{administradorBean.administrador.enderecoBairro}" 
+                                              cartaoSus="#{administradorBean.administrador.cartaoSusAdministrador}" 
+                                              cep="#{administradorBean.administrador.enderecoCep}" 
+                                              cidade="#{administradorBean.administrador.enderecoCidade}" 
+                                              corOuRaca="#{administradorBean.administrador.corOuRaca}" 
+                                              cpf="#{administradorBean.administrador.cpfAdministrador}" 
+                                              dataNascimento="#{administradorBean.administrador.dataNascimento}" 
+                                              email="#{administradorBean.administrador.email}" 
+                                              estado="#{administradorBean.administrador.enderecoEstado}" 
+                                              nome="#{administradorBean.administrador.nome}" 
+                                              numero="#{administradorBean.administrador.enderecoNumero}" 
+                                              rg="#{administradorBean.administrador.rg}" 
+                                              rua="#{administradorBean.administrador.enderecoRua}" 
+                                              telefone1="#{administradorBean.administrador.telefone1}" 
+                                              telefone2="#{administradorBean.administrador.telefone2}"/>
                 <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
-
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"
                                   id="botaoPesquisar" outcome="/administrador/PesquisaAdministrador"
                                   icon="ui-icon ui-icon-search">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
 

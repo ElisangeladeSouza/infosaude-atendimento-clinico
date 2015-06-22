@@ -5,7 +5,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                template="/WEB-INF/templates/cabecalho.xhtml">
+                template="/WEB-INF/templates/cabecalho.xhtml"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/visualizacao">
 
     <f:metadata>
         <f:viewParam name="medico" value="#{medicoBean.medico}"/>
@@ -16,79 +17,23 @@
     <ui:define id="uiConteudoMedico" name="conteudo">
 
         <p:fieldset id="fieldsetExame" legend="#{msg.viewCadastreDoctor}">
-
             <h:form id="formCadastroMedico">
-
-                <p:fieldset id="visualizaPessoalMedico" legend="#{msg.personal}">
-                    <h:panelGrid id="gridVisualizaPessoalMedico" columns="2">
-                        <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{medicoBean.medico.nome}"  />
-
-                        <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
-                        <p:outputLabel id="dataNascimento" value="#{medicoBean.medico.dataNascimento}">
-                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                        </p:outputLabel> 
-
-                        <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="racaCor" value="#{medicoBean.medico.corOuRaca}"
-                                       />
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaContatoMedico" legend="#{msg.contact}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaContatoMedico" columns="2">
-                        <p:outputLabel for="telefone1" value="#{msg.phone1}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone1" styleClass="phone upper" value="#{medicoBean.medico.telefone1}"/>
-
-                        <p:outputLabel for="telefone2" value="#{msg.phone2}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone2" styleClass="phone upper" value="#{medicoBean.medico.telefone2}"/>
-
-                        <p:outputLabel for="email" value="#{msg.email}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="email" styleClass="lower" value="#{medicoBean.medico.email}"/>
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaEnderecoMedico" legend="#{msg.address}" style="margin-top: 15px;" >
-                    <h:panelGrid id="gridEnderecoMedico" columns="2">
-                        <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{medicoBean.medico.enderecoRua}"  />
-
-                        <p:outputLabel for="numero" value="#{msg.number}.........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{medicoBean.medico.enderecoNumero}"  />
-
-                        <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{medicoBean.medico.enderecoBairro}" />
-
-                        <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{medicoBean.medico.enderecoCep}"  />
-
-                        <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{medicoBean.medico.enderecoCidade}"  />
-
-                        <p:outputLabel for="estado" value="#{msg.state}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="estado" value="#{medicoBean.medico.enderecoEstado}"/>
-
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaDocumentosMedico" legend="#{msg.documentation}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaDocumentosMedico" columns="2">
-                        <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{medicoBean.medico.cpfMedico}" >
-                            <f:converter converterId="cpfConverter"/>
-                        </p:outputLabel>
-
-                        <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{medicoBean.medico.rg}" />
-
-                        <p:outputLabel for="coren" value="#{msg.crm}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{medicoBean.medico.crm}" />
-
-                        <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{medicoBean.medico.cartaoSusMedico}" />
-                    </h:panelGrid>
-                </p:fieldset>
-
+                <isac:pessoaVisualizaCadastro bairro="#{medicoBean.medico.enderecoBairro}" 
+                                              cartaoSus="#{medicoBean.medico.cartaoSusMedico}" 
+                                              cep="#{medicoBean.medico.enderecoCep}" 
+                                              cidade="#{medicoBean.medico.enderecoCidade}" 
+                                              corOuRaca="#{medicoBean.medico.corOuRaca}" 
+                                              cpf="#{medicoBean.medico.cpfMedico}" 
+                                              dataNascimento="#{medicoBean.medico.dataNascimento}" 
+                                              email="#{medicoBean.medico.email}" 
+                                              estado="#{medicoBean.medico.enderecoEstado}" 
+                                              nome="#{medicoBean.medico.nome}" 
+                                              numero="#{medicoBean.medico.enderecoNumero}" 
+                                              rg="#{medicoBean.medico.rg}" 
+                                              rua="#{medicoBean.medico.enderecoRua}" 
+                                              telefone1="#{medicoBean.medico.telefone1}" 
+                                              telefone2="#{medicoBean.medico.telefone2}"
+                                              docSaude="#{medicoBean.medico.crm}"/>
                 <p:toolbar id="toolbarMedico" style="margin-top: 10px;">
 
                     <f:facet name="right">
@@ -97,11 +42,8 @@
                                   icon="ui-icon ui-icon-search">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
 

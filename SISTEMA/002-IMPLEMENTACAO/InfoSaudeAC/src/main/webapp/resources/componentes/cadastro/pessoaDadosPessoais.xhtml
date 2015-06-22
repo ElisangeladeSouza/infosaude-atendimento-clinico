@@ -18,13 +18,13 @@
             <p:calendar id="dataNascimento" value="#{cc.attrs.valueDataNascimento}" 
                         navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
                         yearRange="c-150:c+0" size="9" locale="pt" mask="true">
-                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
             </p:calendar>
 
             <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}:"/>
             <p:selectOneMenu id="racaCor" value="#{cc.attrs.valueCorRaca}">
                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{racaCor}" itemLabel="#{raca.descricao}" var="raca"/>
+                <f:selectItems value="#{pessoaBean.racas}" itemValue="#{raca.descricao}" itemLabel="#{raca.descricao}" var="raca"/>
             </p:selectOneMenu>  
         </h:panelGrid>
 

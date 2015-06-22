@@ -5,7 +5,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                template="/WEB-INF/templates/cabecalho.xhtml">
+                template="/WEB-INF/templates/cabecalho.xhtml"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/visualizacao">
 
     <f:metadata>
         <f:viewParam name="recepcionista" value="#{recepcionistaBean.recepcionista}"/>
@@ -16,89 +17,32 @@
     <ui:define id="uiConteudoRecepcionista" name="conteudo">
 
         <p:fieldset id="fieldsetRecepcionista" legend="#{msg.viewCadastreAdministrator}">
-
             <h:form id="formCadastroRecepcionista">
-
-                <p:fieldset id="visualizaPessoalRecepcionista" legend="#{msg.personal}">
-                    <h:panelGrid id="gridVisualizaPessoalRecepcionista" columns="2">
-                        <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{recepcionistaBean.recepcionista.nome}"  />
-
-                        <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
-                        <p:outputLabel id="dataNascimento" value="#{recepcionistaBean.recepcionista.dataNascimento}">
-                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                        </p:outputLabel> 
-
-                        <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="racaCor" value="#{recepcionistaBean.recepcionista.corOuRaca}"
-                                       />
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaContatoRecepcionista" legend="#{msg.contact}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaContatoRecepcionista" columns="2">
-                        <p:outputLabel for="telefone1" value="#{msg.phone1}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone1" styleClass="phone upper" value="#{recepcionistaBean.recepcionista.telefone1}"/>
-
-                        <p:outputLabel for="telefone2" value="#{msg.phone2}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone2" styleClass="phone upper" value="#{recepcionistaBean.recepcionista.telefone2}"/>
-
-                        <p:outputLabel for="email" value="#{msg.email}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="email" styleClass="lower" value="#{recepcionistaBean.recepcionista.email}"/>
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaEnderecoRecepcionista" legend="#{msg.address}" style="margin-top: 15px" >
-                    <h:panelGrid id="gridVisualizaRecepcionista" columns="2">
-                        <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{recepcionistaBean.recepcionista.enderecoRua}"  />
-
-                        <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{recepcionistaBean.recepcionista.enderecoNumero}"  />
-
-                        <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{recepcionistaBean.recepcionista.enderecoBairro}" />
-
-                        <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{recepcionistaBean.recepcionista.enderecoCep}"  />
-
-                        <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}"  />
-
-                        <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="estado" value="#{recepcionistaBean.recepcionista.enderecoEstado}"/>
-
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaDocumentosRecepcionista" legend="#{msg.documentation}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaDocumentosRecepcionista" columns="2">
-                        <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{recepcionistaBean.recepcionista.cpfRecepcionista}" >
-                            <f:converter converterId="cpfConverter"/>
-                        </p:outputLabel>
-
-                        <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{recepcionistaBean.recepcionista.rg}" />
-
-                        <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}" />
-                    </h:panelGrid>
-                </p:fieldset>
+                <isac:pessoaVisualizaCadastro bairro="#{recepcionistaBean.recepcionista.enderecoBairro}" 
+                                              cartaoSus="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}" 
+                                              cep="#{recepcionistaBean.recepcionista.enderecoCep}" 
+                                              cidade="#{recepcionistaBean.recepcionista.enderecoCidade}" 
+                                              corOuRaca="#{recepcionistaBean.recepcionista.corOuRaca}" 
+                                              cpf="#{recepcionistaBean.recepcionista.cpfRecepcionista}" 
+                                              dataNascimento="#{recepcionistaBean.recepcionista.dataNascimento}" 
+                                              email="#{recepcionistaBean.recepcionista.email}" 
+                                              estado="#{recepcionistaBean.recepcionista.enderecoEstado}" 
+                                              nome="#{recepcionistaBean.recepcionista.nome}" 
+                                              numero="#{recepcionistaBean.recepcionista.enderecoNumero}" 
+                                              rg="#{recepcionistaBean.recepcionista.rg}" 
+                                              rua="#{recepcionistaBean.recepcionista.enderecoRua}" 
+                                              telefone1="#{recepcionistaBean.recepcionista.telefone1}" 
+                                              telefone2="#{recepcionistaBean.recepcionista.telefone2}"/>
 
                 <p:toolbar id="toolbarrecepcionista" style="margin-top: 10px;">
-
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"
                                   id="botaoPesquisar" outcome="/recepcionista/PesquisaRecepcionista"
                                   icon="ui-icon ui-icon-search">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
 

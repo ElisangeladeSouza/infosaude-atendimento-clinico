@@ -5,7 +5,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                template="/WEB-INF/templates/cabecalho.xhtml">
+                template="/WEB-INF/templates/cabecalho.xhtml"
+                xmlns:isac="http://xmlns.jcp.org/jsf/composite/componentes/visualizacao">
 
     <f:metadata>
         <f:viewParam name="odontologo" value="#{odontologoBean.odontologo}"/>
@@ -16,79 +17,23 @@
     <ui:define id="uiConteudoOdontologo" name="conteudo">
 
         <p:fieldset id="fieldsetOdontologo" legend="#{msg.viewCadastreDentist}">
-
             <h:form id="formCadastroOdontologo">
-
-                <p:fieldset id="visualizaPessoalOdontologo" legend="#{msg.personal}">
-                    <h:panelGrid id="gridVisualizaPessoalOdontologo" columns="2">
-                        <p:outputLabel for="nome" value="#{msg.name}.............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{odontologoBean.odontologo.nome}"  />
-
-                        <p:outputLabel for="dataNascimento" value="#{msg.birthDate}.....:" style="font-weight: bold"/>
-                        <p:outputLabel id="dataNascimento" value="#{odontologoBean.odontologo.dataNascimento}">
-                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                        </p:outputLabel> 
-
-                        <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="racaCor" value="#{odontologoBean.odontologo.corOuRaca}"
-                                       />
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaContatoodontologo" legend="#{msg.contact}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaContatoOdontologo" columns="2">
-                        <p:outputLabel for="telefone1" value="#{msg.phone1}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone1" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone1}"/>
-
-                        <p:outputLabel for="telefone2" value="#{msg.phone2}.....................:" style="font-weight: bold"/>
-                        <p:outputLabel id="telefone2" styleClass="phone upper" value="#{odontologoBean.odontologo.telefone2}"/>
-
-                        <p:outputLabel for="email" value="#{msg.email}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="email" styleClass="lower" value="#{odontologoBean.odontologo.email}"/>
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaEnderecoOdontologo" legend="#{msg.address}" style="margin-top: 15px" >
-                    <h:panelGrid id="gridVisalizaEnderecoOdontologo" columns="2">
-                        <p:outputLabel for="rua" value="#{msg.street}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rua" value="#{odontologoBean.odontologo.enderecoRua}"  />
-
-                        <p:outputLabel for="numero" value="#{msg.number}.........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="numero" value="#{odontologoBean.odontologo.enderecoNumero}"  />
-
-                        <p:outputLabel for="bairro" value="#{msg.neighborhood}............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="bairro" value="#{odontologoBean.odontologo.enderecoBairro}" />
-
-                        <p:outputLabel for="cep" value="#{msg.postalCode}................................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="cep" value="#{odontologoBean.odontologo.enderecoCep}"  />
-
-                        <p:outputLabel for="cidade" value="#{msg.city}...........................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}"  />
-
-                        <p:outputLabel for="estado" value="#{msg.state}...........................:" style=" font-weight: bold"/>
-                        <p:outputLabel id="estado" value="#{odontologoBean.odontologo.enderecoEstado}"/>
-
-                    </h:panelGrid>
-                </p:fieldset>
-
-                <p:fieldset id="visualizaDocumentosOdontologo" legend="#{msg.documentation}" style="margin-top: 15px">
-                    <h:panelGrid id="gridVisualizaDocumentosOdontologo" columns="2">
-                        <p:outputLabel for="cpf" value="#{msg.cpf}................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="cpf" value="#{odontologoBean.odontologo.cpfOdontologo}" >
-                            <f:converter converterId="cpfConverter"/>
-                        </p:outputLabel>
-
-                        <p:outputLabel for="rg" value="#{msg.rg}..................................:" style="font-weight: bold"/>
-                        <p:outputLabel id="rg" value="#{odontologoBean.odontologo.rg}" />
-
-                        <p:outputLabel for="coren" value="#{msg.cro}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="coren" value="#{odontologoBean.odontologo.cro}" />
-
-                        <p:outputLabel for="cartaoSus" value="#{msg.susCard}..............:" style="font-weight: bold"/>
-                        <p:outputLabel id="cartaoSus" value="#{odontologoBean.odontologo.cartaoSusOdontologo}" />
-                    </h:panelGrid>
-                </p:fieldset>
-
+                <isac:pessoaVisualizaCadastro bairro="#{odontologoBean.odontologo.enderecoBairro}" 
+                                              cartaoSus="#{odontologoBean.odontologo.cartaoSusOdontologo}" 
+                                              cep="#{odontologoBean.odontologo.enderecoCep}" 
+                                              cidade="#{odontologoBean.odontologo.enderecoCidade}" 
+                                              corOuRaca="#{odontologoBean.odontologo.corOuRaca}" 
+                                              cpf="#{odontologoBean.odontologo.cpfOdontologo}" 
+                                              dataNascimento="#{odontologoBean.odontologo.dataNascimento}" 
+                                              email="#{odontologoBean.odontologo.email}" 
+                                              estado="#{odontologoBean.odontologo.enderecoEstado}" 
+                                              nome="#{odontologoBean.odontologo.nome}" 
+                                              numero="#{odontologoBean.odontologo.enderecoNumero}" 
+                                              rg="#{odontologoBean.odontologo.rg}" 
+                                              rua="#{odontologoBean.odontologo.enderecoRua}" 
+                                              telefone1="#{odontologoBean.odontologo.telefone1}" 
+                                              telefone2="#{odontologoBean.odontologo.telefone2}"
+                                              docSaude="#{odontologoBean.odontologo.cro}"/>
                 <p:toolbar id="toolbarOdontologo" style="margin-top: 10px;">
 
                     <f:facet name="right">
@@ -97,11 +42,8 @@
                                   icon="ui-icon ui-icon-search">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
 
