@@ -17,11 +17,13 @@
     <ui:define id="uiConteudoOdontologo" name="conteudo">
 
         <p:fieldset id="fieldsetOdontologo" legend="#{odontologoBean.editando ? msg.editCadastreDentist : msg.newRegisterDentist}">
-
             <h:form id="formCadastroOdontologo">
-
                 <p:growl id="mensagens"/>
 
+                <h:inputHidden id="data" value="#{odontologoBean.odontologo.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+                
                 <isac:pessoaDocumentosSaude for="cro" valueOutput="#{msg.cro}" distanciaLabel="margin-left: 45px"
                                             idInput="cro" requiredMessage="#{msg.mandatoryCRO}"
                                             valueInput="#{odontologoBean.odontologo.cro}"/>
@@ -31,7 +33,6 @@
                                                valueNome="#{odontologoBean.odontologo.nome}"/>
 
                 <p:tabView id="tabViewDadosOdontologo">
-
                     <p:tab id="tabPessoalOdontologo" title="#{msg.personal}">
                         <isac:pessoaDadosPessoais valueDataNascimento="#{odontologoBean.odontologo.dataNascimento}"
                                                   valueCorRaca="#{odontologoBean.odontologo.corOuRaca}"/>
@@ -58,7 +59,7 @@
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        
+
                         <isac:pessoaEndereco valueRua="#{odontologoBean.odontologo.enderecoRua}"
                                              valueNumero="#{odontologoBean.odontologo.enderecoNumero}"
                                              valueBairro="#{odontologoBean.odontologo.enderecoBairro}"
@@ -93,7 +94,6 @@
                                   icon="ui-icon ui-icon-search" rendered="#{odontologoBean.editando eq 'false'}">
                         </p:button>
                     </f:facet>
-
                 </p:toolbar>
                 <p:blockUI id="blockUIOdontologo" block="formCadastroOdontologo" trigger="botaoSalvar"/>
             </h:form>

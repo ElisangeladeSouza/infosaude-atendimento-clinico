@@ -16,9 +16,7 @@
     <ui:define id="uiConteudoFichaAtendimento" name="conteudo">
 
         <p:fieldset id="fieldsetFichaAtendimento" legend="#{fichaAtendimentoBean.editando ? msg.editCadastreTreatmentForm : msg.newRegisterTreatmentForm}">
-
             <h:form id="formCadastroFichaAtendimento">
-
                 <p:growl id="mensagens"/>
 
                 <h:inputHidden id="dataHora" value="#{fichaAtendimentoBean.fichaAtendimento.data}">
@@ -65,11 +63,8 @@
                     </f:facet>
 
                 </p:toolbar>
-
                 <p:blockUI id="blockUIFichaAtendimento" block="formCadastroFichaAtendimento" trigger="botaoSalvar"/>
-
             </h:form>
-
         </p:fieldset>
     </ui:define>
 

@@ -17,17 +17,17 @@
     <ui:define name="conteudo">
 
         <p:fieldset legend="#{pacienteBean.editando ? msg.editCadastrePatient : msg.newRegisterPatient}">
-
             <h:form id="formCadastroPaciente">
-
                 <p:growl/>
+                
+                <h:inputHidden id="data" value="#{pacienteBean.paciente.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
 
                 <h:panelGrid columns="2">
-
                     <isac:pessoaCamposObrigatorios valueCpf="#{pacienteBean.paciente.cpf}" 
                                                    valueCartaoSus="#{pacienteBean.paciente.cartaoSus}" 
                                                    valueNome="#{pacienteBean.paciente.nome}"/>
-
                 </h:panelGrid>
 
                 <p:tabView id="tabViewDadosPaciente" style="padding-left: 0px">
@@ -90,7 +90,7 @@
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        
+
                         <isac:pessoaEndereco valueRua="#{pacienteBean.paciente.enderecoRua}"
                                              valueNumero="#{pacienteBean.paciente.enderecoNumero}"
                                              valueBairro="#{pacienteBean.paciente.enderecoBairro}"
@@ -129,7 +129,6 @@
                 </p:toolbar>
                 <p:blockUI block="formCadastroPaciente" trigger="botaoSalvar"/>
             </h:form>
-
         </p:fieldset>
     </ui:define>
 

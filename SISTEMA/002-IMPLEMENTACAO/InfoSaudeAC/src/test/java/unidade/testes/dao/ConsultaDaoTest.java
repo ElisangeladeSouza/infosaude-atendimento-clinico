@@ -14,56 +14,56 @@ import org.junit.Test;
  * @author wilde
  */
 public class ConsultaDaoTest {
-    
+
     private static EntityManagerProducer entityManagerProducer;
     private static EntityManager entityManager;
     private static ConsultaDao consultaDao;
-    
+
     /**
      *
      */
     public ConsultaDaoTest() {
     }
-    
+
     /**
      *
      */
     @BeforeClass
     public static void setUpClass() {
-        
+
         consultaDao = new ConsultaDao();
         entityManagerProducer = new EntityManagerProducer("InfoSaudePU_Testes");
         entityManager = entityManagerProducer.create();
-        consultaDao.setEntityManager(entityManager);    
+        consultaDao.setEntityManager(entityManager);
     }
-    
+
     /**
      *
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testSalvarConsultaNull() {
 
         Consulta consulta = new Consulta();
-        
+
         consultaDao.getEntityManager().getTransaction().begin();
         consultaDao.salvar(consulta);
         consultaDao.getEntityManager().getTransaction().commit();
-        
+
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
-    public void testBuscarPorCampoNull() throws UBSException{
-        
+    @Test(expected = Exception.class)
+    public void testBuscarPorCampoNull() throws UBSException {
+
         Consulta consulta = new Consulta();
-        
+
         consultaDao.buscarPorCampo(null, consulta);
-        
+
     }
-    
+
     /**
      *
      */
@@ -73,5 +73,5 @@ public class ConsultaDaoTest {
         Consulta consulta = new Consulta();
         assertNull(consulta = consultaDao.findById(0L));
     }
-    
+
 }

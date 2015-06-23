@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
+ * Entidade que representa o Sintoma que o paciente está tendo que pode ser
+ * extraído de uma consulta do médico ou Odontólogo da UBS. Ao extender Pessoa,
+ * passa a herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Sintoma implements Serializable {
@@ -24,34 +27,21 @@ public class Sintoma implements Serializable {
     @Column(name = "sintoma_descricao", length = 150)
     private String descricao;
 
-    /**
-     *
-     * @return
-     */
+    public Sintoma() {
+    }
+
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricao() {
         return descricao;
     }
 
-    /**
-     *
-     * @param descricao
-     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }

@@ -16,9 +16,7 @@
     <ui:define id="uiConteudoProcedimento" name="conteudo">
 
         <p:fieldset id="fieldsetProcedimento" legend="#{procedimentoBean.editando ? msg.editCadastreProcedure : msg.newRegisterProcedure}">
-
             <h:form id="formCadastroProcedimento">
-
                 <p:growl id="mensagens"/>
 
                 <h:inputHidden id="data" value="#{procedimentoBean.procedimento.data}">
@@ -33,14 +31,14 @@
 
                     <p:outputLabel for="descricao" value="#{msg.description}: " />
                     <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"
-                                 requiredMessage="#{msg.aDescriptionIsRequired}" />
-                    
+                                     requiredMessage="#{msg.aDescriptionIsRequired}" />
+
 <!--                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.paciente}" required="true"  
-                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
-                    </p:selectOneMenu>-->
+<p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.paciente}" required="true"  
+                 filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+    <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+    <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
+</p:selectOneMenu>-->
 
                 </h:panelGrid>
 
@@ -67,9 +65,7 @@
                     </f:facet>
 
                 </p:toolbar>
-
                 <p:blockUI id="blockUIExame" block="formCadastroProcedimento" trigger="botaoSalvar"/>
-
             </h:form>
         </p:fieldset>
     </ui:define>

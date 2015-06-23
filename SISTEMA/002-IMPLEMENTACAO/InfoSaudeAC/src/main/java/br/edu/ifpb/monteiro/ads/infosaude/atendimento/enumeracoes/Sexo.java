@@ -5,18 +5,11 @@ import java.io.Serializable;
 /**
  * Enumeração que retorna as possibilidades de gênero para as telas de cadastro.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public enum Sexo implements Serializable {
 
-    /**
-     *
-     */
     MASCULINO("Masculino"),
-
-    /**
-     *
-     */
     FEMININO("Feminino");
 
     private final String descricao;
@@ -26,8 +19,10 @@ public enum Sexo implements Serializable {
     }
 
     /**
+     * Permite que a descrição(valor) do item do ENUM seja retornado ao invés da
+     * constante(chave).
      *
-     * @return
+     * @return descricao
      */
     public String getDescricao() {
         return descricao;

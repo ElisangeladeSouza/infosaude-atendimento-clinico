@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
+ * Entidade que representa o Recepcionista da UBS. Ao extender Pessoa, passa a
+ * herdar todos os seus atributos.
  *
- * @author elisangela
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Recepcionista extends Pessoa implements Serializable {
@@ -20,40 +22,21 @@ public class Recepcionista extends Pessoa implements Serializable {
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSusRecepcionista;
 
-    /**
-     *
-     */
     public Recepcionista() {
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpfRecepcionista() {
         return cpfRecepcionista;
     }
 
-    /**
-     *
-     * @param cpfRecepcionista
-     */
     public void setCpfRecepcionista(String cpfRecepcionista) {
         this.cpfRecepcionista = cpfRecepcionista;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSusRecepcionista() {
         return cartaoSusRecepcionista;
     }
 
-    /**
-     *
-     * @param cartaoSusRecepcionista
-     */
     public void setCartaoSusRecepcionista(String cartaoSusRecepcionista) {
         this.cartaoSusRecepcionista = cartaoSusRecepcionista;
     }

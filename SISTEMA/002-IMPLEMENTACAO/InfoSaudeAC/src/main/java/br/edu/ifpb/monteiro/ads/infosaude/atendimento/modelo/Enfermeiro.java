@@ -6,10 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * Classe que representa um modelo de uma entidade a ser persistida no banco,
- * com todos os atributos relacionados.
+ * Entidade que representa o Enfermeiro da UBS. Ao extender Pessoa, passa a
+ * herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Enfermeiro extends Pessoa implements Serializable {
@@ -25,56 +25,29 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @Column(name = "enfermeiro_coren", unique = true, length = 30)
     private String corenEnfermeiro;
 
-    /**
-     *
-     */
     public Enfermeiro() {
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpfEnfermeiro() {
         return cpfEnfermeiro;
     }
 
-    /**
-     *
-     * @param cpfEnfermeiro
-     */
     public void setCpfEnfermeiro(String cpfEnfermeiro) {
         this.cpfEnfermeiro = cpfEnfermeiro;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSusEnfermeiro() {
         return cartaoSusEnfermeiro;
     }
 
-    /**
-     *
-     * @param cartaoSusEnfermeiro
-     */
     public void setCartaoSusEnfermeiro(String cartaoSusEnfermeiro) {
         this.cartaoSusEnfermeiro = cartaoSusEnfermeiro;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCorenEnfermeiro() {
         return corenEnfermeiro;
     }
 
-    /**
-     *
-     * @param corenEnfermeiro
-     */
     public void setCorenEnfermeiro(String corenEnfermeiro) {
         this.corenEnfermeiro = corenEnfermeiro;
     }

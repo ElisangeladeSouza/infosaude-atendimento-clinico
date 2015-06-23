@@ -28,42 +28,39 @@ public class EntityManagerProducer {
     private final EntityManagerFactory entityManagerFactory;
 
     /**
-     *
+     * Produtor de EntityManager que recebe a Unidade de Persistência definido
+     * no arquivo 'persistence.xml'.
      */
     public EntityManagerProducer() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("InfoSaudePU");
     }
 
-    // Sobrecarga de método para unidade de persistência dos testes com hsqldb
-
     /**
+     * Sobrecarga de método para unidade de persistência dos testes com hsqldb
      *
      * @param unidadePersistenciaTestes
      */
-        public EntityManagerProducer(String unidadePersistenciaTestes) {
+    public EntityManagerProducer(String unidadePersistenciaTestes) {
         this.entityManagerFactory = Persistence.createEntityManagerFactory(unidadePersistenciaTestes);
     }
 
-    /* This method is a EntityManager Producer at each request, by the Annotations bellow.*/
-
     /**
+     * This method is a EntityManager Producer at each request, by the
+     * Annotations bellow.
      *
      * @return
      */
-    
     @Produces
     @RequestScoped
     public EntityManager create() {
         return entityManagerFactory.createEntityManager();
     }
 
-    /* This method close the EntityManager when is requested */
-
     /**
+     * This method close the EntityManager when is requested
      *
      * @param entityManager
      */
-    
     public void close(@Disposes EntityManager entityManager) {
         entityManager.close();
     }

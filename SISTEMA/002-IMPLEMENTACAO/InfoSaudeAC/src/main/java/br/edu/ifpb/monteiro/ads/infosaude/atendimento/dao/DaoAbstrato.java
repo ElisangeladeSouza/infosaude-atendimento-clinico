@@ -120,25 +120,8 @@ public abstract class DaoAbstrato<T> implements Serializable {
     }
 
     /**
-     * Método get para a instância da entidade que usar esta classe
-     *
-     * @return
-     */
-    public Class<T> getEntity() {
-        return entity;
-    }
-
-    /**
-     * Método set para a instância da entidade que usar esta classe
-     *
-     * @param entity
-     */
-    public void setEntity(Class<T> entity) {
-        this.entity = entity;
-    }
-
-    /**
-     * Método set para instância do entityManager
+     * Método set da instância do entityManager necessária para a aplicação de
+     * testes de unidade.
      *
      * @param entityManager
      */

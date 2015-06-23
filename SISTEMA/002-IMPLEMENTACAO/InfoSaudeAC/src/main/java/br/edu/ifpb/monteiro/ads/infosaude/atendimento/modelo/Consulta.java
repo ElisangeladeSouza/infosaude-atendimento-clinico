@@ -16,8 +16,11 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Entidade que representa a Consulta para o paciente que pode ser por um médico
+ * ou Odontólogo da UBS. Ao extender Pessoa, passa a herdar todos os seus
+ * atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Consulta implements Serializable {
@@ -70,210 +73,109 @@ public class Consulta implements Serializable {
     @JoinColumn(name = "requisicao_exame_pk")
     private RequisicaoExame requisicaoExame;
 
-    /**
-     *
-     * @return
-     */
+    public Consulta() {
+    }
+
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public Paciente getPaciente() {
         return paciente;
     }
 
-    /**
-     *
-     * @param paciente
-     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getObservacoes() {
         return observacoes;
     }
 
-    /**
-     *
-     * @param observacoes
-     */
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPrescricao() {
         return prescricao;
     }
 
-    /**
-     *
-     * @param prescricao
-     */
     public void setPrescricao(String prescricao) {
         this.prescricao = prescricao;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDiagnostico() {
         return diagnostico;
     }
 
-    /**
-     *
-     * @param diagnostico
-     */
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getSintomas() {
         return sintomas;
     }
 
-    /**
-     *
-     * @param sintomas
-     */
     public void setSintomas(String sintomas) {
         this.sintomas = sintomas;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getData() {
         return data;
     }
 
-    /**
-     *
-     * @param data
-     */
     public void setData(Date data) {
         this.data = data;
     }
 
-    /**
-     *
-     * @return
-     */
     public RequisicaoExame getRequisicaoExame() {
         return requisicaoExame;
     }
 
-    /**
-     *
-     * @param requisicaoExame
-     */
     public void setRequisicaoExame(RequisicaoExame requisicaoExame) {
         this.requisicaoExame = requisicaoExame;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getAnamnese() {
         return anamnese;
     }
 
-    /**
-     *
-     * @param anamnese
-     */
     public void setAnamnese(String anamnese) {
         this.anamnese = anamnese;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getExames() {
         return exames;
     }
 
-    /**
-     *
-     * @param exames
-     */
     public void setExames(String exames) {
         this.exames = exames;
     }
 
-    /**
-     *
-     * @return
-     */
     public FichaAtendimento getFichaAtendimento() {
         return fichaAtendimento;
     }
 
-    /**
-     *
-     * @param fichaAtendimento
-     */
     public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
         this.fichaAtendimento = fichaAtendimento;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagem() {
         return triagem;
     }
 
-    /**
-     *
-     * @param triagem
-     */
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public Procedimento getProcedimento() {
         return procedimento;
     }
 
-    /**
-     *
-     * @param procedimento
-     */
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }

@@ -6,10 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * Classe que representa um modelo de uma entidade a ser persistida no banco,
- * com todos os atributos relacionados.
+ * Entidade que representa o Odontólogo da UBS. Ao extender Pessoa, passa a
+ * herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Odontologo extends Pessoa implements Serializable {
@@ -25,56 +25,29 @@ public class Odontologo extends Pessoa implements Serializable {
     @Column(name = "odontologo_cro", unique = true, length = 30)
     private String cro;
 
-    /**
-     *
-     */
     public Odontologo() {
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCro() {
         return cro;
     }
 
-    /**
-     *
-     * @param cro
-     */
     public void setCro(String cro) {
         this.cro = cro;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpfOdontologo() {
         return cpfOdontologo;
     }
 
-    /**
-     *
-     * @param cpfOdontologo
-     */
     public void setCpfOdontologo(String cpfOdontologo) {
         this.cpfOdontologo = cpfOdontologo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSusOdontologo() {
         return cartaoSusOdontologo;
     }
 
-    /**
-     *
-     * @param cartaoSusOdontologo
-     */
     public void setCartaoSusOdontologo(String cartaoSusOdontologo) {
         this.cartaoSusOdontologo = cartaoSusOdontologo;
     }

@@ -17,13 +17,16 @@
     <ui:define id="uiConteudoAdministrador" name="conteudo">
 
         <p:fieldset id="fieldsetAdministrador" legend="#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator}">
-
             <h:form id="formCadastroAdministrador">
-
                 <p:growl id="mensagens"/>
-                    <isac:pessoaCamposObrigatorios valueCpf="#{administradorBean.administrador.cpfAdministrador}" 
-                                                   valueCartaoSus="#{administradorBean.administrador.cartaoSusAdministrador}" 
-                                                   valueNome="#{administradorBean.administrador.nome}"/>
+                
+                <h:inputHidden id="data" value="#{administradorBean.administrador.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+                
+                <isac:pessoaCamposObrigatorios valueCpf="#{administradorBean.administrador.cpfAdministrador}" 
+                                               valueCartaoSus="#{administradorBean.administrador.cartaoSusAdministrador}" 
+                                               valueNome="#{administradorBean.administrador.nome}"/>
 
                 <p:tabView id="tabViewDadosAdministrador">
 
@@ -53,7 +56,7 @@
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        
+
                         <isac:pessoaEndereco valueRua="#{administradorBean.administrador.enderecoRua}"
                                              valueNumero="#{administradorBean.administrador.enderecoNumero}"
                                              valueBairro="#{administradorBean.administrador.enderecoBairro}"
@@ -65,7 +68,6 @@
                     </p:tab>
 
                 </p:tabView>
-
 
                 <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
                     <f:facet name="left">

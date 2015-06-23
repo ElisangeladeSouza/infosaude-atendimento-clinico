@@ -16,8 +16,10 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Entidade que representa o Procedimento a ser executado por algum profissional
+ * de saúde da UBS. Ao extender Pessoa, passa a herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Procedimento implements Serializable {
@@ -51,120 +53,61 @@ public class Procedimento implements Serializable {
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Paciente paciente;
 
-    /**
-     *
-     */
     public Procedimento() {
     }
 
-    /**
-     *
-     * @return
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricao() {
         return descricao;
     }
 
-    /**
-     *
-     * @param descricao
-     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getData() {
         return data;
     }
 
-    /**
-     *
-     * @param data
-     */
     public void setData(Date data) {
         this.data = data;
     }
 
-    /**
-     *
-     * @return
-     */
     public FichaAtendimento getFichaAtendimento() {
         return fichaAtendimento;
     }
 
-    /**
-     *
-     * @param fichaAtendimento
-     */
     public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
         this.fichaAtendimento = fichaAtendimento;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagem() {
         return triagem;
     }
 
-    /**
-     *
-     * @param triagem
-     */
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public Paciente getPaciente() {
         return paciente;
     }
 
-    /**
-     *
-     * @param paciente
-     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }

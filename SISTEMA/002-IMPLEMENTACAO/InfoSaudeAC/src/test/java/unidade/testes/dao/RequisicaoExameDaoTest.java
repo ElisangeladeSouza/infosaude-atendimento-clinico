@@ -14,42 +14,42 @@ import org.junit.Test;
  * @author wilde
  */
 public class RequisicaoExameDaoTest {
-    
+
     private static EntityManagerProducer entityManagerProducer;
     private static EntityManager entityManager;
     private static RequisicaoExameDao requisicaoExameDao;
-    
+
     /**
      *
      */
     public RequisicaoExameDaoTest() {
     }
-    
+
     /**
      *
      */
     @BeforeClass
     public static void setUpClass() {
-        
+
         requisicaoExameDao = new RequisicaoExameDao();
         entityManagerProducer = new EntityManagerProducer("InfoSaudePU_Testes");
         entityManager = entityManagerProducer.create();
-        requisicaoExameDao.setEntityManager(entityManager);    
+        requisicaoExameDao.setEntityManager(entityManager);
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
-    public void testBuscarPorCampoNull() throws UBSException{
-        
+    @Test(expected = Exception.class)
+    public void testBuscarPorCampoNull() throws UBSException {
+
         RequisicaoExame requisicaoExame = new RequisicaoExame();
-        
+
         requisicaoExameDao.buscarPorCampo(null, requisicaoExame);
-        
+
     }
-    
+
     /**
      *
      */
@@ -59,5 +59,5 @@ public class RequisicaoExameDaoTest {
         RequisicaoExame requisicaoExame = new RequisicaoExame();
         assertNull(requisicaoExame = requisicaoExameDao.findById(0L));
     }
-    
+
 }

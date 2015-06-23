@@ -12,8 +12,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
+ * Entidade que representa um Exame a ser executado por algum profissional de
+ * saúde da UBS ou encaminhado pelos mesmos para ser realizado fora da UBS. Ao
+ * extender Pessoa, passa a herdar todos os seus atributos.
  *
- * @author elisangela
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Exame implements Serializable {
@@ -34,72 +37,37 @@ public class Exame implements Serializable {
     @Column(name = "exame_data")
     private Date data;
 
-    /**
-     *
-     */
     public Exame() {
     }
 
-    /**
-     *
-     * @return
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricao() {
         return descricao;
     }
 
-    /**
-     *
-     * @param descricao
-     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDetalhes() {
         return detalhes;
     }
 
-    /**
-     *
-     * @param detalhes
-     */
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getData() {
         return data;
     }
 
-    /**
-     *
-     * @param data
-     */
     public void setData(Date data) {
         this.data = data;
     }

@@ -14,18 +14,18 @@ import org.junit.Test;
  * @author wilde
  */
 public class TriagemConverterTest {
-    
+
     /**
      *
      */
     public TriagemConverterTest() {
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsObject() throws UBSException {
         TriagemConverter triagemConverter = new TriagemConverter();
         triagemConverter.getAsObject(null, null, null);
@@ -35,10 +35,10 @@ public class TriagemConverterTest {
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsString() throws UBSException {
         TriagemConverter triagemConverter = new TriagemConverter();
         triagemConverter.getAsString(null, null, null);
     }
-    
+
 }

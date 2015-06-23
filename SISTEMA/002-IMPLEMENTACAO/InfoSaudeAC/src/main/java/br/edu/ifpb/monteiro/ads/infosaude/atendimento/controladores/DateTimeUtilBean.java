@@ -30,6 +30,7 @@ public class DateTimeUtilBean implements Serializable {
 
     /**
      * Retorna a data de hoje incluindo a hora atual.
+     *
      * @return
      */
     public Date getDateToday() {

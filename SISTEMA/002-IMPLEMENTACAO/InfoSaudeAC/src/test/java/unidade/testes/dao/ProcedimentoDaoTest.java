@@ -14,14 +14,14 @@ import org.junit.Test;
  * @author elisangela
  */
 public class ProcedimentoDaoTest {
-    
+
     private static EntityManagerProducer entityManagerProducer;
     private static EntityManager entityManager;
     private static ProcedimentoDao procedimentoDao;
 
     public ProcedimentoDaoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
         procedimentoDao = new ProcedimentoDao();
@@ -29,7 +29,7 @@ public class ProcedimentoDaoTest {
         entityManager = entityManagerProducer.create();
         procedimentoDao.setEntityManager(entityManager);
     }
-    
+
     /**
      *
      */
@@ -43,20 +43,20 @@ public class ProcedimentoDaoTest {
         procedimentoDao.getEntityManager().getTransaction().commit();
 
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
-    public void testBuscarPorCampoNull() throws UBSException{
-        
+    @Test(expected = Exception.class)
+    public void testBuscarPorCampoNull() throws UBSException {
+
         Procedimento procedimento = new Procedimento();
-        
+
         procedimentoDao.buscarPorCampo(null, procedimento);
-        
+
     }
-    
+
     /**
      *
      */
@@ -66,5 +66,5 @@ public class ProcedimentoDaoTest {
         Procedimento procedimento = new Procedimento();
         assertNull(procedimento = procedimentoDao.findById(0L));
     }
-    
+
 }

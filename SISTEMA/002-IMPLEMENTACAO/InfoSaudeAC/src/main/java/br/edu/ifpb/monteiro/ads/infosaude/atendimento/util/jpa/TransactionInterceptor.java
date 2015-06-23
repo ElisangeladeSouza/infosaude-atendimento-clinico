@@ -32,21 +32,19 @@ public class TransactionInterceptor implements Serializable {
     transient EntityManager entityManager;
 
     /**
-     *
+     * Construtor da classe
      */
     public TransactionInterceptor() {
     }
 
-    /* The annotation @AroundInvoke sign this method for to be called automatically before the 
-     method annotated with @Transactional */
-
     /**
+     * The annotation @AroundInvoke sign this method for to be called
+     * automatically before the method annotated with @Transactional
      *
      * @param context
      * @return
      * @throws UBSException
      */
-    
     @AroundInvoke
     public Object invoke(InvocationContext context) throws UBSException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

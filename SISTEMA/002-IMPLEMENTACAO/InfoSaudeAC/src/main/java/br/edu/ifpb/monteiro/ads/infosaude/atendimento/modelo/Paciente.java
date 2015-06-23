@@ -9,8 +9,10 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
 
 /**
+ * Entidade que representa o Paciente da UBS. Ao extender Pessoa, passa a herdar
+ * todos os seus atributos.
  *
- * @author elisangela
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Paciente extends Pessoa implements Serializable {
@@ -52,153 +54,77 @@ public class Paciente extends Pessoa implements Serializable {
     private Triagem triagemPaciente;
 
 //    @Column(name = "paciente_ficha_atendimento")
-
-    /**
-     *
-     */
-        public Paciente() {
+    public Paciente() {
     }
 
-    /**
-     *
-     * @return
-     */
     public Double getPeso() {
         return peso;
     }
 
-    /**
-     *
-     * @param peso
-     */
     public void setPeso(Double peso) {
         this.peso = peso;
     }
 
-    /**
-     *
-     * @return
-     */
     public Double getAltura() {
         return altura;
     }
 
-    /**
-     *
-     * @param altura
-     */
     public void setAltura(Double altura) {
         this.altura = altura;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpf() {
         return cpf;
     }
 
-    /**
-     *
-     * @param cpf
-     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSus() {
         return cartaoSus;
     }
 
-    /**
-     *
-     * @param cartaoSus
-     */
     public void setCartaoSus(String cartaoSus) {
         this.cartaoSus = cartaoSus;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNomeDaMae() {
         return nomeDaMae;
     }
 
-    /**
-     *
-     * @param nomeDaMae
-     */
     public void setNomeDaMae(String nomeDaMae) {
         this.nomeDaMae = nomeDaMae;
     }
 
-    /**
-     *
-     * @return
-     */
     public FichaAtendimento getFichaAtendimentoPaciente() {
         return fichaAtendimentoPaciente;
     }
 
-    /**
-     *
-     * @param fichaAtendimentoPaciente
-     */
     public void setFichaAtendimentoPaciente(FichaAtendimento fichaAtendimentoPaciente) {
         this.fichaAtendimentoPaciente = fichaAtendimentoPaciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Consulta getConsultaPaciente() {
         return consultaPaciente;
     }
 
-    /**
-     *
-     * @param consultaPaciente
-     */
     public void setConsultaPaciente(Consulta consultaPaciente) {
         this.consultaPaciente = consultaPaciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Procedimento getProcedimentoPaciente() {
         return procedimentoPaciente;
     }
 
-    /**
-     *
-     * @param procedimentoPaciente
-     */
     public void setProcedimentoPaciente(Procedimento procedimentoPaciente) {
         this.procedimentoPaciente = procedimentoPaciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagemPaciente() {
         return triagemPaciente;
     }
 
-    /**
-     *
-     * @param triagemPaciente
-     */
     public void setTriagemPaciente(Triagem triagemPaciente) {
         this.triagemPaciente = triagemPaciente;
     }
@@ -223,10 +149,7 @@ public class Paciente extends Pessoa implements Serializable {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
-        if (!Objects.equals(this.cartaoSus, other.cartaoSus)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.cartaoSus, other.cartaoSus);
     }
 
 }

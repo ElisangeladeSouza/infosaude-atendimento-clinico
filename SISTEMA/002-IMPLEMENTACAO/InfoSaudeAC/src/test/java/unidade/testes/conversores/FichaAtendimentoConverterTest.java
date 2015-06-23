@@ -14,18 +14,18 @@ import org.junit.Test;
  * @author wilde
  */
 public class FichaAtendimentoConverterTest {
-    
+
     /**
      *
      */
     public FichaAtendimentoConverterTest() {
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsObject() throws UBSException {
         FichaAtendimentoConverter fichaAtendimentoConverter = new FichaAtendimentoConverter();
         fichaAtendimentoConverter.getAsObject(null, null, null);
@@ -35,10 +35,10 @@ public class FichaAtendimentoConverterTest {
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsString() throws UBSException {
         FichaAtendimentoConverter fichaAtendimentoConverter = new FichaAtendimentoConverter();
         fichaAtendimentoConverter.getAsString(null, null, null);
     }
-    
+
 }

@@ -15,25 +15,25 @@ import org.junit.Test;
  * @author wilde
  */
 public class AdministradorConverterTest {
-    
+
     /**
      *
      */
     public AdministradorConverterTest() {
     }
-    
+
     /**
      *
      */
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsObject() throws UBSException {
         AdministradorConverter administradorConverter = new AdministradorConverter();
         administradorConverter.getAsObject(null, null, null);
@@ -43,10 +43,10 @@ public class AdministradorConverterTest {
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsString() throws UBSException {
         AdministradorConverter administradorConverter = new AdministradorConverter();
         administradorConverter.getAsString(null, null, null);
     }
-    
+
 }

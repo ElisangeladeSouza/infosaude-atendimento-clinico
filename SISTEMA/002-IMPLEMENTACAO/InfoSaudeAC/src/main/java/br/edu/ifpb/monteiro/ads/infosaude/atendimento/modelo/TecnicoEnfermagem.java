@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
+ * Entidade que representa o Técnico em enfermagem da UBS. Ao extender Pessoa,
+ * passa a herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class TecnicoEnfermagem extends Pessoa implements Serializable {
@@ -23,56 +25,29 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
     @Column(name = "tecnico_enfermagem_coren", unique = true, length = 50)
     private String corenTecnicoEnfermagem;
 
-    /**
-     *
-     */
     public TecnicoEnfermagem() {
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpfTecnicoEnfermagem() {
         return cpfTecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @param cpfTecnicoEnfermagem
-     */
     public void setCpfTecnicoEnfermagem(String cpfTecnicoEnfermagem) {
         this.cpfTecnicoEnfermagem = cpfTecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSusTecnicoEnfermagem() {
         return cartaoSusTecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @param cartaoSusTecnicoEnfermagem
-     */
     public void setCartaoSusTecnicoEnfermagem(String cartaoSusTecnicoEnfermagem) {
         this.cartaoSusTecnicoEnfermagem = cartaoSusTecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCorenTecnicoEnfermagem() {
         return corenTecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @param corenTecnicoEnfermagem
-     */
     public void setCorenTecnicoEnfermagem(String corenTecnicoEnfermagem) {
         this.corenTecnicoEnfermagem = corenTecnicoEnfermagem;
     }

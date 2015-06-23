@@ -17,10 +17,12 @@
     <ui:define id="uiConteudoEnfermeiro" name="conteudo">
 
         <p:fieldset id="fieldsetEnfermeiro" legend="#{enfermeiroBean.editando ? msg.editCadastreNurse : msg.newRegisterNurse}">
-
             <h:form id="formCadastroEnfermeiro">
-
                 <p:growl id="mensagens"/>
+                
+                <h:inputHidden id="data" value="#{enfermeiroBean.enfermeiro.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
 
                 <isac:pessoaDocumentosSaude for="coren" valueOutput="#{msg.coren}" distanciaLabel="margin-left: 25px"
                                             idInput="coren" requiredMessage="#{msg.mandatoryCOREN}"
@@ -58,7 +60,7 @@
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        
+
                         <isac:pessoaEndereco valueRua="#{enfermeiroBean.enfermeiro.enderecoRua}"
                                              valueNumero="#{enfermeiroBean.enfermeiro.enderecoNumero}"
                                              valueBairro="#{enfermeiroBean.enfermeiro.enderecoBairro}"

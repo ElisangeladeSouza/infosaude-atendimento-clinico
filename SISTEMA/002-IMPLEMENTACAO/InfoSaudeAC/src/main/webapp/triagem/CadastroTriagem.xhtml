@@ -16,9 +16,7 @@
     <ui:define id="uiConteudoTriagem" name="conteudo">
 
         <p:fieldset id="fieldsetTriagem" legend="#{triagemBean.editando ? msg.editCadastreScreening : msg.newRegisterScreening}">
-
             <h:form id="formCadastroTriagem">
-
                 <p:growl id="mensagens"/>
 
                 <h:inputHidden id="data" value="#{triagemBean.triagem.data}">
@@ -30,7 +28,7 @@
                     <p:outputLabel for="codigo" value="#{msg.code}: "/>
                     <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" required="true" size="10" 
                                  requiredMessage="#{msg.aCodeIsRequired}" maxlength="20"/>
-                    
+
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
                     <p:selectOneMenu id="paciente" value="#{triagemBean.triagem.paciente}" required="true"  
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
@@ -65,7 +63,6 @@
                 </p:toolbar>
 
                 <p:blockUI id="blockUIExame" block="formCadastroTriagem" trigger="botaoSalvar"/>
-
             </h:form>
         </p:fieldset>
     </ui:define>

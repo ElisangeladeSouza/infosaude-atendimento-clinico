@@ -6,43 +6,16 @@ import java.io.Serializable;
  * Enumeração que retorna alguns documentos comuns solicitados nas telas de
  * cadastro.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public enum Documentacao implements Serializable {
 
-    /**
-     *
-     */
     RG("Carteira de Identidade"),
-
-    /**
-     *
-     */
     CARTAO_SUS("Cartão do SUS"),
-
-    /**
-     *
-     */
     CPF("CPF"),
-
-    /**
-     *
-     */
     COREN("COREN"),
-
-    /**
-     *
-     */
     CRO("CRO"),
-
-    /**
-     *
-     */
     CRM("CRM"),
-
-    /**
-     *
-     */
     OUTRO("Outro");
 
     private final String descricao;
@@ -52,8 +25,10 @@ public enum Documentacao implements Serializable {
     }
 
     /**
+     * Permite que a descrição(valor) do item do ENUM seja retornado ao invés da
+     * constante(chave).
      *
-     * @return
+     * @return descricao
      */
     public String getDescricao() {
         return descricao;

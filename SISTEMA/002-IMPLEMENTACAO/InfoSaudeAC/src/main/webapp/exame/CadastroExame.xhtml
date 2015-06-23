@@ -16,10 +16,12 @@
     <ui:define id="uiConteudoExame" name="conteudo">
 
         <p:fieldset id="fieldsetExame" legend="#{exameBean.editando ? msg.editCadastreExamination : msg.newRegisterExamination}">
-
             <h:form id="formCadastroExame">
-
                 <p:growl id="mensagens"/>
+                
+                <h:inputHidden id="data" value="#{exameBean.exame.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosExame" columns="2">
 
@@ -55,9 +57,7 @@
                     </f:facet>
 
                 </p:toolbar>
-
                 <p:blockUI id="blockUIExame" block="formCadastroExame" trigger="botaoSalvar"/>
-
             </h:form>
         </p:fieldset>
     </ui:define>

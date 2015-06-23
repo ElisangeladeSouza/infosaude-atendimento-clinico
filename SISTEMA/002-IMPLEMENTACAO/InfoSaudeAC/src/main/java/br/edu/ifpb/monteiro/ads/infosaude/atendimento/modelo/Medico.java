@@ -6,10 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * Classe que representa um modelo de uma entidade a ser persistida no banco,
- * com todos os atributos relacionados.
+ * Entidade que representa o Médico da UBS. Ao extender Pessoa, passa a herdar
+ * todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Medico extends Pessoa implements Serializable {
@@ -25,56 +25,29 @@ public class Medico extends Pessoa implements Serializable {
     @Column(name = "medico_crm", unique = true, length = 30)
     private String crm;
 
-    /**
-     *
-     */
     public Medico() {
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCrm() {
         return crm;
     }
 
-    /**
-     *
-     * @param crm
-     */
     public void setCrm(String crm) {
         this.crm = crm;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCpfMedico() {
         return cpfMedico;
     }
 
-    /**
-     *
-     * @param cpfMedico
-     */
     public void setCpfMedico(String cpfMedico) {
         this.cpfMedico = cpfMedico;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCartaoSusMedico() {
         return cartaoSusMedico;
     }
 
-    /**
-     *
-     * @param cartaoSusMedico
-     */
     public void setCartaoSusMedico(String cartaoSusMedico) {
         this.cartaoSusMedico = cartaoSusMedico;
     }

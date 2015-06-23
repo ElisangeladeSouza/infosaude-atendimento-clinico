@@ -17,8 +17,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
+ * Entidade que representa a Ficha de atendimento que é feita pelo recepcionista
+ * da UBS. É o primeiro registro de entrada do paciente na UBS e por isso é
+ * muito importante para todo o processo de atendimento. Ao extender Pessoa,
+ * passa a herdar todos os seus atributos.
  *
- * @author cassio
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 public class FichaAtendimento implements Serializable {
@@ -38,7 +42,7 @@ public class FichaAtendimento implements Serializable {
     @OneToOne
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
-    
+
     @OneToOne(mappedBy = "fichaAtendimentoTriagem")
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
@@ -51,120 +55,61 @@ public class FichaAtendimento implements Serializable {
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
 
-    /**
-     *
-     */
     public FichaAtendimento() {
     }
 
-    /**
-     *
-     * @return
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public Paciente getPaciente() {
         return paciente;
     }
 
-    /**
-     *
-     * @param paciente
-     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Destino getDestino() {
         return destino;
     }
 
-    /**
-     *
-     * @param destino
-     */
     public void setDestino(Destino destino) {
         this.destino = destino;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getData() {
         return data;
     }
 
-    /**
-     *
-     * @param data
-     */
     public void setData(Date data) {
         this.data = data;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagem() {
         return triagem;
     }
 
-    /**
-     *
-     * @param triagem
-     */
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public Consulta getConsulta() {
         return consulta;
     }
 
-    /**
-     *
-     * @param consulta
-     */
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
     }
 
-    /**
-     *
-     * @return
-     */
     public Procedimento getProcedimento() {
         return procedimento;
     }
 
-    /**
-     *
-     * @param procedimento
-     */
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }

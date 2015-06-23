@@ -14,18 +14,18 @@ import org.junit.Test;
  * @author wilde
  */
 public class PacienteConverterTest {
-    
+
     /**
      *
      */
     public PacienteConverterTest() {
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsObject() throws UBSException {
         PacienteConverter pacienteConverter = new PacienteConverter();
         pacienteConverter.getAsObject(null, null, null);
@@ -35,10 +35,10 @@ public class PacienteConverterTest {
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetAsString() throws UBSException {
         PacienteConverter pacienteConverter = new PacienteConverter();
         pacienteConverter.getAsString(null, null, null);
     }
-    
+
 }

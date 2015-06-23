@@ -14,56 +14,56 @@ import org.junit.Test;
  * @author wilde
  */
 public class TriagemDaoTest {
-    
+
     private static EntityManagerProducer entityManagerProducer;
     private static EntityManager entityManager;
     private static TriagemDao triagemDao;
-    
+
     /**
      *
      */
     public TriagemDaoTest() {
     }
-    
+
     /**
      *
      */
     @BeforeClass
     public static void setUpClass() {
-        
+
         triagemDao = new TriagemDao();
         entityManagerProducer = new EntityManagerProducer("InfoSaudePU_Testes");
         entityManager = entityManagerProducer.create();
-        triagemDao.setEntityManager(entityManager);    
+        triagemDao.setEntityManager(entityManager);
     }
-    
+
     /**
      *
      */
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testSalvarTriagemNull() {
 
         Triagem triagem = new Triagem();
-        
+
         triagemDao.getEntityManager().getTransaction().begin();
         triagemDao.salvar(triagem);
         triagemDao.getEntityManager().getTransaction().commit();
-        
+
     }
-    
+
     /**
      *
      * @throws UBSException
      */
-    @Test (expected = Exception.class)
-    public void testBuscarPorCampoNull() throws UBSException{
-        
+    @Test(expected = Exception.class)
+    public void testBuscarPorCampoNull() throws UBSException {
+
         Triagem triagem = new Triagem();
-        
+
         triagemDao.buscarPorCampo(null, triagem);
-        
+
     }
-    
+
     /**
      *
      */
@@ -73,5 +73,5 @@ public class TriagemDaoTest {
         Triagem triagem = new Triagem();
         assertNull(triagem = triagemDao.findById(0L));
     }
-    
+
 }
