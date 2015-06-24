@@ -39,6 +39,8 @@ public class Pessoa implements Serializable {
     @Column(name = "pessoa_nome", nullable = false, length = 150)
     private String nome;
 
+    @Pattern(regexp = "^$|[a-zA-Z\\d/.-]{1,}",
+            message = "Apenas letras números ou os caracteres a seguir são aceitos para o RG: / . -")
     @Column(name = "pessoa_rg", length = 15)
     private String rg;
 
