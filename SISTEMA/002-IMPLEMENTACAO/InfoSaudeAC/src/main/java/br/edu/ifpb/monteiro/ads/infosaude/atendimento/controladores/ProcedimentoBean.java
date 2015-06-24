@@ -52,6 +52,7 @@ public class ProcedimentoBean implements Serializable {
         this.procedimentoService.save(procedimento);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaProcedimento.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
@@ -85,42 +86,22 @@ public class ProcedimentoBean implements Serializable {
         return procedimentoSelecionado;
     }
 
-    /**
-     *
-     * @param procedimentoSelecionado
-     */
     public void setProcedimentoSelecionado(Procedimento procedimentoSelecionado) {
         this.procedimentoSelecionado = procedimentoSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Procedimento getProcedimento() {
         return procedimento;
     }
 
-    /**
-     *
-     * @param procedimento
-     */
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }
 
-    /**
-     *
-     * @return
-     */
     public ProcedimentoService getProcedimentoService() {
         return procedimentoService;
     }
 
-    /**
-     *
-     * @param procedimentoService
-     */
     public void setProcedimentoService(ProcedimentoService procedimentoService) {
         this.procedimentoService = procedimentoService;
     }

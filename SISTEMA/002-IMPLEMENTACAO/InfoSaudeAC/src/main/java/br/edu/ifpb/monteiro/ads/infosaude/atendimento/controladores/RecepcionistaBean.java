@@ -72,6 +72,7 @@ public class RecepcionistaBean implements Serializable {
             this.recepcionistaService.save(recepcionista);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaRecepcionista.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -109,42 +110,22 @@ public class RecepcionistaBean implements Serializable {
         return recepcionistaSelecionado;
     }
 
-    /**
-     *
-     * @param recepcionistaSelecionado
-     */
     public void setRecepcionistaSelecionado(Recepcionista recepcionistaSelecionado) {
         this.recepcionistaSelecionado = recepcionistaSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Recepcionista getRecepcionista() {
         return recepcionista;
     }
 
-    /**
-     *
-     * @param recepcionista
-     */
     public void setRecepcionista(Recepcionista recepcionista) {
         this.recepcionista = recepcionista;
     }
 
-    /**
-     *
-     * @return
-     */
     public RecepcionistaService getRecepcionistaService() {
         return recepcionistaService;
     }
 
-    /**
-     *
-     * @param recepcionistaService
-     */
     public void setRecepcionistaService(RecepcionistaService recepcionistaService) {
         this.recepcionistaService = recepcionistaService;
     }

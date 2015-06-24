@@ -66,6 +66,7 @@ public class FichaAtendimentoBean implements Serializable {
         this.fichaAtendimentoService.save(fichaAtendimento);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaFichaAtendimento.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
@@ -99,42 +100,22 @@ public class FichaAtendimentoBean implements Serializable {
         return fichaAtendimentoSelecionado;
     }
 
-    /**
-     *
-     * @param fichaAtendimentoSelecionado
-     */
     public void setFichaAtendimentoSelecionado(FichaAtendimento fichaAtendimentoSelecionado) {
         this.fichaAtendimentoSelecionado = fichaAtendimentoSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public FichaAtendimento getFichaAtendimento() {
         return fichaAtendimento;
     }
 
-    /**
-     *
-     * @param fichaAtendimento
-     */
     public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
         this.fichaAtendimento = fichaAtendimento;
     }
 
-    /**
-     *
-     * @return
-     */
     public FichaAtendimentoService getFichaAtendimentoService() {
         return fichaAtendimentoService;
     }
 
-    /**
-     *
-     * @param fichaAtendimentoService
-     */
     public void setFichaAtendimentoService(FichaAtendimentoService fichaAtendimentoService) {
         this.fichaAtendimentoService = fichaAtendimentoService;
     }

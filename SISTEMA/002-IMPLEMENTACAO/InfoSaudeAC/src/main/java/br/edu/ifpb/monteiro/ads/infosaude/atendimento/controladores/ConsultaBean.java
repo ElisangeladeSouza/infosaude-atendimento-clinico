@@ -55,6 +55,7 @@ public class ConsultaBean implements Serializable {
         this.consultaService.save(consulta);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaConsulta.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
@@ -89,42 +90,22 @@ public class ConsultaBean implements Serializable {
         return consultaSelecionada;
     }
 
-    /**
-     *
-     * @param consultaSelecionada
-     */
     public void setConsultaSelecionada(Consulta consultaSelecionada) {
         this.consultaSelecionada = consultaSelecionada;
     }
 
-    /**
-     *
-     * @return
-     */
     public Consulta getConsulta() {
         return consulta;
     }
 
-    /**
-     *
-     * @param consulta
-     */
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
     }
 
-    /**
-     *
-     * @return
-     */
     public ConsultaService getConsultaService() {
         return consultaService;
     }
 
-    /**
-     *
-     * @param consultaService
-     */
     public void setConsultaService(ConsultaService consultaService) {
         this.consultaService = consultaService;
     }

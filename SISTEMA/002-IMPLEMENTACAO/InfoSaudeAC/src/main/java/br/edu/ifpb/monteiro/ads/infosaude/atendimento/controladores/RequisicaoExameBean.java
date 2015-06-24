@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.persistence.RollbackException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -30,7 +29,7 @@ public class RequisicaoExameBean implements Serializable {
     private RequisicaoExameService requisicaoExameService;
 
     @Inject
-    private RequisicaoExame requisicaoExameSelecionado;
+    private RequisicaoExame requisicaoExameSelecionada;
 
     private transient List<RequisicaoExame> requisicaoExames;
 
@@ -54,18 +53,14 @@ public class RequisicaoExameBean implements Serializable {
      * @throws UBSException
      */
     public void salvar() throws UBSException {
-        try {
-            this.requisicaoExameService.save(requisicaoExame);
-            if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
-            } else {
-                FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-            }
-            requisicaoExame = new RequisicaoExame();
-        } catch (RollbackException rollback) {
-            FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
-            LOGGER.warn(rollback);
+        this.requisicaoExameService.save(requisicaoExame);
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaRequisicaoExame.xhtml");
+        } else {
+            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        requisicaoExame = new RequisicaoExame();
     }
 
     /**
@@ -73,7 +68,7 @@ public class RequisicaoExameBean implements Serializable {
      * @throws UBSException
      */
     public void excluir() throws UBSException {
-        this.requisicaoExameService.delete(requisicaoExameSelecionado);
+        this.requisicaoExameService.delete(requisicaoExameSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
@@ -91,46 +86,26 @@ public class RequisicaoExameBean implements Serializable {
      *
      * @return
      */
-    public RequisicaoExame getRequisicaoExameSelecionado() {
-        return requisicaoExameSelecionado;
+    public RequisicaoExame getRequisicaoExameSelecionada() {
+        return requisicaoExameSelecionada;
     }
 
-    /**
-     *
-     * @param requisicaoExameSelecionado
-     */
-    public void setRequisicaoExameSelecionado(RequisicaoExame requisicaoExameSelecionado) {
-        this.requisicaoExameSelecionado = requisicaoExameSelecionado;
+    public void setRequisicaoExameSelecionada(RequisicaoExame requisicaoExameSelecionada) {
+        this.requisicaoExameSelecionada = requisicaoExameSelecionada;
     }
 
-    /**
-     *
-     * @return
-     */
     public RequisicaoExame getRequisicaoExame() {
         return requisicaoExame;
     }
 
-    /**
-     *
-     * @param requisicaoExame
-     */
     public void setRequisicaoExame(RequisicaoExame requisicaoExame) {
         this.requisicaoExame = requisicaoExame;
     }
 
-    /**
-     *
-     * @return
-     */
     public RequisicaoExameService getRequisicaoExameService() {
         return requisicaoExameService;
     }
 
-    /**
-     *
-     * @param requisicaoExameService
-     */
     public void setRequisicaoExameService(RequisicaoExameService requisicaoExameService) {
         this.requisicaoExameService = requisicaoExameService;
     }

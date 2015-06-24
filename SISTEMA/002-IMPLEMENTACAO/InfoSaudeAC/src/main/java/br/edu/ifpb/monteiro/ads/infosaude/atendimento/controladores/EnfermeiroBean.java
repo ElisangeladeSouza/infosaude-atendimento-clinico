@@ -72,6 +72,7 @@ public class EnfermeiroBean implements Serializable {
             this.enfermeiroService.save(enfermeiro);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaEnfermeiro.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -101,50 +102,26 @@ public class EnfermeiroBean implements Serializable {
         return this.enfermeiro.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Enfermeiro getEnfermeiroSelecionado() {
         return enfermeiroSelecionado;
     }
 
-    /**
-     *
-     * @param enfermeiroSelecionado
-     */
     public void setEnfermeiroSelecionado(Enfermeiro enfermeiroSelecionado) {
         this.enfermeiroSelecionado = enfermeiroSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Enfermeiro getEnfermeiro() {
         return enfermeiro;
     }
 
-    /**
-     *
-     * @param enfermeiro
-     */
     public void setEnfermeiro(Enfermeiro enfermeiro) {
         this.enfermeiro = enfermeiro;
     }
 
-    /**
-     *
-     * @return
-     */
     public EnfermeiroService getEnfermeiroService() {
         return enfermeiroService;
     }
 
-    /**
-     *
-     * @param enfermeiroService
-     */
     public void setEnfermeiroService(EnfermeiroService enfermeiroService) {
         this.enfermeiroService = enfermeiroService;
     }

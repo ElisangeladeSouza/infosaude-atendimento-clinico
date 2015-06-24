@@ -73,6 +73,7 @@ public class TecnicoEnfermagemBean implements Serializable {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaTecnicoEnfermagem.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -110,42 +111,22 @@ public class TecnicoEnfermagemBean implements Serializable {
         return tecnicoEnfermagemSelecionado;
     }
 
-    /**
-     *
-     * @param tecnicoEnfermagemSelecionado
-     */
     public void setTecnicoEnfermagemSelecionado(TecnicoEnfermagem tecnicoEnfermagemSelecionado) {
         this.tecnicoEnfermagemSelecionado = tecnicoEnfermagemSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public TecnicoEnfermagem getTecnicoEnfermagem() {
         return tecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @param tecnicoEnfermagem
-     */
     public void setTecnicoEnfermagem(TecnicoEnfermagem tecnicoEnfermagem) {
         this.tecnicoEnfermagem = tecnicoEnfermagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public TecnicoEnfermagemService getTecnicoEnfermagemService() {
         return tecnicoEnfermagemService;
     }
 
-    /**
-     *
-     * @param tecnicoEnfermagemService
-     */
     public void setTecnicoEnfermagemService(TecnicoEnfermagemService tecnicoEnfermagemService) {
         this.tecnicoEnfermagemService = tecnicoEnfermagemService;
     }

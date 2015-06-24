@@ -52,6 +52,7 @@ public class ExameBean implements Serializable {
         this.exameService.save(exame);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaExame.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
@@ -85,42 +86,22 @@ public class ExameBean implements Serializable {
         return exameSelecionado;
     }
 
-    /**
-     *
-     * @param exameSelecionado
-     */
     public void setExameSelecionado(Exame exameSelecionado) {
         this.exameSelecionado = exameSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Exame getExame() {
         return exame;
     }
 
-    /**
-     *
-     * @param exame
-     */
     public void setExame(Exame exame) {
         this.exame = exame;
     }
 
-    /**
-     *
-     * @return
-     */
     public ExameService getExameService() {
         return exameService;
     }
 
-    /**
-     *
-     * @param exameService
-     */
     public void setExameService(ExameService exameService) {
         this.exameService = exameService;
     }

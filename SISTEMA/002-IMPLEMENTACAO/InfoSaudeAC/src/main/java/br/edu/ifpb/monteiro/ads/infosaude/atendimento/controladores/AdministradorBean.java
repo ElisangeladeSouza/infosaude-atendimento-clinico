@@ -18,7 +18,7 @@ import org.apache.commons.logging.LogFactory;
  * @author elisangela
  */
 @Model
-public class AdministradorBean implements Serializable {//NOSONAR
+public class AdministradorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -41,13 +41,13 @@ public class AdministradorBean implements Serializable {//NOSONAR
     /**
      * Construtor da classe
      */
-    public AdministradorBean() {//NOSONAR
+    public AdministradorBean() {
     }
 
     /**
      *
      */
-    public void carregarCidades() {//NOSONAR
+    public void carregarCidades() {
         PessoaBean.cidades.clear();
         for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
             PessoaBean.cidades.add(cidadesFiltradas);
@@ -58,7 +58,7 @@ public class AdministradorBean implements Serializable {//NOSONAR
      *
      * @return
      */
-    public List<Administrador> getAdministradores() {//NOSONAR
+    public List<Administrador> getAdministradores() {
         this.administradores = administradorService.findAll();
         return administradores;
     }
@@ -72,6 +72,7 @@ public class AdministradorBean implements Serializable {//NOSONAR
             this.administradorService.save(administrador);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -97,7 +98,7 @@ public class AdministradorBean implements Serializable {//NOSONAR
      *
      * @return
      */
-    public boolean getEditando() {//NOSONAR
+    public boolean getEditando() {
         return this.administrador.getId() != null;
     }
 
@@ -105,48 +106,28 @@ public class AdministradorBean implements Serializable {//NOSONAR
      *
      * @return
      */
-    public Administrador getAdministradorSelecionado() {//NOSONAR
+    public Administrador getAdministradorSelecionado() {
         return administradorSelecionado;
     }
 
-    /**
-     *
-     * @param administradorSelecionado
-     */
-    public void setAdministradorSelecionado(Administrador administradorSelecionado) {//NOSONAR
+    public void setAdministradorSelecionado(Administrador administradorSelecionado) {
         this.administradorSelecionado = administradorSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Administrador getAdministrador() {//NOSONAR
+    public Administrador getAdministrador() {
         return administrador;
     }
 
-    /**
-     *
-     * @param administrador
-     */
-    public void setAdministrador(Administrador administrador) {//NOSONAR
+    public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
 
-    /**
-     *
-     * @return
-     */
-    public AdministradorService getAdministradorService() {//NOSONAR
+    public AdministradorService getAdministradorService() {
         return administradorService;
     }
 
-    /**
-     *
-     * @param administradorService
-     */
-    public void setAdministradorService(AdministradorService administradorService) {//NOSONAR
+    public void setAdministradorService(AdministradorService administradorService) {
         this.administradorService = administradorService;
     }
 
-}//NOSONAR
+}

@@ -39,9 +39,6 @@ public class MedicoBean implements Serializable {
 
     private transient List<Medico> medicos;
 
-    /**
-     *
-     */
     public MedicoBean() {
     }
 
@@ -55,10 +52,6 @@ public class MedicoBean implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public List<Medico> getMedicos() {
         this.medicos = medicoService.findAll();
         return medicos;
@@ -72,8 +65,8 @@ public class MedicoBean implements Serializable {
         try {
             this.medicoService.save(medico);
             if (getEditando()) {
-                FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -95,7 +88,8 @@ public class MedicoBean implements Serializable {
 
     /**
      * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
-     * refere-se a um novo cadastro, senao refere-se a um produto a ser editado
+     * refere-se a um novo cadastro e retorna true, senao refere-se a um produto
+     * a ser editado, retornando false.
      *
      * @return
      */
@@ -103,50 +97,26 @@ public class MedicoBean implements Serializable {
         return this.medico.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Medico getMedicoSelecionado() {
         return medicoSelecionado;
     }
 
-    /**
-     *
-     * @param medicoSelecionado
-     */
     public void setMedicoSelecionado(Medico medicoSelecionado) {
         this.medicoSelecionado = medicoSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Medico getMedico() {
         return medico;
     }
 
-    /**
-     *
-     * @param medico
-     */
     public void setMedico(Medico medico) {
         this.medico = medico;
     }
 
-    /**
-     *
-     * @return
-     */
     public MedicoService getMedicoService() {
         return medicoService;
     }
 
-    /**
-     *
-     * @param medicoService
-     */
     public void setMedicoService(MedicoService medicoService) {
         this.medicoService = medicoService;
     }

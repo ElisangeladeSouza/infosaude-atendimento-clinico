@@ -72,6 +72,7 @@ public class OdontologoBean implements Serializable {
             this.odontologoService.save(odontologo);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaOdontologo.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -109,42 +110,22 @@ public class OdontologoBean implements Serializable {
         return odontologoSelecionado;
     }
 
-    /**
-     *
-     * @param odontologoSelecionado
-     */
     public void setOdontologoSelecionado(Odontologo odontologoSelecionado) {
         this.odontologoSelecionado = odontologoSelecionado;
     }
 
-    /**
-     *
-     * @return
-     */
     public Odontologo getOdontologo() {
         return odontologo;
     }
 
-    /**
-     *
-     * @param odontologo
-     */
     public void setOdontologo(Odontologo odontologo) {
         this.odontologo = odontologo;
     }
 
-    /**
-     *
-     * @return
-     */
     public OdontologoService getOdontologoService() {
         return odontologoService;
     }
 
-    /**
-     *
-     * @param odontologoService
-     */
     public void setOdontologoService(OdontologoService odontologoService) {
         this.odontologoService = odontologoService;
     }

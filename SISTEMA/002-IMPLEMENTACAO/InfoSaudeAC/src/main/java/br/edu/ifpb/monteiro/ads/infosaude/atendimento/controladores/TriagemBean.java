@@ -29,16 +29,9 @@ public class TriagemBean implements Serializable {
 
     private transient List<Triagem> triagens;
 
-    /**
-     *
-     */
     public TriagemBean() {
     }
 
-    /**
-     *
-     * @return
-     */
     public List<Triagem> getTriagens() {
         this.triagens = triagemService.findAll();
         return triagens;
@@ -52,6 +45,7 @@ public class TriagemBean implements Serializable {
         this.triagemService.save(triagem);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
@@ -85,42 +79,22 @@ public class TriagemBean implements Serializable {
         return triagemSelecionada;
     }
 
-    /**
-     *
-     * @param triagemSelecionada
-     */
     public void setTriagemSelecionada(Triagem triagemSelecionada) {
         this.triagemSelecionada = triagemSelecionada;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagem() {
         return triagem;
     }
 
-    /**
-     *
-     * @param triagem
-     */
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
     }
 
-    /**
-     *
-     * @return
-     */
     public TriagemService getTriagemService() {
         return triagemService;
     }
 
-    /**
-     *
-     * @param triagemService
-     */
     public void setTriagemService(TriagemService triagemService) {
         this.triagemService = triagemService;
     }

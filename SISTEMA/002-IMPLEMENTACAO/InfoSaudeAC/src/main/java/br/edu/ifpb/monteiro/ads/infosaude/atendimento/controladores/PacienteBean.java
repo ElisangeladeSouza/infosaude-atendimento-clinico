@@ -38,9 +38,6 @@ public class PacienteBean implements Serializable {
 
     private transient List<Paciente> pacientes;
 
-    /**
-     *
-     */
     public PacienteBean() {
     }
 
@@ -72,6 +69,7 @@ public class PacienteBean implements Serializable {
             this.pacienteService.save(paciente);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.redirecionaPara("PesquisaPaciente.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
@@ -101,50 +99,26 @@ public class PacienteBean implements Serializable {
         return this.paciente.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Paciente getPaciente() {
         return paciente;
     }
 
-    /**
-     *
-     * @param paciente
-     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    /**
-     *
-     * @return
-     */
     public PacienteService getPacienteService() {
         return pacienteService;
     }
 
-    /**
-     *
-     * @param pacienteService
-     */
     public void setPacienteService(PacienteService pacienteService) {
         this.pacienteService = pacienteService;
     }
 
-    /**
-     *
-     * @return
-     */
     public Paciente getPacienteSelecionado() {
         return pacienteSelecionado;
     }
 
-    /**
-     *
-     * @param pacienteSelecionado
-     */
     public void setPacienteSelecionado(Paciente pacienteSelecionado) {
         this.pacienteSelecionado = pacienteSelecionado;
     }
