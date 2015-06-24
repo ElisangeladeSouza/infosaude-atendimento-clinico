@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:composite="http://xmlns.jcp.org/jsf/composite"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <composite:interface>
         <composite:attribute name="valueRg" required="true"/>
@@ -13,8 +14,10 @@
 
         <h:panelGrid columns="2">
             <p:outputLabel for="rg" value="#{msg.rg}:"/>
-            <p:inputText id="rg" value="#{cc.attrs.valueRg}"  
-                         size="20" maxlength="15"/>
+            <p:inputText id="rg" value="#{cc.attrs.valueRg}" converterMessage="#{msg.aFieldNumber}" 
+                         size="20" maxlength="15">
+                <f:convertNumber integerOnly="true" minIntegerDigits="1"/>
+            </p:inputText>
         </h:panelGrid>
     </composite:implementation>
 
