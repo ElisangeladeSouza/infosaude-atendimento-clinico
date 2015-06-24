@@ -18,22 +18,35 @@
 
         <p:fieldset id="fieldsetAdministrador" legend="#{msg.viewCadastreNurse}">
             <h:form id="formCadastroEnfermeiro">
-                <isac:pessoaVisualizaCadastro bairro="#{enfermeiroBean.enfermeiro.enderecoBairro}" 
-                                              cartaoSus="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}" 
-                                              cep="#{enfermeiroBean.enfermeiro.enderecoCep}" 
-                                              cidade="#{enfermeiroBean.enfermeiro.enderecoCidade}" 
-                                              corOuRaca="#{enfermeiroBean.enfermeiro.corOuRaca}" 
-                                              cpf="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}" 
-                                              dataNascimento="#{enfermeiroBean.enfermeiro.dataNascimento}" 
-                                              email="#{enfermeiroBean.enfermeiro.email}" 
-                                              estado="#{enfermeiroBean.enfermeiro.enderecoEstado}" 
-                                              nome="#{enfermeiroBean.enfermeiro.nome}" 
-                                              numero="#{enfermeiroBean.enfermeiro.enderecoNumero}" 
-                                              rg="#{enfermeiroBean.enfermeiro.rg}" 
-                                              rua="#{enfermeiroBean.enfermeiro.enderecoRua}" 
-                                              telefone1="#{enfermeiroBean.enfermeiro.telefone1}" 
-                                              telefone2="#{enfermeiroBean.enfermeiro.telefone2}"
-                                              docSaude="#{enfermeiroBean.enfermeiro.corenEnfermeiro}"/>
+                <p:fieldset id="visualizaPessoalEnfermeiro" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{enfermeiroBean.enfermeiro.corOuRaca}" 
+                                                 dataNascimento="#{enfermeiroBean.enfermeiro.dataNascimento}" 
+                                                 nome="#{enfermeiroBean.enfermeiro.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoEnfermeiro" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{enfermeiroBean.enfermeiro.telefone1}" 
+                                           telefone2="#{enfermeiroBean.enfermeiro.telefone2}"
+                                           email="#{enfermeiroBean.enfermeiro.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoEnfermeiro" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{enfermeiroBean.enfermeiro.enderecoBairro}" 
+                                            cep="#{enfermeiroBean.enfermeiro.enderecoCep}" 
+                                            cidade="#{enfermeiroBean.enfermeiro.enderecoCidade}"
+                                            estado="#{enfermeiroBean.enfermeiro.enderecoEstado}"
+                                            numero="#{enfermeiroBean.enfermeiro.enderecoNumero}" 
+                                            rua="#{enfermeiroBean.enfermeiro.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosEnfermeiro" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{enfermeiroBean.enfermeiro.rg}"
+                                                cpf="#{enfermeiroBean.enfermeiro.cpfEnfermeiro}"
+                                                cartaoSus="#{enfermeiroBean.enfermeiro.cartaoSusEnfermeiro}"/>
+                    
+                    <p:outputLabel for="coren" value="#{msg.coren}..........................: " style="font-weight: bold"/>
+                    <p:outputLabel id="coren" value="#{enfermeiroBean.enfermeiro.corenEnfermeiro}" />
+                    </p:fieldset>
                 <p:toolbar id="toolbarEnfermeiro" style="margin-top: 10px;">
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"

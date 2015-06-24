@@ -18,21 +18,32 @@
 
         <p:fieldset id="fieldsetRecepcionista" legend="#{msg.viewCadastreAdministrator}">
             <h:form id="formCadastroRecepcionista">
-                <isac:pessoaVisualizaCadastro bairro="#{recepcionistaBean.recepcionista.enderecoBairro}" 
-                                              cartaoSus="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}" 
-                                              cep="#{recepcionistaBean.recepcionista.enderecoCep}" 
-                                              cidade="#{recepcionistaBean.recepcionista.enderecoCidade}" 
-                                              corOuRaca="#{recepcionistaBean.recepcionista.corOuRaca}" 
-                                              cpf="#{recepcionistaBean.recepcionista.cpfRecepcionista}" 
-                                              dataNascimento="#{recepcionistaBean.recepcionista.dataNascimento}" 
-                                              email="#{recepcionistaBean.recepcionista.email}" 
-                                              estado="#{recepcionistaBean.recepcionista.enderecoEstado}" 
-                                              nome="#{recepcionistaBean.recepcionista.nome}" 
-                                              numero="#{recepcionistaBean.recepcionista.enderecoNumero}" 
-                                              rg="#{recepcionistaBean.recepcionista.rg}" 
-                                              rua="#{recepcionistaBean.recepcionista.enderecoRua}" 
-                                              telefone1="#{recepcionistaBean.recepcionista.telefone1}" 
-                                              telefone2="#{recepcionistaBean.recepcionista.telefone2}"/>
+                <p:fieldset id="visualizaPessoalRecepcionista" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{recepcionistaBean.recepcionista.corOuRaca}" 
+                                                 dataNascimento="#{recepcionistaBean.recepcionista.dataNascimento}" 
+                                                 nome="#{recepcionistaBean.recepcionista.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoRecepcionista" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{recepcionistaBean.recepcionista.telefone1}" 
+                                           telefone2="#{recepcionistaBean.recepcionista.telefone2}"
+                                           email="#{recepcionistaBean.recepcionista.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoRecepcionista" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{recepcionistaBean.recepcionista.enderecoBairro}" 
+                                            cep="#{recepcionistaBean.recepcionista.enderecoCep}" 
+                                            cidade="#{recepcionistaBean.recepcionista.enderecoCidade}"
+                                            estado="#{recepcionistaBean.recepcionista.enderecoEstado}"
+                                            numero="#{recepcionistaBean.recepcionista.enderecoNumero}" 
+                                            rua="#{recepcionistaBean.recepcionista.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosRecepcionista" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{recepcionistaBean.recepcionista.rg}"
+                                                cpf="#{recepcionistaBean.recepcionista.cpfRecepcionista}"
+                                                cartaoSus="#{recepcionistaBean.recepcionista.cartaoSusRecepcionista}"/>
+                </p:fieldset>
 
                 <p:toolbar id="toolbarrecepcionista" style="margin-top: 10px;">
                     <f:facet name="right">

@@ -1,5 +1,8 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -58,6 +61,14 @@ public class FacesUtil {
             mensagemErro(msg);
         } else {
             mensagemErro(mensagemPadrao);
+        }
+    }
+    
+    public static void redirecionaPara(String pagina){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect(pagina);
+        } catch (IOException ex) {
+            Logger.getLogger(FacesUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

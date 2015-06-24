@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <composite:interface>
+        <composite:attribute name="nome"/>
+        <composite:attribute name="dataNascimento"/>
+        <composite:attribute name="corOuRaca"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:panelGrid id="gridVisualizaPessoalMedico" columns="2">
+            <p:outputLabel for="nome" value="#{msg.name}.............................: " style="font-weight: bold"/>
+            <p:outputLabel id="nome" value="#{cc.attrs.nome}"  />
+
+            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}................: " style="font-weight: bold"/>
+            <p:outputLabel id="dataNascimento" value="#{cc.attrs.dataNascimento}">
+                <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+            </p:outputLabel> 
+
+            <p:outputLabel for="racaCor" value="#{msg.race}/#{msg.color}........................: " style="font-weight: bold"/>
+            <p:outputLabel id="racaCor" value="#{cc.attrs.corOuRaca}"/>
+        </h:panelGrid>
+
+    </composite:implementation>
+
+
+</html>

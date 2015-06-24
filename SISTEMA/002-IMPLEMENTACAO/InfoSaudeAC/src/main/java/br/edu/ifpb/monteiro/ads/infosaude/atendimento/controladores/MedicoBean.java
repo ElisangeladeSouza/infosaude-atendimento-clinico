@@ -72,6 +72,7 @@ public class MedicoBean implements Serializable {
         try {
             this.medicoService.save(medico);
             if (getEditando()) {
+                FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
                 FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

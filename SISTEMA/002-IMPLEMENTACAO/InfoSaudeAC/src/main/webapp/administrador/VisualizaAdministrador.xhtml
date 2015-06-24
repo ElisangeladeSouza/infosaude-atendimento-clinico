@@ -18,21 +18,33 @@
 
         <p:fieldset id="fieldsetAdministrador" legend="#{msg.viewCadastreAdministrator}">
             <h:form id="formCadastroAdministrador">
-                <isac:pessoaVisualizaCadastro bairro="#{administradorBean.administrador.enderecoBairro}" 
-                                              cartaoSus="#{administradorBean.administrador.cartaoSusAdministrador}" 
-                                              cep="#{administradorBean.administrador.enderecoCep}" 
-                                              cidade="#{administradorBean.administrador.enderecoCidade}" 
-                                              corOuRaca="#{administradorBean.administrador.corOuRaca}" 
-                                              cpf="#{administradorBean.administrador.cpfAdministrador}" 
-                                              dataNascimento="#{administradorBean.administrador.dataNascimento}" 
-                                              email="#{administradorBean.administrador.email}" 
-                                              estado="#{administradorBean.administrador.enderecoEstado}" 
-                                              nome="#{administradorBean.administrador.nome}" 
-                                              numero="#{administradorBean.administrador.enderecoNumero}" 
-                                              rg="#{administradorBean.administrador.rg}" 
-                                              rua="#{administradorBean.administrador.enderecoRua}" 
-                                              telefone1="#{administradorBean.administrador.telefone1}" 
-                                              telefone2="#{administradorBean.administrador.telefone2}"/>
+                <p:fieldset id="visualizaPessoalAdministrador" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{administradorBean.administrador.corOuRaca}" 
+                                                 dataNascimento="#{administradorBean.administrador.dataNascimento}" 
+                                                 nome="#{administradorBean.administrador.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoAdministrador" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{administradorBean.administrador.telefone1}" 
+                                           telefone2="#{administradorBean.administrador.telefone2}"
+                                           email="#{administradorBean.administrador.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoAdministrador" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{administradorBean.administrador.enderecoBairro}" 
+                                            cep="#{administradorBean.administrador.enderecoCep}" 
+                                            cidade="#{administradorBean.administrador.enderecoCidade}"
+                                            estado="#{administradorBean.administrador.enderecoEstado}"
+                                            numero="#{administradorBean.administrador.enderecoNumero}" 
+                                            rua="#{administradorBean.administrador.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosAdministrador" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{administradorBean.administrador.rg}"
+                                                cpf="#{administradorBean.administrador.cpfAdministrador}"
+                                                cartaoSus="#{administradorBean.administrador.cartaoSusAdministrador}"/>
+                </p:fieldset>
+                
                 <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"

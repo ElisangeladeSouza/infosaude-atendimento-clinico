@@ -18,21 +18,33 @@
 
         <p:fieldset id="fieldsetPaciente" legend="#{msg.viewCadastrePatient}">
             <h:form id="formCadastroPaciente">
-                <isac:pessoaVisualizaCadastro bairro="#{pacienteBean.paciente.enderecoBairro}" 
-                                              cartaoSus="#{pacienteBean.paciente.cartaoSus}" 
-                                              cep="#{pacienteBean.paciente.enderecoCep}" 
-                                              cidade="#{pacienteBean.paciente.enderecoCidade}" 
-                                              corOuRaca="#{pacienteBean.paciente.corOuRaca}" 
-                                              cpf="#{pacienteBean.paciente.cpf}" 
-                                              dataNascimento="#{pacienteBean.paciente.dataNascimento}" 
-                                              email="#{pacienteBean.paciente.email}" 
-                                              estado="#{pacienteBean.paciente.enderecoEstado}" 
-                                              nome="#{pacienteBean.paciente.nome}" 
-                                              numero="#{pacienteBean.paciente.enderecoNumero}" 
-                                              rg="#{pacienteBean.paciente.rg}" 
-                                              rua="#{pacienteBean.paciente.enderecoRua}" 
-                                              telefone1="#{pacienteBean.paciente.telefone1}" 
-                                              telefone2="#{pacienteBean.paciente.telefone2}"/>
+                <p:fieldset id="visualizaPessoalTecnicoEnfermagem" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{pacienteBean.paciente.corOuRaca}" 
+                                                 dataNascimento="#{pacienteBean.paciente.dataNascimento}" 
+                                                 nome="#{pacienteBean.paciente.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoTecnicoEnfermagem" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{pacienteBean.paciente.telefone1}" 
+                                           telefone2="#{pacienteBean.paciente.telefone2}"
+                                           email="#{pacienteBean.paciente.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoTecnicoEnfermagem" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{pacienteBean.paciente.enderecoBairro}" 
+                                            cep="#{pacienteBean.paciente.enderecoCep}" 
+                                            cidade="#{pacienteBean.paciente.enderecoCidade}"
+                                            estado="#{pacienteBean.paciente.enderecoEstado}"
+                                            numero="#{pacienteBean.paciente.enderecoNumero}" 
+                                            rua="#{pacienteBean.paciente.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosTecnicoEnfermagem" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{pacienteBean.paciente.rg}"
+                                                cpf="#{pacienteBean.paciente.cpf}"
+                                                cartaoSus="#{pacienteBean.paciente.cartaoSus}"/>
+                </p:fieldset>    
+                    
                 <p:toolbar id="toolbarPaciente" style="margin-top: 10px;">
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"

@@ -18,22 +18,35 @@
 
         <p:fieldset id="fieldsetOdontologo" legend="#{msg.viewCadastreDentist}">
             <h:form id="formCadastroOdontologo">
-                <isac:pessoaVisualizaCadastro bairro="#{odontologoBean.odontologo.enderecoBairro}" 
-                                              cartaoSus="#{odontologoBean.odontologo.cartaoSusOdontologo}" 
-                                              cep="#{odontologoBean.odontologo.enderecoCep}" 
-                                              cidade="#{odontologoBean.odontologo.enderecoCidade}" 
-                                              corOuRaca="#{odontologoBean.odontologo.corOuRaca}" 
-                                              cpf="#{odontologoBean.odontologo.cpfOdontologo}" 
-                                              dataNascimento="#{odontologoBean.odontologo.dataNascimento}" 
-                                              email="#{odontologoBean.odontologo.email}" 
-                                              estado="#{odontologoBean.odontologo.enderecoEstado}" 
-                                              nome="#{odontologoBean.odontologo.nome}" 
-                                              numero="#{odontologoBean.odontologo.enderecoNumero}" 
-                                              rg="#{odontologoBean.odontologo.rg}" 
-                                              rua="#{odontologoBean.odontologo.enderecoRua}" 
-                                              telefone1="#{odontologoBean.odontologo.telefone1}" 
-                                              telefone2="#{odontologoBean.odontologo.telefone2}"
-                                              docSaude="#{odontologoBean.odontologo.cro}"/>
+                <p:fieldset id="visualizaPessoalOdontologo" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{odontologoBean.odontologo.corOuRaca}" 
+                                                 dataNascimento="#{odontologoBean.odontologo.dataNascimento}" 
+                                                 nome="#{odontologoBean.odontologo.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoOdontologo" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{odontologoBean.odontologo.telefone1}" 
+                                           telefone2="#{odontologoBean.odontologo.telefone2}"
+                                           email="#{odontologoBean.odontologo.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoOdontologo" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{odontologoBean.odontologo.enderecoBairro}" 
+                                            cep="#{odontologoBean.odontologo.enderecoCep}" 
+                                            cidade="#{odontologoBean.odontologo.enderecoCidade}"
+                                            estado="#{odontologoBean.odontologo.enderecoEstado}"
+                                            numero="#{odontologoBean.odontologo.enderecoNumero}" 
+                                            rua="#{odontologoBean.odontologo.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosOdontologo" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{odontologoBean.odontologo.rg}"
+                                                cpf="#{odontologoBean.odontologo.cpfOdontologo}"
+                                                cartaoSus="#{odontologoBean.odontologo.cartaoSusOdontologo}"/>
+
+                    <p:outputLabel for="cro" value="#{msg.cro}...............................: " style="font-weight: bold"/>
+                    <p:outputLabel id="cro" value="#{odontologoBean.odontologo.cro}" />
+                </p:fieldset>
                 <p:toolbar id="toolbarOdontologo" style="margin-top: 10px;">
 
                     <f:facet name="right">

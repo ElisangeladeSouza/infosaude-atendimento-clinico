@@ -12,29 +12,44 @@
         <f:viewParam name="tecnicoEnfermagem" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem}"/>
     </f:metadata>
 
-    <ui:define id="uiTituloTecEnfermagem" name="titulo">#{msg.viewCadastrePracticalNurse} | #{msg.systemName}</ui:define>
+    <ui:define id="uiTituloTecnicoEnfermagem" name="titulo">#{msg.viewCadastrePracticalNurse} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoTecEnfermagem" name="conteudo">
+    <ui:define id="uiConteudoTecnicoEnfermagem" name="conteudo">
 
-        <p:fieldset id="fieldsetTecEnfermagem" legend="#{msg.viewCadastrePracticalNurse}">
+        <p:fieldset id="fieldsetTecnicoEnfermagem" legend="#{msg.viewCadastrePracticalNurse}">
             <h:form id="formCadastroTecnicoEnfermagem">
-                <isac:pessoaVisualizaCadastro bairro="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}" 
-                                              cartaoSus="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}" 
-                                              cep="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}" 
-                                              cidade="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}" 
-                                              corOuRaca="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corOuRaca}" 
-                                              cpf="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}" 
-                                              dataNascimento="#{tecnicoEnfermagemBean.tecnicoEnfermagem.dataNascimento}" 
-                                              email="#{tecnicoEnfermagemBean.tecnicoEnfermagem.email}" 
-                                              estado="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}" 
-                                              nome="#{tecnicoEnfermagemBean.tecnicoEnfermagem.nome}" 
-                                              numero="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}" 
-                                              rg="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}" 
-                                              rua="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}" 
-                                              telefone1="#{tecnicoEnfermagemBean.tecnicoEnfermagem.telefone1}" 
-                                              telefone2="#{tecnicoEnfermagemBean.tecnicoEnfermagem.telefone2}"
-                                              docSaude="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}"/>
-                <p:toolbar id="toolbarTecnicoEnfermagem" style="margin-top: 10px;">
+
+                <p:fieldset id="visualizaPessoalTecnicoEnfermagem" legend="#{msg.personal}">
+                    <isac:visualizaDadosPessoais corOuRaca="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corOuRaca}" 
+                                                 dataNascimento="#{tecnicoEnfermagemBean.tecnicoEnfermagem.dataNascimento}" 
+                                                 nome="#{tecnicoEnfermagemBean.tecnicoEnfermagem.nome}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaContatoTecnicoEnfermagem" legend="#{msg.contact}" style="margin-top: 5px">
+                    <isac:visualizaContato telefone1="#{tecnicoEnfermagemBean.tecnicoEnfermagem.telefone1}" 
+                                           telefone2="#{tecnicoEnfermagemBean.tecnicoEnfermagem.telefone2}"
+                                           email="#{tecnicoEnfermagemBean.tecnicoEnfermagem.email}" />
+                </p:fieldset>
+
+                <p:fieldset id="visualizaEnderecoTecnicoEnfermagem" legend="#{msg.address}" style="margin-top: 5px;" >
+                    <isac:visualizaEndereco bairro="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}" 
+                                            cep="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}" 
+                                            cidade="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}"
+                                            estado="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}"
+                                            numero="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}" 
+                                            rua="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}"/>
+                </p:fieldset>
+
+                <p:fieldset id="visualizaDocumentosTecnicoEnfermagem" legend="#{msg.documentation}" style="margin-top: 5px">
+                    <isac:visualizaDocumentacao rg="#{tecnicoEnfermagemBean.tecnicoEnfermagem.rg}"
+                                                cpf="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cpfTecnicoEnfermagem}"
+                                                cartaoSus="#{tecnicoEnfermagemBean.tecnicoEnfermagem.cartaoSusTecnicoEnfermagem}"/>
+
+                    <p:outputLabel for="coren" value="#{msg.coren}..........................: " style="font-weight: bold"/>
+                    <p:outputLabel id="coren" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.corenTecnicoEnfermagem}" />
+                </p:fieldset>
+
+                <p:toolbar id="toolbarTecnicoEnfermagem" style="margin-top: 5px;">
 
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.backSearch}"
