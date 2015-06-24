@@ -89,7 +89,7 @@
             );
         </script>
 
-        <!--This script changes the mask of money format-->
+        <!--Script que formata o valor inserido no campo peso da tela de paciente com Jquery.-->
         <script>
             function validateWeight() {
                 $(".peso").maskMoney({
@@ -104,7 +104,7 @@
             });
         </script>
 
-        <!--This script changes the mask of money format-->
+        <!--Script que formata o valor inserido no campo altura da tela de paciente com Jquery.-->
         <script>
             function validateHeight() {
                 $(".altura").maskMoney({
@@ -117,6 +117,28 @@
             $(document).ready(function () {
                 validateHeight();
             });
+        </script>
+
+        <!--Este script exibe uma mensagem Javscript no navegador informando sobre qualquer alteração não salva na tela.-->
+        <script>
+            $(document).ready(function () {
+                // Sempre que um input Mudar
+                $(':input').change(function () {
+                    setConfirmaSairSemSalvar(true);
+                });
+
+                // Sem mudança no form
+                $('form').submit(function () {
+                    setConfirmaSairSemSalvar(false);
+                });
+            });
+
+            function setConfirmaSairSemSalvar(on) {
+                var message = "Você fez alterações e não salvou. Todos os dados não salvos serão perdidos.\n\nDeseja sair da tela assim mesmo?";
+                window.onbeforeunload = (on) ? function () {
+                    return message;
+                } : null;
+            }
         </script>
 
     </h:body>
