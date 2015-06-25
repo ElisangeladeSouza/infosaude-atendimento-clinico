@@ -19,10 +19,10 @@ import javax.validation.constraints.Pattern;
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
-@Pattern(regexp = "^$|[0-9]{1,5}-[0-9]{1,3}",
-            message = "Digite um CEP no formato: 99999-999")
+@Pattern(regexp = "^$|[a-zA-Z\\d/.-]{1,}",
+        message = "Apenas letras números ou os caracteres a seguir são aceitos para o RG: / . -")
 @Constraint(validatedBy = {})
-public @interface CEP {
+public @interface RG {
 
     Class<?>[] groups() default {};
 
