@@ -27,6 +27,9 @@ public class RequisicaoExame implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "requisicao_exame_codigo")
+    private String codigo;
+
     @Column(name = "requisicao_solicitante_cnes", length = 200)
     private String solicitanteCnes;
 
@@ -52,6 +55,14 @@ public class RequisicaoExame implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getSolicitanteCnes() {

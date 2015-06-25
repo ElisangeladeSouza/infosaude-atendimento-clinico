@@ -30,6 +30,9 @@ public class FichaAtendimento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "ficha_atendimento_codigo")
+    private String codigo;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ficha_atendimento_destino", nullable = false)
@@ -64,6 +67,14 @@ public class FichaAtendimento implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Paciente getPaciente() {

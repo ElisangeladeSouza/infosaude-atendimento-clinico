@@ -44,7 +44,7 @@ public class TriagemBean implements Serializable {
     public void salvar() throws UBSException {
         this.triagemService.save(triagem);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da triagem '"+triagem.getCodigo()+"' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

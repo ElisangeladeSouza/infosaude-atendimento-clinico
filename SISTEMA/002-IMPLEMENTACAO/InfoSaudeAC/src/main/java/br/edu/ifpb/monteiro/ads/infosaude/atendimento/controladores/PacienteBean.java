@@ -68,7 +68,7 @@ public class PacienteBean implements Serializable {
         try {
             this.pacienteService.save(paciente);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do paciente '"+paciente.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaPaciente.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

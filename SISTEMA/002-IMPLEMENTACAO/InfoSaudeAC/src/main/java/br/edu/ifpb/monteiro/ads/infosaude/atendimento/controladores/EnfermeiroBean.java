@@ -71,7 +71,7 @@ public class EnfermeiroBean implements Serializable {
         try {
             this.enfermeiroService.save(enfermeiro);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do enfermeiro '"+enfermeiro.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaEnfermeiro.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

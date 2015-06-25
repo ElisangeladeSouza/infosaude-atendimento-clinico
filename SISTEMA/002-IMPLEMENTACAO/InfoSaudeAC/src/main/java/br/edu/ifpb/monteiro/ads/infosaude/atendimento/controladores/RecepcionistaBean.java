@@ -71,7 +71,7 @@ public class RecepcionistaBean implements Serializable {
         try {
             this.recepcionistaService.save(recepcionista);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do(a) recepcionista '"+recepcionista.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaRecepcionista.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

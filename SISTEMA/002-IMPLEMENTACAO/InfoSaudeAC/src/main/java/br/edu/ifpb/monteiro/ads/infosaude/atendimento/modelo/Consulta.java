@@ -29,6 +29,9 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "consulta_codigo")
+    private String codigo;
+    
     @Lob
     @Column(name = "consulta_observacoes", length = 500)
     private String observacoes;
@@ -82,6 +85,14 @@ public class Consulta implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Paciente getPaciente() {

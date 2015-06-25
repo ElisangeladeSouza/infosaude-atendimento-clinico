@@ -1,8 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.apache.commons.logging.Log;

@@ -71,7 +71,7 @@ public class AdministradorBean implements Serializable {
         try {
             this.administradorService.save(administrador);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do administrador '"+administrador.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

@@ -27,6 +27,9 @@
 
                 <h:panelGrid id="gridObrigatoriosExame" columns="2">
 
+                    <p:outputLabel for="codigo" value="#{msg.code}:"/>
+                    <p:inputText id="codigo" value="#{requisicaoExameBean.requisicaoExame.codigo}"  size="20"/>
+
                     <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}:"/>
                     <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" />
 

@@ -51,7 +51,7 @@ public class ProcedimentoBean implements Serializable {
     public void salvar() throws UBSException {
         this.procedimentoService.save(procedimento);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro do procedimento '"+procedimento.getDescricao()+"' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaProcedimento.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

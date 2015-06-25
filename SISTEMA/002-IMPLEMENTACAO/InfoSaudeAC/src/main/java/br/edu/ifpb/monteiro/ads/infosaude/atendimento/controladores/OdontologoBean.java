@@ -71,7 +71,7 @@ public class OdontologoBean implements Serializable {
         try {
             this.odontologoService.save(odontologo);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do odontólogo '"+odontologo.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaOdontologo.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

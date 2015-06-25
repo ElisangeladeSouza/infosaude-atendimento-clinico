@@ -72,7 +72,7 @@ public class TecnicoEnfermagemBean implements Serializable {
         try {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do téc. em enfermagem '"+tecnicoEnfermagem.getNome()+"' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaTecnicoEnfermagem.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

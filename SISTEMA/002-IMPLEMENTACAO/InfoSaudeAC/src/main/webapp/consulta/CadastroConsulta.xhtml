@@ -24,6 +24,10 @@
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
+                    
+                    <p:outputLabel for="codigo" value="#{msg.code}:"/>
+                    <p:inputText id="codigo" value="#{consultaBean.consulta.codigo}"  size="20"/>
+                    
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
                     <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true"  
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">

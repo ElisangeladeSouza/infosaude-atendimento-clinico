@@ -51,7 +51,7 @@ public class ExameBean implements Serializable {
     public void salvar() throws UBSException {
         this.exameService.save(exame);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Atualização do cadastro efetuada com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro do exame '"+exame.getDescricao()+"' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaExame.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
