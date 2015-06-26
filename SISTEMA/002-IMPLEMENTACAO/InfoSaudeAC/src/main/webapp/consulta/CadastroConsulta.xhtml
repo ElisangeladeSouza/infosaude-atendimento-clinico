@@ -24,10 +24,10 @@
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosConsulta" columns="2">
-                    
+
                     <p:outputLabel for="codigo" value="#{msg.code}:"/>
                     <p:inputText id="codigo" value="#{consultaBean.consulta.codigo}"  size="20"/>
-                    
+
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
                     <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true"  
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
@@ -51,9 +51,14 @@
                     <p:outputLabel for="exames" value="#{msg.examination}s:"/>
                     <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" />
 
-                    <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
-                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500"/>
                 </h:panelGrid>
+
+                <p:fieldset id="fieldsetOutrasInformacoes" legend="#{msg.otherInformation}" style="margin-top: 15px" >
+                    <h:panelGrid id="gridVisualizaContatoMedico" columns="2">
+                        <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
+                        <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500"/>
+                    </h:panelGrid>
+                </p:fieldset>
 
                 <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">
                     <f:facet name="left">
