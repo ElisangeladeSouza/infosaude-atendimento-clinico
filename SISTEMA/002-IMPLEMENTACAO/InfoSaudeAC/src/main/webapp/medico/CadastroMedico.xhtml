@@ -17,7 +17,7 @@
     <ui:define id="uiConteudoMedico" name="conteudo">
         <p:fieldset id="fieldsetMedico" legend="#{medicoBean.editando ? msg.editCadastreDoctor : msg.newRegisterDoctor}">
             <h:form id="formCadastroMedico">
-                <p:growl id="mensagens"/>
+                <p:growl id="mensagens" autoUpdate="true"/>
 
                 <h:inputHidden id="data" value="#{medicoBean.medico.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>

@@ -18,7 +18,7 @@
 
         <p:fieldset id="fieldsetEnfermeiro" legend="#{enfermeiroBean.editando ? msg.editCadastreNurse : msg.newRegisterNurse}">
             <h:form id="formCadastroEnfermeiro">
-                <p:growl id="mensagens"/>
+                <p:growl id="mensagens" autoUpdate="true"/>
                 
                 <h:inputHidden id="data" value="#{enfermeiroBean.enfermeiro.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>

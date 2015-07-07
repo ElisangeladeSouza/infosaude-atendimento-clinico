@@ -18,7 +18,7 @@
 
         <p:fieldset legend="#{pacienteBean.editando ? msg.editCadastrePatient : msg.newRegisterPatient}">
             <h:form id="formCadastroPaciente">
-                <p:growl/>
+                <p:growl autoUpdate="true"/>
                 
                 <h:inputHidden id="data" value="#{pacienteBean.paciente.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
