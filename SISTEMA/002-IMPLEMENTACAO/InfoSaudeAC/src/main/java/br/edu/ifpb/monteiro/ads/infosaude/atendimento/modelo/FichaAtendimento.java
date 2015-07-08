@@ -38,7 +38,7 @@ public class FichaAtendimento implements Serializable {
     @Column(name = "ficha_atendimento_destino", nullable = false)
     private Destino destino;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "ficha_atendimento_data")
     private Date data;
 

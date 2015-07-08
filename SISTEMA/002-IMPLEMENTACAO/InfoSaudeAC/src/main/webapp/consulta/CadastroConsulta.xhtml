@@ -8,7 +8,7 @@
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
-        <f:viewParam name="consulta" value="#{consultaBean.consulta}"/>e
+        <f:viewParam name="consulta" value="#{consultaBean.consulta}"/>
     </f:metadata>
 
     <ui:define id="uiTituloConsulta" name="titulo">#{consultaBean.editando ? msg.editCadastreConsultant : msg.newRegisterConsultant} | #{msg.systemName}</ui:define>
@@ -42,7 +42,7 @@
                     <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}"  maxlength="255"/>
 
                     <p:outputLabel for="diagnostico" value="#{msg.diagnosis}:"/>
-                    <p:inputText id="diagnostico" value="#{consultaBean.consulta.diagnostico}"  size="20" maxlength="255"/>
+                    <p:inputTextarea id="diagnostico" value="#{consultaBean.consulta.diagnostico}" maxlength="255"/>
 
                     <p:outputLabel for="prescricao" value="#{msg.prescription}:"/>
                     <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}"  maxlength="255"
