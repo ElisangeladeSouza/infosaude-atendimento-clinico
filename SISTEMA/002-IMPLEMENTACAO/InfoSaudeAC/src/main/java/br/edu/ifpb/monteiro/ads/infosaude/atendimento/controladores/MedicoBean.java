@@ -47,8 +47,10 @@ public class MedicoBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(medico.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (medico.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(medico.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -65,7 +67,7 @@ public class MedicoBean implements Serializable {
         try {
             this.medicoService.save(medico);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do médico '"+medico.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do médico '" + medico.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

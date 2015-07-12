@@ -49,8 +49,10 @@ public class RecepcionistaBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (recepcionista.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -71,7 +73,7 @@ public class RecepcionistaBean implements Serializable {
         try {
             this.recepcionistaService.save(recepcionista);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do(a) recepcionista '"+recepcionista.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do(a) recepcionista '" + recepcionista.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaRecepcionista.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

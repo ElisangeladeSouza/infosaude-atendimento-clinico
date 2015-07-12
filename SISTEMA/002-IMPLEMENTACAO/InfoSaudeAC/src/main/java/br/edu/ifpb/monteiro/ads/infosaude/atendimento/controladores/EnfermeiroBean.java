@@ -49,8 +49,10 @@ public class EnfermeiroBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(enfermeiro.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (enfermeiro.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(enfermeiro.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -71,7 +73,7 @@ public class EnfermeiroBean implements Serializable {
         try {
             this.enfermeiroService.save(enfermeiro);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do enfermeiro '"+enfermeiro.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do enfermeiro '" + enfermeiro.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaEnfermeiro.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

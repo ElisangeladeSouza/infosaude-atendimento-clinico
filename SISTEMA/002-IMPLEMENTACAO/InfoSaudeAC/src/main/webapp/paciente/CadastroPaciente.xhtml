@@ -19,7 +19,7 @@
         <p:fieldset legend="#{pacienteBean.editando ? msg.editCadastrePatient : msg.newRegisterPatient}">
             <h:form id="formCadastroPaciente">
                 <p:growl autoUpdate="true"/>
-                
+
                 <h:inputHidden id="data" value="#{pacienteBean.paciente.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -85,7 +85,8 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" filter="true" filterMatchMode="startsWith">
+                            <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{pacienteBean.paciente.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>

@@ -54,7 +54,8 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{medicoBean.medico.enderecoCidade}" filter="true" filterMatchMode="startsWith">
+                            <p:selectOneMenu id="cidade" value="#{medicoBean.medico.enderecoCidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{medicoBean.medico.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>

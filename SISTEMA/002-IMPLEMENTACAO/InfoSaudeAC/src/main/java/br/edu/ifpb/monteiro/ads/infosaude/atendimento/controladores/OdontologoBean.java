@@ -49,8 +49,10 @@ public class OdontologoBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (odontologo.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -71,7 +73,7 @@ public class OdontologoBean implements Serializable {
         try {
             this.odontologoService.save(odontologo);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do odontólogo '"+odontologo.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do odontólogo '" + odontologo.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaOdontologo.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

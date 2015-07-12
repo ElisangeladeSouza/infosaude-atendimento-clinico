@@ -46,8 +46,10 @@ public class PacienteBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(paciente.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (paciente.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(paciente.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -68,7 +70,7 @@ public class PacienteBean implements Serializable {
         try {
             this.pacienteService.save(paciente);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do paciente '"+paciente.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do paciente '" + paciente.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaPaciente.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

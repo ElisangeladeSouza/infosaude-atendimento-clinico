@@ -49,8 +49,10 @@ public class AdministradorBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
-            PessoaBean.cidades.add(cidadesFiltradas);
+        if (administrador.getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
         }
     }
 
@@ -71,7 +73,7 @@ public class AdministradorBean implements Serializable {
         try {
             this.administradorService.save(administrador);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do administrador '"+administrador.getNome()+"' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do administrador '" + administrador.getNome() + "' atualizado com sucesso!");
                 FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

@@ -23,7 +23,7 @@
                 <h:inputHidden id="data" value="#{odontologoBean.odontologo.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
-                
+
                 <isac:pessoaDocumentosSaude for="cro" valueOutput="#{msg.cro}" distanciaLabel="margin-left: 45px"
                                             idInput="cro" requiredMessage="#{msg.mandatoryCRO}"
                                             valueInput="#{odontologoBean.odontologo.cro}"/>
@@ -54,7 +54,8 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}" filter="true" filterMatchMode="startsWith">
+                            <p:selectOneMenu id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{odontologoBean.odontologo.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
