@@ -25,14 +25,14 @@
                         <p:outputLabel for="id" value="#{msg.id}......................................:" style="font-weight: bold"/>
                         <p:outputLabel id="id" value="#{loginBean.login.id}"/>
                         
-                        <p:outputLabel for="nome" value="#{msg.name}...............................:" style="font-weight: bold"/>
-                        <p:outputLabel id="nome" value="#{loginBean.login.nome}"/>
-
                         <p:outputLabel for="usuario" value="#{msg.user}............................:" style="font-weight: bold"/>
                         <p:outputLabel id="usuario" value="#{loginBean.login.usuario}"  />
 
                         <p:outputLabel for="senha" value="#{msg.password}...............................:" style="font-weight: bold"/>
                         <p:outputLabel id="senha" value="#{loginBean.login.senha}"  />
+                        
+                        <p:outputLabel for="permissao" value="#{msg.function}...............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="permissao" value="#{loginBean.login.permissao}"  />
 
                     </h:panelGrid>
                 </p:fieldset>

@@ -1,10 +1,12 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Login;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.LoginService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -28,15 +30,22 @@ public class LoginBean implements Serializable {
     private Login loginSelecionado;
 
     private transient List<Login> logins;
+    
+    private final transient List<Permissao> permissoes;
 
     private String confereSenha;
 
     public LoginBean() {
+        permissoes = Arrays.asList(Permissao.values());
     }
 
     public List<Login> getLogins() {
         this.logins = loginService.findAll();
         return logins;
+    }
+    
+    public List<Permissao> getPermissao() {
+        return permissoes;
     }
 
     public void salvar() throws UBSException {
