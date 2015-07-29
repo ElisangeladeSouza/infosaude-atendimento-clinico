@@ -56,12 +56,12 @@ public class Consulta implements Serializable {
     @Column(name = "consulta_sintomas")
     private String sintomas;
 
-    @OneToOne(mappedBy = "consultaPaciente")
-    @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
-    private Paciente paciente;
+//    @OneToOne(mappedBy = "consultaPaciente")
+//    @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
+//    private Paciente paciente;
 
     @OneToOne
-    @JoinColumn(name = "ficha_atendimento_pk")
+    @JoinColumn(name = "fichaatendimentofk_id", nullable = false)
     private FichaAtendimento fichaAtendimento;
 
     @OneToOne
@@ -93,14 +93,6 @@ public class Consulta implements Serializable {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
     }
 
     public String getObservacoes() {
@@ -208,11 +200,6 @@ public class Consulta implements Serializable {
         }
         final Consulta other = (Consulta) obj;
         return Objects.equals(this.id, other.id);
-    }
-
-    @Override
-    public String toString() {
-        return paciente.getNome();
     }
 
 }

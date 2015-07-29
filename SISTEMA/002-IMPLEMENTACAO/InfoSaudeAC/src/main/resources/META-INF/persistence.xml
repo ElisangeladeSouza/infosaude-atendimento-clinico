@@ -21,6 +21,7 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
       <!--Cria as tabelas de pais, cidades e estados, caso não existam e as populam com os dados relacionados para o Brasil.-->
       <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/CidadesEstadosBrasil.sql"/>-->
     </properties>

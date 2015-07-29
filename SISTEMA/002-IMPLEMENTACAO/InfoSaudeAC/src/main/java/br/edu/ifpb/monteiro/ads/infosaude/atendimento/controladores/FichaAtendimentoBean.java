@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -28,7 +29,7 @@ public class FichaAtendimentoBean implements Serializable {
     private FichaAtendimentoService fichaAtendimentoService;
 
     @Inject
-    private FichaAtendimento fichaAtendimentoSelecionado;
+    private FichaAtendimento fichaAtendimentoSelecionada;
 
     private transient List<FichaAtendimento> fichaAtendimentos;
 
@@ -39,6 +40,11 @@ public class FichaAtendimentoBean implements Serializable {
      */
     public FichaAtendimentoBean() {
         this.destinos = Arrays.asList(Destino.values());
+    }
+    
+    @PostConstruct
+    public void init(){
+        this.fichaAtendimentos = fichaAtendimentoService.findAll();
     }
 
     /**
@@ -54,7 +60,6 @@ public class FichaAtendimentoBean implements Serializable {
      * @return
      */
     public List<FichaAtendimento> getFichaAtendimentos() {
-        this.fichaAtendimentos = fichaAtendimentoService.findAll();
         return fichaAtendimentos;
     }
 
@@ -78,7 +83,7 @@ public class FichaAtendimentoBean implements Serializable {
      * @throws UBSException
      */
     public void excluir() throws UBSException {
-        this.fichaAtendimentoService.delete(fichaAtendimentoSelecionado);
+        this.fichaAtendimentoService.delete(fichaAtendimentoSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
 
@@ -96,12 +101,12 @@ public class FichaAtendimentoBean implements Serializable {
      *
      * @return
      */
-    public FichaAtendimento getFichaAtendimentoSelecionado() {
-        return fichaAtendimentoSelecionado;
+    public FichaAtendimento getFichaAtendimentoSelecionada() {
+        return fichaAtendimentoSelecionada;
     }
 
-    public void setFichaAtendimentoSelecionado(FichaAtendimento fichaAtendimentoSelecionado) {
-        this.fichaAtendimentoSelecionado = fichaAtendimentoSelecionado;
+    public void setFichaAtendimentoSelecionada(FichaAtendimento fichaAtendimentoSelecionada) {
+        this.fichaAtendimentoSelecionada = fichaAtendimentoSelecionada;
     }
 
     public FichaAtendimento getFichaAtendimento() {

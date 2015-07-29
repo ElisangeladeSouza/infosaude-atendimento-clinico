@@ -29,11 +29,16 @@
                     <p:inputText id="codigo" value="#{consultaBean.consulta.codigo}"  size="20"/>
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.paciente}" required="true"  
-                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
-                    </p:selectOneMenu>
+                    <h:panelGroup>
+                        <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.fichaAtendimento}" required="true"  
+                                         filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                            <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                            <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel id="msgSemFichaAtendimento" value="#{msg.noTreatmentFormAvaliable}" style="color: red; margin-left: 5px; font-size: 12px"
+                                       rendered="#{fichaAtendimentoBean.fichaAtendimentos.size() eq 0}"/>
+                    </h:panelGroup>
 
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s:"/>
                     <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}"  size="20"/>

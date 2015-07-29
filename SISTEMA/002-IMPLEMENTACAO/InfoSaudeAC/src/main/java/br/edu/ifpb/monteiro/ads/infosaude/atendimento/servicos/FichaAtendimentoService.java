@@ -23,16 +23,9 @@ public class FichaAtendimentoService implements Serializable {
     @Inject
     private FichaAtendimentoDao fichaAtendimentoDao;
 
-    /**
-     *
-     */
     public FichaAtendimentoService() {
     }
 
-    /**
-     *
-     * @param fichaAtendimento
-     */
     @Transactional
     public void save(FichaAtendimento fichaAtendimento) {
         if (fichaAtendimento != null) {
@@ -41,29 +34,15 @@ public class FichaAtendimentoService implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param fichaAtendimento
-     * @throws UBSException
-     */
     @Transactional
     public void delete(FichaAtendimento fichaAtendimento) throws UBSException {
         fichaAtendimentoDao.delete(findById(fichaAtendimento.getId()));
     }
 
-    /**
-     *
-     * @param id
-     * @return
-     */
     public FichaAtendimento findById(Long id) {
         return fichaAtendimentoDao.findById(id);
     }
 
-    /**
-     *
-     * @return
-     */
     public List<FichaAtendimento> findAll() {
         return fichaAtendimentoDao.findAll();
     }

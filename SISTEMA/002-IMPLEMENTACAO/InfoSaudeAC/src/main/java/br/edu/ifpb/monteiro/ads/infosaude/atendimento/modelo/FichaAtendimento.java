@@ -50,9 +50,9 @@ public class FichaAtendimento implements Serializable {
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 
-    @OneToOne(mappedBy = "fichaAtendimento")
-    @JoinColumn(name = "consulta_pk")
-    private Consulta consulta;
+//    @OneToOne(mappedBy = "fichaAtendimento")
+//    @JoinColumn(name = "consulta_pk")
+//    private Consulta consulta;
 
     @OneToOne(mappedBy = "fichaAtendimento")
     @JoinColumn(name = "procedimento_pk")
@@ -107,14 +107,6 @@ public class FichaAtendimento implements Serializable {
 
     public void setTriagem(Triagem triagem) {
         this.triagem = triagem;
-    }
-
-    public Consulta getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
     }
 
     public Procedimento getProcedimento() {
