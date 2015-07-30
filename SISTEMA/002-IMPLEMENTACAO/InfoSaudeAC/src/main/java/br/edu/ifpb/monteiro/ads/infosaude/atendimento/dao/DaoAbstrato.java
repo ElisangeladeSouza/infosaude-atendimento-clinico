@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -127,6 +128,17 @@ public abstract class DaoAbstrato<T> implements Serializable {
      */
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+    
+    public List<T> query(String query, Object... params) {
+        List<T> result = null;
+        Query q = entityManager.createQuery(query);
+        int paramPos = 1;
+        for (Object o : params) {
+            q.setParameter(paramPos++, o);
+        }
+        result = q.getResultList();
+        return result;
     }
 
 }

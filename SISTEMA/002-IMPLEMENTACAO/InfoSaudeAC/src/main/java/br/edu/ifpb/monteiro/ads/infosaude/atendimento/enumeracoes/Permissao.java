@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public enum Permissao implements Serializable {
 
-    ADMIM("Administrador"),
+    ADMIN("Administrador"),
     RECEPCIONISTA("Recepcionista"),
     MEDICO("Médico"),
     ODONTOLOGO("Odontológo"),

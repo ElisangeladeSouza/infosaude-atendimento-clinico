@@ -4,10 +4,13 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Login;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.LoginService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.SegurancaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -25,6 +28,9 @@ public class LoginBean implements Serializable {
 
     @Inject
     private LoginService loginService;
+    
+    @Inject
+    private SegurancaService segurancaService;
 
     @Inject
     private Login loginSelecionado;
@@ -34,6 +40,8 @@ public class LoginBean implements Serializable {
     private final transient List<Permissao> permissoes;
 
     private String confereSenha;
+    
+    private Login usuarioLogado;
 
     public LoginBean() {
         permissoes = Arrays.asList(Permissao.values());
@@ -78,6 +86,32 @@ public class LoginBean implements Serializable {
     public boolean getEditando() {
         return this.login.getId() != null;
     }
+    
+    /**
+     * Metodo que busca o usuario e senha no banco. Se sim, prover ao usuario do
+     * sistema a sua autorização.
+     * @return 
+     */
+    
+    public String fazerLogin() {
+        Login lg  = null;
+        try {
+            lg = segurancaService.login(this.login.getUsuario(), this.login.getSenha(), true);
+        } catch (Exception ex) {
+            Logger.getLogger(LoginBean.class.getName()).log(Level.SEVERE,"Erro no Login", ex);
+            FacesUtil.mensagemErro("Login: O usuário e senha informados não existem!");
+        }
+        return (lg != null)? "success" : null;
+        
+    }
+    
+    /**
+     * Metodo que verifica o usuario que esta logado naquele momento no sistema.
+     * @return 
+     */
+    public Login usuarioLogado() {
+        return usuarioLogado = segurancaService.getCurrentUser();
+    }
 
     public Login getLogin() {
         return login;
@@ -111,4 +145,20 @@ public class LoginBean implements Serializable {
         this.confereSenha = confereSenha;
     }
 
+    public SegurancaService getSegurancaService() {
+        return segurancaService;
+    }
+
+    public void setSegurancaService(SegurancaService segurancaService) {
+        this.segurancaService = segurancaService;
+    }
+
+    public Login getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(Login usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+    
 }

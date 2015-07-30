@@ -51,6 +51,23 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     
+     <!--Configuração do filtro do Apache Shiro-->
+    <listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
@@ -58,6 +75,13 @@
     <welcome-file-list>
         <welcome-file>Login.xhtml</welcome-file>
     </welcome-file-list>
+    
+    <resource-ref>
+        <description>Conexao PostgreSQL</description>
+        <res-ref-name>jdbc/infosaude</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
     
     <!--    <context-param>
         <param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>

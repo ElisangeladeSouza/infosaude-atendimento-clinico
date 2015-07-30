@@ -37,14 +37,14 @@
 
 
                             <p:outputLabel for="username" value="Usuário:"/>
-                            <p:inputText id="username" required="true" requiredMessage="Nome de usuário é obrigatório." 
+                            <p:inputText id="username" required="true" requiredMessage="#{msg.mandatoryLogin}" 
                                          size="20"/>
 
                             <p:outputLabel for="password" value="Senha:"/>
-                            <p:password id="password" size="20" required="true" requiredMessage="Senha é obrigatória."/>
+                            <p:password id="password" size="20" required="true" requiredMessage="#{msg.mandatoryPassword}"/>
 
                             <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
-                                             action="Home.xhtml" update="@form" process="username"/>
+                                             action="#{loginBean.fazerLogin}" update="@form" process="@this"/>
                             <p:commandButton id="lostPasswordLink" onclick="PF('loginPasswordRecover').show();
                                     return false;" icon="ui-icon ui-icon-help" style="float: right;"/>
 
@@ -54,7 +54,7 @@
 
                 </h:panelGrid>
 
-                <p:button icon="ui-icon ui-icon-unlocked" style="float: right" outcome="Home"/>
+                <p:button icon="ui-icon ui-icon-unlocked" style="float: right" outcome="/login/CadastroLogin"/>
 
 
             </h:form>
