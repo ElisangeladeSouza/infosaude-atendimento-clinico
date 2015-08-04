@@ -28,7 +28,7 @@ public class Login implements Serializable {
     @Column(name = "senha", nullable = false, length = 40)
     private String senha;
 
-    @Column(nullable = true, name = "permissao")
+    @Column(name = "permissao", nullable = true)
     private Permissao permissao;
 
     private String salt;
