@@ -44,7 +44,7 @@
                             <p:password id="password" size="20" required="true" requiredMessage="#{msg.mandatoryPassword}"/>
 
                             <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
-                                             action="#{loginBean.fazerLogin}" update="@form" process="@this"/>
+                                             update="@form" process="@this"/>
                             <p:commandButton id="lostPasswordLink" onclick="PF('loginPasswordRecover').show();
                                     return false;" icon="ui-icon ui-icon-help" style="float: right;"/>
 
