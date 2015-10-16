@@ -41,10 +41,12 @@ public class FichaAtendimentoBean implements Serializable {
     public FichaAtendimentoBean() {
         this.destinos = Arrays.asList(Destino.values());
     }
-    
+
     @PostConstruct
-    public void init(){
-        this.fichaAtendimentos = fichaAtendimentoService.findAll();
+    public void init() {
+        if (fichaAtendimentos != null) {
+            this.fichaAtendimentos = fichaAtendimentoService.findAll();
+        }
     }
 
     /**
@@ -70,7 +72,7 @@ public class FichaAtendimentoBean implements Serializable {
     public void salvar() throws UBSException {
         this.fichaAtendimentoService.save(fichaAtendimento);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro da ficha de atendimento nº '"+fichaAtendimento.getCodigo()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da ficha de atendimento nº '" + fichaAtendimento.getCodigo() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaFichaAtendimento.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
