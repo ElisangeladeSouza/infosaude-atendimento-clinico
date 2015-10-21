@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <ui:define id="uiPesquisaRequisicaoExames" name="titulo">#{msg.searchCadastreExaminationRequest} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoRequisicaoExames" name="conteudo">
+        <p:fieldset id="fieldsetRequisicaoExames" legend="#{msg.searchCadastreExaminationRequest}">
+            <h:form id="formPesquisaRequisicaoExames">
+
+                <p:growl id="mensagens" autoUpdate="true"/>
+                <p:toolbar >
+                    <f:facet name="right">
+                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" outcome="/requisicao-exames/CadastroRequisicaoExames"/>
+                    </f:facet>
+                </p:toolbar>
+
+                <p:dataTable id="datatablePesquisaRequisicaoExames" var="requisicaoExames" value="#{requisicaoExameBean.requisicaoExames}"
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
+                             paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaRequisicaoExames"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
+                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
+                             scrollable="true" scrollRows="10" scrollHeight="210">
+
+                    <f:facet name="header">
+                        <p:outputPanel id="panelFiltroRequisicaoExames">
+                            <p:inputText id="globalFilter" onkeyup="PF('pesquisaRequisicaoExames').filter()" style="width:300px" placeholder="#{msg.searchAnyField}"/>
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{requisicaoExames.id}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="id" value="#{requisicaoExames.id}"/>
+                    </p:column>
+
+                    <p:column headerText="#{msg.code}" style="text-align: center" width="20" filterMatchMode="contains" filterBy="#{requisicaoExames.codigo}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="crm" value="#{requisicaoExames.codigo}"/>
+                    </p:column>
+
+                    <p:column headerText="#{msg.cnes}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCnes}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="cnes" value="#{requisicaoExames.solicitanteCnes}"/>
+                    </p:column>
+
+                    <p:column headerText="#{msg.city}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCidade}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="cidade" value="#{requisicaoExames.solicitanteCidade}"/>
+                    </p:column>
+
+                    <p:column headerText="#{msg.examination}" width="20" filterMatchMode="contains" filterBy="#{requisicaoExameBean.requisicaoExame.exames}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}"/>
+                    </p:column>
+
+                    <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
+                        <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
+                                  outcome="/requisicao-exames/VisualizaRequisicaoExames">
+                            <f:param  name="requisicaoExames" value="#{requisicaoExames.id}"/>
+                            <p:tooltip for="botaoVisualizar" value="#{msg.viewSelectedRowDetails}"/>
+                        </p:button>   
+
+                        <p:button id="botaoEditar" title="#{msg.edit}" icon="ui-icon ui-icon-pencil" style="font-size: 10px" outcome="/requisicao-exames/CadastroRequisicaoExames">
+                            <f:param  name="requisicaoExames" value="#{requisicaoExames.id}"/>
+                            <p:tooltip for="botaoEditar" value="#{msg.editSelectedRow}"/>
+                        </p:button>
+
+                        <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
+                                         action="#{requisicaoExameBean.excluir}" process="@this" update="datatablePesquisaRequisicaoExames">
+                            <f:setPropertyActionListener value="#{requisicaoExames}" target="#{requisicaoExameBean.requisicaoExameSelecionada}"/>
+                            <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
+
+                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreRequisicaoExames}" message="#{msg.realyExcludeRequisicaoExames}"/>
+
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

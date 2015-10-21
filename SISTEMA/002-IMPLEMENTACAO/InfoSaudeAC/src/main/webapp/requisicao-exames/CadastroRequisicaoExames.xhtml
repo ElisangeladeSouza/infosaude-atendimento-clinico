@@ -11,11 +11,11 @@
         <f:viewParam name="requisicaoExame" value="#{requisicaoExameBean.requisicaoExame}"/>
     </f:metadata>
 
-    <ui:define id="uiTituloExame" name="titulo">#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest} | #{msg.systemName}</ui:define>
+    <ui:define id="uiTituloRequisicaoExames" name="titulo">#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoExame" name="conteudo">
+    <ui:define id="uiConteudoRequisicaoExames" name="conteudo">
 
-        <p:fieldset id="fieldsetExame" legend="#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest}">
+        <p:fieldset id="fieldsetRequisicaoExames" legend="#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest}">
 
             <h:form id="formCadastroRequisicaoExames">
 
@@ -25,7 +25,7 @@
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
-                <h:panelGrid id="gridObrigatoriosExame" columns="2">
+                <h:panelGrid id="gridObrigatorioRequisicaoExames" columns="2">
 
                     <p:outputLabel for="codigo" value="#{msg.code}:"/>
                     <p:inputText id="codigo" value="#{requisicaoExameBean.requisicaoExame.codigo}"  size="20"/>
@@ -74,7 +74,7 @@
                     </f:facet>
                 </p:toolbar>
 
-                <p:blockUI id="blockUIExame" block="formCadastroRequisicaoExames" trigger="botaoSalvar"/>
+                <p:blockUI id="blockUIRequisicaoExames" block="formCadastroRequisicaoExames" trigger="botaoSalvar"/>
 
             </h:form>
         </p:fieldset>

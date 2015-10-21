@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="requisicaoExames" value="#{requisicaoExameBean.requisicaoExame}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloRequisicaoExames" name="titulo">#{msg.viewCadastreExaminationRequest} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoRequisicaoExames" name="conteudo">
+
+        <p:fieldset id="fieldsetRequisicaoExames" legend="#{msg.viewCadastreExaminationRequest}">
+
+            <h:form id="formCadastroRequisicaoExames">
+
+                    <h:panelGrid id="gridVisualizaRequisicaoExames" columns="2">
+                        <p:outputLabel for="codigo" value="#{msg.code}.................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="codigo" value="#{requisicaoExameBean.requisicaoExame.codigo}"/>
+
+                        <p:outputLabel for="cnes" value="#{msg.cnes}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}"/>
+
+                        <p:outputLabel for="endereco" value="#{msg.address}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="endereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}"/>
+
+                        <p:outputLabel for="cidade" value="#{msg.city}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="cidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}"/>
+
+                        <p:outputLabel for="exames" value="#{msg.examination}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}"/>
+
+                    </h:panelGrid>
+
+                <p:toolbar id="toolbarRequisicaoExames" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/requisicao-exame/PesquisaRequisicaoExames"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
