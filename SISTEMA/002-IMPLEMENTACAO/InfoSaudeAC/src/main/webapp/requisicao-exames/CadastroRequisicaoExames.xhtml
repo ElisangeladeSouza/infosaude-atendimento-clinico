@@ -17,7 +17,7 @@
 
         <p:fieldset id="fieldsetExame" legend="#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest}">
 
-            <h:form id="formCadastroExame">
+            <h:form id="formCadastroRequisicaoExames">
 
                 <p:growl id="mensagens" autoUpdate="true"/>
 
@@ -39,7 +39,16 @@
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
                     <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" />
 
-                    <p:pickList id="listaExames" value="#{requisicaoExameBean.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>
+                    <!--<p:pickList id="listaExames" value="#{requisicaoExameBean.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>-->
+
+                    <p:outputLabel for="exames" value="#{msg.examination}:"/>
+                    <h:panelGroup>
+                        <p:selectOneMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" required="true"  
+                                         filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                            <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                            <f:selectItems value="#{exameBean.exames}" var="exames" itemLabel="#{exameBean.exame.descricao}" itemValue="#{exames}"/>
+                        </p:selectOneMenu>
+                    </h:panelGroup>  
 
                 </h:panelGrid>
 
@@ -50,11 +59,22 @@
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
 
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/requisicao-exames/PesquisaRequisicaoExames"
+                                  icon="fa fa-times" rendered="#{requisicaoExameBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
                     </f:facet>
 
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreExaminationRequest}"
+                                  id="botaoPesquisar" outcome="/requisicao-exames/PesquisaRequisicaoExames"
+                                  icon="ui-icon ui-icon-search" rendered="#{requisicaoExameBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
                 </p:toolbar>
 
-                <p:blockUI id="blockUIExame" block="formCadastroExame" trigger="botaoSalvar"/>
+                <p:blockUI id="blockUIExame" block="formCadastroRequisicaoExames" trigger="botaoSalvar"/>
 
             </h:form>
         </p:fieldset>

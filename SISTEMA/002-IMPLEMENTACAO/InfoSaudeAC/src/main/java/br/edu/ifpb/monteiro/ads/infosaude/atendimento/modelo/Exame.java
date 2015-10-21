@@ -90,5 +90,9 @@ public class Exame implements Serializable {
         final Exame other = (Exame) obj;
         return Objects.equals(this.id, other.id);
     }
-
+    
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }
