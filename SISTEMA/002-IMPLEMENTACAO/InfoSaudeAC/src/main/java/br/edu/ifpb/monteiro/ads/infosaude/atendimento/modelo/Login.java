@@ -2,12 +2,18 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -31,7 +37,10 @@ public class Login implements Serializable {
     @Column(name = "permissao", nullable = true)
     private Permissao permissao;
 
-    private String salt;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "login_grupo", joinColumns = @JoinColumn(name = "login_id"),
+            inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+    private List<Grupo> grupos = new ArrayList<>();
 
     public Login() {
     }
@@ -67,13 +76,13 @@ public class Login implements Serializable {
     public void setPermissao(Permissao permissao) {
         this.permissao = permissao;
     }
-    
-    public String getSalt() {
-        return salt;
+
+    public List<Grupo> getGrupos() {
+        return grupos;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
     }
 
     @Override

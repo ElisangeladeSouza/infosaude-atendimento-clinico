@@ -1,0 +1,47 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+    
+    <beans:bean id="systemUserDetails" class="br.edu.ifpb.monteiro.ads.infosaude.atendimento.seguranca.SystemUserDetailsService"/>
+           
+    <http pattern="/javax.faces.resource/**" security="none"/>
+    <http pattern="/Login.xhtml" security="none"/>
+    <http pattern="/AcessoNegado.xhtml" security="none"/>
+    
+    <http auto-config="false" use-expressions="true">
+        <intercept-url pattern="/Home.xhtml" access="isAuthenticated()" />
+        <intercept-url pattern="/medico/**" access="hasAnyRole('MEDICOS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/consulta/**" access="hasAnyRole('MEDICOS', 'ODONTOLOGOS', 'ENFERMEIROS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/enfermeiro/**" access="hasAnyRole('ENFERMEIROS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/tecnico-enfermagem/**" access="hasAnyRole('TECNICOSENFERMAGEM', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/odontologo/**" access="hasAnyRole('ODONTOLOGOS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/recepcionista/**" access="hasAnyRole('RECEPCIONISTAS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/ficha-atendimento/**" access="hasAnyRole('RECEPCIONISTAS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/paciente/**" access="hasAnyRole('ADMINISTRADORES')" />
+        <intercept-url pattern="/**" access="denyAll" />
+        
+        <form-login login-page="/Login.xhtml" authentication-failure-url="/Login.xhtml?invalid=true" default-target-url="/" always-use-default-target="true"/>
+        <logout logout-url="/j_spring_security_logout" invalidate-session="true"/>
+    </http>
+	
+    <authentication-manager>
+        <!--<authentication-provider user-service-ref="systemUserDetailsService">-->
+        <authentication-provider user-service-ref="systemUserDetails">
+            <!--<password-encoder hash="md5"/>-->
+<!--            <user-service>
+                <user name="joao" password="1" authorities="MEDICOS" />
+                <user name="maria" password="2" authorities="ADMINISTRADORES" />
+                <user name="jose" password="3" authorities="PACIENTES" />
+                <user name="marcos" password="4" authorities="ENFERMEIROS" />
+                <user name="severino" password="5" authorities="TECNICOSENFERMAGEM" />
+                <user name="oscar" password="6" authorities="ODONTOLOGOS" />
+                <user name="oliver" password="7" authorities="RECEPCIONISTAS" />
+            </user-service>-->
+        </authentication-provider>
+    </authentication-manager>
+           
+</beans:beans>
