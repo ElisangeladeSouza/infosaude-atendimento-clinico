@@ -62,6 +62,7 @@ public class FichaAtendimentoBean implements Serializable {
      * @return
      */
     public List<FichaAtendimento> getFichaAtendimentos() {
+        this.fichaAtendimentos = fichaAtendimentoService.findAll();
         return fichaAtendimentos;
     }
 
