@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     
-    <beans:bean id="systemUserDetails" class="br.edu.ifpb.monteiro.ads.infosaude.atendimento.seguranca.SystemUserDetailsService"/>
+<!--    <beans:bean id="systemUserDetails" class="br.edu.ifpb.monteiro.ads.infosaude.atendimento.seguranca.SystemUserDetailsService"/>
            
     <http pattern="/javax.faces.resource/**" security="none"/>
     <http pattern="/Login.xhtml" security="none"/>
@@ -14,13 +14,14 @@
     
     <http auto-config="false" use-expressions="true">
         <intercept-url pattern="/Home.xhtml" access="isAuthenticated()" />
-        <intercept-url pattern="/medico/**" access="hasAnyRole('MEDICOS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/medico/PesquisaMedico.xhtml" access="hasAnyRole('MEDICOS', 'ADMINISTRADORES')" />
         <intercept-url pattern="/consulta/**" access="hasAnyRole('MEDICOS', 'ODONTOLOGOS', 'ENFERMEIROS', 'ADMINISTRADORES')" />
-        <intercept-url pattern="/enfermeiro/**" access="hasAnyRole('ENFERMEIROS', 'ADMINISTRADORES')" />
-        <intercept-url pattern="/tecnico-enfermagem/**" access="hasAnyRole('TECNICOSENFERMAGEM', 'ADMINISTRADORES')" />
-        <intercept-url pattern="/odontologo/**" access="hasAnyRole('ODONTOLOGOS', 'ADMINISTRADORES')" />
-        <intercept-url pattern="/recepcionista/**" access="hasAnyRole('RECEPCIONISTAS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/enfermeiro/PesquisaEnfermeiro.xhtml" access="hasAnyRole('ENFERMEIROS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/tecnico-enfermagem/PesquisaTecnicoEnfermagem.xhtml" access="hasAnyRole('TECNICOSENFERMAGEM', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/odontologo/PesquisaOdontologo.xhtml" access="hasAnyRole('ODONTOLOGOS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/recepcionista/PesquisaRecepcionista.xhtml" access="hasAnyRole('RECEPCIONISTAS', 'ADMINISTRADORES')" />
         <intercept-url pattern="/ficha-atendimento/**" access="hasAnyRole('RECEPCIONISTAS', 'ADMINISTRADORES')" />
+        <intercept-url pattern="/requisicao-exames/**" access="hasAnyRole('ADMINISTRADORES')" />
         <intercept-url pattern="/paciente/**" access="hasAnyRole('ADMINISTRADORES')" />
         <intercept-url pattern="/**" access="denyAll" />
         
@@ -29,10 +30,17 @@
     </http>
 	
     <authentication-manager>
-        <!--<authentication-provider user-service-ref="systemUserDetailsService">-->
         <authentication-provider user-service-ref="systemUserDetails">
+        </authentication-provider>
+    </authentication-manager>-->
+           
+</beans:beans>
+
+
+
+        <!--<authentication-provider user-service-ref="systemUserDetailsService">-->
             <!--<password-encoder hash="md5"/>-->
-<!--            <user-service>
+            <!--            <user-service>
                 <user name="joao" password="1" authorities="MEDICOS" />
                 <user name="maria" password="2" authorities="ADMINISTRADORES" />
                 <user name="jose" password="3" authorities="PACIENTES" />
@@ -41,7 +49,3 @@
                 <user name="oscar" password="6" authorities="ODONTOLOGOS" />
                 <user name="oliver" password="7" authorities="RECEPCIONISTAS" />
             </user-service>-->
-        </authentication-provider>
-    </authentication-manager>
-           
-</beans:beans>

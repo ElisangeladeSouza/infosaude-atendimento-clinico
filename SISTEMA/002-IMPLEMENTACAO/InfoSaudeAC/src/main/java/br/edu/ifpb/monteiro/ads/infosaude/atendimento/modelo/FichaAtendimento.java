@@ -18,9 +18,7 @@ import javax.persistence.TemporalType;
 
 /**
  * Entidade que representa a Ficha de atendimento que é feita pelo recepcionista
- * da UBS. É o primeiro registro de entrada do paciente na UBS e por isso é
- * muito importante para todo o processo de atendimento. Ao extender Pessoa,
- * passa a herdar todos os seus atributos.
+ * da UBS.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */

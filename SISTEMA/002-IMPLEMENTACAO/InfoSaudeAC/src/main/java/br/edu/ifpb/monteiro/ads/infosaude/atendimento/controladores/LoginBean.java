@@ -22,15 +22,14 @@ public class LoginBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-//    private String userName;
     @Inject
-    private FacesContext facesContext;
+    private transient FacesContext facesContext;
 
     @Inject
-    private HttpServletRequest request;
+    private transient HttpServletRequest request;
 
     @Inject
-    private HttpServletResponse response;
+    private transient HttpServletResponse response;
 
     /**
      * Método que é chamado antes da pagína ser renderizada e verifica se há um
@@ -44,7 +43,6 @@ public class LoginBean implements Serializable {
     }
 
     public LoginBean() {
-//        this.userName = SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
     public void login() throws ServletException, IOException {
@@ -54,11 +52,4 @@ public class LoginBean implements Serializable {
         facesContext.responseComplete(); //Interrompe o ciclo de vida do JSF
     }
 
-//    public String getUserName() {
-//        return userName;
-//    }
-//
-//    public void setUserName(String userName) {
-//        this.userName = userName;
-//    }
 }

@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +33,6 @@ public class Login implements Serializable {
     @Column(name = "senha", nullable = false, length = 40)
     private String senha;
 
-    @Column(name = "permissao", nullable = true)
-    private Permissao permissao;
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "login_grupo", joinColumns = @JoinColumn(name = "login_id"),
             inverseJoinColumns = @JoinColumn(name = "grupo_id"))
@@ -67,14 +63,6 @@ public class Login implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Permissao getPermissao() {
-        return permissao;
-    }
-
-    public void setPermissao(Permissao permissao) {
-        this.permissao = permissao;
     }
 
     public List<Grupo> getGrupos() {
