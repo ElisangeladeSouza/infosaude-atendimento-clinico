@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TriagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -19,10 +18,10 @@ public class TriagemConverter implements Converter {
     private final TriagemService triagemService;
 
     /**
-     *
-     * @throws UBSException
+     * Enquanto a versão atual do JSF (2.2) não suporta injeção com dentro de
+     * conversores, essa classe utilitária CDIServiceLocator, faz esse papel.
      */
-    public TriagemConverter() throws UBSException {
+    public TriagemConverter() {
         this.triagemService = CDIServiceLocator.getBean(TriagemService.class);
     }
 

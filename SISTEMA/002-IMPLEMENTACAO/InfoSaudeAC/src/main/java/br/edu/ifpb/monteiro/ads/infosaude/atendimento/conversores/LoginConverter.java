@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Login;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.LoginService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -18,10 +17,14 @@ public class LoginConverter implements Converter {
 
     private final LoginService loginService;
 
-    public LoginConverter() throws UBSException {
+    /**
+     * Enquanto a versão atual do JSF (2.2) não suporta injeção com dentro de
+     * conversores, essa classe utilitária CDIServiceLocator, faz esse papel.
+     */
+    public LoginConverter() {
         this.loginService = CDIServiceLocator.getBean(LoginService.class);
     }
-    
+
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         Login objectToReturn = null;
@@ -40,5 +43,5 @@ public class LoginConverter implements Converter {
         }
         return "";
     }
-    
+
 }

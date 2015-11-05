@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ConsultaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -19,10 +18,10 @@ public class ConsultaConverter implements Converter {
     private final ConsultaService consultaService;
 
     /**
-     *
-     * @throws UBSException
+     * Enquanto a versão atual do JSF (2.2) não suporta injeção com dentro de
+     * conversores, essa classe utilitária CDIServiceLocator, faz esse papel.
      */
-    public ConsultaConverter() throws UBSException {
+    public ConsultaConverter() {
         this.consultaService = CDIServiceLocator.getBean(ConsultaService.class);
     }
 

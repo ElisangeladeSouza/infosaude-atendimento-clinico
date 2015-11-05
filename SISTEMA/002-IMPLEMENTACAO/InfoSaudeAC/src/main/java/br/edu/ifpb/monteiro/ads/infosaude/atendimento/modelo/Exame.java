@@ -2,16 +2,12 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -41,10 +37,10 @@ public class Exame implements Serializable {
     @Column(name = "exame_data")
     private Date data;
     
-    @ManyToMany(targetEntity = br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame.class)
-    @JoinTable(name="exame_requisicaoExame", joinColumns = {@JoinColumn(name = "exame_id", referencedColumnName = "id")}, 
-            inverseJoinColumns = {@JoinColumn(name = "requisiscaoExame_id", referencedColumnName = "id")})
-    private List<RequisicaoExame> requisicaoExames;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name="exame_requisicaoExame", joinColumns = @JoinColumn(name = "exame_id"), 
+//            inverseJoinColumns = @JoinColumn(name = "requisiscaoExame_id"))
+//    private List<RequisicaoExame> requisicaoExames;
 
     public Exame() {
     }
@@ -81,14 +77,6 @@ public class Exame implements Serializable {
         this.data = data;
     }
     
-    public List<RequisicaoExame> getRequisicaoExames() {
-        return requisicaoExames;
-    }
-
-    public void setRequisicaoExames(List<RequisicaoExame> requisicaoExames) {
-        this.requisicaoExames = requisicaoExames;
-    }
-
     @Override
     public int hashCode() {
         int hashExame = 5;

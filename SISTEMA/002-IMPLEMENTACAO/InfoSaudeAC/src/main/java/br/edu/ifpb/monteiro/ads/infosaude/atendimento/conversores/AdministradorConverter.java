@@ -1,6 +1,5 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.cdi.CDIServiceLocator;
@@ -19,10 +18,10 @@ public class AdministradorConverter implements Converter {
     private final AdministradorService administradorService;
 
     /**
-     *
-     * @throws UBSException
+     * Enquanto a versão atual do JSF (2.2) não suporta injeção com dentro de
+     * conversores, essa classe utilitária CDIServiceLocator, faz esse papel.
      */
-    public AdministradorConverter() throws UBSException {
+    public AdministradorConverter() {
         this.administradorService = CDIServiceLocator.getBean(AdministradorService.class);
     }
 

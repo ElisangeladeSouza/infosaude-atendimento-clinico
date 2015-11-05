@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,9 +46,13 @@ public class RequisicaoExame implements Serializable {
     @Column(name = "requisicao_data")
     private Date data;
 
-    @ManyToMany(mappedBy = "requisicaoExames", fetch = FetchType.EAGER)
-    private transient List<Exame> exames;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "exame_requisicoes", joinColumns = @JoinColumn(name = "exame_id"),
+            inverseJoinColumns = @JoinColumn(name = "requisiscaoExame_id"))
+    private List<Exame> exames;
 
+//    @ManyToMany(mappedBy = "requisicaoExames", fetch = FetchType.EAGER)
+//    private transient List<Exame> exames;
     public RequisicaoExame() {
     }
 
