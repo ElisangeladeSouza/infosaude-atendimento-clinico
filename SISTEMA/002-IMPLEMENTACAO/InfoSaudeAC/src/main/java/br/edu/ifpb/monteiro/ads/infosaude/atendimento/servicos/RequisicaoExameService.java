@@ -36,12 +36,12 @@ public class RequisicaoExameService implements Serializable {
      */
     @Transactional
     public void save(RequisicaoExame requisicaoExame) {
-        if (requisicaoExame.getExames() == null) {
-            throw new NegocioException("Todos os dados devem ser inseridos corretamente");
-        } else{
-            requisicaoExame.setData(new DateTimeUtilBean().getDateToday());
             this.requisicaoExameDao.salvar(requisicaoExame);
-        }
+//        if (requisicaoExame.getExames() == null) {
+//            throw new NegocioException("Todos os dados devem ser inseridos corretamente");
+//        } else{
+//            requisicaoExame.setData(new DateTimeUtilBean().getDateToday());
+//        }
     }
 
     /**

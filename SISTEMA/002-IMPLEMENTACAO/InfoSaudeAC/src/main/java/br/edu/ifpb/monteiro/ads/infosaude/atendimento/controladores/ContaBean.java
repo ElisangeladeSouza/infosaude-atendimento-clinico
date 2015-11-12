@@ -82,10 +82,9 @@ public class ContaBean implements Serializable {
         try {
             SecurityUtils.getSubject().login(new UsernamePasswordToken(conta.getUserName(), conta.getPassword()));
             SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(Faces.getRequest());
-            Faces.redirect(savedRequest != null ? savedRequest.getRequestUrl() : "/ISAC-Testes/Home.xhtml");
+            Faces.redirect(savedRequest != null ? savedRequest.getRequestUrl() : "/InfoSaudeAC/Home.xhtml");
         } catch (AuthenticationException e) {
             FacesUtil.mensagemErro("Falha no login!");
-            e.printStackTrace();
         }
     }
     

@@ -39,16 +39,21 @@
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
                     <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" />
 
-                    <!--<p:pickList id="listaExames" value="#{requisicaoExameBean.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>-->
+                    <!--<p:pickList id="listaExames" value="#{requisicaoExameBean.requisicaoExame.exames}" var="exames" itemLabel="#{exames}" itemValue="#{exames}"/>-->
 
-                    <p:outputLabel for="exames" value="#{msg.examination}:"/>
-                    <h:panelGroup>
-                        <p:selectOneMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}"   
-                                         filter="true" filterMatchMode="contains" >
-                            <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                            <f:selectItems value="#{exameBean.exames}" var="exames" itemLabel="#{exameBean.exame.descricao}" itemValue="#{exames}"/>
-                        </p:selectOneMenu>
-                    </h:panelGroup>  
+                    <p:outputLabel for="exames" value="#{msg.examination}s: "/>
+                    <!--<ui:repeat id="exames" var="exame" value="#{exameBean.exames}">-->
+                    <p:selectManyButton id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}">
+                        <f:selectItems value="#{exameBean.exames}" var="a" itemLabel="#{a.descricao}" itemValue="#{a.descricao}"/>
+                    </p:selectManyButton>
+                    <!--</ui:repeat>-->
+                    <!--                    <h:panelGroup>
+                                            <p:selectOneMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}"   
+                                                             filter="true" filterMatchMode="contains" >
+                                                <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                                                <f:selectItems value="#{exameBean.exames}" var="exames" itemLabel="#{exameBean.exame.descricao}" itemValue="#{exames}"/>
+                                            </p:selectOneMenu>
+                                        </h:panelGroup>  -->
 
                 </h:panelGrid>
 

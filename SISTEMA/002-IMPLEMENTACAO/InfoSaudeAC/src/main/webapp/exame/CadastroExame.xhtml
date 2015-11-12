@@ -30,8 +30,7 @@
                                  required="true" size="20"  maxlength="200"/>
 
                     <p:outputLabel for="detalhes" value="#{msg.details}:"/>
-                    <p:inputTextarea id="detalhes" value="#{exameBean.exame.detalhes}" requiredMessage="#{msg.aDetailsIsRequired}"
-                                     required="true"  maxlength="200"/>
+                    <p:inputTextarea id="detalhes" value="#{exameBean.exame.detalhes}" maxlength="200"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarExame" style="margin-top: 10px;">
