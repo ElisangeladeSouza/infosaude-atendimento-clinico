@@ -8,65 +8,65 @@
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
     <f:metadata>
-        <f:viewParam name="login" value="#{loginBean.login}"/>
+        <f:viewParam name="conta" value="#{contaBean.conta}"/>
     </f:metadata>
 
-    <ui:define id="uiTituloLogin" name="titulo">#{loginBean.editando ? msg.editCadastreLogin : msg.newRegisterLogin} | #{msg.systemName}</ui:define>
+    <ui:define id="uiTituloConta" name="titulo">#{contaBean.editando ? msg.editCadastreCount : msg.newRegisterCount} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoLogin" name="conteudo">
+    <ui:define id="uiConteudoConta" name="conteudo">
 
-        <p:fieldset id="fieldsetLogin" legend="#{loginBean.editando ? msg.editCadastreCount : msg.newRegisterLogin}">
-            <h:form id="formCadastroLogin">
+        <p:fieldset id="fieldsetConta" legend="#{contaBean.editando ? msg.editCadastreCount : msg.newRegisterCount}">
+            <h:form id="formCadastroConta">
                 <p:growl id="mensagens" autoUpdate="true"/>
                 
-                <h:panelGrid id="gridObrigatoriosLogin" columns="2">
+                <h:panelGrid id="gridObrigatoriosConta" columns="2">
                     
                     <p:outputLabel for="usuario" value="#{msg.user}:"/>
-                    <p:inputText id="usuario" value="#{loginBean.login.usuario}" requiredMessage="#{msg.aUserIsRequired}"
+                    <p:inputText id="usuario" value="#{contaBean.conta.userName}" requiredMessage="#{msg.aUserIsRequired}"
                                  required="true" size="25"  maxlength="200"/>
 
                     <p:outputLabel for="senha" value="#{msg.password}:"/>
-                    <p:password id="senha" value="#{loginBean.login.senha}" requiredMessage="#{msg.aPasswordIsRequired}"
+                    <p:password id="senha" value="#{contaBean.conta.password}" requiredMessage="#{msg.aPasswordIsRequired}"
                                 promptLabel="Digite sua senha" weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte" 
                                 feedback="true" required="true"  maxlength="40"/>
                     
-                    <p:outputLabel for="confereSenha" value="#{msg.providesPassword}:"/>
-                    <p:password id="confereSenha" value="#{loginBean.confereSenha}" requiredMessage="#{msg.aProvidesPasswordIsRequired}"
+<!--                    <p:outputLabel for="confereSenha" value="#{msg.providesPassword}:"/>
+                    <p:password id="confereSenha" value="#{contaBean.confereSenha}" requiredMessage="#{msg.aProvidesPasswordIsRequired}"
                                 promptLabel="Digite sua senha" weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte"
-                                feedback="true" required="true" maxlength="40"/>
+                                feedback="true" required="true" maxlength="40"/>-->
                     
                     <p:outputLabel for="funcao" value="#{msg.function}:"/>
-                    <p:selectOneMenu id="funcao" value="#{loginBean.login.permissao}" required="true">
+                    <p:selectOneMenu id="funcao" value="#{contaBean.conta.permissao}" required="true">
                         <f:selectItem itemLabel="#{msg.selectIt}.." noSelectionOption="true"/>
-                        <f:selectItems value="#{loginBean.permissao}" itemValue="#{permissoes}" itemLabel="#{permissoes.descricao}" var="permissoes"/>
+                        <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes}" itemLabel="#{permissoes.descricao}" var="permissoes"/>
                     </p:selectOneMenu>
                     
                 </h:panelGrid>
 
-                <p:toolbar id="toolbarLogin" style="margin-top: 10px;">
+                <p:toolbar id="toolbarConta" style="margin-top: 10px;">
                     <f:facet name="left">
                         <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
-                                         action="#{loginBean.salvar}"  id="botaoSalvar" 
+                                         action="#{contaBean.salvar}"  id="botaoSalvar" 
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
 
                         <p:button style="font-size: 13px;" value="#{msg.cancel}"
-                                  id="botaoCancelar" outcome="/login/PesquisaLogin"
-                                  icon="fa fa-times" rendered="#{loginBean.editando}" 
+                                  id="botaoCancelar" outcome="/conta/PesquisaConta"
+                                  icon="fa fa-times" rendered="#{contaBean.editando}" 
                                   disabled="#{botaoEditar}">
                         </p:button>
 
                     </f:facet>
 
                     <f:facet name="right">
-                        <p:button style="font-size: 13px;" value="#{msg.searchLogin}"
-                                  id="botaoPesquisar" outcome="/login/PesquisaLogin"
-                                  icon="ui-icon ui-icon-search" rendered="#{loginBean.editando eq 'false'}">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCount}"
+                                  id="botaoPesquisar" outcome="/conta/PesquisaConta"
+                                  icon="ui-icon ui-icon-search" rendered="#{contaBean.editando eq 'false'}">
                         </p:button>
                     </f:facet>
 
                 </p:toolbar>
-                <p:blockUI id="blockUILogin" block="formCadastroLogin" trigger="botaoSalvar"/>
+                <p:blockUI id="blockUIConta" block="formCadastroConta" trigger="botaoSalvar"/>
             </h:form>
         </p:fieldset>
     </ui:define>

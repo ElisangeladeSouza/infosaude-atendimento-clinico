@@ -15,10 +15,10 @@
 
     <h:body>
         
-        <f:metadata>
-            <!--<f:viewParam name="dummy"/>-->
+<!--        <f:metadata>
+            <f:viewParam name="dummy"/>
             <f:event listener="#{loginBean.preRender}" type="preRenderView"/>
-        </f:metadata>
+        </f:metadata>-->
 
         <div style="padding-top: 50px; text-align: center">
             <h:graphicImage library="imagens" name="info_saude_web.png"/>
@@ -39,15 +39,17 @@
                     <h:panelGroup>
 
                         <h:panelGrid columns="2" cellpadding="4">
-                            <p:outputLabel for="j_username" value="Usuário:"/>
-                            <p:inputText id="j_username" required="true" requiredMessage="#{msg.mandatoryLogin}" 
-                                         size="20"/>
+                            <p:outputLabel for="username" value="Usuário:"/>
+                            <p:inputText id="username" required="true" requiredMessage="#{msg.mandatoryLogin}" 
+                                         size="20" value="#{contaBean.conta.userName}"/>
 
-                            <p:outputLabel for="j_password" value="Senha:"/>
-                            <p:password id="j_password" size="20" required="true" requiredMessage="#{msg.mandatoryPassword}"/>
+                            <p:outputLabel for="password" value="Senha:"/>
+                            <p:password id="password" size="20" required="true" requiredMessage="#{msg.mandatoryPassword}"
+                                        value="#{contaBean.conta.password}"/>
 
                             <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
-                                             update="@form" process="@this" action="#{loginBean.login}" ajax="false"/>
+                                             update="@form" process="@this" action="#{contaBean.login}" ajax="false"/>
+                            
                             <p:commandButton id="lostPasswordLink" onclick="PF('loginPasswordRecover').show();
                                     return false;" icon="ui-icon ui-icon-help" style="float: right;"/>
 
