@@ -22,15 +22,10 @@
             <h:link outcome="/Home">
                 <p:graphicImage library="imagens" name="info_saude_web.png" styleClass="logo"/>
             </h:link>
-
-            <div id="logged-user-top-message" >
-                <h:form>
-<!--                    <h:outputLabel value="Bem vindo "/>  
-                    <p:menuButton value="#{seguranca.nomeUsuario}" styleClass="logged-user" iconPos="right">
-                        <p:menuitem value="Sair" url="/j_spring_security_logout"/>
-                    </p:menuButton>-->
-                </h:form>
-            </div>
+            <h:form id="formUsuarioLogado" style="float: right; margin-right: 80px; margin-top: 15px; text-align: right">
+                <h:outputLabel value="#{msg.welcome}: "/>  
+                <h:outputLabel id="menuButtonLogado" value="#{contaBean.usuarioLogado}"/>
+            </h:form> 
 
         </header>
 

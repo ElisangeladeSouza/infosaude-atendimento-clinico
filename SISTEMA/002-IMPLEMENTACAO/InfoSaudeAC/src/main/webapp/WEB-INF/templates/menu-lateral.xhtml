@@ -25,6 +25,7 @@
                         <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem"/>
                         <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento"/>
                         <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames"/>
+                        <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>
             </h:form>

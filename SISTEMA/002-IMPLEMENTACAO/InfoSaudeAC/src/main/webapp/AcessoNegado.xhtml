@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <link rel="icon" type="image/x-icon" href="http://localhost:8080/infosaude-atendimento/resources/imagens/favicon.ico" />
+        <title><ui:insert name="title">InfoSaúde - Acesso Negado</ui:insert></title>
+    </h:head>
+
+    <h:body>
+        <div style="padding-top: 50px; text-align: center">
+            <p:outputLabel id="msgAcessoNegado" value="Você não possui acesso a esta página"/>
+            <p:link id="linkVoltar" value="Voltar ao menu principal" href="/Home.xhtml"/>
+        </div>
+    </h:body>
+</html>
