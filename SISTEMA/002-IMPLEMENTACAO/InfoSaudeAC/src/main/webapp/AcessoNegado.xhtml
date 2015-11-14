@@ -14,8 +14,10 @@
 
     <h:body>
         <div style="padding-top: 50px; text-align: center">
-            <p:outputLabel id="msgAcessoNegado" value="Você não possui acesso a esta página"/>
-            <p:link id="linkVoltar" value="Voltar ao menu principal" href="/Home.xhtml"/>
+            <div align="center" style="margin-top: 150px"><p:graphicImage library="imagens" name="info_saude_web.png"/></div>
+            <p:outputLabel id="msgAcessoNegado" value="Você não possui acesso a esta página. " style="font-size: 15pt; text-shadow: 1px 1px 1px rgba(0, 0, 0, .4)"/>
+            <p:link id="linkVoltar" value="Voltar ao menu principal" href="/Home.xhtml" 
+                    style="font-size: 15pt; text-shadow: 1px 1px 1px rgba(0, 0, 0, .4); text-decoration: none"/>
         </div>
     </h:body>
 </html>
