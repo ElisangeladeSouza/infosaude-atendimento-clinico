@@ -18,29 +18,27 @@
         <p:fieldset id="fieldsetConta" legend="#{contaBean.editando ? msg.editCadastreCount : msg.newRegisterCount}">
             <h:form id="formCadastroConta">
                 <p:growl id="mensagens" autoUpdate="true"/>
-                
-                <h:panelGrid id="gridObrigatoriosConta" columns="2">
-                    
-                    <p:outputLabel for="usuario" value="#{msg.user}:"/>
-                    <p:inputText id="usuario" value="#{contaBean.conta.userName}" requiredMessage="#{msg.aUserIsRequired}"
-                                 required="true" size="25"  maxlength="200"/>
 
-                    <p:outputLabel for="senha" value="#{msg.password}:"/>
+                <h:panelGrid id="gridObrigatoriosConta" columns="2">
+
+                    <p:outputLabel for="usuario" value="#{msg.user}: "/>
+                    <p:inputText id="usuario" value="#{contaBean.conta.userName}" requiredMessage="#{msg.aUserIsRequired}"
+                                 required="true" size="20"  maxlength="200"/>
+
+                    <p:outputLabel for="senha" value="#{msg.password}: "/>
                     <p:password id="senha" value="#{contaBean.conta.password}" requiredMessage="#{msg.aPasswordIsRequired}"
-                                promptLabel="Digite sua senha" weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte" 
-                                feedback="true" required="true"  maxlength="40"/>
-                    
-<!--                    <p:outputLabel for="confereSenha" value="#{msg.providesPassword}:"/>
-                    <p:password id="confereSenha" value="#{contaBean.confereSenha}" requiredMessage="#{msg.aProvidesPasswordIsRequired}"
-                                promptLabel="Digite sua senha" weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte"
-                                feedback="true" required="true" maxlength="40"/>-->
-                    
+                                promptLabel="Digite sua senha" weakLabel="Senha fraca" goodLabel="Senha boa" strongLabel="Senha forte" 
+                                feedback="true" required="true"  maxlength="40" match="confirmaSenha" validatorMessage="As senhas não conferem"/>
+
+                    <p:outputLabel for="confirmaSenha" value="#{msg.passwordConfirmation}: "/>
+                    <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40"/>
+
                     <p:outputLabel for="funcao" value="#{msg.function}:"/>
                     <p:selectOneMenu id="funcao" value="#{contaBean.conta.permissao}" required="true">
                         <f:selectItem itemLabel="#{msg.selectIt}.." noSelectionOption="true"/>
                         <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes}" itemLabel="#{permissoes.descricao}" var="permissoes"/>
                     </p:selectOneMenu>
-                    
+
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarConta" style="margin-top: 10px;">
@@ -59,7 +57,7 @@
                     </f:facet>
 
                     <f:facet name="right">
-                        <p:button style="font-size: 13px;" value="#{msg.searchCount}"
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreCount}"
                                   id="botaoPesquisar" outcome="/conta/PesquisaConta"
                                   icon="ui-icon ui-icon-search" rendered="#{contaBean.editando eq 'false'}">
                         </p:button>

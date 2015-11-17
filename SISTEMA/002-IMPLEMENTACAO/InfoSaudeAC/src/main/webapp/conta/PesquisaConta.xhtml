@@ -44,20 +44,11 @@
                         <h:outputText id="usuario" value="#{conta.userName}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.password}" width="80" filterMatchMode="contains" filterBy="#{conta.password}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="senha" value="#{conta.password}"/>
-                    </p:column>
-                    
                     <p:column headerText="#{msg.function}" width="80" filterMatchMode="contains" filterBy="#{conta.permissao}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="permissao" value="#{conta.permissao}"/>
+                        <h:outputText id="permissao" value="#{conta.permissao.descricao}"/>
                     </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
-                        <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
-                                  outcome="/conta/VisualizaConta">
-                            <f:param  name="conta" value="#{conta.id}"/>
-                            <p:tooltip for="botaoVisualizar" value="#{msg.viewSelectedRowDetails}"/>
-                        </p:button>   
 
                         <p:button id="botaoEditar" title="#{msg.edit}" icon="ui-icon ui-icon-pencil" style="font-size: 10px" outcome="/conta/CadastroConta">
                             <f:param  name="conta" value="#{conta.id}"/>
@@ -66,10 +57,10 @@
 
                         <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
                                          action="#{contaBean.excluir}" process="@this" update="datatablePesquisaConta">
-                            <f:setPropertyActionListener value="#{conta}" target="#{contaBean.contaSelecionado}"/>
+                            <f:setPropertyActionListener value="#{conta}" target="#{contaBean.contaSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreConta}" message="#{msg.realyExcludeLogin}"/>
+                            <p:confirm icon="ui-icon-alert" header="Exclusão de cadastro" message="Deseja realmente excluir este usuário?"/>
 
                         </p:commandButton>
                     </p:column>

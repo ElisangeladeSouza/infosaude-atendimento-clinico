@@ -33,27 +33,27 @@
                         </p:outputPanel>
                     </f:facet>
 
-                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{requisicaoExames.id}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.id}" style="text-align: center" width="0.8%" filterMatchMode="exact" filterBy="#{requisicaoExames.id}" filterStyle="width: 20px; display:none">
                         <h:outputText id="id" value="#{requisicaoExames.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.code}" style="text-align: center" width="20" filterMatchMode="contains" filterBy="#{requisicaoExames.codigo}" filterStyle="width: 80px; display:none">
+                    <p:column headerText="#{msg.code}" style="text-align: center" width="2%" filterMatchMode="contains" filterBy="#{requisicaoExames.codigo}" filterStyle="width: 80px; display:none">
                         <h:outputText id="crm" value="#{requisicaoExames.codigo}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.cnes}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCnes}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.cnes}" style="text-align: center" width="3%" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCnes}" filterStyle="width: 20px; display:none">
                         <h:outputText id="cnes" value="#{requisicaoExames.solicitanteCnes}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.city}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCidade}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.city}" style="text-align: center" width="5%" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCidade}" filterStyle="width: 20px; display:none">
                         <h:outputText id="cidade" value="#{requisicaoExames.solicitanteCidade}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.examination}" width="20" filterMatchMode="contains" filterBy="#{requisicaoExameBean.requisicaoExame.exames}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}"/>
+                    <p:column headerText="#{msg.examination}" width="10%" filterMatchMode="contains" filterBy="#{requisicaoExameBean.requisicaoExame.exames}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="exames" value="#{requisicaoExames.exames}"/>
                     </p:column>
 
-                    <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
+                    <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="5%">
                         <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
                                   outcome="/requisicao-exames/VisualizaRequisicaoExames">
                             <f:param  name="requisicaoExames" value="#{requisicaoExames.id}"/>
@@ -70,7 +70,7 @@
                             <f:setPropertyActionListener value="#{requisicaoExames}" target="#{requisicaoExameBean.requisicaoExameSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreRequisicaoExames}" message="#{msg.realyExcludeRequisicaoExames}"/>
+                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreExaminationRequest}" message="#{msg.realyExcludeExaminationRequest}"/>
 
                         </p:commandButton>
                     </p:column>

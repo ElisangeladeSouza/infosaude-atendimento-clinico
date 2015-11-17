@@ -36,6 +36,7 @@ public class RequisicaoExameService implements Serializable {
      */
     @Transactional
     public void save(RequisicaoExame requisicaoExame) {
+            System.err.println("Passei no service>>>>>>>>>>>>>>>>>>>>>>>>>>>>.");
             this.requisicaoExameDao.salvar(requisicaoExame);
 //        if (requisicaoExame.getExames() == null) {
 //            throw new NegocioException("Todos os dados devem ser inseridos corretamente");

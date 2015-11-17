@@ -24,44 +24,45 @@ import org.omnifaces.util.Faces;
  */
 @Model
 public class ContaBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private ContaService contaService;
-    
+
     @Inject
     private Conta conta;
-    
+
     @Inject
     private Conta contaSelecionada;
-    
+
     private List<Conta> contas;
-    
+
     private final List<Permissao> permissoes;
-    
+
     private final String usuarioLogado;
 
     public ContaBean() {
         this.permissoes = Arrays.asList(Permissao.values());
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
     }
-    
+
     public void salvar() throws UBSException {
         this.contaService.save(conta);
-        if(getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro de '" + conta.getUserName() +
-                    "' atualizado com sucesso!");
+        if (getEditando()) {
+            FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName()
+                    + "' atualizado com sucesso!");
+        } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
         conta = new Conta();
     }
-    
+
     public void excluir() throws UBSException {
         this.contaService.delete(contaSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }
-    
+
     /**
      * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
      * refere-se a um novo cadastro e retorna true, senao refere-se a um produto
@@ -77,7 +78,7 @@ public class ContaBean implements Serializable {
         this.contas = contaService.findAll();
         return contas;
     }
-    
+
     public void login() throws IOException {
         try {
             SecurityUtils.getSubject().login(new UsernamePasswordToken(conta.getUserName(), conta.getPassword()));
@@ -87,12 +88,12 @@ public class ContaBean implements Serializable {
             FacesUtil.mensagemErro("Falha no login!");
         }
     }
-    
+
     public String logout() {
         SecurityUtils.getSubject().logout();
         return "/Login.xhtml?faces-redirect=true";
     }
-    
+
     public ContaService getContaService() {
         return contaService;
     }
@@ -117,7 +118,6 @@ public class ContaBean implements Serializable {
         this.contaSelecionada = contaSelecionada;
     }
 
-
     public void setContas(List<Conta> contas) {
         this.contas = contas;
     }
@@ -129,5 +129,5 @@ public class ContaBean implements Serializable {
     public String getUsuarioLogado() {
         return usuarioLogado;
     }
-    
+
 }

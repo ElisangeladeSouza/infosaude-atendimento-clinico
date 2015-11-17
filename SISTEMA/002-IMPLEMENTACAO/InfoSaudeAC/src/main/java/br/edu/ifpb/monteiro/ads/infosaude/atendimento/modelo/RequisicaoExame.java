@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * Entidade que representa a Requisição de exame para o paciente que pode ser
@@ -47,10 +50,7 @@ public class RequisicaoExame implements Serializable {
     @Column(name = "requisicao_data")
     private Date data;
 
-    @OneToMany
-    @JoinTable(name = "requisicao_exames", joinColumns = @JoinColumn(name = "exame_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "requisicao_exame_id"))
-    private List<Exame> exames;
+    private List<String> exames;
 
     public RequisicaoExame() {
     }
@@ -103,11 +103,11 @@ public class RequisicaoExame implements Serializable {
         this.data = data;
     }
 
-    public List<Exame> getExames() {
+    public List<String> getExames() {
         return exames;
     }
 
-    public void setExames(List<Exame> exames) {
+    public void setExames(List<String> exames) {
         this.exames = exames;
     }
 
