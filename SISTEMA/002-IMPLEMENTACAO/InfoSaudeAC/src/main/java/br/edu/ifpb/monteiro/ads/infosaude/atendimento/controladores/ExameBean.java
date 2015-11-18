@@ -6,6 +6,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -29,18 +30,15 @@ public class ExameBean implements Serializable {
 
     private transient List<Exame> exames;
 
-    /**
-     *
-     */
     public ExameBean() {
     }
 
-    /**
-     *
-     * @return
-     */
-    public List<Exame> getExames() {
+    @PostConstruct
+    public void init() {
         this.exames = exameService.findAll();
+    }
+
+    public List<Exame> getExames() {
         return exames;
     }
 
@@ -51,7 +49,7 @@ public class ExameBean implements Serializable {
     public void salvar() throws UBSException {
         this.exameService.save(exame);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro do exame '"+exame.getDescricao()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro do exame '" + exame.getDescricao() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaExame.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

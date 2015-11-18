@@ -62,7 +62,6 @@ public abstract class DaoAbstrato<T> implements Serializable {
      * @param entity
      */
     public void salvar(T entity) {
-        System.err.println("Passei no AB >>>>>>>>>>>>>>>>>>>>>>>>>>>>.");
         entityManager.merge(entity);
     }
 

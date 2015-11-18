@@ -40,9 +40,10 @@
                     <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" />
 
                     <p:outputLabel for="exames" value="#{msg.examination}s: "/>
-                    <p:selectManyCheckbox id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" >
+                    <p:selectManyMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" filter="true" showCheckbox="true"
+                                      filterMatchMode="contains" scrollHeight="150" style="width: 166px">
                         <f:selectItems value="#{exameBean.exames}" var="a" itemLabel="#{a.descricao}" itemValue="#{a}"/>
-                    </p:selectManyCheckbox>
+                    </p:selectManyMenu>
 
                 </h:panelGrid>
 
