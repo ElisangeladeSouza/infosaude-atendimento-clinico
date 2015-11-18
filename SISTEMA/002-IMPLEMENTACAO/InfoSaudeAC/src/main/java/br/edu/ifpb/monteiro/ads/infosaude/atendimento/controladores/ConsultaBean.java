@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ConsultaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
@@ -54,7 +54,7 @@ public class ConsultaBean implements Serializable {
     public void salvar() {
         this.consultaService.save(consulta);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro da consulta '"+consulta.getCodigo()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da consulta '" + consulta.getCodigo() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaConsulta.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
@@ -64,9 +64,9 @@ public class ConsultaBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.consultaService.delete(consultaSelecionada);
         LOGGER.info("Exclusão de consulta efetuada.");
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");

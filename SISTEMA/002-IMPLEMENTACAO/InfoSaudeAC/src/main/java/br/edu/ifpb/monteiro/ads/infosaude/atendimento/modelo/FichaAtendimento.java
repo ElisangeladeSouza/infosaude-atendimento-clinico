@@ -28,7 +28,7 @@ public class FichaAtendimento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "ficha_atendimento_codigo")
     private String codigo;
 
@@ -51,7 +51,6 @@ public class FichaAtendimento implements Serializable {
 //    @OneToOne(mappedBy = "fichaAtendimento")
 //    @JoinColumn(name = "consulta_pk")
 //    private Consulta consulta;
-
     @OneToOne(mappedBy = "fichaAtendimento")
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;

@@ -18,7 +18,7 @@
 
         <p:fieldset id="fieldsetExame" legend="#{msg.viewCadastreDoctor}">
             <h:form id="formCadastroMedico">
-               <p:fieldset id="visualizaPessoalMedico" legend="#{msg.personal}">
+                <p:fieldset id="visualizaPessoalMedico" legend="#{msg.personal}">
                     <isac:visualizaDadosPessoais corOuRaca="#{medicoBean.medico.corOuRaca}" 
                                                  dataNascimento="#{medicoBean.medico.dataNascimento}" 
                                                  nome="#{medicoBean.medico.nome}" />
@@ -43,10 +43,10 @@
                     <isac:visualizaDocumentacao rg="#{medicoBean.medico.rg}"
                                                 cpf="#{medicoBean.medico.cpfMedico}"
                                                 cartaoSus="#{medicoBean.medico.cartaoSusMedico}"/>
-                    
+
                     <p:outputLabel for="crm" value="#{msg.crm}...............................: " style="font-weight: bold"/>
                     <p:outputLabel id="crm" value="#{medicoBean.medico.crm}" />
-                    </p:fieldset>
+                </p:fieldset>
                 <p:toolbar id="toolbarMedico" style="margin-top: 10px;">
 
                     <f:facet name="right">

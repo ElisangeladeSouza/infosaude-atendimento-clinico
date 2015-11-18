@@ -2,7 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ConsultaDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -44,10 +44,10 @@ public class ConsultaService implements Serializable {
     /**
      *
      * @param consulta
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Consulta consulta) throws UBSException {
+    public void delete(Consulta consulta) throws NegocioException {
         consultaDao.delete(findById(consulta.getId()));
     }
 

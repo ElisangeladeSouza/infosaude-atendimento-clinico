@@ -44,7 +44,6 @@ public class Paciente extends Pessoa implements Serializable {
 //    @OneToOne
 //    @JoinColumn(name = "consulta_pk", referencedColumnName = "id")
 //    private Consulta consultaPaciente;
-
     @OneToOne
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Procedimento procedimentoPaciente;

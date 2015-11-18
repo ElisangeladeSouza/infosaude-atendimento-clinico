@@ -1,7 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ContaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
@@ -47,7 +47,7 @@ public class ContaBean implements Serializable {
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
     }
 
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
         this.contaService.save(conta);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName()
@@ -58,7 +58,7 @@ public class ContaBean implements Serializable {
         conta = new Conta();
     }
 
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.contaService.delete(contaSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

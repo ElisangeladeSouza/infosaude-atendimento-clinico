@@ -15,9 +15,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class Conta implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_conta")
@@ -88,5 +88,5 @@ public class Conta implements Serializable {
         }
         return true;
     }
-    
+
 }

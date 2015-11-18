@@ -31,7 +31,7 @@ public class Consulta implements Serializable {
 
     @Column(name = "consulta_codigo")
     private String codigo;
-    
+
     @Lob
     @Column(name = "consulta_observacoes", length = 500)
     private String observacoes;
@@ -59,7 +59,6 @@ public class Consulta implements Serializable {
 //    @OneToOne(mappedBy = "consultaPaciente")
 //    @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
 //    private Paciente paciente;
-
     @OneToOne
     @JoinColumn(name = "fichaatendimentofk_id", nullable = false)
     private FichaAtendimento fichaAtendimento;

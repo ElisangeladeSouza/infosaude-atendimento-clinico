@@ -2,7 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.FichaAtendimentoDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -35,7 +35,7 @@ public class FichaAtendimentoService implements Serializable {
     }
 
     @Transactional
-    public void delete(FichaAtendimento fichaAtendimento) throws UBSException {
+    public void delete(FichaAtendimento fichaAtendimento) throws NegocioException {
         fichaAtendimentoDao.delete(findById(fichaAtendimento.getId()));
     }
 

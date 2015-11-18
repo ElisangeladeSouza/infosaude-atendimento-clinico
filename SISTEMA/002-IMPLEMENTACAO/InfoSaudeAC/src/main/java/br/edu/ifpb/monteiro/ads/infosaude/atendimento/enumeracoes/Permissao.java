@@ -3,8 +3,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes;
 import java.io.Serializable;
 
 /**
- * Enumeraçao que retorna as opções de Roles(Funções) de cada
- * usuário do sistema. 
+ * Enumeraçao que retorna as opções de Roles(Funções) de cada usuário do
+ * sistema.
  *
  * @author elisangela
  */
@@ -22,7 +22,7 @@ public enum Permissao implements Serializable {
     Permissao(String descricao) {
         this.descricao = descricao;
     }
-    
+
     /**
      * Permite que a descrição(valor) do item do ENUM seja retornado ao invés da
      * constante(chave).
@@ -32,6 +32,5 @@ public enum Permissao implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-        
-	
+
 }

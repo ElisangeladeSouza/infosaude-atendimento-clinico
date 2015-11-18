@@ -36,11 +36,6 @@ public class Exame implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "exame_data")
     private Date data;
-    
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name="exame_requisicaoExame", joinColumns = @JoinColumn(name = "exame_id"), 
-//            inverseJoinColumns = @JoinColumn(name = "requisiscaoExame_id"))
-//    private List<RequisicaoExame> requisicaoExames;
 
     public Exame() {
     }
@@ -76,7 +71,7 @@ public class Exame implements Serializable {
     public void setData(Date data) {
         this.data = data;
     }
-    
+
     @Override
     public int hashCode() {
         int hashExame = 5;
@@ -95,7 +90,7 @@ public class Exame implements Serializable {
         final Exame other = (Exame) obj;
         return Objects.equals(this.id, other.id);
     }
-    
+
     @Override
     public String toString() {
         return descricao;

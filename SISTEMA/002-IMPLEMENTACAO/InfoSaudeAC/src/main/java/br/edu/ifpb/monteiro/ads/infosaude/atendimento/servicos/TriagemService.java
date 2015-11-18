@@ -2,7 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.TriagemDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -44,10 +44,10 @@ public class TriagemService implements Serializable {
     /**
      *
      * @param triagem
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Triagem triagem) throws UBSException {
+    public void delete(Triagem triagem) throws NegocioException {
         triagemDao.delete(findById(triagem.getId()));
     }
 

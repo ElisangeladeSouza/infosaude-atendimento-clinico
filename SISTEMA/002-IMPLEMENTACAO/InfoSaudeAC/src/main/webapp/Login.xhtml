@@ -14,11 +14,11 @@
     </h:head>
 
     <h:body>
-        
-<!--        <f:metadata>
-            <f:viewParam name="dummy"/>
-            <f:event listener="#{loginBean.preRender}" type="preRenderView"/>
-        </f:metadata>-->
+
+        <!--        <f:metadata>
+                    <f:viewParam name="dummy"/>
+                    <f:event listener="#{loginBean.preRender}" type="preRenderView"/>
+                </f:metadata>-->
 
         <div style="padding-top: 50px; text-align: center">
             <h:graphicImage library="imagens" name="info_saude_web.png"/>
@@ -49,7 +49,7 @@
 
                             <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
                                              update="@form" process="@this" action="#{contaBean.login}" ajax="false"/>
-                            
+
                             <p:commandButton id="lostPasswordLink" onclick="PF('loginPasswordRecover').show();
                                     return false;" icon="ui-icon ui-icon-help" style="float: right;"/>
 

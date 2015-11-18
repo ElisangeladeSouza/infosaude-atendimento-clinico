@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
@@ -68,9 +68,9 @@ public class TecnicoEnfermagemBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
         try {
             this.tecnicoEnfermagemService.save(tecnicoEnfermagem);
             if (getEditando()) {
@@ -88,9 +88,9 @@ public class TecnicoEnfermagemBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.tecnicoEnfermagemService.delete(tecnicoEnfermagemSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

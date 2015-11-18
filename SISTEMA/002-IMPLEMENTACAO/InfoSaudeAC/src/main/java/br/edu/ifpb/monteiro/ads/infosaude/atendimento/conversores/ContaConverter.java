@@ -21,25 +21,25 @@ public class ContaConverter implements Converter {
     public ContaConverter() throws UBSException {
         this.contaService = CDIServiceLocator.getBean(ContaService.class);
     }
-    
+
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         Conta objectToReturn = null;
-        
-        if(value != null) {
+
+        if (value != null) {
             objectToReturn = this.contaService.findById(new Long(value));
         }
         return objectToReturn;
     }
-    
+
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        
-        if(value != null) {
+
+        if (value != null) {
             Long code = ((Conta) value).getId();
             return code == null ? null : code.toString();
         }
         return "";
     }
-    
+
 }

@@ -1,14 +1,15 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RequisicaoExameDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Classe de serviço que faz chamadas aos métodos de persistência e pode conter
@@ -20,6 +21,8 @@ import javax.inject.Inject;
 public class RequisicaoExameService implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private static final Log LOGGER = LogFactory.getLog(RequisicaoExameService.class);
 
     @Inject
     private RequisicaoExameDao requisicaoExameDao;
@@ -36,7 +39,7 @@ public class RequisicaoExameService implements Serializable {
      */
     @Transactional
     public void save(RequisicaoExame requisicaoExame) {
-            this.requisicaoExameDao.salvar(requisicaoExame);
+        this.requisicaoExameDao.salvar(requisicaoExame);
 //        if (requisicaoExame.getExames() == null) {
 //            throw new NegocioException("Todos os dados devem ser inseridos corretamente");
 //        } else{
@@ -47,10 +50,10 @@ public class RequisicaoExameService implements Serializable {
     /**
      *
      * @param requisicaoExame
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(RequisicaoExame requisicaoExame) throws UBSException {
+    public void delete(RequisicaoExame requisicaoExame) throws NegocioException {
         requisicaoExameDao.delete(findById(requisicaoExame.getId()));
     }
 
@@ -71,4 +74,27 @@ public class RequisicaoExameService implements Serializable {
         return requisicaoExameDao.findById(id);
     }
 
+    public boolean verificaCampoUnique(String campo, Object valor, Long id) throws NegocioException {
+
+        try {
+
+            RequisicaoExame requisicaoExame;
+
+            if (id == null) {
+                requisicaoExame = requisicaoExameDao.buscarPorCampo(campo, valor);
+                if (requisicaoExame != null) {
+                    throw new NegocioException("O " + campo.toUpperCase() + " informado pertence a outro cadastro.");
+                }
+            } else {
+                requisicaoExame = requisicaoExameDao.buscarPorCampo(campo, valor);
+                if (requisicaoExame != null && id.equals(requisicaoExame.getId())) {
+                    throw new NegocioException("O " + campo.toUpperCase() + " informado pertence a outro cadastro.");
+                }
+                return true;
+            }
+        } catch (NoResultException ex) {
+            LOGGER.info("Infomação não encontrada");
+        }
+        return true;
+    }
 }

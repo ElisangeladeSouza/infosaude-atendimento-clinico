@@ -1,7 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.AdministradorDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -42,10 +42,10 @@ public class AdministradorService implements Serializable {
     /**
      *
      * @param administrador
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Administrador administrador) throws UBSException {
+    public void delete(Administrador administrador) throws NegocioException {
         administradorDAO.delete(findById(administrador.getId()));
     }
 

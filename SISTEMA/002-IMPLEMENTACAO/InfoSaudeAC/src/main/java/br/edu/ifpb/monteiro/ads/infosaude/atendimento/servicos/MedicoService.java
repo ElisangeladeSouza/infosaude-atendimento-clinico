@@ -1,7 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.MedicoDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -42,10 +42,10 @@ public class MedicoService implements Serializable {
     /**
      *
      * @param medico
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Medico medico) throws UBSException {
+    public void delete(Medico medico) throws NegocioException {
         medicoDao.delete(findById(medico.getId()));
     }
 

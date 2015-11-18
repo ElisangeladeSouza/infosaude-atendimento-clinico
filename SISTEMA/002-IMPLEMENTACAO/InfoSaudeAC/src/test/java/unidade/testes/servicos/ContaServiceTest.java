@@ -22,28 +22,28 @@ import org.mockito.MockitoAnnotations;
  * @author wilde
  */
 public class ContaServiceTest {
-    
+
     private static Conta conta;
     private static Conta novaConta;
 
     @Mock
     private ContaService contaService;
-    
+
     public ContaServiceTest() {
-        
+
         contaService = new ContaService();
-        
+
     }
-    
+
     @Before
     public void setUp() {
-        
+
         MockitoAnnotations.initMocks(this);
         conta = new Conta();
         novaConta = new Conta();
-        
+
     }
-    
+
     @Test
     public void testSaveCamposObrigatorios() {
 
@@ -55,17 +55,17 @@ public class ContaServiceTest {
 
         novaConta = contaService.findById(1L);
 
-        assertEquals ("123", novaConta.getPassword());
-        assertEquals ("ubs", novaConta.getUserName());
+        assertEquals("123", novaConta.getPassword());
+        assertEquals("ubs", novaConta.getUserName());
         assertEquals(conta.getPermissao(), novaConta.getPermissao());
     }
-    
+
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
         when(contaService.findById(0L)).thenThrow(new Exception());
         conta = contaService.findById(0L);
     }
-    
+
     @Test
     public void testFindAll() {
 
@@ -74,7 +74,7 @@ public class ContaServiceTest {
         conta.setUserName("cool");
         conta.setPassword("cool");
         conta.setPermissao(Permissao.ADMIN);
-        
+
         listaContas.add(conta);
 
         when(contaService.findAll()).thenReturn(listaContas);

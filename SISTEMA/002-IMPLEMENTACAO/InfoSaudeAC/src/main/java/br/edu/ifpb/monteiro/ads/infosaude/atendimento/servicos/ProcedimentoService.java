@@ -2,7 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ProcedimentoDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Procedimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -44,10 +44,10 @@ public class ProcedimentoService implements Serializable {
     /**
      *
      * @param procedimento
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Procedimento procedimento) throws UBSException {
+    public void delete(Procedimento procedimento) throws NegocioException {
         procedimentoDao.delete(findById(procedimento.getId()));
     }
 

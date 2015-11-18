@@ -1,11 +1,12 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RequisicaoExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import org.apache.commons.logging.Log;
@@ -33,41 +34,35 @@ public class RequisicaoExameBean implements Serializable {
 
     private transient List<RequisicaoExame> requisicaoExames;
 
-    /**
-     *
-     */
     public RequisicaoExameBean() {
     }
 
-    /**
-     *
-     * @return
-     */
-    public List<RequisicaoExame> getRequisicaoExames() {
+    @PostConstruct
+    public void init() {
         this.requisicaoExames = requisicaoExameService.findAll();
+    }
+
+    public List<RequisicaoExame> getRequisicaoExames() {
         return requisicaoExames;
     }
 
-    /**
-     *
-     * @throws UBSException
-     */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
+        requisicaoExameService.verificaCampoUnique("codigo", requisicaoExame.getCodigo(), null);
         this.requisicaoExameService.save(requisicaoExame);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro da requisicao de exame '"+requisicaoExame.getCodigo()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da requisicao de exame '" + requisicaoExame.getCodigo() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaRequisicaoExame.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
-        requisicaoExame = new RequisicaoExame();
+        this.requisicaoExame = new RequisicaoExame();
     }
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.requisicaoExameService.delete(requisicaoExameSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

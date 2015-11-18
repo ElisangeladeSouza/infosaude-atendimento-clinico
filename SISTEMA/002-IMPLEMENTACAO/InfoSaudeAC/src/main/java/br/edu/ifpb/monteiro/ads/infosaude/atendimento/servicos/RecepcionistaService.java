@@ -1,7 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RecepcionistaDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -42,10 +42,10 @@ public class RecepcionistaService implements Serializable {
     /**
      *
      * @param recepcionista
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(Recepcionista recepcionista) throws UBSException {
+    public void delete(Recepcionista recepcionista) throws NegocioException {
         recepcionistaDAO.delete(findById(recepcionista.getId()));
     }
 

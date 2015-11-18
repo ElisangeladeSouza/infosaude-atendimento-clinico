@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.OdontologoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
@@ -67,9 +67,9 @@ public class OdontologoBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
         try {
             this.odontologoService.save(odontologo);
             if (getEditando()) {
@@ -87,9 +87,9 @@ public class OdontologoBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.odontologoService.delete(odontologoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

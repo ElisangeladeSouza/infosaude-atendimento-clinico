@@ -1,7 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.TecnicoEnfermagemDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -39,10 +39,10 @@ public class TecnicoEnfermagemService implements Serializable {
     /**
      *
      * @param tecnicoEnfermagem
-     * @throws UBSException
+     * @throws NegocioException
      */
     @Transactional
-    public void delete(TecnicoEnfermagem tecnicoEnfermagem) throws UBSException {
+    public void delete(TecnicoEnfermagem tecnicoEnfermagem) throws NegocioException {
         tecnicoEnfermagemDAO.delete(findById(tecnicoEnfermagem.getId()));
     }
 

@@ -1,10 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -98,26 +98,26 @@ public abstract class DaoAbstrato<T> implements Serializable {
         return entityManager.find(entity, id);
     }
 
-    /**
-     *
-     * @param campo
-     * @param valor
-     * @return
-     * @throws UBSException
-     */
-    public T buscarPorCampo(String campo, Object valor) throws UBSException {
+    public T buscarPorCampo(String campo, Object valor) {
+
         try {
             CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+
             CriteriaQuery<T> createQuery = criteriaBuilder.createQuery(entity);
+
             Root<T> root = createQuery.from(entity);
+
             Predicate predicate = criteriaBuilder.conjunction();
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.<T>get(campo), valor));
+
             createQuery.where(predicate);
+
             return entityManager.createQuery(createQuery).getSingleResult();
-        } catch (Exception e) {
-            LOGGER.warn(e);
-            throw new UBSException("Informação não encontrada");
+
+        } catch (NoResultException ex) {
+            LOGGER.info("Infomação não encontrada");
         }
+        return null;
     }
 
     /**
@@ -129,7 +129,7 @@ public abstract class DaoAbstrato<T> implements Serializable {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-    
+
     public List<T> query(String query, Object... params) {
         List<T> result = null;
         Query q = entityManager.createQuery(query);

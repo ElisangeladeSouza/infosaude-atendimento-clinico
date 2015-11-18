@@ -125,26 +125,26 @@
         </script>
 
         <!--Este script exibe uma mensagem Javscript no navegador informando sobre qualquer alteração não salva na tela.-->
-<!--        <script>
-            $(document).ready(function () {
-                // Sempre que um input Mudar
-                $(':input').change(function () {
-                    setConfirmaSairSemSalvar(true);
-                });
-
-                // Sem mudança no form
-                $('form').submit(function () {
-                    setConfirmaSairSemSalvar(false);
-                });
-            });
-
-            function setConfirmaSairSemSalvar(on) {
-                var message = "Você fez alterações e não salvou. Todos os dados não salvos serão perdidos.\n\nDeseja sair da tela assim mesmo?";
-                window.onbeforeunload = (on) ? function () {
-                    return message;
-                } : null;
-            }
-        </script>-->
+        <!--        <script>
+                    $(document).ready(function () {
+                        // Sempre que um input Mudar
+                        $(':input').change(function () {
+                            setConfirmaSairSemSalvar(true);
+                        });
+        
+                        // Sem mudança no form
+                        $('form').submit(function () {
+                            setConfirmaSairSemSalvar(false);
+                        });
+                    });
+        
+                    function setConfirmaSairSemSalvar(on) {
+                        var message = "Você fez alterações e não salvou. Todos os dados não salvos serão perdidos.\n\nDeseja sair da tela assim mesmo?";
+                        window.onbeforeunload = (on) ? function () {
+                            return message;
+                        } : null;
+                    }
+                </script>-->
 
     </h:body>
 </html>

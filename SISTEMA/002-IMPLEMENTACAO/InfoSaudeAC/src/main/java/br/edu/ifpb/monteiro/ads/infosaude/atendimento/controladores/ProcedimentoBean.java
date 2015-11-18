@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Procedimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ProcedimentoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
@@ -46,12 +46,12 @@ public class ProcedimentoBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
         this.procedimentoService.save(procedimento);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro do procedimento '"+procedimento.getDescricao()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro do procedimento '" + procedimento.getDescricao() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaProcedimento.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
@@ -61,9 +61,9 @@ public class ProcedimentoBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.procedimentoService.delete(procedimentoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

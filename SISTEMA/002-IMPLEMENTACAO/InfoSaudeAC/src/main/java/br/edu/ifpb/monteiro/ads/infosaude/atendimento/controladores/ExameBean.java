@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ExameService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
@@ -44,9 +44,10 @@ public class ExameBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
+        exameService.verificaCampoUnique("descricao", exame.getDescricao(), null);
         this.exameService.save(exame);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro do exame '" + exame.getDescricao() + "' atualizado com sucesso!");
@@ -59,9 +60,9 @@ public class ExameBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.exameService.delete(exameSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

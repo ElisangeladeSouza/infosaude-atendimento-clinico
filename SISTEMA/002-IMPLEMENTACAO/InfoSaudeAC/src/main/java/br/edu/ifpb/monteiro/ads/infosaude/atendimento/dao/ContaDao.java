@@ -10,9 +10,9 @@ import java.io.Serializable;
 public class ContaDao extends DaoAbstrato<Conta> implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     public ContaDao() {
         super(Conta.class);
     }
-    
+
 }

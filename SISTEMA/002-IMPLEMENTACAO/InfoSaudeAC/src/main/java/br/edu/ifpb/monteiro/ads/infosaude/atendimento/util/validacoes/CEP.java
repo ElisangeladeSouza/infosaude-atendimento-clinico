@@ -20,7 +20,7 @@ import javax.validation.constraints.Pattern;
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Pattern(regexp = "^$|[0-9]{1,5}-[0-9]{1,3}",
-            message = "Digite um CEP no formato: 99999-999")
+        message = "Digite um CEP no formato: 99999-999")
 @Constraint(validatedBy = {})
 public @interface CEP {
 

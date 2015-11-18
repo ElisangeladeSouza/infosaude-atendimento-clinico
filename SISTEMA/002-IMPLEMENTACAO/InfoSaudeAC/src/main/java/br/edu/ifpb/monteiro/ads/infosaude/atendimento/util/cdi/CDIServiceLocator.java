@@ -21,7 +21,7 @@ public class CDIServiceLocator {
     private CDIServiceLocator() {
     }
 
-    private static BeanManager getBeanManager(){
+    private static BeanManager getBeanManager() {
         try {
             InitialContext initialContext = new InitialContext();
             return (BeanManager) initialContext.lookup("java:comp/BeanManager");
@@ -39,7 +39,7 @@ public class CDIServiceLocator {
      * @throws UBSException
      */
     @SuppressWarnings("unchecked")
-    public static <T> T getBean(Class<T> clazz){
+    public static <T> T getBean(Class<T> clazz) {
         BeanManager bm = getBeanManager();
         Set<Bean<?>> beans = (Set<Bean<?>>) bm.getBeans(clazz);
 

@@ -10,6 +10,7 @@ public class NegocioException extends RuntimeException {
 
     /**
      * Classe destinada a servir de ponte para tratar exceções de negócio.
+     *
      * @param message
      */
     public NegocioException(String message) {

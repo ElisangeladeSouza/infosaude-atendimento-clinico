@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TriagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
@@ -39,12 +39,12 @@ public class TriagemBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void salvar() throws UBSException {
+    public void salvar() throws NegocioException {
         this.triagemService.save(triagem);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro da triagem '"+triagem.getCodigo()+"' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da triagem '" + triagem.getCodigo() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
@@ -54,9 +54,9 @@ public class TriagemBean implements Serializable {
 
     /**
      *
-     * @throws UBSException
+     * @throws NegocioException
      */
-    public void excluir() throws UBSException {
+    public void excluir() throws NegocioException {
         this.triagemService.delete(triagemSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
     }

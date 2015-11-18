@@ -22,17 +22,17 @@ import org.junit.Test;
  * @author wilde
  */
 public class ContaDaoTest {
-    
+
     private static EntityManagerProducer entityManagerProducer;
     private static EntityManager entityManager;
     private static ContaDao contaDao;
     private static DateTimeUtilBean dateTimeUtilBean;
     private static List<Conta> listaContas;
     private static Long id;
-    
+
     public ContaDaoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
         contaDao = new ContaDao();
@@ -41,7 +41,7 @@ public class ContaDaoTest {
         entityManager = entityManagerProducer.create();
         contaDao.setEntityManager(entityManager);
     }
-    
+
     @Test(expected = Exception.class)
     public void testSalvarContaNull() {
 
@@ -52,12 +52,12 @@ public class ContaDaoTest {
         contaDao.getEntityManager().getTransaction().commit();
 
     }
-    
+
     @Test
     public void testSalvarContaCamposObrigatorios() {
 
         Conta conta = new Conta();
-        
+
         conta.setPassword("default");
         conta.setPermissao(Permissao.ADMIN);
         conta.setUserName("default");
@@ -84,7 +84,6 @@ public class ContaDaoTest {
     }
 
     //Teste comentado para decisão junto com o administrador para resolução de regra de negócio
-    
 //    @Test(expected = Exception.class)
 //    public void testSalvarContaDuplicada() {
 //
