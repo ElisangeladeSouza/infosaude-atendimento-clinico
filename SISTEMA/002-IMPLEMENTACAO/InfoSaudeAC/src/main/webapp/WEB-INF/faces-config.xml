@@ -12,6 +12,11 @@
     </factory>
     
     <application>
+        <!--Listener que varre a árvore de componentes do JSF e procura componentes com inputs inválidos.-->
+        <system-event-listener>
+            <system-event-listener-class>br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.ValidationListener</system-event-listener-class>
+            <system-event-class>javax.faces.event.PreRenderViewEvent</system-event-class>
+        </system-event-listener>
         
         <!-- Set the target of file .properties with the strings to the view 
         (internationalization). -->

@@ -79,8 +79,8 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
                 if (excecao instanceof ViewExpiredException) {
                     redirecionar("/");//Redirecionando para a home
                 } else if (negocioException != null) {
-                    handled = true;
-                    FacesUtil.mensagemErro(negocioException.getMessage());
+                    handled = true;//Confirmando que a exceção foi tratada
+                    FacesUtil.mensagemErro(negocioException.getMessage());//Exibindo a mensagem lançada pela exceção
                 } else {
                     handled = true;
                     LOGGER.error("ERRO NO SISTEMA: " + excecao.getMessage(), excecao);

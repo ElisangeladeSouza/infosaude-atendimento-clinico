@@ -8,7 +8,6 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
-import javax.persistence.NoResultException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -30,10 +29,8 @@ public class ExameService implements Serializable {
 
     @Transactional
     public void save(Exame exame) {
-        if (exame != null) {
-            exame.setData(new DateTimeUtilBean().getDateToday());
-            this.exameDao.salvar(exame);
-        }
+        exame.setData(new DateTimeUtilBean().getDateToday());
+        this.exameDao.salvar(exame);
     }
 
     /**
@@ -44,6 +41,7 @@ public class ExameService implements Serializable {
     @Transactional
     public void delete(Exame exame) throws NegocioException {
         exameDao.delete(findById(exame.getId()));
+        LOGGER.info("Exame com id "+ exame.getId() + "removido.");
     }
 
     /**
@@ -63,25 +61,8 @@ public class ExameService implements Serializable {
         return exameDao.findAll();
     }
 
-    public boolean verificaCampoUnique(String campo, Object valor, Long id) throws NegocioException {
-        try {
-            Exame exame;
-            if (id == null) {
-                exame = exameDao.buscarPorCampo(campo, valor);
-                if (exame != null) {
-                    throw new NegocioException("A " + campo.toUpperCase() + " informada pertence a outro cadastro.");
-                }
-            } else {
-                exame = exameDao.buscarPorCampo(campo, valor);
-                if (exame != null && id.equals(exame.getId())) {
-                    throw new NegocioException("A " + campo.toUpperCase() + " informada pertence a outro cadastro.");
-                }
-                return true;
-            }
-        } catch (NoResultException ex) {
-            LOGGER.info("Infomação não encontrada");
-        }
-        return true;
+    public void checaCampoDuplicado(String campo, Object valor, Long id, Exame exame) {
+        exameDao.checaCampoDuplicado(campo, valor, null, exame);
     }
 
 }

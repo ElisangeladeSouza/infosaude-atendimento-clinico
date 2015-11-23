@@ -88,3 +88,12 @@ footer {
     border-radius: 5px;
     background-color: lightskyblue;
 }
+
+.campo-invalido {
+    border: #FF0000 solid 1px !important;
+    margin: 1px;
+}
+
+.campo-invalido-mensagem {
+    color: red;
+}
