@@ -91,12 +91,12 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
             if (id == null) {
                 entidade = buscarPorCampo(campo, valor);
                 if (entidade != null) {
-                    throw new NegocioException("O campo " + campo.toUpperCase() + " pertence a outro cadastro.");
+                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
                 }
             } else {
                 entidade = buscarPorCampo(campo, valor);
                 if (entidade != null) {
-                    throw new NegocioException("O campo " + campo.toUpperCase() + " pertence a outro cadastro.");
+                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
                 }
                 return true;
             }

@@ -83,12 +83,12 @@ public class RequisicaoExameService implements Serializable {
             if (id == null) {
                 requisicaoExame = requisicaoExameDao.buscarPorCampo(campo, valor);
                 if (requisicaoExame != null) {
-                    throw new NegocioException("O " + campo.toUpperCase() + " informado pertence a outro cadastro.");
+                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
                 }
             } else {
                 requisicaoExame = requisicaoExameDao.buscarPorCampo(campo, valor);
                 if (requisicaoExame != null && id.equals(requisicaoExame.getId())) {
-                    throw new NegocioException("O " + campo.toUpperCase() + " informado pertence a outro cadastro.");
+                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
                 }
                 return true;
             }
