@@ -47,11 +47,11 @@
         </footer>
 
         <h:form>
-            <p:confirmDialog global="true">
-                <p:commandButton value="#{msg.no}" type="button" styleClass="ui-confirmdialog-no" 
+            <p:confirmDialog id="confirmDialog" global="true">
+                <p:commandButton id="confirmNo" value="#{msg.no}" type="button" styleClass="ui-confirmdialog-no" 
                                  icon="ui-icon-close"/>
 
-                <p:commandButton value="#{msg.yes}" type="button" styleClass="ui-confirmdialog-yes" 
+                <p:commandButton id="confirmYes" value="#{msg.yes}" type="button" styleClass="ui-confirmdialog-yes" 
                                  icon="ui-icon-check"/>
             </p:confirmDialog>
         </h:form>

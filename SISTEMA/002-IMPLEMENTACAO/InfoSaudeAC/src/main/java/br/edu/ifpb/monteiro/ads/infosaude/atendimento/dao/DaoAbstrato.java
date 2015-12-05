@@ -93,12 +93,6 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
                 if (entidade != null) {
                     throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
                 }
-            } else {
-                entidade = buscarPorCampo(campo, valor);
-                if (entidade != null) {
-                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
-                }
-                return true;
             }
         } catch (NoResultException ex) {
             LOGGER.info("Infomação não encontrada" + ex.getMessage());
@@ -114,15 +108,4 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
         this.entityManager = entityManager;
     }
 
-    //ESTE METODO, APARENTEMENTE, É RESÍDUO DE ALGUM TESTE. CASO NÃO TENHA EFEITO NO FUNCIONAMENTO DO SISTEMA, DEVERÁ SER APAGADO.
-//    public List<T> query(String query, Object... params) {
-//        List<T> result = null;
-//        Query q = entityManager.createQuery(query);
-//        int paramPos = 1;
-//        for (Object o : params) {
-//            q.setParameter(paramPos++, o);
-//        }
-//        result = q.getResultList();
-//        return result;
-//    }
 }

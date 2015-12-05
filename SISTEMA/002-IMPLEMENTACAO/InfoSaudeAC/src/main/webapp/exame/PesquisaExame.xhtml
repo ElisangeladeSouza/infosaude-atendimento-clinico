@@ -28,7 +28,7 @@
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaExame"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
-                             scrollable="true" scrollRows="10" scrollHeight="210">
+                             scrollable="true" scrollRows="10" scrollHeight="290">
 
                     <f:facet name="header">
                         <p:outputPanel id="panelFiltroExame">
@@ -65,7 +65,7 @@
                             <f:setPropertyActionListener value="#{exame}" target="#{exameBean.exameSelecionado}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreExamination}" message="#{msg.realyExcludeExamination}"/>
+                            <p:confirm id="confirmaExclusao" icon="ui-icon-alert" header="#{msg.exclusionCadastreExamination}" message="#{msg.realyExcludeExamination}"/>
 
                         </p:commandButton>
                     </p:column>
