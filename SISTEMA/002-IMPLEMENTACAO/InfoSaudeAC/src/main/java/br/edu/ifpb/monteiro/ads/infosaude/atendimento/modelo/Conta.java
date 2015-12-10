@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
+ * Entidade que representa as contas dos usuários que possuem permissões para
+ * acessar, inserir, editar, consultar e excluir informações no sistema.
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Entity

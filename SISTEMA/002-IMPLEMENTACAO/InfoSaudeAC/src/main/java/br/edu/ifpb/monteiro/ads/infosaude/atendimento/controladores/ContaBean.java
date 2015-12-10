@@ -19,7 +19,8 @@ import org.apache.shiro.web.util.WebUtils;
 import org.omnifaces.util.Faces;
 
 /**
- *
+ * Maneged bean usado pela página de cadastro de contas.
+ * 
  * @author elisangela
  */
 @Model
@@ -78,7 +79,13 @@ public class ContaBean implements Serializable {
         this.contas = contaService.findAll();
         return contas;
     }
-
+    
+    /**
+     * Método que verifica usuário e senha digitados. Caso as informações 
+     * estejam corretas o usuário será logado, caso contrário emite mensagem
+     * de falha no login.
+     * @throws IOException 
+     */
     public void login() throws IOException {
         try {
             SecurityUtils.getSubject().login(new UsernamePasswordToken(conta.getUserName(), conta.getPassword()));
@@ -89,6 +96,10 @@ public class ContaBean implements Serializable {
         }
     }
 
+    /**
+     * Métdo para deslogar usuário corrente e voltar a página de inicial de login.
+     * @return 
+     */
     public String logout() {
         SecurityUtils.getSubject().logout();
         return "/Login.xhtml?faces-redirect=true";

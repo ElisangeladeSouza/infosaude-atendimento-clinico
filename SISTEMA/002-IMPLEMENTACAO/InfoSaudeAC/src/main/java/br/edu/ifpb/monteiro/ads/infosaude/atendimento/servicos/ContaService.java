@@ -9,7 +9,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- *
+ * Classe de negócio que trata da lógica de cadastros de contas.
+ * 
  * @author elisangela
  */
 public class ContaService implements Serializable {
