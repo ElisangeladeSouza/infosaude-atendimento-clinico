@@ -12,14 +12,28 @@
     padding-top: 2px;
 }
 
-#logged-user-top-message{
-    /*height: 10px;*/ 
+.formulario-usuario-logado{
+    float: right; 
+    margin-right: 10px; 
+    margin-top: 25px; 
+    text-align: right
+}
+
+.nome-usuario-logado{
+    height: 10px;
     text-align: right;
-    font-size: 12px;
+    font-size: 13px;
     float: right;
-    margin-right: 10px;
-    color: white;
-    text-shadow:#000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px;
+    color: black;
+    text-shadow:#fff 1px -1px 2px, #fff -1px 1px 2px, #fff 1px 1px 2px, #fff -1px -1px 2px;
+}
+
+.boas-vindas-usuario-logado{
+    height: 10px; 
+    font-size: 13px;
+    margin-right: 5px;
+    color: black;
+    text-shadow:#fff 1px -1px 2px, #fff -1px 1px 2px, #fff 1px 1px 2px, #fff -1px -1px 2px;
 }
 
 .logged-user .ui-button{
@@ -92,6 +106,60 @@ footer {
 .campo-invalido {
     border: #FF0000 solid 1px !important;
     margin: 1px;
+}
+
+.box-acesso-negado{
+    background-color: #F2DEDE;
+    width: 400px;
+    height: 220px;
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;/* Aqui ele pega 50% da altura tela e sobe metade do valor da altura, no caso 100 */
+    border-radius: 10px;
+    left:50%;
+    margin-left:-250px; /* Aqui ele pega 50% da largura tela e diminui  metade do valor da largura, no caso 250 */
+    box-shadow: 3px 3px 5px #ccc;
+    padding: 5px;
+}
+
+#logo-acesso-negado{
+    text-align: center;
+}
+
+#titulo-acesso-negado{
+    color: #A94442; 
+    text-align: center; 
+    font-size: 33px;
+    margin-top: 7px;
+}
+
+#mensagem-acesso-negado{
+    color: #A94442; 
+    text-align: center; 
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.ui-button.botaoOK{
+    background: #F2A1A1 !important;
+    text-align: center !important;
+    margin-top: 7%;
+    margin-left: 44%;
+}
+
+.mensagem-contador{
+    color: #A94442 !important; 
+    text-align: center !important; 
+    font-size: 10px !important;
+    margin-top: 25px !important;
+    position: absolute;
+    width: 100%;
+}
+
+#welcomeHomeMessage{
+    color: darkcyan;
+    text-shadow: #E0E0E0 2px -2px 3px, #E0E0E0 -2px 2px 3px;
+    vertical-align: middle;
 }
 
 .campo-invalido-mensagem {

@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/cabecalho-sem-menu.xhtml">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="estilos.css"/>
         <link rel="icon" type="image/x-icon" href="http://localhost:8080/infosaude-atendimento/resources/imagens/favicon.ico" />
         <title><ui:insert name="title">InfoSaúde - Acesso Negado</ui:insert></title>
+
+        <script language='Javascript'>
+            segundos = 5;
+            function contagem_tempo() {
+
+                document.contador.segundos.value = segundos;
+                segundos = segundos - 1;
+
+                if (segundos === -1) {
+                    segundos = 0;
+                }
+
+                timerID = setTimeout("contagem_tempo()", 1000);
+            }
+        </script>
+
+        <form name="contador">
+            <input name="segundos" type="text" />
+        </form>
+
     </h:head>
 
-    <h:body>
-        <div style="padding-top: 50px; text-align: center">
-            <div align="center" style="margin-top: 150px"><p:graphicImage library="imagens" name="info_saude_web.png"/></div>
-            <p:outputLabel id="msgAcessoNegado" value="Você não possui acesso a esta página. " style="font-size: 15pt; text-shadow: 1px 1px 1px rgba(0, 0, 0, .4)"/>
-            <p:link id="linkVoltar" value="Voltar ao menu principal" href="/Home.xhtml" 
-                    style="font-size: 15pt; text-shadow: 1px 1px 1px rgba(0, 0, 0, .4); text-decoration: none"/>
-        </div>
-    </h:body>
-</html>
+    <ui:define name="conteudo">
+        <h:form>
+            <div class="box-acesso-negado">
+                <div id="logo-acesso-negado"><p:graphicImage library="imagens" name="lock.png"/></div>
+                <h1 id="titulo-acesso-negado">Acesso negado</h1>
+                <div id="mensagem-acesso-negado">Você não tem permissão para acessar esta página.</div>
+                <div><a href="javascript:history.back();"><p:button value="OK" styleClass="botaoOK"/></a></div>
+<!--                <p:outputLabel id="mensagem-contador" styleClass="mensagem-contador" 
+                               value="Você será redirecionado em #{systemUtilBean.numero} segundos..."/>
+                <p:poll interval="1" listener="#{systemUtilBean.contagem}"  
+                        update="mensagem-contador"/>-->
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

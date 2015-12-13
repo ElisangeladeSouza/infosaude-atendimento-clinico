@@ -18,25 +18,18 @@
 
     <h:body>
 
-        <!--Carrega o arquivo que contém as tags para limitar o acesso às telas do sistema-->
         <ui:include src="permissoes-telas.xhtml"/>
         
         <header>
             <h:link outcome="/Home">
                 <p:graphicImage library="imagens" name="info_saude_web.png" styleClass="logo"/>
             </h:link>
-            <h:form id="formUsuarioLogado" styleClass="formulario-usuario-logado">
-                <h:outputLabel value="#{msg.welcome}, " styleClass="boas-vindas-usuario-logado"/>  
-                <h:outputLabel id="menuButtonLogado" value="#{contaBean.usuarioLogado}" styleClass="nome-usuario-logado"/>
+            <h:form id="formUsuarioLogado" style="float: right; margin-right: 80px; margin-top: 15px; text-align: right">
+                <h:outputLabel value="#{msg.welcome}: "/>  
+                <h:outputLabel id="menuButtonLogado" value="#{contaBean.usuarioLogado}"/>
             </h:form> 
 
         </header>
-
-        <div class="menu">
-            <ui:insert name="menu">
-                <ui:include src="menu-lateral.xhtml"/>
-            </ui:insert>
-        </div>
 
         <div class="conteudo">
             <ui:insert name="conteudo"/>
