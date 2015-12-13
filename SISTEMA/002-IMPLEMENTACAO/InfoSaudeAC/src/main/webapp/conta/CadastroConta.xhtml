@@ -34,10 +34,9 @@
                     <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40"/>
 
                     <p:outputLabel for="funcao" value="#{msg.function}:"/>
-                    <p:selectOneMenu id="funcao" value="#{contaBean.conta.permissao}" required="true">
-                        <f:selectItem itemLabel="#{msg.selectIt}.." noSelectionOption="true"/>
+                    <p:selectCheckboxMenu id="funcao" value="#{contaBean.conta.permissao}" required="true" label="Níveis de acesso" panelStyle="width:160px" style="width: 165px">
                         <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes}" itemLabel="#{permissoes.descricao}" var="permissoes"/>
-                    </p:selectOneMenu>
+                    </p:selectCheckboxMenu>
 
                 </h:panelGrid>
 

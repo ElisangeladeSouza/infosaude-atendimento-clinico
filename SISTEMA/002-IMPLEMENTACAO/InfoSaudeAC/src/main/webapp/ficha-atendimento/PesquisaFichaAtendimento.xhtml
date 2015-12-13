@@ -18,7 +18,8 @@
 
                 <p:toolbar >
                     <f:facet name="right">
-                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" outcome="/ficha-atendimento/CadastroFichaAtendimento"/>
+                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil"
+                                  disabled="#{not podeFazerFichaAtendimento}" outcome="/ficha-atendimento/CadastroFichaAtendimento"/>
                     </f:facet>
                 </p:toolbar>
 

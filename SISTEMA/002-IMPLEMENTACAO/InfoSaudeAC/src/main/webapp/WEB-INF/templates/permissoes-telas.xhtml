@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+    <!--    Página que define quais papeis serão atribuidos a um conjunto de 
+    limitações de acesso às telas da camada de apresentação. Para que pudesse 
+    ser atribuido mais de um papel para determinado recurso, foi necessário a 
+    utilização de um componente do JSTL (c:set) para aceitar as condições de 
+    uso do método isUserInRole(), responsável por receber o papel informado e 
+    retornar true  ou false caso o usuário logado tivesse a permissão de acesso 
+    adequada, respectivamente.-->
+
+    <div class="menu">
+        <ui:insert name="menu">
+            <h:form>
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de Paciente (PesquisaPaciente.xhtml)-->
+                <c:set var="podeVerPaciente" value="#{request.isUserInRole('Recepcionistas') or 
+                                                      request.isUserInRole('TecnicosEnfermagem') or 
+                                                      request.isUserInRole('Medicos') or 
+                                                      request.isUserInRole('Odontologos') or 
+                                                      request.isUserInRole('Enfermeiros') or 
+                                                      request.isUserInRole('Administradores')}" scope="request"/> 
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de Ficha de atendimento (PesquisaFichaAtendimento.xhtml)-->
+                <c:set var="podeVerFichaAtendimento" value="#{request.isUserInRole('Recepcionistas') or 
+                                                              request.isUserInRole('TecnicosEnfermagem') or
+                                                              request.isUserInRole('Enfermeiros') or 
+                                                              request.isUserInRole('Administradores')}" scope="request"/> 
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à FICHA DE ATENDIMENTO-->
+                <c:set var="podeFazerFichaAtendimento" value="#{request.isUserInRole('Recepcionistas') or 
+                                                                request.isUserInRole('TecnicosEnfermagem') or
+                                                                request.isUserInRole('Administradores')}" scope="request"/> 
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de TRIAGEM (PesquisaTriagem.xhtml)-->
+                <c:set var="podeVerTriagem" value="#{request.isUserInRole('Medicos') or 
+                                                     request.isUserInRole('Odontologos') or  
+                                                     request.isUserInRole('Enfermeiros') or 
+                                                     request.isUserInRole('TecnicosEnfermagem') or
+                                                     request.isUserInRole('Administradores')}" scope="request"/> 
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à TRIAGEM-->
+                <c:set var="podeFazerTriagem" value="#{request.isUserInRole('TecnicosEnfermagem') or
+                                                       request.isUserInRole('Enfermeiros') or 
+                                                       request.isUserInRole('Administradores')}" scope="request"/> 
+
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer página relacionada à CONSULTA, PROCEDIMENTO OU REQUISIÇÃO DE EXAMES-->
+                <c:set var="tudoCorpoMedico" value="#{request.isUserInRole('Medicos') or 
+                                                      request.isUserInRole('Odontologos') or  
+                                                      request.isUserInRole('Enfermeiros') or 
+                                                      request.isUserInRole('Administradores')}" scope="request"/> 
+            </h:form>
+        </ui:insert>
+    </div>
+
+</html>

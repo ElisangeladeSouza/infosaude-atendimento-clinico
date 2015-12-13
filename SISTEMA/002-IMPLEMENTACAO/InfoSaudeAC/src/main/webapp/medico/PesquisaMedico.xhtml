@@ -18,7 +18,8 @@
 
                 <p:toolbar >
                     <f:facet name="right">
-                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" outcome="/medico/CadastroMedico"/>
+                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" 
+                                  disabled="#{not request.isUserInRole('Administradores')}"  outcome="/medico/CadastroMedico"/>
                     </f:facet>
                 </p:toolbar>
 

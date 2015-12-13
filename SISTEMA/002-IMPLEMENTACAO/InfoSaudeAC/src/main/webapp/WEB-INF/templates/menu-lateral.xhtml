@@ -7,24 +7,34 @@
       xmlns:p="http://primefaces.org/ui">
 
     <div class="menu">
+        
+        <!--Tag que chama a tela de permissões que contém as roles atribuidas a cada grupo de usuários do sistema.-->
+        <ui:include src="permissoes-telas.xhtml"/>
+        
         <ui:insert name="menu">
             <h:form>
+
+                <!--                Algumas tags do atributo rendered do menuitem, recebem uma variável 
+                                correspondente aos grupos de usuário que podem ter acesso a determinadas 
+                                partes do sistema.Para as telas onde apenas os usuários do grupo de 
+                                ADMINISTRADORES têm acesso, o método de restringir o acesso para o usuário 
+                                logado foi inserido diretamente no atributo rendered dos menus.-->
                 <p:menu>
                     <p:submenu label="#{msg.cadastre}s">
-                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta"/>
-                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico"/>
-                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo"/>
-                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro"/>
-                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem"/>
-                        <p:menuitem value="#{msg.patient}" outcome="/paciente/PesquisaPaciente"/>
-                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista"/>
-                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador"/>
-                        <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento"/>
-                        <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta"/>
-                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame"/>
-                        <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem"/>
-                        <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento"/>
-                        <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames"/>
+                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.patient}" outcome="/paciente/PesquisaPaciente" rendered="#{podeVerPaciente}"/>
+                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}"/>
+                        <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta" rendered="#{tudoCorpoMedico}"/>
+                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}"/>
+                        <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento" rendered="#{tudoCorpoMedico}"/>
+                        <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames" rendered="#{tudoCorpoMedico}"/>
                         <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>
