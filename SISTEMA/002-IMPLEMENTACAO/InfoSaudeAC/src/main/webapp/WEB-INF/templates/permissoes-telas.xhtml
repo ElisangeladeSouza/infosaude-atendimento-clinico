@@ -27,6 +27,10 @@
                                                       request.isUserInRole('Enfermeiros') or 
                                                       request.isUserInRole('Administradores')}" scope="request"/> 
 
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada ao PACIENTE-->
+                <c:set var="podeCadastrarPaciente" value="#{request.isUserInRole('Recepcionistas') or 
+                                                            request.isUserInRole('Administradores')}" scope="request"/> 
+
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de Ficha de atendimento (PesquisaFichaAtendimento.xhtml)-->
                 <c:set var="podeVerFichaAtendimento" value="#{request.isUserInRole('Recepcionistas') or 
                                                               request.isUserInRole('TecnicosEnfermagem') or
