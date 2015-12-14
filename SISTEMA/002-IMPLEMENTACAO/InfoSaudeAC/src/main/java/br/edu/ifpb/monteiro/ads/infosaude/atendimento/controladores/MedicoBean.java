@@ -7,6 +7,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
@@ -41,6 +42,11 @@ public class MedicoBean implements Serializable {
     public MedicoBean() {
     }
 
+    @PostConstruct
+    public void init() {
+        this.medicos = medicoService.findAll();
+    }
+
     /**
      *
      */
@@ -54,7 +60,6 @@ public class MedicoBean implements Serializable {
     }
 
     public List<Medico> getMedicos() {
-        this.medicos = medicoService.findAll();
         return medicos;
     }
 

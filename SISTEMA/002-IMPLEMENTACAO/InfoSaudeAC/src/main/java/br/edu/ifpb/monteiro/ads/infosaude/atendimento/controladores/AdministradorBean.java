@@ -7,6 +7,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
@@ -43,6 +44,11 @@ public class AdministradorBean implements Serializable {
      */
     public AdministradorBean() {
     }
+    
+    @PostConstruct
+    public void init() {
+        this.administradores = administradorService.findAll();
+    }
 
     /**
      *
@@ -61,7 +67,6 @@ public class AdministradorBean implements Serializable {
      * @return
      */
     public List<Administrador> getAdministradores() {
-        this.administradores = administradorService.findAll();
         return administradores;
     }
 

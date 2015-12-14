@@ -6,6 +6,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TriagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -32,8 +33,12 @@ public class TriagemBean implements Serializable {
     public TriagemBean() {
     }
 
-    public List<Triagem> getTriagens() {
+    @PostConstruct
+    public void init() {
         this.triagens = triagemService.findAll();
+    }
+
+    public List<Triagem> getTriagens() {
         return triagens;
     }
 

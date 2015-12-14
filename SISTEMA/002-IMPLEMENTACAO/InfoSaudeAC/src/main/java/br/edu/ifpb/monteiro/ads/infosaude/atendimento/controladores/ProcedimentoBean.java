@@ -6,6 +6,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ProcedimentoServi
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -35,12 +36,16 @@ public class ProcedimentoBean implements Serializable {
     public ProcedimentoBean() {
     }
 
+    @PostConstruct
+    public void init() {
+        this.procedimentos = procedimentoService.findAll();
+    }
+
     /**
      *
      * @return
      */
     public List<Procedimento> getProcedimentos() {
-        this.procedimentos = procedimentoService.findAll();
         return procedimentos;
     }
 

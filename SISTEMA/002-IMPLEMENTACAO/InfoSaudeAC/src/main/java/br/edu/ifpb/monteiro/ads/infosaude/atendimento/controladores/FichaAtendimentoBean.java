@@ -44,9 +44,7 @@ public class FichaAtendimentoBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        if (fichaAtendimentos != null) {
-            this.fichaAtendimentos = fichaAtendimentoService.findAll();
-        }
+        this.fichaAtendimentos = fichaAtendimentoService.findAll();
     }
 
     /**

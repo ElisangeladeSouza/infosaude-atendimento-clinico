@@ -7,6 +7,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RecepcionistaServ
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
@@ -44,6 +45,11 @@ public class RecepcionistaBean implements Serializable {
     public RecepcionistaBean() {
     }
 
+    @PostConstruct
+    public void init() {
+        this.recepcionistas = recepcionistaService.findAll();
+    }
+
     /**
      *
      */
@@ -61,7 +67,6 @@ public class RecepcionistaBean implements Serializable {
      * @return
      */
     public List<Recepcionista> getRecepcionistas() {
-        this.recepcionistas = recepcionistaService.findAll();
         return recepcionistas;
     }
 

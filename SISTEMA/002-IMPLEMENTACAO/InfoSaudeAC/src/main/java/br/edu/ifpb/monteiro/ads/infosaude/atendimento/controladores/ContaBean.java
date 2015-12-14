@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import org.apache.shiro.SecurityUtils;
@@ -48,6 +49,11 @@ public class ContaBean implements Serializable {
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
     }
 
+    @PostConstruct
+    public void init() {
+        this.contas = contaService.findAll();
+    }
+
     public void salvar() throws NegocioException {
         this.contaService.save(conta);
         if (getEditando()) {
@@ -76,7 +82,6 @@ public class ContaBean implements Serializable {
     }
 
     public List<Conta> getContas() {
-        this.contas = contaService.findAll();
         return contas;
     }
 

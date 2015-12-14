@@ -7,6 +7,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
@@ -44,6 +45,11 @@ public class EnfermeiroBean implements Serializable {
     public EnfermeiroBean() {
     }
 
+    @PostConstruct
+    public void init() {
+        this.enfermeiros = enfermeiroService.findAll();
+    }
+
     /**
      *
      */
@@ -61,7 +67,6 @@ public class EnfermeiroBean implements Serializable {
      * @return
      */
     public List<Enfermeiro> getEnfermeiros() {
-        this.enfermeiros = enfermeiroService.findAll();
         return enfermeiros;
     }
 

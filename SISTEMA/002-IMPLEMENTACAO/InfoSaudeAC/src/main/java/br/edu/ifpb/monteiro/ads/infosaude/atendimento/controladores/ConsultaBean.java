@@ -6,6 +6,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ConsultaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import org.apache.commons.logging.Log;
@@ -38,13 +39,17 @@ public class ConsultaBean implements Serializable {
      */
     public ConsultaBean() {
     }
+    
+    @PostConstruct
+    public void init() {
+        this.consultas = consultaService.findAll();
+    }
 
     /**
      *
      * @return
      */
     public List<Consulta> getConsultas() {
-        this.consultas = consultaService.findAll();
         return consultas;
     }
 
