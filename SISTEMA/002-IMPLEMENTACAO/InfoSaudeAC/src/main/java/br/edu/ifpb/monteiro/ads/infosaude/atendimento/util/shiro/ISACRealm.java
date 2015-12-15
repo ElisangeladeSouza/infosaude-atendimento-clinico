@@ -92,7 +92,7 @@ public class ISACRealm extends AuthorizingRealm {
         
         Query query = em.createQuery("SELECT grupo FROM Grupo grupo WHERE grupo.nome = ?1");
         query.setParameter(1, username);
-        return null;
+        return authorizationInfo;
     }
     
 }
