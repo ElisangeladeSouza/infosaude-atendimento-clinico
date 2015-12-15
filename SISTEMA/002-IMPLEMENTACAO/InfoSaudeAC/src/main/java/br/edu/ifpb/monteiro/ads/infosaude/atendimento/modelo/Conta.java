@@ -32,6 +32,8 @@ public class Conta implements Serializable {
 
     @Column(name = "permissao", nullable = true)
     private Permissao permissao;
+    
+    private String salt;
 
     public Conta() {
     }
@@ -66,6 +68,14 @@ public class Conta implements Serializable {
 
     public void setPermissao(Permissao permissao) {
         this.permissao = permissao;
+    }
+    
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     @Override
