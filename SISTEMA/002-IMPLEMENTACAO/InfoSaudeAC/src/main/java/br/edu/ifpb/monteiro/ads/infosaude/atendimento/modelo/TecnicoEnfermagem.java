@@ -6,8 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * Entidade que representa o Técnico em enfermagem da UBS. Ao extender Pessoa,
- * passa a herdar todos os seus atributos.
+ * Entidade que representa o Técnico em Enfermagem da UBS. Profissional que 
+ * dentre as suas atribuições tem como responsabilidade dar assitência básica na 
+ * realização de procedimentos dentro da UBS de acordo com o regulamento no
+ * exercício de sua profissão. Ao extender Pessoa, passa a herdar todos os seus 
+ * atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -52,6 +55,8 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
         this.corenTecnicoEnfermagem = corenTecnicoEnfermagem;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashTecnicoEnfermagem = 7;

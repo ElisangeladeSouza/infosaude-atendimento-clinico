@@ -52,6 +52,8 @@ public class Medico extends Pessoa implements Serializable {
         this.cartaoSusMedico = cartaoSusMedico;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashMedico = 7;

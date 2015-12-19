@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author cassio
+ *Entidade que representa os grupos de acesso do sistema. Cada papel no sistema
+ * possui um grupo de permissões.
+ * 
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 @Entity
 public class Grupo implements Serializable {

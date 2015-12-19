@@ -44,6 +44,8 @@ public class Administrador extends Pessoa implements Serializable {
         this.cartaoSusAdministrador = cartaoSusAdministrador;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashAdministrador = 7;

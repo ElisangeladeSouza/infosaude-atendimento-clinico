@@ -16,7 +16,7 @@ import org.apache.commons.logging.LogFactory;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class RequisicaoExameService implements Serializable {
 
@@ -27,14 +27,13 @@ public class RequisicaoExameService implements Serializable {
     @Inject
     private RequisicaoExameDao requisicaoExameDao;
 
-    /**
-     *
-     */
     public RequisicaoExameService() {
     }
 
     /**
-     *
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
      * @param requisicaoExame
      */
     @Transactional
@@ -48,7 +47,8 @@ public class RequisicaoExameService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para remover um cadastro do banco de dados.
+     * 
      * @param requisicaoExame
      * @throws NegocioException
      */
@@ -58,7 +58,9 @@ public class RequisicaoExameService implements Serializable {
     }
 
     /**
-     *
+     * Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
      * @return
      */
     public List<RequisicaoExame> findAll() {
@@ -66,7 +68,9 @@ public class RequisicaoExameService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
      * @param id
      * @return
      */
@@ -74,6 +78,17 @@ public class RequisicaoExameService implements Serializable {
         return requisicaoExameDao.findById(id);
     }
 
+    /**
+     * Recebe o valor passado pelo método buscarPorCampo() para determinar a
+     * duplicidade do cadastro e lança uma exceção informando ao usuário qual
+     * campo não pode ser inserido por já existir no banco de dados.
+     * 
+     * @param campo
+     * @param valor
+     * @param id
+     * @return
+     * @throws NegocioException 
+     */
     public boolean verificaCampoUnique(String campo, Object valor, Long id) throws NegocioException {
 
         try {

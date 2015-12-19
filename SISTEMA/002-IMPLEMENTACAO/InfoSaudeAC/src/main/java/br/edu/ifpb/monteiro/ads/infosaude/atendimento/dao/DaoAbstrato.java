@@ -19,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
  * efetuar um CRUD e métodos adicionais que podem ser usados por qualquer
  * entidade do sistema.
  *
- * @author cassio
+ * @author cassio <cassio@cassioliveira.com.br>
  * @param <T>
  */
 public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
@@ -45,16 +45,33 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
         this.entity = entityClass;
     }
 
+    /**
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
+     * @param entity 
+     */
     @Override
     public void salvar(T entity) {
         entityManager.merge(entity);
     }
-
+    
+    /**
+     * Método utilizado para remover um cadastro do banco de dados.
+     * 
+     * @param entity 
+     */
     @Override
     public void delete(T entity) {
         entityManager.remove(entity);
     }
 
+    /**
+     * Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
+     * @return 
+     */
     @Override
     public List<T> findAll() {
         CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
@@ -62,11 +79,26 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
         return getEntityManager().createQuery(cq).getResultList();
     }
 
+    /**
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
+     * @param id
+     * @return 
+     */
     @Override
     public T findById(Long id) {
         return entityManager.find(entity, id);
     }
 
+    /**
+     * Faz uma consulta no banco de dados baseado em um valor passado como
+     * parâmetro e retorna o resultado da consulta.
+     * 
+     * @param campo
+     * @param valor
+     * @return 
+     */
     @Override
     public T buscarPorCampo(String campo, Object valor) {
         try {
@@ -85,6 +117,19 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
         return null;
     }
 
+    /**
+     * Recebe o valor passado pelo método buscarPorCampo() para determinar a
+     * duplicidade do cadastro e lança uma exceção informando ao usuário qual
+     * campo não pode ser inserido por já existir no banco de dados.
+     *
+     * 
+     * @param campo
+     * @param valor
+     * @param id
+     * @param entidade
+     * @return
+     * @throws NegocioException 
+     */
     @Override
     public boolean checaCampoDuplicado(String campo, Object valor, Long id, T entidade) throws NegocioException {
         try {

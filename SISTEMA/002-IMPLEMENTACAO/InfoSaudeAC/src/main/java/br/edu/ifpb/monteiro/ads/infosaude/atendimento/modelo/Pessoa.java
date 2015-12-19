@@ -23,7 +23,7 @@ import javax.validation.constraints.Pattern;
  * comuns em pessoa, podem herdar suas características apenas extendendo a mesma
  * atravé de herança.
  *
- * @author cassio
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -209,6 +209,8 @@ public class Pessoa implements Serializable {
     public void setCorOuRaca(String corOuRaca) {
         this.corOuRaca = corOuRaca;
     }
+    
+    // hashCode e equals
 
     @Override
     public int hashCode() {

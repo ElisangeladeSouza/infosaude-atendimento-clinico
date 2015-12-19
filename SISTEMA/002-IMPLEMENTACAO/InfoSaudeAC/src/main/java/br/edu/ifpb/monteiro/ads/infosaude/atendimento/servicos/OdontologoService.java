@@ -13,7 +13,7 @@ import javax.inject.Inject;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class OdontologoService implements Serializable {
 
@@ -22,14 +22,13 @@ public class OdontologoService implements Serializable {
     @Inject
     private OdontologoDao odontologoDAO;
 
-    /**
-     *
-     */
     public OdontologoService() {
     }
 
     /**
-     *
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
      * @param odontologo
      */
     @Transactional
@@ -40,7 +39,7 @@ public class OdontologoService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para remover um cadastro do banco de dados.
      * @param odontologo
      * @throws NegocioException
      */
@@ -50,7 +49,9 @@ public class OdontologoService implements Serializable {
     }
 
     /**
-     *
+     *  Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
      * @return
      */
     public List<Odontologo> findAll() {
@@ -58,7 +59,9 @@ public class OdontologoService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
      * @param id
      * @return
      */

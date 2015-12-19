@@ -16,9 +16,9 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
- * Entidade que representa a Consulta para o paciente que pode ser por um médico
- * ou Odontólogo da UBS. Ao extender Pessoa, passa a herdar todos os seus
- * atributos.
+ * Entidade que representa a Consulta para o paciente que pode ser feita por um 
+ * Médico, Enfermeiro, Odontólogo ou Administrador da UBS. Ao extender Pessoa, 
+ * passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -56,9 +56,6 @@ public class Consulta implements Serializable {
     @Column(name = "consulta_sintomas")
     private String sintomas;
 
-//    @OneToOne(mappedBy = "consultaPaciente")
-//    @JoinColumn(name = "paciente_pk", referencedColumnName = "id")
-//    private Paciente paciente;
     @OneToOne
     @JoinColumn(name = "fichaatendimentofk_id", nullable = false)
     private FichaAtendimento fichaAtendimento;
@@ -182,6 +179,8 @@ public class Consulta implements Serializable {
         this.procedimento = procedimento;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashConsulta = 3;

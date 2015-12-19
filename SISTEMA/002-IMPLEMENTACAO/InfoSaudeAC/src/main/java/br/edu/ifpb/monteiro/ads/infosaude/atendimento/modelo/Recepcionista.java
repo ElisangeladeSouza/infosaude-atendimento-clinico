@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * Entidade que representa o Recepcionista da UBS. Ao extender Pessoa, passa a
- * herdar todos os seus atributos.
+ * Entidade que representa o Recepcionista da UBS. É o primeiro profissional da
+ * UBS que o paciente (usuário) do sistema de saúde tem contato. Responsável
+ * pela acolhida e preenchimento dos dados preliminares do paciente. 
+ * Ao extender Pessoa, passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -41,6 +43,8 @@ public class Recepcionista extends Pessoa implements Serializable {
         this.cartaoSusRecepcionista = cartaoSusRecepcionista;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashRecepcionista = 5;

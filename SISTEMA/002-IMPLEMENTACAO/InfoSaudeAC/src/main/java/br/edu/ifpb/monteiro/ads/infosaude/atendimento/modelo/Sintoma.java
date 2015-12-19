@@ -10,9 +10,9 @@ import javax.persistence.Id;
 
 /**
  * Entidade que representa o Sintoma que o paciente está tendo que pode ser
- * extraído de uma consulta do médico ou Odontólogo da UBS. Ao extender Pessoa,
- * passa a herdar todos os seus atributos.
- *
+ * extraído de uma consulta do Médico, Enfermeiro ou Odontólogo da UBS. 
+ * Ao extender Pessoa, passa a herdar todos os seus atributos.
+ * 
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
@@ -45,6 +45,8 @@ public class Sintoma implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
+    // hashCode e equals
 
     @Override
     public int hashCode() {

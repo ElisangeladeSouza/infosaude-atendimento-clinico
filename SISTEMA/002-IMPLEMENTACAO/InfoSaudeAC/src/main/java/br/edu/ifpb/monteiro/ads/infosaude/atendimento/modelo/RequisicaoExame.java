@@ -14,9 +14,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Entidade que representa a Requisição de exame para o paciente que pode ser
- * solicitada durante uma consulta do médico ou Odontólogo da UBS. Ao extender
- * Pessoa, passa a herdar todos os seus atributos.
+ * Entidade que representa a Requisição de Exame para o paciente que pode ser
+ * solicitada durante uma consulta do Médico, Enfermeiro ou Odontólogo da UBS. 
+ * Ao extender Pessoa, passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -105,6 +105,8 @@ public class RequisicaoExame implements Serializable {
         this.exames = exames;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashRequisicaoExame = 7;

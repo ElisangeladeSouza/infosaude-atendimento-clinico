@@ -14,7 +14,7 @@ import javax.inject.Inject;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class ConsultaService implements Serializable {
 
@@ -23,14 +23,13 @@ public class ConsultaService implements Serializable {
     @Inject
     private ConsultaDao consultaDao;
 
-    /**
-     *
-     */
     public ConsultaService() {
     }
 
     /**
-     *
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
      * @param consulta
      */
     @Transactional
@@ -42,7 +41,7 @@ public class ConsultaService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para remover um cadastro do banco de dados.
      * @param consulta
      * @throws NegocioException
      */
@@ -52,7 +51,9 @@ public class ConsultaService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
      * @param id
      * @return
      */
@@ -61,7 +62,9 @@ public class ConsultaService implements Serializable {
     }
 
     /**
-     *
+     * Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
      * @return
      */
     public List<Consulta> findAll() {

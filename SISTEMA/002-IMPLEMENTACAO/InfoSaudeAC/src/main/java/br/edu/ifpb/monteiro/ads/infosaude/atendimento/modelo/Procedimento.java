@@ -17,7 +17,10 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Entidade que representa o Procedimento a ser executado por algum profissional
- * de saúde da UBS. Ao extender Pessoa, passa a herdar todos os seus atributos.
+ * de saúde da UBS. Alguns procedimentos clínicos e pequenos procedimentos 
+ * cirúrgicos podem ser realizados nas UBS, exemplo: curativo, retirada de 
+ * pontos, aferição de pressão arterial, etc. Ao extender Pessoa, passa a herdar
+ * todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -112,6 +115,8 @@ public class Procedimento implements Serializable {
         this.paciente = paciente;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashProcedimento = 3;

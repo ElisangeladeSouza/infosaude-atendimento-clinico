@@ -52,6 +52,8 @@ public class Odontologo extends Pessoa implements Serializable {
         this.cartaoSusOdontologo = cartaoSusOdontologo;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashOdontologo = 7;

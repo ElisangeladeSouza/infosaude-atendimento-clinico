@@ -14,7 +14,7 @@ import javax.inject.Inject;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class FichaAtendimentoService implements Serializable {
 
@@ -26,6 +26,12 @@ public class FichaAtendimentoService implements Serializable {
     public FichaAtendimentoService() {
     }
 
+    /**
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
+     * @param fichaAtendimento 
+     */
     @Transactional
     public void save(FichaAtendimento fichaAtendimento) {
         if (fichaAtendimento != null) {
@@ -34,15 +40,34 @@ public class FichaAtendimentoService implements Serializable {
         }
     }
 
+    /**
+     * Método utilizado para remover um cadastro do banco de dados.
+     * 
+     * @param fichaAtendimento
+     * @throws NegocioException 
+     */
     @Transactional
     public void delete(FichaAtendimento fichaAtendimento) throws NegocioException {
         fichaAtendimentoDao.delete(findById(fichaAtendimento.getId()));
     }
 
+    /**
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
+     * @param id
+     * @return 
+     */
     public FichaAtendimento findById(Long id) {
         return fichaAtendimentoDao.findById(id);
     }
 
+    /**
+     * Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
+     * @return 
+     */
     public List<FichaAtendimento> findAll() {
         return fichaAtendimentoDao.findAll();
     }

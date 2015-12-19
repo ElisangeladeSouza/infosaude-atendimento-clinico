@@ -8,7 +8,7 @@ import java.util.List;
  * necessários para fazer um CRUD e métodos adicionais usados em outras partes
  * do sistema.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  * @param <T>
  */
 public interface Dao<T> {

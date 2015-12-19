@@ -71,6 +71,8 @@ public class Exame implements Serializable {
     public void setData(Date data) {
         this.data = data;
     }
+    
+    // hashCode, equals e toString
 
     @Override
     public int hashCode() {

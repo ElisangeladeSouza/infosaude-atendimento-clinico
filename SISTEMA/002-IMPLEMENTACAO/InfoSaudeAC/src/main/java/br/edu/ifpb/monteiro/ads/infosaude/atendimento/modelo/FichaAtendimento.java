@@ -18,7 +18,9 @@ import javax.persistence.TemporalType;
 
 /**
  * Entidade que representa a Ficha de atendimento que é feita pelo recepcionista
- * da UBS.
+ * da UBS. A ficha de atendimento é onde são registradas todas as atividades, 
+ * procedimentos e notificações dos pacientes atendidos pelo estabelecimento 
+ * de saúde em questão.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -48,9 +50,6 @@ public class FichaAtendimento implements Serializable {
     @JoinColumn(name = "triagem_pk")
     private Triagem triagem;
 
-//    @OneToOne(mappedBy = "fichaAtendimento")
-//    @JoinColumn(name = "consulta_pk")
-//    private Consulta consulta;
     @OneToOne(mappedBy = "fichaAtendimento")
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
@@ -113,6 +112,8 @@ public class FichaAtendimento implements Serializable {
     public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }
+    
+    // hashCode e equals
 
     @Override
     public int hashCode() {

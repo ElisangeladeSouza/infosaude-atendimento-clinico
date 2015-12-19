@@ -51,6 +51,8 @@ public class Enfermeiro extends Pessoa implements Serializable {
     public void setCorenEnfermeiro(String corenEnfermeiro) {
         this.corenEnfermeiro = corenEnfermeiro;
     }
+    
+    // hashCode e equals
 
     @Override
     public int hashCode() {

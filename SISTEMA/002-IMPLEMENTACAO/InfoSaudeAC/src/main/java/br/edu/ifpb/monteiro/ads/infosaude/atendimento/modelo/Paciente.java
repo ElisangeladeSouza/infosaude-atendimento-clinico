@@ -9,8 +9,9 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
 
 /**
- * Entidade que representa o Paciente da UBS. Ao extender Pessoa, passa a herdar
- * todos os seus atributos.
+ * Entidade que representa o Paciente da UBS. Usuário da UBS, não possui acesso
+ * as funcionalidades nem possui papel ativo dentro sistema. Ao extender Pessoa,
+ * passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
@@ -41,9 +42,6 @@ public class Paciente extends Pessoa implements Serializable {
     @JoinColumn(name = "ficha_atendimento_pk")
     private FichaAtendimento fichaAtendimentoPaciente;
 
-//    @OneToOne
-//    @JoinColumn(name = "consulta_pk", referencedColumnName = "id")
-//    private Consulta consultaPaciente;
     @OneToOne
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Procedimento procedimentoPaciente;
@@ -52,7 +50,6 @@ public class Paciente extends Pessoa implements Serializable {
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
     private Triagem triagemPaciente;
 
-//    @Column(name = "paciente_ficha_atendimento")
     public Paciente() {
     }
 
@@ -120,6 +117,8 @@ public class Paciente extends Pessoa implements Serializable {
         this.triagemPaciente = triagemPaciente;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hashPaciente = 7;

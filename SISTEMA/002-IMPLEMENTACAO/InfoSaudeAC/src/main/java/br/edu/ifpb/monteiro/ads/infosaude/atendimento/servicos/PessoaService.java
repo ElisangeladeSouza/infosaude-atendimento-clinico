@@ -10,7 +10,7 @@ import javax.inject.Inject;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class PessoaService implements Serializable {
 
@@ -19,14 +19,13 @@ public class PessoaService implements Serializable {
     @Inject
     private PessoaDao pessoaDAO;
 
-    /**
-     *
-     */
     public PessoaService() {
     }
 
     /**
-     *
+     * Método responsável por carregar a lista de todas as cidades da federação 
+     * através de uma consulta ao banco de dados.
+     * 
      * @param codigoUF
      * @return
      */

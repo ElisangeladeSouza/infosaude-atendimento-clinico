@@ -13,7 +13,7 @@ import javax.inject.Inject;
  * lógica de negócio e pode fazer chamadas a outras partes do sistema, caso
  * necessite.
  *
- * @author Cássio Oliveira
+ * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 public class EnfermeiroService implements Serializable {
 
@@ -22,14 +22,13 @@ public class EnfermeiroService implements Serializable {
     @Inject
     private EnfermeiroDao enfermeiroDAO;
 
-    /**
-     *
-     */
     public EnfermeiroService() {
     }
 
     /**
-     *
+     * Método utilizado para salvar um novo cadastro no banco de dados ou editar
+     * um cadastro existente.
+     * 
      * @param enfermeiro
      */
     @Transactional
@@ -40,7 +39,8 @@ public class EnfermeiroService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para remover um cadastro do banco de dados.
+     * 
      * @param enfermeiro
      * @throws NegocioException
      */
@@ -50,7 +50,9 @@ public class EnfermeiroService implements Serializable {
     }
 
     /**
-     *
+     * Método responsável pela busca em toda lista.Método utilizado para retornar 
+     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
+     * 
      * @return
      */
     public List<Enfermeiro> findAll() {
@@ -58,7 +60,9 @@ public class EnfermeiroService implements Serializable {
     }
 
     /**
-     *
+     * Método utilizado para buscar um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
+     * 
      * @param id
      * @return
      */

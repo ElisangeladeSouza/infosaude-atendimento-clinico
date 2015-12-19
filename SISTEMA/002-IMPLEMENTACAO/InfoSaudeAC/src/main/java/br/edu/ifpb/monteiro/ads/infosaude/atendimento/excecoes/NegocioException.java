@@ -1,8 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes;
 
 /**
- *
- * @author elisangela
+ * A classe NegocioException representa um tipo de exceção usado para 
+ * representar erros de negócio.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class NegocioException extends RuntimeException {
 

@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Entidade que representa as contas dos usuários que possuem permissões para
- * acessar, inserir, editar, consultar e excluir informações no sistema.
+ * Entidade que representa as contas dos usuários do sistema. Nela estão 
+ * contidas as permissões para acessar, inserir, editar, consultar e excluir 
+ * informações no sistema.
+ * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Entity
@@ -78,6 +80,8 @@ public class Conta implements Serializable {
         this.salt = salt;
     }
 
+    // hashCode e equals
+    
     @Override
     public int hashCode() {
         int hash = 7;
