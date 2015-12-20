@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  * Entidade que representa o Procedimento a ser executado por algum profissional
@@ -25,6 +25,7 @@ import javax.validation.constraints.NotNull;
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
 public class Procedimento implements Serializable {
 
     @Id
@@ -55,85 +56,5 @@ public class Procedimento implements Serializable {
     @OneToOne(mappedBy = "procedimentoPaciente")
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Paciente paciente;
-
-    public Procedimento() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public FichaAtendimento getFichaAtendimento() {
-        return fichaAtendimento;
-    }
-
-    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
-        this.fichaAtendimento = fichaAtendimento;
-    }
-
-    public Triagem getTriagem() {
-        return triagem;
-    }
-
-    public void setTriagem(Triagem triagem) {
-        this.triagem = triagem;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashProcedimento = 3;
-        hashProcedimento = 83 * hashProcedimento + Objects.hashCode(this.id);
-        return hashProcedimento;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Procedimento other = (Procedimento) obj;
-        return Objects.equals(this.id, other.id);
-    }
 
 }

@@ -1,20 +1,23 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
- * Entidade que representa o Técnico em Enfermagem da UBS. Profissional que 
- * dentre as suas atribuições tem como responsabilidade dar assitência básica na 
+ * Entidade que representa o Técnico em Enfermagem da UBS. Profissional que
+ * dentre as suas atribuições tem como responsabilidade dar assitência básica na
  * realização de procedimentos dentro da UBS de acordo com o regulamento no
- * exercício de sua profissão. Ao extender Pessoa, passa a herdar todos os seus 
+ * exercício de sua profissão. Ao extender Pessoa, passa a herdar todos os seus
  * atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class TecnicoEnfermagem extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,51 +31,4 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
     @Column(name = "tecnico_enfermagem_coren", unique = true, length = 50)
     private String corenTecnicoEnfermagem;
 
-    public TecnicoEnfermagem() {
-    }
-
-    public String getCpfTecnicoEnfermagem() {
-        return cpfTecnicoEnfermagem;
-    }
-
-    public void setCpfTecnicoEnfermagem(String cpfTecnicoEnfermagem) {
-        this.cpfTecnicoEnfermagem = cpfTecnicoEnfermagem;
-    }
-
-    public String getCartaoSusTecnicoEnfermagem() {
-        return cartaoSusTecnicoEnfermagem;
-    }
-
-    public void setCartaoSusTecnicoEnfermagem(String cartaoSusTecnicoEnfermagem) {
-        this.cartaoSusTecnicoEnfermagem = cartaoSusTecnicoEnfermagem;
-    }
-
-    public String getCorenTecnicoEnfermagem() {
-        return corenTecnicoEnfermagem;
-    }
-
-    public void setCorenTecnicoEnfermagem(String corenTecnicoEnfermagem) {
-        this.corenTecnicoEnfermagem = corenTecnicoEnfermagem;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashTecnicoEnfermagem = 7;
-        hashTecnicoEnfermagem = 47 * hashTecnicoEnfermagem + Objects.hashCode(this.cpfTecnicoEnfermagem);
-        return hashTecnicoEnfermagem;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final TecnicoEnfermagem other = (TecnicoEnfermagem) obj;
-        return Objects.equals(this.cpfTecnicoEnfermagem, other.cpfTecnicoEnfermagem);
-    }
 }

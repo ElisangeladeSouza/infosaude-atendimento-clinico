@@ -1,9 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Entidade que representa o Odontólogo da UBS. Ao extender Pessoa, passa a
@@ -12,6 +13,8 @@ import javax.persistence.Entity;
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Odontologo extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,60 +27,4 @@ public class Odontologo extends Pessoa implements Serializable {
 
     @Column(name = "odontologo_cro", unique = true, length = 30)
     private String cro;
-
-    public Odontologo() {
-    }
-
-    public String getCro() {
-        return cro;
-    }
-
-    public void setCro(String cro) {
-        this.cro = cro;
-    }
-
-    public String getCpfOdontologo() {
-        return cpfOdontologo;
-    }
-
-    public void setCpfOdontologo(String cpfOdontologo) {
-        this.cpfOdontologo = cpfOdontologo;
-    }
-
-    public String getCartaoSusOdontologo() {
-        return cartaoSusOdontologo;
-    }
-
-    public void setCartaoSusOdontologo(String cartaoSusOdontologo) {
-        this.cartaoSusOdontologo = cartaoSusOdontologo;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashOdontologo = 7;
-        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cpfOdontologo);
-        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cartaoSusOdontologo);
-        hashOdontologo = 29 * hashOdontologo + Objects.hashCode(this.cro);
-        return hashOdontologo;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Odontologo other = (Odontologo) obj;
-        if (!Objects.equals(this.cpfOdontologo, other.cpfOdontologo)) {
-            return false;
-        }
-        if (!Objects.equals(this.cartaoSusOdontologo, other.cartaoSusOdontologo)) {
-            return false;
-        }
-        return Objects.equals(this.cro, other.cro);
-    }
 }

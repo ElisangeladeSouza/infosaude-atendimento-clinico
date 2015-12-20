@@ -3,7 +3,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,7 +14,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import lombok.Data;
 
 /**
  * Classe que representa um modelo de uma entidade a ser persistida no banco,
@@ -26,6 +27,7 @@ import javax.validation.constraints.Pattern;
  * @author cassio <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa implements Serializable {
 
@@ -86,148 +88,4 @@ public class Pessoa implements Serializable {
     @Column(name = "pessoa_cor_raca", length = 15)
     private String corOuRaca;
 
-    public Pessoa() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getEnderecoRua() {
-        return enderecoRua;
-    }
-
-    public void setEnderecoRua(String enderecoRua) {
-        this.enderecoRua = enderecoRua;
-    }
-
-    public String getEnderecoNumero() {
-        return enderecoNumero;
-    }
-
-    public void setEnderecoNumero(String enderecoNumero) {
-        this.enderecoNumero = enderecoNumero;
-    }
-
-    public String getEnderecoBairro() {
-        return enderecoBairro;
-    }
-
-    public void setEnderecoBairro(String enderecoBairro) {
-        this.enderecoBairro = enderecoBairro;
-    }
-
-    public Estados getEnderecoEstado() {
-        return enderecoEstado;
-    }
-
-    public void setEnderecoEstado(Estados enderecoEstado) {
-        this.enderecoEstado = enderecoEstado;
-    }
-
-    public String getEnderecoCidade() {
-        return enderecoCidade;
-    }
-
-    public void setEnderecoCidade(String enderecoCidade) {
-        this.enderecoCidade = enderecoCidade;
-    }
-
-    public String getEnderecoCep() {
-        return enderecoCep;
-    }
-
-    public void setEnderecoCep(String enderecoCep) {
-        this.enderecoCep = enderecoCep;
-    }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public String getTelefone1() {
-        return telefone1;
-    }
-
-    public void setTelefone1(String telefone1) {
-        this.telefone1 = telefone1;
-    }
-
-    public String getTelefone2() {
-        return telefone2;
-    }
-
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCorOuRaca() {
-        return corOuRaca;
-    }
-
-    public void setCorOuRaca(String corOuRaca) {
-        this.corOuRaca = corOuRaca;
-    }
-    
-    // hashCode e equals
-
-    @Override
-    public int hashCode() {
-        int hashPessoa = 5;
-        hashPessoa = 37 * hashPessoa + Objects.hashCode(this.id);
-        return hashPessoa;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pessoa other = (Pessoa) obj;
-        return Objects.equals(this.id, other.id);
-    }
 }

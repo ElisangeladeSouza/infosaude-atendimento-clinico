@@ -199,6 +199,13 @@
             <version>1.2.3</version>
         </dependency>
         
+        <dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.16.6</version>
+		<scope>provided</scope>
+	</dependency>
+        
     </dependencies>
     
     <repositories>
@@ -225,7 +232,7 @@
                         <exclude>**/aceitacao/testes/enfermeiro/**</exclude>
                         <exclude>**/aceitacao/testes/odontologo/**</exclude>
                         <exclude>**/aceitacao/testes/tecnico-enfermagem/**</exclude>
-                        <exclude>**/unidade/**</exclude>
+                        <!--<exclude>**/unidade/**</exclude>-->
                     </excludes>
                 </configuration>    
             </plugin>

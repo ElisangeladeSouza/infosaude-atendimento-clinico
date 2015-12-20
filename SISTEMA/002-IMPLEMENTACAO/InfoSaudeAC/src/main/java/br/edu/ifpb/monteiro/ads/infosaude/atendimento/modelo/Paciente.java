@@ -1,12 +1,13 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Entidade que representa o Paciente da UBS. Usuário da UBS, não possui acesso
@@ -16,6 +17,8 @@ import javax.validation.constraints.DecimalMin;
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Paciente extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,97 +52,5 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToOne
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
     private Triagem triagemPaciente;
-
-    public Paciente() {
-    }
-
-    public Double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(Double peso) {
-        this.peso = peso;
-    }
-
-    public Double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(Double altura) {
-        this.altura = altura;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCartaoSus() {
-        return cartaoSus;
-    }
-
-    public void setCartaoSus(String cartaoSus) {
-        this.cartaoSus = cartaoSus;
-    }
-
-    public String getNomeDaMae() {
-        return nomeDaMae;
-    }
-
-    public void setNomeDaMae(String nomeDaMae) {
-        this.nomeDaMae = nomeDaMae;
-    }
-
-    public FichaAtendimento getFichaAtendimentoPaciente() {
-        return fichaAtendimentoPaciente;
-    }
-
-    public void setFichaAtendimentoPaciente(FichaAtendimento fichaAtendimentoPaciente) {
-        this.fichaAtendimentoPaciente = fichaAtendimentoPaciente;
-    }
-
-    public Procedimento getProcedimentoPaciente() {
-        return procedimentoPaciente;
-    }
-
-    public void setProcedimentoPaciente(Procedimento procedimentoPaciente) {
-        this.procedimentoPaciente = procedimentoPaciente;
-    }
-
-    public Triagem getTriagemPaciente() {
-        return triagemPaciente;
-    }
-
-    public void setTriagemPaciente(Triagem triagemPaciente) {
-        this.triagemPaciente = triagemPaciente;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashPaciente = 7;
-        hashPaciente = 73 * hashPaciente + Objects.hashCode(this.cpf);
-        hashPaciente = 73 * hashPaciente + Objects.hashCode(this.cartaoSus);
-        return hashPaciente;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Paciente other = (Paciente) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
-        return Objects.equals(this.cartaoSus, other.cartaoSus);
-    }
 
 }

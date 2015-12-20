@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  * Entidade que representa a Consulta para o paciente que pode ser feita por um 
@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
 public class Consulta implements Serializable {
 
     @Id
@@ -71,133 +72,5 @@ public class Consulta implements Serializable {
     @OneToOne
     @JoinColumn(name = "requisicao_exame_pk")
     private RequisicaoExame requisicaoExame;
-
-    public Consulta() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public String getPrescricao() {
-        return prescricao;
-    }
-
-    public void setPrescricao(String prescricao) {
-        this.prescricao = prescricao;
-    }
-
-    public String getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
-    public String getSintomas() {
-        return sintomas;
-    }
-
-    public void setSintomas(String sintomas) {
-        this.sintomas = sintomas;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public RequisicaoExame getRequisicaoExame() {
-        return requisicaoExame;
-    }
-
-    public void setRequisicaoExame(RequisicaoExame requisicaoExame) {
-        this.requisicaoExame = requisicaoExame;
-    }
-
-    public String getAnamnese() {
-        return anamnese;
-    }
-
-    public void setAnamnese(String anamnese) {
-        this.anamnese = anamnese;
-    }
-
-    public String getExames() {
-        return exames;
-    }
-
-    public void setExames(String exames) {
-        this.exames = exames;
-    }
-
-    public FichaAtendimento getFichaAtendimento() {
-        return fichaAtendimento;
-    }
-
-    public void setFichaAtendimento(FichaAtendimento fichaAtendimento) {
-        this.fichaAtendimento = fichaAtendimento;
-    }
-
-    public Triagem getTriagem() {
-        return triagem;
-    }
-
-    public void setTriagem(Triagem triagem) {
-        this.triagem = triagem;
-    }
-
-    public Procedimento getProcedimento() {
-        return procedimento;
-    }
-
-    public void setProcedimento(Procedimento procedimento) {
-        this.procedimento = procedimento;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashConsulta = 3;
-        hashConsulta = 11 * hashConsulta + Objects.hashCode(this.id);
-        return hashConsulta;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Consulta other = (Consulta) obj;
-        return Objects.equals(this.id, other.id);
-    }
 
 }

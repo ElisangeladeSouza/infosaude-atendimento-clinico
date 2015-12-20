@@ -1,9 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Entidade que representa o Médico da UBS. Ao extender Pessoa, passa a herdar
@@ -12,6 +13,8 @@ import javax.persistence.Entity;
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Medico extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,55 +28,4 @@ public class Medico extends Pessoa implements Serializable {
     @Column(name = "medico_crm", unique = true, length = 30)
     private String crm;
 
-    public Medico() {
-    }
-
-    public String getCrm() {
-        return crm;
-    }
-
-    public void setCrm(String crm) {
-        this.crm = crm;
-    }
-
-    public String getCpfMedico() {
-        return cpfMedico;
-    }
-
-    public void setCpfMedico(String cpfMedico) {
-        this.cpfMedico = cpfMedico;
-    }
-
-    public String getCartaoSusMedico() {
-        return cartaoSusMedico;
-    }
-
-    public void setCartaoSusMedico(String cartaoSusMedico) {
-        this.cartaoSusMedico = cartaoSusMedico;
-    }
-
-    // hashCode e equals
-    
-    @Override
-    public int hashCode() {
-        int hashMedico = 7;
-        hashMedico = 67 * hashMedico + Objects.hashCode(this.cpfMedico);
-        hashMedico = 67 * hashMedico + Objects.hashCode(this.cartaoSusMedico);
-        return hashMedico;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Medico other = (Medico) obj;
-        if (!Objects.equals(this.cpfMedico, other.cpfMedico)) {
-            return false;
-        }
-        return Objects.equals(this.cartaoSusMedico, other.cartaoSusMedico);
-    }
 }
