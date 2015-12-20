@@ -29,7 +29,7 @@ public class RequisicaoExame implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "requisicao_exame_codigo")
+    @Column(name = "requisicao_exame_codigo", length = 20)
     private String codigo;
 
     @Column(name = "requisicao_solicitante_cnes", length = 200)

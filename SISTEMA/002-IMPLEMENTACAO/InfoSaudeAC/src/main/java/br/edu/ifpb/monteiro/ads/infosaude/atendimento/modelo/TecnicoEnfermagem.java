@@ -28,7 +28,7 @@ public class TecnicoEnfermagem extends Pessoa implements Serializable {
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSusTecnicoEnfermagem;
 
-    @Column(name = "tecnico_enfermagem_coren", unique = true, length = 50)
+    @Column(name = "tecnico_enfermagem_coren", unique = true, length = 30)
     private String corenTecnicoEnfermagem;
 
 }

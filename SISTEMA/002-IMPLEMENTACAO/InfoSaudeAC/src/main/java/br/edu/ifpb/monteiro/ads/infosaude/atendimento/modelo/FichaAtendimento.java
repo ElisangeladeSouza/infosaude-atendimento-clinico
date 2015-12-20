@@ -32,7 +32,7 @@ public class FichaAtendimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ficha_atendimento_codigo")
+    @Column(name = "ficha_atendimento_codigo", length = 20)
     private String codigo;
 
     @Enumerated(EnumType.STRING)

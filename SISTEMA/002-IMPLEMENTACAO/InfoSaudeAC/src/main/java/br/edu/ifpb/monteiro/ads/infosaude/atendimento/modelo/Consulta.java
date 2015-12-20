@@ -30,7 +30,7 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "consulta_codigo")
+    @Column(name = "consulta_codigo", length = 20)
     private String codigo;
 
     @Lob
@@ -38,13 +38,16 @@ public class Consulta implements Serializable {
     private String observacoes;
 
     @NotNull
-    @Column(name = "consulta_prescricao", length = 255)
+    @Lob
+    @Column(name = "consulta_prescricao", length = 500)
     private String prescricao;
 
-    @Column(name = "consulta_diagnostico", length = 255)
+    @Lob
+    @Column(name = "consulta_diagnostico", length = 500)
     private String diagnostico;
 
-    @Column(name = "consulta_anamnese", length = 255)
+    @Lob
+    @Column(name = "consulta_anamnese", length = 500)
     private String anamnese;
 
     @Temporal(TemporalType.TIMESTAMP)

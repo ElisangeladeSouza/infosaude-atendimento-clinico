@@ -38,7 +38,7 @@ public class Procedimento implements Serializable {
 
     @Lob
     @NotNull
-    @Column(name = "procedimento_descricao", nullable = false)
+    @Column(name = "procedimento_descricao", length = 500, nullable = false)
     private String descricao;
 
     @Temporal(TemporalType.TIMESTAMP)

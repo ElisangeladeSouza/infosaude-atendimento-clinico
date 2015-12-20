@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import lombok.Data;
 
 /**
  * Entidade que representa o Sintoma que o paciente está tendo que pode ser
- * extraído de uma consulta do Médico, Enfermeiro ou Odontólogo da UBS. 
- * Ao extender Pessoa, passa a herdar todos os seus atributos.
- * 
+ * extraído de uma consulta do Médico, Enfermeiro ou Odontólogo da UBS. Ao
+ * extender Pessoa, passa a herdar todos os seus atributos.
+ *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
@@ -25,7 +26,8 @@ public class Sintoma implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "sintoma_descricao", length = 150)
+    @Lob
+    @Column(name = "sintoma_descricao", length = 500)
     private String descricao;
 
 }

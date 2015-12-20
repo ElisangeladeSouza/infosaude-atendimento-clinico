@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -31,7 +32,8 @@ public class Exame implements Serializable {
     @Column(name = "exame_descricao", length = 200, nullable = false)
     private String descricao;
 
-    @Column(name = "exame_detalhes", length = 200)
+    @Lob
+    @Column(name = "exame_detalhes")
     private String detalhes;
 
     @Temporal(TemporalType.TIMESTAMP)
