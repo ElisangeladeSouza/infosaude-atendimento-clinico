@@ -9,8 +9,12 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 /**
- *
- * @author elisangela
+ * Esta classe representa o conversor de Triagem, cujo objetivo é converter
+ * um valor enviando pela View em objeto ou retornar o ID do objeto. 
+ * Ao implementar a interface Converter dois métodos são implementados, 
+ * getAsObject e getAsString.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @FacesConverter(forClass = Triagem.class)
 public class TriagemConverter implements Converter {
@@ -26,7 +30,9 @@ public class TriagemConverter implements Converter {
     }
 
     /**
-     *
+     * Este método recebe a String e devolve o Object. Quando uma Triagem
+     * for mostrada na tela será seu ID que estará sendo exibido.
+     * 
      * @param context
      * @param component
      * @param value
@@ -44,7 +50,9 @@ public class TriagemConverter implements Converter {
     }
 
     /**
-     *
+     * Este método recebe o Object e devolve a String. Apartir dessa String 
+     * recuperamos o Object que esta ligado ao modelo.
+     * 
      * @param context
      * @param component
      * @param value

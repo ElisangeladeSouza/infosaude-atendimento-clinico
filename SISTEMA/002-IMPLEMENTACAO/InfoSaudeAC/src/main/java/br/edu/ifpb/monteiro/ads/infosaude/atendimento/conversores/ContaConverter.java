@@ -10,18 +10,37 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 /**
- *
- * @author elisangela
+ * Esta classe representa o conversor de Conta, cujo objetivo é converter
+ * um valor enviando pela View em objeto ou retornar o ID do objeto. 
+ * Ao implementar a interface Converter dois métodos são implementados, 
+ * getAsObject e getAsString.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @FacesConverter(forClass = Conta.class)
 public class ContaConverter implements Converter {
 
     private final ContaService contaService;
 
+    /**
+     * Enquanto a versão atual do JSF (2.2) não suporta injeção com dentro de
+     * conversores, essa classe utilitária CDIServiceLocator, faz esse papel.
+     * 
+     * @throws UBSException 
+     */
     public ContaConverter() throws UBSException {
         this.contaService = CDIServiceLocator.getBean(ContaService.class);
     }
 
+    /**
+     * Este método recebe a String e devolve o Object. Quando uma Conta
+     * for mostrada na tela será seu ID que estará sendo exibido.
+     * 
+     * @param context
+     * @param component
+     * @param value
+     * @return 
+     */
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         Conta objectToReturn = null;
@@ -32,6 +51,15 @@ public class ContaConverter implements Converter {
         return objectToReturn;
     }
 
+    /**
+     * Este método recebe o Object e devolve a String. Apartir dessa String 
+     * recuperamos o Object que esta ligado ao modelo.
+     * 
+     * @param context
+     * @param component
+     * @param value
+     * @return 
+     */
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 
