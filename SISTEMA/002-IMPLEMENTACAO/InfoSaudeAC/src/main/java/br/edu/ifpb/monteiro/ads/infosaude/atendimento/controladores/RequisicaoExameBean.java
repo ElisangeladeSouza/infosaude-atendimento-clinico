@@ -13,8 +13,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author elisangela
+ * Managed bean usado pela página de cadastro de requisição de exame. 
+ * É responsável por ligar a classe de modelo RequisicaoExame à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class RequisicaoExameBean implements Serializable {
@@ -34,6 +37,9 @@ public class RequisicaoExameBean implements Serializable {
 
     private transient List<RequisicaoExame> requisicaoExames;
 
+    /**
+     * Construtor da classe
+     */
     public RequisicaoExameBean() {
     }
 
@@ -46,6 +52,13 @@ public class RequisicaoExameBean implements Serializable {
         return requisicaoExames;
     }
 
+    /**
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * RequisicaoExame e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro.
+     * 
+     * @throws NegocioException
+     */
     public void salvar() throws NegocioException {
         requisicaoExameService.verificaCampoUnique("codigo", requisicaoExame.getCodigo(), null);
         this.requisicaoExameService.save(requisicaoExame);
@@ -59,7 +72,9 @@ public class RequisicaoExameBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo RequisicaoExame e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -77,10 +92,6 @@ public class RequisicaoExameBean implements Serializable {
         return this.requisicaoExame.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public RequisicaoExame getRequisicaoExameSelecionada() {
         return requisicaoExameSelecionada;
     }

@@ -13,8 +13,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author elisangela
+ * Managed bean usado pela página de cadastro de consulta.
+ * É responsável por ligar a classe de modelo Consulta à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class ConsultaBean implements Serializable {
@@ -35,7 +38,7 @@ public class ConsultaBean implements Serializable {
     private transient List<Consulta> consultas;
 
     /**
-     *
+     * Construtor da classe
      */
     public ConsultaBean() {
     }
@@ -46,7 +49,8 @@ public class ConsultaBean implements Serializable {
     }
 
     /**
-     *
+     * Lista de consultas feitas na UBS.
+     * 
      * @return
      */
     public List<Consulta> getConsultas() {
@@ -54,7 +58,8 @@ public class ConsultaBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Consulta e salvar. 
      */
     public void salvar() {
         this.consultaService.save(consulta);
@@ -68,7 +73,9 @@ public class ConsultaBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Consulta e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -87,10 +94,6 @@ public class ConsultaBean implements Serializable {
         return this.consulta.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Consulta getConsultaSelecionada() {
         return consultaSelecionada;
     }

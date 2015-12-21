@@ -11,8 +11,11 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- *
- * @author elisangela
+ * Managed bean usado pela página de cadastro de triagem. 
+ * É responsável por ligar a classe de modelo Triagem à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class TriagemBean implements Serializable {
@@ -30,6 +33,9 @@ public class TriagemBean implements Serializable {
 
     private transient List<Triagem> triagens;
 
+    /**
+     * Construtor da classe
+     */
     public TriagemBean() {
     }
 
@@ -38,12 +44,19 @@ public class TriagemBean implements Serializable {
         this.triagens = triagemService.findAll();
     }
 
+    /**
+     * Lista de triagens feitas na UBS.
+     * @return 
+     */
     public List<Triagem> getTriagens() {
         return triagens;
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Triagem e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro.
+     * 
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -58,7 +71,9 @@ public class TriagemBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Triagem e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -76,10 +91,6 @@ public class TriagemBean implements Serializable {
         return this.triagem.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Triagem getTriagemSelecionada() {
         return triagemSelecionada;
     }

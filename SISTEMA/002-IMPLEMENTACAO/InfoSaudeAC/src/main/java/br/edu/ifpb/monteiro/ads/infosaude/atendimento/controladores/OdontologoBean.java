@@ -15,8 +15,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author elisangela
+ * Managed bean usado pela página de cadastro de odontólogo. 
+ * É responsável por ligar a classe de modelo Odontologo à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class OdontologoBean implements Serializable {
@@ -40,7 +43,7 @@ public class OdontologoBean implements Serializable {
     private transient List<Odontologo> odontologos;
 
     /**
-     *
+     * Construtor da classe
      */
     public OdontologoBean() {
     }
@@ -51,7 +54,8 @@ public class OdontologoBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por carregar uma lista com todas as cidades cadastradas.
+     * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
@@ -63,7 +67,7 @@ public class OdontologoBean implements Serializable {
     }
 
     /**
-     *
+     * Lista de odontólogos cadastrados na UBS.
      * @return
      */
     public List<Odontologo> getOdontologos() {
@@ -71,7 +75,10 @@ public class OdontologoBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Odontologo e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro.
+     * 
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -91,7 +98,9 @@ public class OdontologoBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Odontologo e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -109,10 +118,6 @@ public class OdontologoBean implements Serializable {
         return this.odontologo.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Odontologo getOdontologoSelecionado() {
         return odontologoSelecionado;
     }

@@ -20,9 +20,11 @@ import org.apache.shiro.web.util.WebUtils;
 import org.omnifaces.util.Faces;
 
 /**
- * Maneged bean usado pela página de cadastro de contas.
+ * Managed bean usado pela página de cadastro de contas. 
+ * É responsável por ligar a classe de modelo Conta à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class ContaBean implements Serializable {
@@ -44,6 +46,12 @@ public class ContaBean implements Serializable {
 
     private final String usuarioLogado;
 
+    /**
+    * Construtor da classe
+    * Inicia o array com as permissões possiveis para cada usuário do sistema.
+    * 
+     * @see Permissao
+    */
     public ContaBean() {
         this.permissoes = Arrays.asList(Permissao.values());
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
@@ -54,6 +62,12 @@ public class ContaBean implements Serializable {
         this.contas = contaService.findAll();
     }
 
+    /**
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Consulta e salvar. 
+     * 
+     * @throws NegocioException 
+     */
     public void salvar() throws NegocioException {
         this.contaService.save(conta);
         if (getEditando()) {
@@ -65,6 +79,12 @@ public class ContaBean implements Serializable {
         conta = new Conta();
     }
 
+    /**
+     * Método responsável por excluir um objeto do tipo Conta e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
+     * @throws NegocioException 
+     */
     public void excluir() throws NegocioException {
         this.contaService.delete(contaSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");

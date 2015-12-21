@@ -8,7 +8,7 @@ import javax.enterprise.inject.Model;
  * Classe utilitária que provê métodos relacionados a datas. Anotada como um
  * Bean CDI, pode ser usada diretamente nas paginas tambem.
  *
- * @author cassio
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 @Model
 public class DateTimeUtilBean implements Serializable {

@@ -11,7 +11,10 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- *
+ * Managed bean usado pela página de cadastro de procedimento. 
+ * É responsável por ligar a classe de modelo Procedimento à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Model
@@ -31,7 +34,7 @@ public class ProcedimentoBean implements Serializable {
     private transient List<Procedimento> procedimentos;
 
     /**
-     *
+     * Construtor da classe
      */
     public ProcedimentoBean() {
     }
@@ -42,7 +45,7 @@ public class ProcedimentoBean implements Serializable {
     }
 
     /**
-     *
+     * Lista de procedimentos que podem ser feitos na UBS.
      * @return
      */
     public List<Procedimento> getProcedimentos() {
@@ -50,7 +53,10 @@ public class ProcedimentoBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Procedimento e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro.
+     * 
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -65,7 +71,9 @@ public class ProcedimentoBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Procedimento e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -83,10 +91,6 @@ public class ProcedimentoBean implements Serializable {
         return this.procedimento.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Procedimento getProcedimentoSelecionado() {
         return procedimentoSelecionado;
     }

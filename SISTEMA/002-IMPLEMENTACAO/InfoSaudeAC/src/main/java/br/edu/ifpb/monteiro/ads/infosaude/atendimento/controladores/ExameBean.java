@@ -11,8 +11,11 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- *
- * @author elisangela
+ * Managed bean usado pela página de cadastro de exame. 
+ * É responsável por ligar a classe de modelo Exame à página de visualização 
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class ExameBean implements Serializable {
@@ -30,6 +33,9 @@ public class ExameBean implements Serializable {
 
     private transient List<Exame> exames;
 
+    /**
+    * Construtor da classe
+    */
     public ExameBean() {
     }
 
@@ -43,7 +49,10 @@ public class ExameBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Exame e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro. 
+     * 
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -59,7 +68,9 @@ public class ExameBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Exame e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -77,10 +88,6 @@ public class ExameBean implements Serializable {
         return this.exame.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Exame getExameSelecionado() {
         return exameSelecionado;
     }

@@ -15,8 +15,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author elisangela
+ * * Managed bean usado pela página de cadastro de adminsitrador.
+ * É responsável por ligar a classe de modelo Administrador à página de 
+ * visualização processando as solicitações do usuário e retornando os dados à 
+ * visualização.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class AdministradorBean implements Serializable {
@@ -51,7 +55,8 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por carregar uma lista com todas as cidades cadastradas.
+     * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
@@ -63,7 +68,7 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     *
+     * Lista de administradores da UBS.
      * @return
      */
     public List<Administrador> getAdministradores() {
@@ -71,7 +76,10 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
+     * Administrador e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * apresentar uma mensagem de erro.
+     * 
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -91,7 +99,9 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     *
+     * Método responsável por excluir um objeto do tipo Administrador e exibir
+     * ao final do processo uma mensagem informativa.
+     * 
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -109,10 +119,6 @@ public class AdministradorBean implements Serializable {
         return this.administrador.getId() != null;
     }
 
-    /**
-     *
-     * @return
-     */
     public Administrador getAdministradorSelecionado() {
         return administradorSelecionado;
     }
