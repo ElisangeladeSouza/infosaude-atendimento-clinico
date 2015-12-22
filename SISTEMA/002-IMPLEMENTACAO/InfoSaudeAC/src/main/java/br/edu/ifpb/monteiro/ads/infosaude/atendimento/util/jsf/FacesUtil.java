@@ -10,7 +10,7 @@ import org.apache.commons.logging.LogFactory;
  * Classe com métodos utilitários para adicionar mensagens às telas, geralmente,
  * através dos ManagedBeans.
  *
- * @author cassio
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 public class FacesUtil {
 

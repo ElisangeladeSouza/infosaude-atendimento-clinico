@@ -11,8 +11,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author cassio
+ * Classe utilitária CDIServiceLocator responsável por fazer a injeção dentro
+ * dos conversores. A versão atual do JSF (2.2) ainda não suporta esse papel.
+ * 
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 public class CDIServiceLocator {
 
