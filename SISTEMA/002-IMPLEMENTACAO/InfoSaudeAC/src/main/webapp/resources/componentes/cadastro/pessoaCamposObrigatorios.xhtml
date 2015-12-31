@@ -17,7 +17,8 @@
             <p:outputLabel for="cpf" value="#{msg.cpf}:" style="margin-left: 20px"/>
             <p:inputMask id="cpf" mask="999.999.999-99" required="true" requiredMessage="#{msg.mandatoryCPF}"
                          value="#{cc.attrs.valueCpf}"  size="20"
-                         validator="cpfValidator" converter="cpfConverter" style="margin-left: 5px" maxlength="11"/>
+                         validator="cpfValidator" converter="cpfConverter" style="margin-left: 5px" maxlength="11">
+            </p:inputMask>
 
             <p:outputLabel for="cartaoSus" value="#{msg.susCard}:" style="margin-left: 20px"/>
             <p:inputMask id="cartaoSus" value="#{cc.attrs.valueCartaoSus}" mask="999 9999 9999 9999"

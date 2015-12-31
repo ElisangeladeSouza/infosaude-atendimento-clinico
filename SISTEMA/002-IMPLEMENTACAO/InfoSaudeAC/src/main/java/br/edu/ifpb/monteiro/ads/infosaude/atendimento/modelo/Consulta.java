@@ -2,6 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,8 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
- * Entidade que representa a Consulta para o paciente que pode ser feita por um 
- * Médico, Enfermeiro, Odontólogo ou Administrador da UBS. Ao extender Pessoa, 
+ * Entidade que representa a Consulta para o paciente que pode ser feita por um
+ * Médico, Enfermeiro, Odontólogo ou Administrador da UBS. Ao extender Pessoa,
  * passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
@@ -53,9 +54,6 @@ public class Consulta implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "consulta_data")
     private Date data;
-
-    @Column(name = "consulta_exames")
-    private String exames;
 
     @Column(name = "consulta_sintomas")
     private String sintomas;

@@ -22,6 +22,10 @@
         <param-value>true</param-value>
     </context-param>
     
+    <context-param>
+        <param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
+        <param-value>true</param-value>
+    </context-param>
     
     <!-- Set the timezone to GTM-3 / America -->
     <context-param>

@@ -49,7 +49,7 @@
                         <h:outputText id="cidade" value="#{requisicaoExames.solicitanteCidade}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.examination}" width="10%" filterMatchMode="contains" filterBy="#{requisicaoExameBean.requisicaoExame.exames}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.examination}" width="10%" filterMatchMode="contains" filterBy="#{requisicaoExames.exames}" filterStyle="width: 300px; display:none">
                         <h:outputText id="exames" value="#{requisicaoExames.exames}"/>
                     </p:column>
 
