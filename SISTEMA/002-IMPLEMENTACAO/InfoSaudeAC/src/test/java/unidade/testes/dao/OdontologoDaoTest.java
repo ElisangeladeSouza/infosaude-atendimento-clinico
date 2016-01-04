@@ -488,5 +488,4 @@ public class OdontologoDaoTest {
         assertNull(odontologoDao.findById(id));
 
     }
-
 }

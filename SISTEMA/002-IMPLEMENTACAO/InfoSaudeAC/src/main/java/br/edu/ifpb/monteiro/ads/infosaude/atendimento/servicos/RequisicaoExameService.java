@@ -92,7 +92,6 @@ public class RequisicaoExameService implements Serializable {
     public boolean verificaCampoUnique(String campo, Object valor, Long id) throws NegocioException {
 
         try {
-
             RequisicaoExame requisicaoExame;
 
             if (id == null) {

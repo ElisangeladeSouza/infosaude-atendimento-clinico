@@ -71,5 +71,4 @@ public class ProcedimentoService implements Serializable {
     public List<Procedimento> findAll() {
         return procedimentoDao.findAll();
     }
-
 }

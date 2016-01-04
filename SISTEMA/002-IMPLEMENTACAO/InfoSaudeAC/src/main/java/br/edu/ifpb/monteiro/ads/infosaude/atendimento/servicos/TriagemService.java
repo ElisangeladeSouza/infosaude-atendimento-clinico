@@ -71,5 +71,4 @@ public class TriagemService implements Serializable {
     public List<Triagem> findAll() {
         return triagemDao.findAll();
     }
-
 }

@@ -19,5 +19,4 @@ public class EnfermeiroDao extends DaoAbstrato<Enfermeiro> implements Serializab
     public EnfermeiroDao() {
         super(Enfermeiro.class);
     }
-
 }

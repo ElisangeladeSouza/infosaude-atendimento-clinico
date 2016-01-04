@@ -69,5 +69,4 @@ public class ContaConverter implements Converter {
         }
         return "";
     }
-
 }

@@ -69,5 +69,4 @@ public class AdministradorService implements Serializable {
     public Administrador findById(Long id) {
         return administradorDAO.findById(id);
     }
-
 }

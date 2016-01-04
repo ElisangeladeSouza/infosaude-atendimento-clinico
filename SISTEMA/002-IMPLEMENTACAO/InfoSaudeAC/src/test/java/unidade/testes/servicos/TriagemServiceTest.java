@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
@@ -38,9 +33,7 @@ public class TriagemServiceTest {
      *
      */
     public TriagemServiceTest() {
-
         triagemService = new TriagemService();
-
     }
 
     /**
@@ -48,7 +41,6 @@ public class TriagemServiceTest {
      */
     @BeforeClass
     public static void setUpClass() {
-
         fichaAtendimento = new FichaAtendimento();
         fichaAtendimento.setId(1L);
 
@@ -59,7 +51,6 @@ public class TriagemServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         triagem = new Triagem();
         novaTriagem = new Triagem();
@@ -70,7 +61,6 @@ public class TriagemServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
-
         when(triagemService.findById(0L)).thenThrow(new Exception());
         triagem = triagemService.findById(0L);
     }
@@ -80,7 +70,6 @@ public class TriagemServiceTest {
      */
     @Test
     public void testFindById() {
-
         triagem.setCodigo("00001");
         triagem.setFichaAtendimentoTriagem(fichaAtendimento);
 
@@ -96,7 +85,6 @@ public class TriagemServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
-
         when(triagemService.findAll()).thenThrow(new Exception());
         triagemService.findAll();
 
@@ -107,7 +95,6 @@ public class TriagemServiceTest {
      */
     @Test
     public void testFindAll() {
-
         triagem.setCodigo("00001");
         triagem.setFichaAtendimentoTriagem(fichaAtendimento);
 
@@ -119,5 +106,4 @@ public class TriagemServiceTest {
         assertFalse(listaTriagems.isEmpty());
 
     }
-
 }

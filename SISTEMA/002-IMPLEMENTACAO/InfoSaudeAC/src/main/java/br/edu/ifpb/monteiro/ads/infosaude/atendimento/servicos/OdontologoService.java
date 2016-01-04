@@ -68,5 +68,4 @@ public class OdontologoService implements Serializable {
     public Odontologo findById(Long id) {
         return odontologoDAO.findById(id);
     }
-
 }

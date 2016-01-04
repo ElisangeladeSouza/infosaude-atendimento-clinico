@@ -19,5 +19,4 @@ public class AdministradorDao extends DaoAbstrato<Administrador> implements Seri
     public AdministradorDao() {
         super(Administrador.class);
     }
-
 }

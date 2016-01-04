@@ -12,7 +12,7 @@ import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
  * determinada url seja compartilhada por mais de um papel. Exemplo.:
  * /path/to/some/url = anyofroles["role1,role2"]
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class AnyOfRolesAuthorizationFilter extends RolesAuthorizationFilter {
 
@@ -33,7 +33,6 @@ public class AnyOfRolesAuthorizationFilter extends RolesAuthorizationFilter {
                 return true;
             }
         }
-
         return false;
     }
 }

@@ -141,5 +141,4 @@ public class RecepcionistaBean implements Serializable {
     public void setRecepcionistaService(RecepcionistaService recepcionistaService) {
         this.recepcionistaService = recepcionistaService;
     }
-
 }

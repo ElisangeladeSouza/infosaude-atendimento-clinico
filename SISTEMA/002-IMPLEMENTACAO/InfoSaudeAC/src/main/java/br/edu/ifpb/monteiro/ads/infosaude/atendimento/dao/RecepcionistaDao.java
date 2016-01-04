@@ -19,5 +19,4 @@ public class RecepcionistaDao extends DaoAbstrato<Recepcionista> implements Seri
     public RecepcionistaDao() {
         super(Recepcionista.class);
     }
-
 }

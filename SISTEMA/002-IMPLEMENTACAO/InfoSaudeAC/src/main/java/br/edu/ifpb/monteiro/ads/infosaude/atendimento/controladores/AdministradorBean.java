@@ -142,5 +142,4 @@ public class AdministradorBean implements Serializable {
     public void setAdministradorService(AdministradorService administradorService) {
         this.administradorService = administradorService;
     }
-
 }

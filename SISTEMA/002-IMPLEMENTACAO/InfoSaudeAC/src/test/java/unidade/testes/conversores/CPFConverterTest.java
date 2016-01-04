@@ -99,5 +99,4 @@ public class CPFConverterTest {
         CPFConverter cpfConverter = new CPFConverter();
         assertEquals("123.456.789-01", cpfConverter.getAsString(null, null, "12345678901"));
     }
-
 }

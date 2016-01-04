@@ -19,5 +19,4 @@ public class TriagemDao extends DaoAbstrato<Triagem> implements Serializable {
     public TriagemDao() {
         super(Triagem.class);
     }
-
 }

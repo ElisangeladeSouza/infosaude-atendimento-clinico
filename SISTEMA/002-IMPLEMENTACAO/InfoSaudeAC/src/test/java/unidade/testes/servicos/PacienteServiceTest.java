@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
@@ -33,7 +28,6 @@ public class PacienteServiceTest {
      *
      */
     public PacienteServiceTest() {
-
         pacienteService = new PacienteService();
 
     }
@@ -43,7 +37,6 @@ public class PacienteServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         paciente = new Paciente();
         novoPaciente = new Paciente();
@@ -54,7 +47,6 @@ public class PacienteServiceTest {
      */
     @Test
     public void testSaveCamposObrigatorios() {
-
         paciente.setCartaoSus("777 1234 7777 2225");
         paciente.setNome("PRISCILLA LUCIA");
         paciente.setCpf("01438218494");
@@ -80,7 +72,6 @@ public class PacienteServiceTest {
      */
     @Test
     public void testFindByIdExistente() {
-
         paciente.setNome("MARCIA MINEIRO");
         paciente.setCpf("72409668607");
         paciente.setCartaoSus("585 9874 1234 9876");
@@ -98,7 +89,6 @@ public class PacienteServiceTest {
      */
     @Test
     public void testFindAll() {
-
         List<Paciente> listaPacientes = new ArrayList<>();
 
         paciente.setNome("LUCIUS MALLAFYORI");
@@ -113,5 +103,4 @@ public class PacienteServiceTest {
         assertFalse(listaPacientes.isEmpty());
 
     }
-
 }

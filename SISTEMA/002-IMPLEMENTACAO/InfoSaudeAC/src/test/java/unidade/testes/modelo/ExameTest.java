@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class ExameTest {
 
@@ -38,5 +38,4 @@ public class ExameTest {
 
         assertEquals("O exame esperado deve ser Glicose", "Glicose", exame.getDescricao());
     }
-
 }

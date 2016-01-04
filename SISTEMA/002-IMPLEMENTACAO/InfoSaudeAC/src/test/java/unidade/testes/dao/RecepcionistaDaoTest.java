@@ -415,7 +415,5 @@ public class RecepcionistaDaoTest {
         recepcionistaDao.delete(recepcionista);
 
         assertNull(recepcionistaDao.findById(id));
-
     }
-
 }

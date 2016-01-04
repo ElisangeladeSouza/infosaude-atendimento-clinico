@@ -94,5 +94,4 @@ public class ISACRealm extends AuthorizingRealm {
         query.setParameter(1, username);
         return authorizationInfo;
     }
-    
 }

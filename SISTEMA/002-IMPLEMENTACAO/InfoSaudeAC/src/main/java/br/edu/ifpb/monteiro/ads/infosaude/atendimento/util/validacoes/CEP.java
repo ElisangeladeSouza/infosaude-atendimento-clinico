@@ -13,7 +13,7 @@ import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 
 /**
- * Anotação para validar um número de CEP
+ * Anotação para validar um número de CEP.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */

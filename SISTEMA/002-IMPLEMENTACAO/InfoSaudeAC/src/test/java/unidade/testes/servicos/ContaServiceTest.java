@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
@@ -30,23 +25,18 @@ public class ContaServiceTest {
     private ContaService contaService;
 
     public ContaServiceTest() {
-
         contaService = new ContaService();
-
     }
 
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         conta = new Conta();
         novaConta = new Conta();
-
     }
 
     @Test
     public void testSaveCamposObrigatorios() {
-
         conta.setPassword("123");
         conta.setUserName("ubs");
         conta.setPermissao(Permissao.MEDICO);
@@ -68,7 +58,6 @@ public class ContaServiceTest {
 
     @Test
     public void testFindAll() {
-
         List<Conta> listaContas = new ArrayList<>();
 
         conta.setUserName("cool");

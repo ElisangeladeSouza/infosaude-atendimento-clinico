@@ -73,5 +73,4 @@ public class FichaAtendimentoDaoTest {
         FichaAtendimento fichaAtendimento = new FichaAtendimento();
         assertNull(fichaAtendimento = fichaAtendimentoDao.findById(0L));
     }
-
 }

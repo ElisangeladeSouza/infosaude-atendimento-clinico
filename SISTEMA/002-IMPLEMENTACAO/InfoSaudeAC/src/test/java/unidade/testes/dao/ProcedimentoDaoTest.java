@@ -11,7 +11,7 @@ import org.junit.Test;
 
 /**
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class ProcedimentoDaoTest {
 
@@ -66,5 +66,4 @@ public class ProcedimentoDaoTest {
         Procedimento procedimento = new Procedimento();
         assertNull(procedimento = procedimentoDao.findById(0L));
     }
-
 }

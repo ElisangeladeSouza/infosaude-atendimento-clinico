@@ -16,12 +16,12 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * Empacota o tratador de exceções do JSF e funciona como uma camada acima do
- * mesmo para tratar as exceções capturadas
+ * mesmo para tratar as exceções capturadas.
  *
  * @see
  * http://docs.oracle.com/javaee/6/api/javax/faces/context/ExceptionHandler.html
  *
- * @author cassio
+ * @author cassio <cassio@cassioliveira.com.br>
  */
 public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 
@@ -126,5 +126,4 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
         }
         return null;
     }
-
 }

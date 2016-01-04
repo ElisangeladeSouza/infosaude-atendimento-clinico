@@ -73,5 +73,4 @@ public class ConsultaDaoTest {
         Consulta consulta = new Consulta();
         assertNull(consulta = consultaDao.findById(0L));
     }
-
 }

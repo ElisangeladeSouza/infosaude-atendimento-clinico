@@ -69,5 +69,4 @@ public class PacienteService implements Serializable {
     public List<Paciente> findAll() {
         return pacienteDao.findAll();
     }
-
 }

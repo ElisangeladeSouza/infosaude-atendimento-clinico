@@ -28,5 +28,4 @@ public class JsfExceptionHandlerFactory extends ExceptionHandlerFactory {
     public ExceptionHandler getExceptionHandler() {
         return new JsfExceptionHandler(exceptionHandlerFactory.getExceptionHandler());
     }
-
 }

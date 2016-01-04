@@ -46,7 +46,6 @@ public class TecnicoEnfermagemBean implements Serializable {
      * Construtor da classe
      */
     public TecnicoEnfermagemBean() {
-
     }
 
     @PostConstruct
@@ -142,5 +141,4 @@ public class TecnicoEnfermagemBean implements Serializable {
     public void setTecnicoEnfermagemService(TecnicoEnfermagemService tecnicoEnfermagemService) {
         this.tecnicoEnfermagemService = tecnicoEnfermagemService;
     }
-
 }

@@ -33,5 +33,4 @@ public class PessoaDao extends DaoAbstrato<Pessoa> implements Serializable {
         createQuery = getEntityManager().createNativeQuery("SELECT c.nome FROM cidades c where c.estado = " + codigoUF);
         return createQuery.getResultList();
     }
-
 }

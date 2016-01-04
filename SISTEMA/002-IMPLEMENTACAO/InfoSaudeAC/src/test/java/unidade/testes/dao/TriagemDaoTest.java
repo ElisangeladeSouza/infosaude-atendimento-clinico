@@ -73,5 +73,4 @@ public class TriagemDaoTest {
         Triagem triagem = new Triagem();
         assertNull(triagem = triagemDao.findById(0L));
     }
-
 }

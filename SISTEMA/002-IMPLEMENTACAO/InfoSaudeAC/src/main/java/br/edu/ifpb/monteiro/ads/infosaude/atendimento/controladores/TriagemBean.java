@@ -114,5 +114,4 @@ public class TriagemBean implements Serializable {
     public void setTriagemService(TriagemService triagemService) {
         this.triagemService = triagemService;
     }
-
 }

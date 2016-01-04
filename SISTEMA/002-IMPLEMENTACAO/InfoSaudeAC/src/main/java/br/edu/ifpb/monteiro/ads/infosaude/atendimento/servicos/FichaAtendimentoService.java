@@ -71,5 +71,4 @@ public class FichaAtendimentoService implements Serializable {
     public List<FichaAtendimento> findAll() {
         return fichaAtendimentoDao.findAll();
     }
-
 }

@@ -68,5 +68,4 @@ public class MedicoService implements Serializable {
     public List<Medico> findAll() {
         return medicoDao.findAll();
     }
-
 }

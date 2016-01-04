@@ -19,5 +19,4 @@ public class FichaAtendimentoDao extends DaoAbstrato<FichaAtendimento> implement
     public FichaAtendimentoDao() {
         super(FichaAtendimento.class);
     }
-
 }

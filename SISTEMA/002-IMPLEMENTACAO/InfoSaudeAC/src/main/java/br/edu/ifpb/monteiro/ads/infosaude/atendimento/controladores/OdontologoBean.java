@@ -141,5 +141,4 @@ public class OdontologoBean implements Serializable {
     public void setOdontologoService(OdontologoService odontologoService) {
         this.odontologoService = odontologoService;
     }
-
 }

@@ -19,5 +19,4 @@ public class RequisicaoExameDao extends DaoAbstrato<RequisicaoExame> implements 
     public RequisicaoExameDao() {
         super(RequisicaoExame.class);
     }
-
 }

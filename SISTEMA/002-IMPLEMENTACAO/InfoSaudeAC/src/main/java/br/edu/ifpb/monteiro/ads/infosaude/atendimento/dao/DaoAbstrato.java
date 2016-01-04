@@ -152,5 +152,4 @@ public abstract class DaoAbstrato<T> implements Dao<T>, Serializable {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
 }

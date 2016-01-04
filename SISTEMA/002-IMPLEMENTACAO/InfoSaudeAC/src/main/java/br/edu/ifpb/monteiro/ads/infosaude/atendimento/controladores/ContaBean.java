@@ -168,5 +168,4 @@ public class ContaBean implements Serializable {
     public String getUsuarioLogado() {
         return usuarioLogado;
     }
-
 }

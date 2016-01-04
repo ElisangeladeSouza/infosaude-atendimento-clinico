@@ -114,5 +114,4 @@ public class ProcedimentoBean implements Serializable {
     public void setProcedimentoService(ProcedimentoService procedimentoService) {
         this.procedimentoService = procedimentoService;
     }
-
 }

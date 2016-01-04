@@ -87,5 +87,4 @@ public class ExameService implements Serializable {
     public void checaCampoDuplicado(String campo, Object valor, Long id, Exame exame) {
         exameDao.checaCampoDuplicado(campo, valor, null, exame);
     }
-
 }

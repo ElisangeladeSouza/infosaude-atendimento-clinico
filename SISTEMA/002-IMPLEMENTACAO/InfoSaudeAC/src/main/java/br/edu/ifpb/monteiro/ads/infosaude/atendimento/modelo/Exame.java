@@ -40,5 +40,4 @@ public class Exame implements Serializable {
     @Column(name = "exame_data")
     private Date data;
 
-
 }

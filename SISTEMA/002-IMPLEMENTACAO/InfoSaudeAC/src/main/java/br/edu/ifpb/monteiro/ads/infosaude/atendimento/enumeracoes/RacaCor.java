@@ -31,5 +31,4 @@ public enum RacaCor implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-
 }

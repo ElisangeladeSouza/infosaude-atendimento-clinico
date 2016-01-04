@@ -19,5 +19,4 @@ public class ExameDao extends DaoAbstrato<Exame> implements Serializable {
     public ExameDao() {
         super(Exame.class);
     }
-
 }

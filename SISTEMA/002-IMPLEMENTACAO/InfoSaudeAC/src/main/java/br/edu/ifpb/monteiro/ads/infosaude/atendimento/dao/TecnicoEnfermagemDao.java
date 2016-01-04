@@ -19,5 +19,4 @@ public class TecnicoEnfermagemDao extends DaoAbstrato<TecnicoEnfermagem> impleme
     public TecnicoEnfermagemDao() {
         super(TecnicoEnfermagem.class);
     }
-
 }

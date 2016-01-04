@@ -69,5 +69,4 @@ public class EnfermeiroService implements Serializable {
     public Enfermeiro findById(Long id) {
         return enfermeiroDAO.findById(id);
     }
-
 }

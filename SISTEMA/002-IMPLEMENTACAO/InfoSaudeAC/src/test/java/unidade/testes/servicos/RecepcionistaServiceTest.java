@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
@@ -33,9 +28,7 @@ public class RecepcionistaServiceTest {
      *
      */
     public RecepcionistaServiceTest() {
-
         recepcionistaService = new RecepcionistaService();
-
     }
 
     /**
@@ -43,7 +36,6 @@ public class RecepcionistaServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         recepcionista = new Recepcionista();
         novoRecepcionista = new Recepcionista();
@@ -54,7 +46,6 @@ public class RecepcionistaServiceTest {
      */
     @Test
     public void testSaveCamposObrigatorios() {
-
         recepcionista.setCartaoSusRecepcionista("777 1234 5678 9012");
         recepcionista.setNome("BELLA PRINCE");
         recepcionista.setCpfRecepcionista("78135746130");
@@ -80,7 +71,6 @@ public class RecepcionistaServiceTest {
      */
     @Test
     public void testFindByIdExistente() {
-
         recepcionista.setNome("LUCIANA MORENO");
         recepcionista.setCpfRecepcionista("13193944343");
         recepcionista.setCartaoSusRecepcionista("123 4567 8920 9876");
@@ -98,7 +88,6 @@ public class RecepcionistaServiceTest {
      */
     @Test
     public void testFindAll() {
-
         List<Recepcionista> listaRecepcionistas = new ArrayList<>();
 
         recepcionista.setNome("LUCIUS MALLAFYORI");
@@ -113,5 +102,4 @@ public class RecepcionistaServiceTest {
         assertFalse(listaRecepcionistas.isEmpty());
 
     }
-
 }

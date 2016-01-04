@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
@@ -33,7 +28,6 @@ public class OdontologoServiceTest {
      *
      */
     public OdontologoServiceTest() {
-
         odontologoService = new OdontologoService();
 
     }
@@ -43,7 +37,6 @@ public class OdontologoServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         odontologo = new Odontologo();
         novoOdontologo = new Odontologo();
@@ -54,7 +47,6 @@ public class OdontologoServiceTest {
      */
     @Test
     public void testSaveCamposObrigatorios() {
-
         odontologo.setCartaoSusOdontologo("777 9876 8877 2244");
         odontologo.setCro("9687");
         odontologo.setNome("ISABELLE MAURICE");
@@ -82,7 +74,6 @@ public class OdontologoServiceTest {
      */
     @Test
     public void testFindByIdExistente() {
-
         odontologo.setNome("LUIS ARTHUR");
         odontologo.setCpfOdontologo("88378682862");
         odontologo.setCartaoSusOdontologo("123 9876 1234 9876");
@@ -102,7 +93,6 @@ public class OdontologoServiceTest {
      */
     @Test
     public void testFindAll() {
-
         List<Odontologo> listaOdontologos = new ArrayList<>();
 
         odontologo.setNome("LUCIUS MALLAFYORI");
@@ -117,5 +107,4 @@ public class OdontologoServiceTest {
         assertFalse(listaOdontologos.isEmpty());
 
     }
-
 }

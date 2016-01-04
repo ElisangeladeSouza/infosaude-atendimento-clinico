@@ -67,5 +67,4 @@ public class PacienteConverter implements Converter {
         }
         return "";
     }
-
 }

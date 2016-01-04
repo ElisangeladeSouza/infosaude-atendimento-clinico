@@ -115,5 +115,4 @@ public class RequisicaoExameBean implements Serializable {
     public void setRequisicaoExameService(RequisicaoExameService requisicaoExameService) {
         this.requisicaoExameService = requisicaoExameService;
     }
-
 }

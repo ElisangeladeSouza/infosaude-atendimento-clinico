@@ -19,5 +19,4 @@ public class ProcedimentoDao extends DaoAbstrato<Procedimento> implements Serial
     public ProcedimentoDao() {
         super(Procedimento.class);
     }
-
 }

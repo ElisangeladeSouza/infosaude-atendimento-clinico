@@ -19,5 +19,4 @@ public class ContaDao extends DaoAbstrato<Conta> implements Serializable {
     public ContaDao() {
         super(Conta.class);
     }
-
 }

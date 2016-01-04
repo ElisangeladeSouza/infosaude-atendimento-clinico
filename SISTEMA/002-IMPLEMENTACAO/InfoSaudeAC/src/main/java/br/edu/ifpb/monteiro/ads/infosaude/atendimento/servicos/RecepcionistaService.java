@@ -69,5 +69,4 @@ public class RecepcionistaService implements Serializable {
     public Recepcionista findById(Long id) {
         return recepcionistaDAO.findById(id);
     }
-
 }

@@ -141,5 +141,4 @@ public class EnfermeiroBean implements Serializable {
     public void setEnfermeiroService(EnfermeiroService enfermeiroService) {
         this.enfermeiroService = enfermeiroService;
     }
-
 }

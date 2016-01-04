@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
@@ -42,9 +37,7 @@ public class RequisicaoExameServiceTest {
      *
      */
     public RequisicaoExameServiceTest() {
-
         requisicaoExameService = new RequisicaoExameService();
-
     }
 
     /**
@@ -52,7 +45,6 @@ public class RequisicaoExameServiceTest {
      */
     @BeforeClass
     public static void setUpClass() {
-
         exame = new Exame();
         exame.setId(1L);
 
@@ -70,7 +62,6 @@ public class RequisicaoExameServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         requisicaoExame = new RequisicaoExame();
         novaRequisicaoExame = new RequisicaoExame();
@@ -81,7 +72,6 @@ public class RequisicaoExameServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
-
         when(requisicaoExameService.findById(0L)).thenThrow(new Exception());
         requisicaoExame = requisicaoExameService.findById(0L);
     }
@@ -91,7 +81,6 @@ public class RequisicaoExameServiceTest {
      */
     @Test
     public void testFindById() {
-
 //        requisicaoExame.setExames(listaExames);
         requisicaoExame.setSolicitanteCidade("Sumé");
         requisicaoExame.setSolicitanteCnes("PSF IV");
@@ -110,7 +99,6 @@ public class RequisicaoExameServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
-
         when(requisicaoExameService.findAll()).thenThrow(new Exception());
         requisicaoExameService.findAll();
 
@@ -121,7 +109,6 @@ public class RequisicaoExameServiceTest {
      */
     @Test
     public void testFindAll() {
-
 //        requisicaoExame.setExames(listaExames);
         requisicaoExame.setSolicitanteCidade("Sumé");
         requisicaoExame.setSolicitanteCnes("PSF IV");
@@ -135,5 +122,4 @@ public class RequisicaoExameServiceTest {
         assertFalse(listaRequisicaoExames.isEmpty());
 
     }
-
 }

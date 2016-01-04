@@ -68,6 +68,7 @@ public class MedicoBean implements Serializable {
 
     /**
      * Lista de médicos cadastrados na UBS.
+     * 
      * @return 
      */
     public List<Medico> getMedicos() {

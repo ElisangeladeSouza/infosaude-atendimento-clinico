@@ -28,5 +28,4 @@ public class Enfermeiro extends Pessoa implements Serializable {
     @Column(name = "enfermeiro_coren", unique = true, length = 30)
     private String corenEnfermeiro;
 
-
 }

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class TecnicoEnfermagemTest {
 
@@ -87,5 +87,4 @@ public class TecnicoEnfermagemTest {
         assertEquals("O estado esperado deve ser " + tecnicoEnfermagem.getEnderecoEstado(), tecnicoEnfermagem.getEnderecoEstado(),
                 tecnicoEnfermagem.getEnderecoEstado());
     }
-
 }

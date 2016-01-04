@@ -38,7 +38,6 @@ public class CDIServiceLocator {
      * @param <T>
      * @param clazz
      * @return
-     * @throws UBSException
      */
     @SuppressWarnings("unchecked")
     public static <T> T getBean(Class<T> clazz) {
@@ -55,5 +54,4 @@ public class CDIServiceLocator {
 
         return (T) bm.getReference(bean, clazz, ctx);
     }
-
 }

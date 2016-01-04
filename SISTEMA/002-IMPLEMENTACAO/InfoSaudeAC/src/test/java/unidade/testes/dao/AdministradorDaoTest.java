@@ -56,7 +56,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -143,7 +142,6 @@ public class AdministradorDaoTest {
         novoAdministrador = administradorDao.findById(id);
 
         assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
-
     }
 
     /**
@@ -177,7 +175,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -193,7 +190,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -209,7 +205,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -225,7 +220,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -241,7 +235,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -258,7 +251,6 @@ public class AdministradorDaoTest {
         administradorDao.getEntityManager().getTransaction().begin();
         administradorDao.salvar(administrador);
         administradorDao.getEntityManager().getTransaction().commit();
-
     }
 
     /**
@@ -442,6 +434,5 @@ public class AdministradorDaoTest {
         administradorDao.delete(administrador);
 
         assertNull(administradorDao.findById(id));
-
     }
 }

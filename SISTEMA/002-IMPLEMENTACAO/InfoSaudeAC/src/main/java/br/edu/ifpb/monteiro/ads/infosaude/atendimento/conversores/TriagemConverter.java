@@ -67,5 +67,4 @@ public class TriagemConverter implements Converter {
         }
         return "";
     }
-
 }

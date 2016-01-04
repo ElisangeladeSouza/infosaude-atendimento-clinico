@@ -39,5 +39,4 @@ public class CPFValidatorTest {
         CPFValidator cpfValidator = new CPFValidator();
         cpfValidator.validate(null, null, "");
     }
-
 }

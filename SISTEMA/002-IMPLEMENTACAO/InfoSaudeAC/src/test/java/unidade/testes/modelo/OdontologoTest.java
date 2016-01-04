@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class OdontologoTest {
 
@@ -85,5 +85,4 @@ public class OdontologoTest {
         assertEquals("A cidade esperada deve ser Monteiro", "Monteiro", odontologo.getEnderecoCidade());
         assertEquals("O estado esperado deve ser " + odontologo.getEnderecoEstado(), odontologo.getEnderecoEstado(), odontologo.getEnderecoEstado());
     }
-
 }

@@ -69,5 +69,4 @@ public class TecnicoEnfermagemService implements Serializable {
     public TecnicoEnfermagem findById(Long id) {
         return tecnicoEnfermagemDAO.findById(id);
     }
-
 }

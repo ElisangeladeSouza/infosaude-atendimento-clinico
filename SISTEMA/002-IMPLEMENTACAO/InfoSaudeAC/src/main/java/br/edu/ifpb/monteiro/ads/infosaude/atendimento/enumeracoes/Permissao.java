@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Enumeraçao que retorna as opções de Roles(Funções) de cada usuário do
  * sistema.
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public enum Permissao implements Serializable {
 
@@ -32,5 +32,4 @@ public enum Permissao implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-
 }

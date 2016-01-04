@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  *
- * @author elisangela
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class AdministradorTest {
 
@@ -83,5 +83,4 @@ public class AdministradorTest {
         assertEquals("O rg esperado deve ser 8926371", "8926371", administrador.getRg());
         assertEquals("O telefone esperado deve ser (83) 999467281", "(83) 999467281", administrador.getTelefone1());
     }
-
 }

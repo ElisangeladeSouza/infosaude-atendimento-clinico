@@ -19,5 +19,4 @@ public class OdontologoDao extends DaoAbstrato<Odontologo> implements Serializab
     public OdontologoDao() {
         super(Odontologo.class);
     }
-
 }

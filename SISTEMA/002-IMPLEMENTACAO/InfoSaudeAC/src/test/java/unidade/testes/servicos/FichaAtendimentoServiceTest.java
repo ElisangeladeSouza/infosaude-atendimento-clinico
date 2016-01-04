@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unidade.testes.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Destino;
@@ -39,7 +34,6 @@ public class FichaAtendimentoServiceTest {
      *
      */
     public FichaAtendimentoServiceTest() {
-
         fichaAtendimentoService = new FichaAtendimentoService();
 
     }
@@ -49,7 +43,6 @@ public class FichaAtendimentoServiceTest {
      */
     @BeforeClass
     public static void setUpClass() {
-
         paciente = new Paciente();
         paciente.setId(1L);
 
@@ -60,7 +53,6 @@ public class FichaAtendimentoServiceTest {
      */
     @Before
     public void setUp() {
-
         MockitoAnnotations.initMocks(this);
         fichaAtendimento = new FichaAtendimento();
         novaFichaAtendimento = new FichaAtendimento();
@@ -71,7 +63,6 @@ public class FichaAtendimentoServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindByIdInexistente() {
-
         when(fichaAtendimentoService.findById(0L)).thenThrow(new Exception());
         fichaAtendimento = fichaAtendimentoService.findById(0L);
     }
@@ -81,7 +72,6 @@ public class FichaAtendimentoServiceTest {
      */
     @Test
     public void testFindById() {
-
         fichaAtendimento.setPaciente(paciente);
         fichaAtendimento.setDestino(Destino.MEDICO);
 
@@ -97,7 +87,6 @@ public class FichaAtendimentoServiceTest {
      */
     @Test(expected = Exception.class)
     public void testFindAllNenhumSalvo() {
-
         when(fichaAtendimentoService.findAll()).thenThrow(new Exception());
         fichaAtendimentoService.findAll();
 
@@ -108,7 +97,6 @@ public class FichaAtendimentoServiceTest {
      */
     @Test
     public void testFindAll() {
-
         fichaAtendimento.setPaciente(paciente);
         fichaAtendimento.setDestino(Destino.ENFERMEIRO);
 
@@ -120,5 +108,4 @@ public class FichaAtendimentoServiceTest {
         assertFalse(listaFichaAtendimentos.isEmpty());
 
     }
-
 }

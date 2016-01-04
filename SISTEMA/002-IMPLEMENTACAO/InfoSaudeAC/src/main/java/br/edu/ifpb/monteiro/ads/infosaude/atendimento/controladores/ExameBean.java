@@ -111,5 +111,4 @@ public class ExameBean implements Serializable {
     public void setExameService(ExameService exameService) {
         this.exameService = exameService;
     }
-
 }

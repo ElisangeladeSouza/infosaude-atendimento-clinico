@@ -70,5 +70,4 @@ public class ConsultaService implements Serializable {
     public List<Consulta> findAll() {
         return consultaDao.findAll();
     }
-
 }

@@ -19,7 +19,6 @@ public class DateTimeUtilBean implements Serializable {
      * Construtor da classe
      */
     public DateTimeUtilBean() {
-
     }
 
     /**

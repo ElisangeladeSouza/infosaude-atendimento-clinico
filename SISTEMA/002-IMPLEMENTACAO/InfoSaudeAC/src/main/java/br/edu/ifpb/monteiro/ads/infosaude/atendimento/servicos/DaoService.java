@@ -26,5 +26,4 @@ public class DaoService<T> extends DaoAbstrato<T> {
     public T buscarPorCampo(String campo, Object valor) {
         return (T) getDao.buscarPorCampo(campo, valor);
     }
-
 }

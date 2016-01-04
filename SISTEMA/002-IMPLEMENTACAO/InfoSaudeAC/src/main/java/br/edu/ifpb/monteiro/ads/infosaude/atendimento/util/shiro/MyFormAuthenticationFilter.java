@@ -18,5 +18,4 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter {
         String message = ae.getMessage();
         request.setAttribute(getFailureKeyAttribute(), message);
     }
-
 }

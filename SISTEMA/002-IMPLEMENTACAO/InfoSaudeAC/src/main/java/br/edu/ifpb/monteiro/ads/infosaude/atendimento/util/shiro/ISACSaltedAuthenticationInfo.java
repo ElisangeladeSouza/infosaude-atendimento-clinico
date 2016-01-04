@@ -45,5 +45,4 @@ class ISACSaltedAuthenticationInfo implements SaltedAuthenticationInfo {
     public Object getCredentials() {
         return password;
     }
-
 }
