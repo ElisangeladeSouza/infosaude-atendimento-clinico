@@ -26,6 +26,7 @@ public class ValidationListener implements SystemEventListener {
      *
      * A classe CSS será acrescentada ao componente caso outras classes já
      * existam, sem excluir as antigas.
+     * @param event
      */
     @Override
     public void processEvent(SystemEvent event) throws AbortProcessingException {
