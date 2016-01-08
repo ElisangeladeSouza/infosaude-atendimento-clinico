@@ -30,7 +30,7 @@
                                  requiredMessage="#{msg.aCodeIsRequired}" maxlength="20"/>
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{triagemBean.triagem.paciente}" required="true"  
+                    <p:selectOneMenu id="paciente" value="#{triagemBean.triagem.pacienteTriagem}" required="true"  
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
