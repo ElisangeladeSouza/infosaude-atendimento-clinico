@@ -27,15 +27,14 @@ public class Conta implements Serializable {
     @Column(name = "id_conta")
     private Long id;
 
-    @Column(name = "usuario", nullable = false, length = 25)
+    @Column(name = "username", nullable = false, length = 25)
     private String userName;
 
-    @Column(name = "senha", nullable = false, length = 40)
+    @Column(name = "password", nullable = false, length = 40)
     private String password;
 
     @Column(name = "permissao", nullable = true)
     private Permissao permissao;
     
-    private String salt;
 
 }

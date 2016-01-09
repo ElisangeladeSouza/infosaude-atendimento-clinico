@@ -5,24 +5,28 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ContaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.NavigationHandler;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.web.util.SavedRequest;
-import org.apache.shiro.web.util.WebUtils;
-import org.omnifaces.util.Faces;
+import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 
 /**
- * Managed bean usado pela página de cadastro de contas. 
- * É responsável por ligar a classe de modelo Conta à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
+ * Managed bean usado pela página de cadastro de contas. É responsável por ligar
+ * a classe de modelo Conta à página de visualização processando as solicitações
+ * do usuário e retornando os dados à visualização.
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
@@ -47,11 +51,11 @@ public class ContaBean implements Serializable {
     private final String usuarioLogado;
 
     /**
-    * Construtor da classe
-    * Inicia o array com as permissões possiveis para cada usuário do sistema.
-    * 
+     * Construtor da classe Inicia o array com as permissões possiveis para cada
+     * usuário do sistema.
+     *
      * @see Permissao
-    */
+     */
     public ContaBean() {
         this.permissoes = Arrays.asList(Permissao.values());
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
@@ -63,10 +67,10 @@ public class ContaBean implements Serializable {
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Consulta e salvar. 
-     * 
-     * @throws NegocioException 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Consulta e salvar.
+     *
+     * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         this.contaService.save(conta);
@@ -80,10 +84,10 @@ public class ContaBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Conta e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
-     * @throws NegocioException 
+     * Método responsável por excluir um objeto do tipo Conta e exibir ao final
+     * do processo uma mensagem informativa.
+     *
+     * @throws NegocioException
      */
     public void excluir() throws NegocioException {
         this.contaService.delete(contaSelecionada);
@@ -105,20 +109,34 @@ public class ContaBean implements Serializable {
         return contas;
     }
 
-    /**
-     * Método que verifica usuário e senha digitados. Caso as informações
-     * estejam corretas o usuário será logado, caso contrário emite mensagem de
-     * falha no login.
-     *
-     * @throws IOException
-     */
-    public void login() throws IOException {
+    public void login() {
+
         try {
-            SecurityUtils.getSubject().login(new UsernamePasswordToken(conta.getUserName(), conta.getPassword()));
-            SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(Faces.getRequest());
-            Faces.redirect(savedRequest != null ? savedRequest.getRequestUrl() : "/InfoSaudeAC/Home.xhtml");
-        } catch (AuthenticationException e) {
-            FacesUtil.mensagemErro("Falha no login!");
+
+            Subject currentUser = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(conta.getUserName(), new Sha256Hash(conta.getPassword()).toHex());
+
+            currentUser.login(token);
+
+        } catch (UnknownAccountException uae) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no login!", "Usuário incorreto"));
+
+        } catch (IncorrectCredentialsException ice) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no login!", "Senha incorreta"));
+
+        } catch (LockedAccountException lae) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no login!", "Usuário está bloqueado"));
+
+        } catch (AuthenticationException aex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha no login!", aex.toString()));
+        }
+
+    }
+
+    public void authorizedUserControl() {
+        if (null != SecurityUtils.getSubject().getPrincipal()) {
+            NavigationHandler nh = FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
+            nh.handleNavigation(FacesContext.getCurrentInstance(), null, "Home.xhtml?faces-redirect=true");
         }
     }
 
