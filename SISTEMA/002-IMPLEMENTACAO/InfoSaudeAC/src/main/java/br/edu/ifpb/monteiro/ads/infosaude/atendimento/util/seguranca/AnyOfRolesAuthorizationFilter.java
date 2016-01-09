@@ -1,4 +1,4 @@
-package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.shiro;
+package br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.seguranca;
 
 import java.io.IOException;
 import javax.servlet.ServletRequest;
