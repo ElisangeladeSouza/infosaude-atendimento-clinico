@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.OdontologoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.OdontologoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class OdontologoService implements Serializable {
+public class OdontologoService implements OdontologoServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class OdontologoService implements Serializable {
      * @param odontologo
      */
     @Transactional
+    @Override
     public void save(Odontologo odontologo) {
         if (odontologo != null) {
             odontologoDAO.salvar(odontologo);
@@ -44,6 +46,7 @@ public class OdontologoService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Odontologo odontologo) throws NegocioException {
         odontologoDAO.delete(findById(odontologo.getId()));
     }
@@ -54,6 +57,7 @@ public class OdontologoService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Odontologo> findAll() {
         return odontologoDAO.findAll();
     }

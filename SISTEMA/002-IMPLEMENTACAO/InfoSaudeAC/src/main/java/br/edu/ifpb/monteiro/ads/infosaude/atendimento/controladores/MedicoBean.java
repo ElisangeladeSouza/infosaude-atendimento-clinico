@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.MedicoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.MedicoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class MedicoBean implements Serializable {
     private Medico medico;
 
     @Inject
-    private MedicoService medicoService;
+    private MedicoServiceIF medicoService;
 
     @Inject
     private Medico medicoSelecionado;
@@ -137,10 +138,10 @@ public class MedicoBean implements Serializable {
     }
 
     public MedicoService getMedicoService() {
-        return medicoService;
+        return (MedicoService) medicoService;
     }
 
     public void setMedicoService(MedicoService medicoService) {
-        this.medicoService = medicoService;
+        this.medicoService = (MedicoServiceIF) medicoService;
     }
 }

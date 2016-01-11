@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Enfermeiro;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.EnfermeiroService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.EnfermeiroServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class EnfermeiroBean implements Serializable {
     private Enfermeiro enfermeiro;
 
     @Inject
-    private EnfermeiroService enfermeiroService;
+    private EnfermeiroServiceIF enfermeiroService;
 
     @Inject
     private Enfermeiro enfermeiroSelecionado;
@@ -135,10 +136,10 @@ public class EnfermeiroBean implements Serializable {
     }
 
     public EnfermeiroService getEnfermeiroService() {
-        return enfermeiroService;
+        return (EnfermeiroService) enfermeiroService;
     }
 
     public void setEnfermeiroService(EnfermeiroService enfermeiroService) {
-        this.enfermeiroService = enfermeiroService;
+        this.enfermeiroService = (EnfermeiroServiceIF) enfermeiroService;
     }
 }

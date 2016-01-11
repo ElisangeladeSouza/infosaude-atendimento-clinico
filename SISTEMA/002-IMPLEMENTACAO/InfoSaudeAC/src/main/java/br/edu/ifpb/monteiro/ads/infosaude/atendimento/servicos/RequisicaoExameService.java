@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RequisicaoExameDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.RequisicaoExameServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class RequisicaoExameService implements Serializable {
+public class RequisicaoExameService implements RequisicaoExameServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,6 +38,7 @@ public class RequisicaoExameService implements Serializable {
      * @param requisicaoExame
      */
     @Transactional
+    @Override
     public void save(RequisicaoExame requisicaoExame) {
         requisicaoExameDao.salvar(requisicaoExame);
 //        if (requisicaoExame.getExames() == null) {
@@ -53,6 +55,7 @@ public class RequisicaoExameService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(RequisicaoExame requisicaoExame) throws NegocioException {
         requisicaoExameDao.delete(findById(requisicaoExame.getId()));
     }
@@ -63,6 +66,7 @@ public class RequisicaoExameService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<RequisicaoExame> findAll() {
         return requisicaoExameDao.findAll();
     }
@@ -89,6 +93,7 @@ public class RequisicaoExameService implements Serializable {
      * @return
      * @throws NegocioException 
      */
+    @Override
     public boolean verificaCampoUnique(String campo, Object valor, Long id) throws NegocioException {
 
         try {

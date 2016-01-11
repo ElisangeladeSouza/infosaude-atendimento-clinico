@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ConsultaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ConsultaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ConsultaBean implements Serializable {
     private Consulta consulta;
 
     @Inject
-    private ConsultaService consultaService;
+    private ConsultaServiceIF consultaService;
 
     @Inject
     private Consulta consultaSelecionada;
@@ -111,10 +112,10 @@ public class ConsultaBean implements Serializable {
     }
 
     public ConsultaService getConsultaService() {
-        return consultaService;
+        return (ConsultaService) consultaService;
     }
 
     public void setConsultaService(ConsultaService consultaService) {
-        this.consultaService = consultaService;
+        this.consultaService = (ConsultaServiceIF) consultaService;
     }
 }

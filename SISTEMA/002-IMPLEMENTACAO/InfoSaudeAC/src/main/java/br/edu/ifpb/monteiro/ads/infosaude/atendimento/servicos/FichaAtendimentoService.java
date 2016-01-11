@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtil
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.FichaAtendimentoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.FichaAtendimentoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class FichaAtendimentoService implements Serializable {
+public class FichaAtendimentoService implements FichaAtendimentoServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,7 @@ public class FichaAtendimentoService implements Serializable {
      * @param fichaAtendimento 
      */
     @Transactional
+    @Override
     public void save(FichaAtendimento fichaAtendimento) {
         if (fichaAtendimento != null) {
             fichaAtendimento.setData(new DateTimeUtilBean().getDateToday());
@@ -47,6 +49,7 @@ public class FichaAtendimentoService implements Serializable {
      * @throws NegocioException 
      */
     @Transactional
+    @Override
     public void delete(FichaAtendimento fichaAtendimento) throws NegocioException {
         fichaAtendimentoDao.delete(findById(fichaAtendimento.getId()));
     }
@@ -68,6 +71,7 @@ public class FichaAtendimentoService implements Serializable {
      * 
      * @return 
      */
+    @Override
     public List<FichaAtendimento> findAll() {
         return fichaAtendimentoDao.findAll();
     }

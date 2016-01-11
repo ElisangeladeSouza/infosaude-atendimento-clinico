@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtil
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ConsultaDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ConsultaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class ConsultaService implements Serializable {
+public class ConsultaService implements ConsultaServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,7 @@ public class ConsultaService implements Serializable {
      * @param consulta
      */
     @Transactional
+    @Override
     public void save(Consulta consulta) {
         if (consulta != null) {
             consulta.setData(new DateTimeUtilBean().getDateToday());
@@ -46,6 +48,7 @@ public class ConsultaService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Consulta consulta) throws NegocioException {
         consultaDao.delete(findById(consulta.getId()));
     }
@@ -67,6 +70,7 @@ public class ConsultaService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Consulta> findAll() {
         return consultaDao.findAll();
     }

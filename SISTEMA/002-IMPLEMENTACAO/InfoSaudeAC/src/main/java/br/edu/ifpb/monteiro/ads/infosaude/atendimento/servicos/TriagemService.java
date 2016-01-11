@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtil
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.TriagemDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TriagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class TriagemService implements Serializable {
+public class TriagemService implements TriagemServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,7 @@ public class TriagemService implements Serializable {
      * @param triagem
      */
     @Transactional
+    @Override
     public void save(Triagem triagem) {
         if (triagem != null) {
             triagem.setData(new DateTimeUtilBean().getDateToday());
@@ -47,6 +49,7 @@ public class TriagemService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Triagem triagem) throws NegocioException {
         triagemDao.delete(findById(triagem.getId()));
     }
@@ -68,6 +71,7 @@ public class TriagemService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Triagem> findAll() {
         return triagemDao.findAll();
     }

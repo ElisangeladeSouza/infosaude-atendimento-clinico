@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.MedicoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.MedicoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class MedicoService implements Serializable {
+public class MedicoService implements MedicoServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class MedicoService implements Serializable {
      * @param medico
      */
     @Transactional
+    @Override
     public void save(Medico medico) {
         if (medico != null) {
             this.medicoDao.salvar(medico);
@@ -44,6 +46,7 @@ public class MedicoService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Medico medico) throws NegocioException {
         medicoDao.delete(findById(medico.getId()));
     }
@@ -65,6 +68,7 @@ public class MedicoService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Medico> findAll() {
         return medicoDao.findAll();
     }

@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.PacienteDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PacienteServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class PacienteService implements Serializable {
+public class PacienteService implements PacienteServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class PacienteService implements Serializable {
      * @param paciente
      */
     @Transactional
+    @Override
     public void save(Paciente paciente) {
         if (paciente != null) {
             this.pacienteDao.salvar(paciente);
@@ -45,6 +47,7 @@ public class PacienteService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Paciente paciente) throws NegocioException {
         pacienteDao.delete(findById(paciente.getId()));
     }
@@ -66,6 +69,7 @@ public class PacienteService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Paciente> findAll() {
         return pacienteDao.findAll();
     }

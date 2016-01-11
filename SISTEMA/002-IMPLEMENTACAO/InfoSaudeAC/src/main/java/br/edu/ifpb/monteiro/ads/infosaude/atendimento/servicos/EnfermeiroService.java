@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.EnfermeiroDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Enfermeiro;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.EnfermeiroServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class EnfermeiroService implements Serializable {
+public class EnfermeiroService implements EnfermeiroServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class EnfermeiroService implements Serializable {
      * @param enfermeiro
      */
     @Transactional
+    @Override
     public void save(Enfermeiro enfermeiro) {
         if (enfermeiro != null) {
             this.enfermeiroDAO.salvar(enfermeiro);
@@ -45,6 +47,7 @@ public class EnfermeiroService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Enfermeiro enfermeiro) throws NegocioException {
         enfermeiroDAO.delete(findById(enfermeiro.getId()));
     }
@@ -55,6 +58,7 @@ public class EnfermeiroService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Enfermeiro> findAll() {
         return enfermeiroDAO.findAll();
     }

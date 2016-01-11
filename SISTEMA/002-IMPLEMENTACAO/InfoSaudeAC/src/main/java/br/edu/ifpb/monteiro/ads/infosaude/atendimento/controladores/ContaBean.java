@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ContaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ContaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class ContaBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private ContaService contaService;
+    private ContaServiceIF contaService;
 
     @Inject
     private Conta conta;
@@ -152,11 +153,11 @@ public class ContaBean implements Serializable {
     }
 
     public ContaService getContaService() {
-        return contaService;
+        return (ContaService) contaService;
     }
 
     public void setContaService(ContaService contaService) {
-        this.contaService = contaService;
+        this.contaService = (ContaServiceIF) contaService;
     }
 
     public Conta getConta() {

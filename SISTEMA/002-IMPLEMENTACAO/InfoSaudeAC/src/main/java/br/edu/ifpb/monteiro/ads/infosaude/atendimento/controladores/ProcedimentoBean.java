@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Procedimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ProcedimentoService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ProcedimentoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -26,7 +27,7 @@ public class ProcedimentoBean implements Serializable {
     private Procedimento procedimento;
 
     @Inject
-    private ProcedimentoService procedimentoService;
+    private ProcedimentoServiceIF procedimentoService;
 
     @Inject
     private Procedimento procedimentoSelecionado;
@@ -108,10 +109,10 @@ public class ProcedimentoBean implements Serializable {
     }
 
     public ProcedimentoService getProcedimentoService() {
-        return procedimentoService;
+        return (ProcedimentoService) procedimentoService;
     }
 
     public void setProcedimentoService(ProcedimentoService procedimentoService) {
-        this.procedimentoService = procedimentoService;
+        this.procedimentoService = (ProcedimentoServiceIF) procedimentoService;
     }
 }

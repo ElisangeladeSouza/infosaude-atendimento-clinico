@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.AdministradorDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AdministradorServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class AdministradorService implements Serializable {
+public class AdministradorService implements AdministradorServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class AdministradorService implements Serializable {
      * @param administrador
      */
     @Transactional
+    @Override
     public void save(Administrador administrador) {
         if (administrador != null) {
             this.administradorDAO.salvar(administrador);
@@ -45,6 +47,7 @@ public class AdministradorService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Administrador administrador) throws NegocioException {
         administradorDAO.delete(findById(administrador.getId()));
     }
@@ -55,6 +58,7 @@ public class AdministradorService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Administrador> findAll() {
         return administradorDAO.findAll();
     }
@@ -66,6 +70,7 @@ public class AdministradorService implements Serializable {
      * @param id
      * @return
      */
+    @Override
     public Administrador findById(Long id) {
         return administradorDAO.findById(id);
     }

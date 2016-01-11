@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.TecnicoEnfermagemDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TecnicoEnfermagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class TecnicoEnfermagemService implements Serializable {
+public class TecnicoEnfermagemService implements TecnicoEnfermagemServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class TecnicoEnfermagemService implements Serializable {
      * @param tecnicoEnfermagem
      */
     @Transactional
+    @Override
     public void save(TecnicoEnfermagem tecnicoEnfermagem) {
         if (tecnicoEnfermagem != null) {
             tecnicoEnfermagemDAO.salvar(tecnicoEnfermagem);
@@ -45,6 +47,7 @@ public class TecnicoEnfermagemService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(TecnicoEnfermagem tecnicoEnfermagem) throws NegocioException {
         tecnicoEnfermagemDAO.delete(findById(tecnicoEnfermagem.getId()));
     }
@@ -55,6 +58,7 @@ public class TecnicoEnfermagemService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<TecnicoEnfermagem> findAll() {
         return tecnicoEnfermagemDAO.findAll();
     }

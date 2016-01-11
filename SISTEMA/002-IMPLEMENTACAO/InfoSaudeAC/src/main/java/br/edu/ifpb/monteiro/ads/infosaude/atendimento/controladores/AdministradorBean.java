@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AdministradorServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -33,7 +34,7 @@ public class AdministradorBean implements Serializable {
     private Administrador administrador;
 
     @Inject
-    private AdministradorService administradorService;
+    private AdministradorServiceIF administradorService;
 
     @Inject
     private Administrador administradorSelecionado;
@@ -136,7 +137,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public AdministradorService getAdministradorService() {
-        return administradorService;
+        return (AdministradorService) administradorService;
     }
 
     public void setAdministradorService(AdministradorService administradorService) {

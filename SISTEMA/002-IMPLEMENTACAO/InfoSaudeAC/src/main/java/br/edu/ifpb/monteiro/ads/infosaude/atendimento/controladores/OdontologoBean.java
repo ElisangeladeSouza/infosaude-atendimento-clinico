@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Odontologo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.OdontologoService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.OdontologoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class OdontologoBean implements Serializable {
     private Odontologo odontologo;
 
     @Inject
-    private OdontologoService odontologoService;
+    private OdontologoServiceIF odontologoService;
 
     @Inject
     private Odontologo odontologoSelecionado;
@@ -135,10 +136,10 @@ public class OdontologoBean implements Serializable {
     }
 
     public OdontologoService getOdontologoService() {
-        return odontologoService;
+        return (OdontologoService) odontologoService;
     }
 
     public void setOdontologoService(OdontologoService odontologoService) {
-        this.odontologoService = odontologoService;
+        this.odontologoService = (OdontologoServiceIF) odontologoService;
     }
 }

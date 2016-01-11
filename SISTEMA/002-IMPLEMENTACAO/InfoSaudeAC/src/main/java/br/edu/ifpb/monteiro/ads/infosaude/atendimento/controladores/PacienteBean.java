@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PacienteService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PacienteServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class PacienteBean implements Serializable {
     private Paciente paciente;
 
     @Inject
-    private PacienteService pacienteService;
+    private PacienteServiceIF pacienteService;
 
     @Inject
     private Paciente pacienteSelecionado;
@@ -128,11 +129,11 @@ public class PacienteBean implements Serializable {
     }
 
     public PacienteService getPacienteService() {
-        return pacienteService;
+        return (PacienteService) pacienteService;
     }
 
     public void setPacienteService(PacienteService pacienteService) {
-        this.pacienteService = pacienteService;
+        this.pacienteService = (PacienteServiceIF) pacienteService;
     }
 
     public Paciente getPacienteSelecionado() {

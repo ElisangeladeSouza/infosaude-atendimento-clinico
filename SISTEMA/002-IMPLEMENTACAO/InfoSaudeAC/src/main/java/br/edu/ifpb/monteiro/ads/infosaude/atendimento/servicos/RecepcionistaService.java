@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RecepcionistaDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.RecepcionistaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class RecepcionistaService implements Serializable {
+public class RecepcionistaService implements RecepcionistaServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,7 @@ public class RecepcionistaService implements Serializable {
      * @param recepcionista
      */
     @Transactional
+    @Override
     public void save(Recepcionista recepcionista) {
         if (recepcionista != null) {
             recepcionistaDAO.salvar(recepcionista);
@@ -45,6 +47,7 @@ public class RecepcionistaService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Recepcionista recepcionista) throws NegocioException {
         recepcionistaDAO.delete(findById(recepcionista.getId()));
     }
@@ -55,6 +58,7 @@ public class RecepcionistaService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Recepcionista> findAll() {
         return recepcionistaDAO.findAll();
     }

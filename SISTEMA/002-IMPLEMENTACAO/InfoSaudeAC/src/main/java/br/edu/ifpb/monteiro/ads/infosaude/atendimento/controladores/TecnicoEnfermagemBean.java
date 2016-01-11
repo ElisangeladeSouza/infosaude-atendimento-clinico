@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TecnicoEnfermagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class TecnicoEnfermagemBean implements Serializable {
     private TecnicoEnfermagem tecnicoEnfermagem;
 
     @Inject
-    private TecnicoEnfermagemService tecnicoEnfermagemService;
+    private TecnicoEnfermagemServiceIF tecnicoEnfermagemService;
 
     @Inject
     private TecnicoEnfermagem tecnicoEnfermagemSelecionado;
@@ -135,10 +136,10 @@ public class TecnicoEnfermagemBean implements Serializable {
     }
 
     public TecnicoEnfermagemService getTecnicoEnfermagemService() {
-        return tecnicoEnfermagemService;
+        return (TecnicoEnfermagemService) tecnicoEnfermagemService;
     }
 
     public void setTecnicoEnfermagemService(TecnicoEnfermagemService tecnicoEnfermagemService) {
-        this.tecnicoEnfermagemService = tecnicoEnfermagemService;
+        this.tecnicoEnfermagemService = (TecnicoEnfermagemServiceIF) tecnicoEnfermagemService;
     }
 }

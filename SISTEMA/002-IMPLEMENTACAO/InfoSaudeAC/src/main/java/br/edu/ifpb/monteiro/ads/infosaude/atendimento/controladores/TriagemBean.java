@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TriagemService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TriagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -26,7 +27,7 @@ public class TriagemBean implements Serializable {
     private Triagem triagem;
 
     @Inject
-    private TriagemService triagemService;
+    private TriagemServiceIF triagemService;
 
     @Inject
     private Triagem triagemSelecionada;
@@ -108,10 +109,10 @@ public class TriagemBean implements Serializable {
     }
 
     public TriagemService getTriagemService() {
-        return triagemService;
+        return (TriagemService) triagemService;
     }
 
     public void setTriagemService(TriagemService triagemService) {
-        this.triagemService = triagemService;
+        this.triagemService = (TriagemServiceIF) triagemService;
     }
 }

@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtil
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ExameDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ExameServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class ExameService implements Serializable {
+public class ExameService implements ExameServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,6 +38,7 @@ public class ExameService implements Serializable {
      * @param exame 
      */
     @Transactional
+    @Override
     public void save(Exame exame) {
         exame.setData(new DateTimeUtilBean().getDateToday());
         this.exameDao.salvar(exame);
@@ -48,6 +50,7 @@ public class ExameService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Exame exame) throws NegocioException {
         exameDao.delete(findById(exame.getId()));
         LOGGER.info("Exame com id "+ exame.getId() + "removido.");
@@ -70,6 +73,7 @@ public class ExameService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Exame> findAll() {
         return exameDao.findAll();
     }
@@ -84,6 +88,7 @@ public class ExameService implements Serializable {
      * @param id
      * @param exame 
      */
+    @Override
     public void checaCampoDuplicado(String campo, Object valor, Long id, Exame exame) {
         exameDao.checaCampoDuplicado(campo, valor, null, exame);
     }

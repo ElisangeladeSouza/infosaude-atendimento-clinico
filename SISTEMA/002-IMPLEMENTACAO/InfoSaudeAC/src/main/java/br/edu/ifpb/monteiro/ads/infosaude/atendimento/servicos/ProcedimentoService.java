@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtil
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ProcedimentoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Procedimento;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ProcedimentoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class ProcedimentoService implements Serializable {
+public class ProcedimentoService implements ProcedimentoServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,7 @@ public class ProcedimentoService implements Serializable {
      * @param procedimento
      */
     @Transactional
+    @Override
     public void save(Procedimento procedimento) {
         if (procedimento != null) {
             procedimento.setData(new DateTimeUtilBean().getDateToday());
@@ -47,6 +49,7 @@ public class ProcedimentoService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Procedimento procedimento) throws NegocioException {
         procedimentoDao.delete(findById(procedimento.getId()));
     }
@@ -68,6 +71,7 @@ public class ProcedimentoService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Procedimento> findAll() {
         return procedimentoDao.findAll();
     }

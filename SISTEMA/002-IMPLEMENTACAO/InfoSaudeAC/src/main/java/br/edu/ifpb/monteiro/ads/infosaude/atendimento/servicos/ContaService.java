@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ContaDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ContaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
  * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class ContaService implements Serializable {
+public class ContaService implements ContaServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +30,7 @@ public class ContaService implements Serializable {
      * @param conta 
      */
     @Transactional
+    @Override
     public void save(Conta conta) throws NegocioException {
         this.contaDao.salvar(conta);
     }
@@ -40,6 +42,7 @@ public class ContaService implements Serializable {
      * @throws NegocioException
      */
     @Transactional
+    @Override
     public void delete(Conta conta) throws NegocioException {
         contaDao.delete(findById(conta.getId()));
     }
@@ -61,6 +64,7 @@ public class ContaService implements Serializable {
      * 
      * @return
      */
+    @Override
     public List<Conta> findAll() {
         return contaDao.findAll();
     }

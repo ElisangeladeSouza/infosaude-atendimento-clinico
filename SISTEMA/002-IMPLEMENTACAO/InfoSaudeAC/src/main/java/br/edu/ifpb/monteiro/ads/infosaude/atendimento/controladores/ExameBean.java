@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Exame;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ExameService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ExameServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -26,7 +27,7 @@ public class ExameBean implements Serializable {
     private Exame exame;
 
     @Inject
-    private ExameService exameService;
+    private ExameServiceIF exameService;
 
     @Inject
     private Exame exameSelecionado;
@@ -105,10 +106,10 @@ public class ExameBean implements Serializable {
     }
 
     public ExameService getExameService() {
-        return exameService;
+        return (ExameService) exameService;
     }
 
     public void setExameService(ExameService exameService) {
-        this.exameService = exameService;
+        this.exameService = (ExameServiceIF) exameService;
     }
 }

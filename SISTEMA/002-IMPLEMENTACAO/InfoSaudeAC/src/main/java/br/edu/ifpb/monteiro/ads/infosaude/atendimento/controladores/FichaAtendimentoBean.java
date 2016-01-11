@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Destino;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaAtendimento;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.FichaAtendimentoService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.FichaAtendimentoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class FichaAtendimentoBean implements Serializable {
     private FichaAtendimento fichaAtendimento;
 
     @Inject
-    private FichaAtendimentoService fichaAtendimentoService;
+    private FichaAtendimentoServiceIF fichaAtendimentoService;
 
     @Inject
     private FichaAtendimento fichaAtendimentoSelecionada;
@@ -128,10 +129,10 @@ public class FichaAtendimentoBean implements Serializable {
     }
 
     public FichaAtendimentoService getFichaAtendimentoService() {
-        return fichaAtendimentoService;
+        return (FichaAtendimentoService) fichaAtendimentoService;
     }
 
     public void setFichaAtendimentoService(FichaAtendimentoService fichaAtendimentoService) {
-        this.fichaAtendimentoService = fichaAtendimentoService;
+        this.fichaAtendimentoService = (FichaAtendimentoServiceIF) fichaAtendimentoService;
     }
 }

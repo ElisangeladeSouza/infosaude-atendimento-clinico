@@ -4,6 +4,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RecepcionistaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.RecepcionistaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,7 +33,7 @@ public class RecepcionistaBean implements Serializable {
     private Recepcionista recepcionista;
 
     @Inject
-    private RecepcionistaService recepcionistaService;
+    private RecepcionistaServiceIF recepcionistaService;
 
     @Inject
     private Recepcionista recepcionistaSelecionado;
@@ -135,10 +136,10 @@ public class RecepcionistaBean implements Serializable {
     }
 
     public RecepcionistaService getRecepcionistaService() {
-        return recepcionistaService;
+        return (RecepcionistaService) recepcionistaService;
     }
 
     public void setRecepcionistaService(RecepcionistaService recepcionistaService) {
-        this.recepcionistaService = recepcionistaService;
+        this.recepcionistaService = (RecepcionistaServiceIF) recepcionistaService;
     }
 }
