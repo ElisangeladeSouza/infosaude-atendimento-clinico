@@ -3,8 +3,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AdministradorServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -40,7 +40,7 @@ public class AdministradorBean implements Serializable {
     private Administrador administradorSelecionado;
 
     @Inject
-    private PessoaService pessoaService;
+    private PessoaServiceIF pessoaService;
 
     private transient List<Administrador> administradores;
 

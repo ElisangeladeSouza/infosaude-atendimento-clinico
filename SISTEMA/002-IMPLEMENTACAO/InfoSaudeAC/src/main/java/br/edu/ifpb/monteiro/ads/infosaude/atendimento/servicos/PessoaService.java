@@ -1,6 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.PessoaDao;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
@@ -12,7 +13,7 @@ import javax.inject.Inject;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-public class PessoaService implements Serializable {
+public class PessoaService implements PessoaServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +30,7 @@ public class PessoaService implements Serializable {
      * @param codigoUF
      * @return
      */
+    @Override
     public List<String> retornaCidades(int codigoUF) {
         return pessoaDAO.retornaCidades(codigoUF);
     }

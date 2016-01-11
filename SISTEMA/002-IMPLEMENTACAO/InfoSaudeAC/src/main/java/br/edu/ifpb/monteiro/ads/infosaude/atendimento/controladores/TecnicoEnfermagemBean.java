@@ -2,8 +2,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.TecnicoEnfermagem;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TecnicoEnfermagemService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TecnicoEnfermagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class TecnicoEnfermagemBean implements Serializable {
     private TecnicoEnfermagem tecnicoEnfermagemSelecionado;
 
     @Inject
-    private PessoaService pessoaService;
+    private PessoaServiceIF pessoaService;
 
     private transient List<TecnicoEnfermagem> tecnicos;
 

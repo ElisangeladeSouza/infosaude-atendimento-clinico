@@ -3,8 +3,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Paciente;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PacienteService;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PacienteServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -39,7 +39,7 @@ public class PacienteBean implements Serializable {
     private Paciente pacienteSelecionado;
 
     @Inject
-    private PessoaService pessoaService;
+    private PessoaServiceIF pessoaService;
 
     private transient List<Paciente> pacientes;
 

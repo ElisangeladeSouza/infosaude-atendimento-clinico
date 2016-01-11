@@ -2,8 +2,8 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Recepcionista;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.PessoaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.RecepcionistaService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.RecepcionistaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class RecepcionistaBean implements Serializable {
     private Recepcionista recepcionistaSelecionado;
 
     @Inject
-    private PessoaService pessoaService;
+    private PessoaServiceIF pessoaService;
 
     private transient List<Recepcionista> recepcionistas;
 
