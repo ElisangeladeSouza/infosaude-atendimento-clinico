@@ -35,6 +35,16 @@
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
                     </p:selectOneMenu>
+                    
+                    <p:outputLabel for="entrevista" value="#{msg.interview}"/>
+                    <p:inputTextarea id="entrevista" maxlength="200" rows="8" cols="40"/>
+                    
+                    <p:outputLabel for="grauUrgencia" value="#{msg.degreeOfUrgency}"/>
+                    <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true"
+                                     requiredMessage="#{msg.aDegreeOfUrgencyIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{triagemBean.urgencias}" var="urgencias" itemLabel="#{urgencias.descricao}" itemValue="#{urgencias}" class="upper"/>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
 

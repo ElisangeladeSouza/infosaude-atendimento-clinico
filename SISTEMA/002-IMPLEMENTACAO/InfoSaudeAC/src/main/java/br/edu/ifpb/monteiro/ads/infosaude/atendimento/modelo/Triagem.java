@@ -1,13 +1,17 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.GrauUrgencia;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,6 +44,14 @@ public class Triagem implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "triagem_data")
     private Date data;
+    
+    @Lob
+    @Column(name = "entrevista")
+    private String entrevista;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "grau_urgencia", nullable = false)
+    private GrauUrgencia grauUrgencia;
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")

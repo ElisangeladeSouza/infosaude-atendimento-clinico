@@ -1,11 +1,14 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.GrauUrgencia;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Triagem;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.TriagemService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.TriagemServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -33,11 +36,18 @@ public class TriagemBean implements Serializable {
     private Triagem triagemSelecionada;
 
     private transient List<Triagem> triagens;
+    
+    private transient List<GrauUrgencia> urgencias = new ArrayList<>();
 
     /**
      * Construtor da classe
+     * Inicia o array com os graus de urgência de acordo com o Protocolo de Manchester.
+     * 
+     * @see GrauUrgencia
+     * 
      */
     public TriagemBean() {
+        this.urgencias = Arrays.asList(GrauUrgencia.values());
     }
 
     @PostConstruct
@@ -52,7 +62,18 @@ public class TriagemBean implements Serializable {
     public List<Triagem> getTriagens() {
         return triagens;
     }
-
+    
+    /**
+     * Lista de graus de urgências possíveis para a ordem de atendimento do paciente.
+     * 
+     * @see GrauUrgencia
+     * 
+     * @return 
+     */
+    public List<GrauUrgencia> getUrgencias() {
+        return urgencias;
+    }
+    
     /**
      * Método responsável por iniciar uma transação, instanciar um objeto do tipo
      * Triagem e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
