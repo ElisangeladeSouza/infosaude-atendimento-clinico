@@ -52,9 +52,4 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToOne
     @JoinColumn(name = "triagem_pk", referencedColumnName = "id")
     private Triagem triagemPaciente;
-    
-    @OneToOne
-    @JoinColumn(name = "gestante_pk")
-    private Gestante gestante;
-
 }

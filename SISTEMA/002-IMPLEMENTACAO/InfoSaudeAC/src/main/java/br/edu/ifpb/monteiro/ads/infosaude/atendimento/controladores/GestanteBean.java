@@ -51,18 +51,18 @@ public class GestanteBean implements Serializable {
         this.gestantes = gestanteService.findAll();
     }
     
-    /**
+     /**
      * Método responsável por carregar uma lista com todas as cidades cadastradas.
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
-//    public void carregarCidades() {
-//        PessoaBean.cidades.clear();
-//        if (gestante.getPaciente().getEnderecoEstado() != null) {
-//            for (String cidadesFiltradas : pessoaService.retornaCidades(gestante.getPaciente().getEnderecoEstado().getCodigo())) {
-//                PessoaBean.cidades.add(cidadesFiltradas);
-//            }
-//        }
-//    }
+    public void carregarCidades() {
+        PessoaBean.cidades.clear();
+        if (gestante.getUf()!= null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(gestante.getUf().getCodigo())) {
+                PessoaBean.cidades.add(cidadesFiltradas);
+            }
+        }
+    }
 
     /**
      * Lista de gestantes cadastrados na UBS.
@@ -83,7 +83,7 @@ public class GestanteBean implements Serializable {
     public void salvar() throws NegocioException {
         this.gestanteService.save(gestante);
         if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro do gestante '" + gestante.getPaciente().getNome() + "' atualizado com sucesso!");
+//            FacesUtil.mensagemSucesso("Cadastro do gestante '" + gestante.getPaciente().getNome() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaGestante.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

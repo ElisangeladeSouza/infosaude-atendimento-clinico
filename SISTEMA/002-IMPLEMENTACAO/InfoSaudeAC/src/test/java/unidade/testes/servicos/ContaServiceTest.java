@@ -1,6 +1,5 @@
 package unidade.testes.servicos;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ContaService;
 import java.util.ArrayList;
@@ -39,7 +38,6 @@ public class ContaServiceTest {
     public void testSaveCamposObrigatorios() {
         conta.setPassword("123");
         conta.setUserName("ubs");
-        conta.setPermissao(Permissao.MEDICO);
 
         when(contaService.findById(1L)).thenReturn(conta);
 
@@ -47,7 +45,6 @@ public class ContaServiceTest {
 
         assertEquals("123", novaConta.getPassword());
         assertEquals("ubs", novaConta.getUserName());
-        assertEquals(conta.getPermissao(), novaConta.getPermissao());
     }
 
     @Test(expected = Exception.class)
@@ -62,7 +59,6 @@ public class ContaServiceTest {
 
         conta.setUserName("cool");
         conta.setPassword("cool");
-        conta.setPermissao(Permissao.ADMIN);
 
         listaContas.add(conta);
 

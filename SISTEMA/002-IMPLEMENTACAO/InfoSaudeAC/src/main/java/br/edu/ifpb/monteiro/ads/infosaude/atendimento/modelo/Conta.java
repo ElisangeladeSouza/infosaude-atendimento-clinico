@@ -32,9 +32,4 @@ public class Conta implements Serializable {
 
     @Column(name = "password", nullable = false, length = 40)
     private String password;
-
-    @Column(name = "permissao", nullable = true)
-    private Permissao permissao;
-    
-
 }

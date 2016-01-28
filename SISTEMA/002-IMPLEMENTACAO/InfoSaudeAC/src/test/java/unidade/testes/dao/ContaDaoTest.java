@@ -2,7 +2,6 @@ package unidade.testes.dao;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.ContaDao;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Permissao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Conta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.EntityManagerProducer;
 import java.util.ArrayList;
@@ -54,7 +53,6 @@ public class ContaDaoTest {
         Conta conta = new Conta();
 
         conta.setPassword("default");
-        conta.setPermissao(Permissao.ADMIN);
         conta.setUserName("default");
 
         contaDao.getEntityManager().getTransaction().begin();
@@ -75,7 +73,6 @@ public class ContaDaoTest {
         novaConta = contaDao.findById(id);
 
         assertEquals(conta.getPassword(), novaConta.getPassword());
-        assertEquals(conta.getPermissao(), novaConta.getPermissao());
     }
 
     //Teste comentado para decisão junto com o administrador para resolução de regra de negócio
