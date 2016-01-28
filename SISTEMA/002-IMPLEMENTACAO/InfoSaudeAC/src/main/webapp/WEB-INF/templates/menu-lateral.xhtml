@@ -35,6 +35,7 @@
                         <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}"/>
                         <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento" rendered="#{tudoCorpoMedico}"/>
                         <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames" rendered="#{tudoCorpoMedico}"/>
+                        <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}"/>
                         <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>
