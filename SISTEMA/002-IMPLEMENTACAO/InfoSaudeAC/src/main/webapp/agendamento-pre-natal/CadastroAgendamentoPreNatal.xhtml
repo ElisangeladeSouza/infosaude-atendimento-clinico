@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="agendamento" value="#{agendamentoPreNatalBean.agendamentoPreNatal}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloAgendamento" name="titulo">#{agendamentoPreNatalBean.editando ? msg.editCadastreScheduling : msg.newRegisterScheduling} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoAgendamento" name="conteudo">
+
+        <p:fieldset id="fieldsetAgendamento" legend="#{agendamentoPreNatalBean.editando ? msg.editCadastreScheduling : msg.newRegisterScheduling}">
+            <h:form id="formCadastroAgendamento">
+                <p:growl id="mensagens" autoUpdate="true"/>
+
+                <h:inputHidden id="data" value="#{agendamentoPreNatalBean.agendamentoPreNatal.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+
+                <h:panelGrid id="gridAgendamentoPreNatal" columns="2">
+                    
+                    <p:outputLabel for="gestante" value="#{msg.pregnant}:"/>
+                    <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" required="true" filter="true" filterMatchMode="contains"
+                                     requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{gestanteBean.gestantes}" var="gestante" itemLabel="#{gestante.paciente.nome}" itemValue="#{gestante}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="proximaConsulta" value="#{msg.nextAppointment}: "/>
+                    <p:calendar id="proximaConsulta" value="#{agendamentoPreNatalBean.agendamentoPreNatal.dataProximoPreNatal}" 
+                                navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
+                                yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+
+                    <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}: "/>
+                    <p:inputText id="agenteSaude" value="#{agendamentoPreNatalBean.agendamentoPreNatal.agenteSaude}" size="40" maxlength="150"/>
+                    
+                    <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
+                    <p:inputTextarea id="observacoes" value="#{agendamentoPreNatalBean.agendamentoPreNatal.observacoes}" maxlength="200" 
+                                     cols="38" rows="8"/>
+                    
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarAgendamento" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{agendamentoPreNatalBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal"
+                                  icon="fa fa-times" rendered="#{agendamentoPreNatalBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchExamination}"
+                                  id="botaoPesquisar" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal"
+                                  icon="ui-icon ui-icon-search" rendered="#{exameBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+                <p:blockUI id="blockUIAgendamento" block="formCadastroAgendamento" trigger="botaoSalvar"/>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

@@ -64,10 +64,21 @@
                 <c:set var="podeCadastrarGestante" value="#{request.isUserInRole('Enfermeiros') or
                                                        request.isUserInRole('Administradores')}" scope="request"/> 
                 
-                 <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de GESTANTE (PesquisaGestante.xhtml)-->
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de GESTANTE (PesquisaGestante.xhtml)-->
                 <c:set var="podeVerGestante" value="#{request.isUserInRole('Enfermeiros') or
                                                      request.isUserInRole('Medicos') or 
                                                      request.isUserInRole('Odontologos') or  
+                                                     request.isUserInRole('TecnicosEnfermagem') or
+                                                     request.isUserInRole('Administradores')}" scope="request"/> 
+                
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à AGENDAMENTO PRÉ-NATAL-->
+                <c:set var="podeCadastrarAgendamentoPreNatal" value="#{request.isUserInRole('Enfermeiros') or
+                                                       request.isUserInRole('Administradores')}" scope="request"/> 
+                
+                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de AGENDAMENTO PRÉ-NATAL (PesquisaAgendamentoPreNatal.xhtml)-->
+                <c:set var="podeVerAgendamentoPreNatal" value="#{request.isUserInRole('Enfermeiros') or
+                                                     request.isUserInRole('Medicos') or 
+                                                     request.isUserInRole('Odontologos') or
                                                      request.isUserInRole('TecnicosEnfermagem') or
                                                      request.isUserInRole('Administradores')}" scope="request"/> 
                 

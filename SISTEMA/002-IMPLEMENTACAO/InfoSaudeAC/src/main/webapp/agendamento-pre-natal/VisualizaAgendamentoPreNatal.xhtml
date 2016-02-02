@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="agendamento" value="#{agendamentoPreNatalBean.agendamentos}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloAgendamento" name="titulo">#{msg.viewCadastreScheduling} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoAgendamento" name="conteudo">
+
+        <p:fieldset id="fieldsetAgendamento" legend="#{msg.viewCadastreScheduling}">
+
+            <h:form id="formCadastroAgendamento">
+
+                <p:fieldset id="visualizaAgendamentoPreNatal" legend="#{msg.viewCadastreScheduling}">
+                    <h:panelGrid id="gridVisualizaAgendamento" columns="2">
+                        
+                        <p:outputLabel for="gestante" value="#{msg.pregnant}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="gestante" value="#{gestanteBean.gestante.paciente.nome}"/>
+
+                        <p:outputLabel for="proximaConsulta" value="#{msg.nextAppointment}.............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="proximaConsulta" value="#{agendamentoPreNatalBean.agendamentoPreNatal.dataProximoPreNatal}"  />
+
+                        <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}...............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="agenteSaude" value="#{agendamentoPreNatalBean.agendamentoPreNatal.agenteSaude}"  />
+                        
+                        <p:outputLabel for="observacoes" value="#{msg.observations}...............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="observacoes" value="#{agendamentoPreNatalBean.agendamentoPreNatal.observacoes}"  />
+
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:toolbar id="toolbarAgendamento" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>
