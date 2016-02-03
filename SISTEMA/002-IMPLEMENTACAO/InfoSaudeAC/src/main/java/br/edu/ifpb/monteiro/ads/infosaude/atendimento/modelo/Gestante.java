@@ -64,7 +64,7 @@ public class Gestante implements Serializable {
     @Column(name = "cartao_sus_profissional", nullable = false, length = 20)
     private String cartaoSusProfissional;
 
-    @Column(name = "NIS", unique = true, length = 11)
+    @Column(name = "NIS", length = 11)
     private String NIS;
 
     @Column(name = "menor_quinze")
