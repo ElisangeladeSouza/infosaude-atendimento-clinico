@@ -34,8 +34,7 @@
                     
                     <p:outputLabel for="proximaConsulta" value="#{msg.nextAppointment}: "/>
                     <p:calendar id="proximaConsulta" value="#{agendamentoPreNatalBean.agendamentoPreNatal.dataProximoPreNatal}" 
-                                navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
-                                yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                         <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
                     </p:calendar>
 
@@ -64,7 +63,7 @@
                     </f:facet>
 
                     <f:facet name="right">
-                        <p:button style="font-size: 13px;" value="#{msg.searchExamination}"
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreScheduling}"
                                   id="botaoPesquisar" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal"
                                   icon="ui-icon ui-icon-search" rendered="#{exameBean.editando eq 'false'}">
                         </p:button>
