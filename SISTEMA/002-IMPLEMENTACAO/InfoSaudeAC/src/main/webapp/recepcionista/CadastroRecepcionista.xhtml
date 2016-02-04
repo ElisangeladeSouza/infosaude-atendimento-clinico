@@ -51,7 +51,7 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}" filter="true" 
+                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}" filter="true" style="width: 210px" 
                                              filterMatchMode="startsWith" disabled="#{recepcionistaBean.recepcionista.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
