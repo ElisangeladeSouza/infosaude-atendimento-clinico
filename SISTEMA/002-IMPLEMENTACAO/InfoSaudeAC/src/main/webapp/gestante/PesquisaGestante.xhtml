@@ -40,12 +40,12 @@
                         <h:outputText id="id" value="#{gestante.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" width="30" filterMatchMode="contains" filterBy="#{gestante.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.pregnant}" width="30" filterMatchMode="contains" filterBy="#{gestante.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="nome" value="#{gestante.paciente.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.professionalName}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{gestante.nome_profissional}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="profissionalNome" value="#{gestante.nome_profissional}"/>
+                    <p:column headerText="#{msg.professionalName}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{gestante.nomeProfissional}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="profissionalNome" value="#{gestante.nomeProfissional}"/>
                     </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">

@@ -37,16 +37,16 @@ public class GestanteServiceTest {
     
     @Test
     public void testSaveCamposObrigatorios() {
-        gestante.setMunicipio_atendimento("Monteiro");
-        gestante.setNome_estabelecimento_saude("UBS 4");
-        gestante.setNome_profissional("Maria de Lourdes");
+        gestante.setMunicipioAtendimento("Monteiro");
+        gestante.setNomeEstabelecimentoSaude("UBS 4");
+        gestante.setNomeProfissional("Maria de Lourdes");
         gestante.setCartaoSusProfissional("937 8126 4027 7294");
 
         when(gestanteService.findById(1L)).thenReturn(gestante);
         novaGestante = gestanteService.findById(1L);
-        assertEquals("Monteiro", gestante.getMunicipio_atendimento());
-        assertEquals("UBS 4", gestante.getNome_estabelecimento_saude());
-        assertEquals("Maria de Lourdes", gestante.getNome_profissional());
+        assertEquals("Monteiro", gestante.getMunicipioAtendimento());
+        assertEquals("UBS 4", gestante.getNomeEstabelecimentoSaude());
+        assertEquals("Maria de Lourdes", gestante.getNomeProfissional());
         assertEquals("937 8126 4027 7294", gestante.getCartaoSusProfissional());
     }
     
@@ -58,16 +58,16 @@ public class GestanteServiceTest {
     
     @Test
     public void testFindByIdExistente() {
-        gestante.setMunicipio_atendimento("Sumé");
-        gestante.setNome_estabelecimento_saude("UBS 2");
-        gestante.setNome_profissional("Joelton Quirino");
+        gestante.setMunicipioAtendimento("Sumé");
+        gestante.setNomeEstabelecimentoSaude("UBS 2");
+        gestante.setNomeProfissional("Joelton Quirino");
         gestante.setCartaoSusProfissional("006 8264 0027 6432");
 
         when(gestanteService.findById(1L)).thenReturn(gestante);
         novaGestante = gestanteService.findById(1L);
-        assertEquals("Sumé", gestante.getMunicipio_atendimento());
-        assertEquals("UBS 2", gestante.getNome_estabelecimento_saude());
-        assertEquals("Joelton Quirino", gestante.getNome_profissional());
+        assertEquals("Sumé", gestante.getMunicipioAtendimento());
+        assertEquals("UBS 2", gestante.getNomeEstabelecimentoSaude());
+        assertEquals("Joelton Quirino", gestante.getNomeProfissional());
         assertEquals("006 8264 0027 6432", gestante.getCartaoSusProfissional());
 
     }
@@ -76,9 +76,9 @@ public class GestanteServiceTest {
     public void testFindAll() {
         List<Gestante> listaGestantes = new ArrayList<>();
 
-        gestante.setMunicipio_atendimento("Amparo");
-        gestante.setNome_estabelecimento_saude("UBS 7");
-        gestante.setNome_profissional("Patrícia Silva");
+        gestante.setMunicipioAtendimento("Amparo");
+        gestante.setNomeEstabelecimentoSaude("UBS 7");
+        gestante.setNomeProfissional("Patrícia Silva");
 
         listaGestantes = (List<Gestante>) new ArrayList<Gestante>();
         listaGestantes.add(gestante);

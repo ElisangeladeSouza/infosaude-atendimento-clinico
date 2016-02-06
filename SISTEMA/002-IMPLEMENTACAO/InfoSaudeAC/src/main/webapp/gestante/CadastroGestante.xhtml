@@ -18,9 +18,9 @@
             <h:form id="formCadastroGestante">
                 <p:growl id="mensagens" autoUpdate="true"/>
 
-<!--                <h:inputHidden id="data" value="#{gestanteBean.gestante.data}">
+                <h:inputHidden id="data" value="#{gestanteBean.gestante.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                </h:inputHidden>-->
+                </h:inputHidden>
 
                 <h:panelGrid id="gridEstabelecimento" columns="2">
 
@@ -32,27 +32,28 @@
                     </p:selectOneMenu>
 
                     <p:outputLabel for="nis" value="#{msg.nis}: "/>
-                    <p:inputText id="nis" value="#{gestanteBean.gestante.NIS}" size="20" maxlength="11"/>
+                    <p:inputText id="nis" value="#{gestanteBean.gestante.nis}" size="20" maxlength="11"/>
 
                     <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
-                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menor_quinze}"/>    
+                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}"/>    
 
-                </h:panelGrid>  
+                </h:panelGrid>    
 
                 <p:tabView id="tabViewDadosEstabelecimento" style="margin-top: 25px">
                     <p:tab id="tabInfoEstabelecimento" title="#{msg.establishment}">
                         <h:panelGrid id="gridEstabelecimento" columns="4">
 
                             <p:outputLabel for="municipio" value="#{msg.county}: "/>
-                            <p:inputText id="municipio" value="#{gestanteBean.gestante.municipio_atendimento}"  size="35"  maxlength="100"/>
+                            <p:inputText id="municipio" value="#{gestanteBean.gestante.municipioAtendimento}" requiredMessage="#{msg.aCountyIsRequired}"
+                                         required="true" size="35"  maxlength="100"/>
 
                             <p:outputLabel for="codigoIbge" value="#{msg.codeIBGE}: " style="margin-left: 10px"/>
-                            <p:inputText id="codigoIbge" value="#{gestanteBean.gestante.codigo_ibge}" size="20" maxlength="15"/>
+                            <p:inputText id="codigoIbge" value="#{gestanteBean.gestante.codigoIbge}" size="20" maxlength="15"/>
 
                             <p:outputLabel for="estabelecimento" value="#{msg.healthFacility}: "/>
-                            <p:inputText id="estabelecimento" value="#{gestanteBean.gestante.nome_estabelecimento_saude}" 
+                            <p:inputText id="estabelecimento" value="#{gestanteBean.gestante.nomeEstabelecimentoSaude}" 
                                          requiredMessage="#{msg.aHealthFacility}" required="true" size="35" maxlength="100"/>
-
+                            
                             <p:outputLabel for="uf" value="#{msg.state}: "  style="margin-left: 10px"/>
                             <p:selectOneMenu id="uf" value="#{gestanteBean.gestante.uf}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
@@ -60,65 +61,65 @@
                             </p:selectOneMenu>
 
                             <p:outputLabel for="nomeProfissional" value="#{msg.professionalName}: "/>
-                            <p:inputText id="nomeProfissional" value="#{gestanteBean.gestante.nome_profissional}" 
+                            <p:inputText id="nomeProfissional" value="#{gestanteBean.gestante.nomeProfissional}" 
                                          requiredMessage="#{msg.aProfissionalName}" required="true" size="35" maxlength="200" />
-
+                            
                             <p:outputLabel for="cnes" value="#{msg.cnes}: " style="margin-left: 10px"/>
-                            <p:inputText id="cnes" value="#{gestanteBean.gestante.CNES}" size="20" maxlength="15"/>
+                            <p:inputText id="cnes" value="#{gestanteBean.gestante.cnes}" size="20" maxlength="15"/>
 
-                            <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: " />
+                            <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
                             <p:inputMask id="cartaoSusProfissional" value="#{gestanteBean.gestante.cartaoSusProfissional}" 
                                          requiredMessage="#{msg.mandatorySusCard}" required="true" size="20" mask="999 9999 9999 9999"
                                          maxlength="20" placeholder="Do profissional"/>
-
+                            
                             <p:outputLabel for="numArea" value="#{msg.area}: " style="margin-left: 10px"/>
-                            <p:inputText id="numArea" value="#{gestanteBean.gestante.num_area}" size="5" maxlength="5"/>
+                            <p:inputText id="numArea" value="#{gestanteBean.gestante.numArea}" size="5" maxlength="5"/>
 
-                            <p:outputLabel for="microarea" value="#{msg.microarea}: " />
-                            <p:inputText id="microarea" value="#{gestanteBean.gestante.num_microarea}" size="7" maxlength="5"/>
+                            <p:outputLabel for="microarea" value="#{msg.microarea}: "/>
+                            <p:inputText id="microarea" value="#{gestanteBean.gestante.numMicroarea}" size="7" maxlength="5"/>
                         </h:panelGrid>
-                    </p:tab>    
-
+                    </p:tab>
+                    
                     <p:tab id="tabInfoRepresentante" title="#{msg.responsible}">
                         <h:panelGrid id="gridRepresentante" columns="4">
 
                             <p:outputLabel for="representante" value="#{msg.familyRepresent}: "/>
-                            <p:inputText id="representante" value="#{gestanteBean.gestante.representante}" size="35" maxlength="100" 
+                            <p:inputText id="representante" value="#{gestanteBean.gestante.responsavelGestante.nome}" size="35" maxlength="100" 
                                          placeholder="Se menor incapaz"/>
 
-                            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}: " style="margin-left: 10px"/>
-                            <p:calendar id="dataNascimento" value="#{gestanteBean.gestante.dataNascimento}" 
+                            <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:" style="margin-left: 10px"/>
+                            <p:calendar id="dataNascimento" value="#{gestanteBean.gestante.responsavelGestante.dataNascimento}" 
                                         navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
                                         yearRange="c-150:c+0" size="9" locale="pt" mask="true">
                                 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
                             </p:calendar>
 
                             <p:outputLabel for="rua" value="#{msg.street}: " />
-                            <p:inputText id="rua" value="#{gestanteBean.gestante.enderecoRua}" size="35" maxlength="150"/>
+                            <p:inputText id="rua" value="#{gestanteBean.gestante.responsavelGestante.enderecoRua}" size="35" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}: " style="margin-left: 10px"/>
-                            <p:inputText id="numero" value="#{gestanteBean.gestante.enderecoNumero}" size="10" maxlength="6"/>
+                            <p:inputText id="numero" value="#{gestanteBean.gestante.responsavelGestante.enderecoNumero}" size="10" maxlength="6"/>
 
-                            <p:outputLabel for="bairro" value="#{msg.neighborhood}: "/>
-                            <p:inputText id="bairro" value="#{gestanteBean.gestante.enderecoBairro}" size="35" maxlength="100"/>
+                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
+                            <p:inputText id="bairro" value="#{gestanteBean.gestante.responsavelGestante.enderecoBairro}" size="35" maxlength="100"/>
 
-                            <p:outputLabel for="cep" value="#{msg.postalCode}: " style="margin-left: 10px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{gestanteBean.gestante.enderecoCep}" size="10" maxlength="8"/>
+                            <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 10px"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{gestanteBean.gestante.responsavelGestante.enderecoCep}" size="10" maxlength="8"/>
 
-                            <p:outputLabel for="email" value="#{msg.email}: "/>
-                            <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.email}" size="35" 
+                            <p:outputLabel for="email" value="#{msg.email}:"/>
+                            <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.responsavelGestante.email}" size="35" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
-
-                            <p:outputLabel for="telefone1" value="#{msg.phone1}: " style="margin-left: 10px"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.telefone1}" 
+                            
+                            <p:outputLabel for="telefone1" value="#{msg.phone1}:" style="margin-left: 10px"/>
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone1}" 
                                          size="20" maxlength="20"/>
 
-                            <p:outputLabel for="telefone2" value="#{msg.phone2}: " />
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.telefone2}" 
+                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone2}" 
                                          size="20" maxlength="20"/>
                         </h:panelGrid>
                     </p:tab>
-                </p:tabView>    
+                </p:tabView>
 
                 <p:toolbar id="toolbarGestante" style="margin-top: 10px;">
                     <f:facet name="left">
@@ -147,4 +148,5 @@
             </h:form>
         </p:fieldset>
     </ui:define>
+
 </ui:composition>

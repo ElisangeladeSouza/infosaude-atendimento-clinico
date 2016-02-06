@@ -23,65 +23,65 @@
                           <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                     </p:outputLabel>-->
                     
-                    <p:outputLabel for="nome" value="#{msg.name}:..................................................:" style="font-weight: bold"/>
+                    <p:outputLabel for="nome" value="#{msg.pregnant}:..................................................:" style="font-weight: bold"/>
                     <p:outputLabel id="nome" value="#{gestanteBean.gestante.paciente}" />
                     
                     <p:outputLabel for="nis" value="#{msg.nis}:.................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="nis" value="#{gestanteBean.gestante.NIS}" />
+                    <p:outputLabel id="nis" value="#{gestanteBean.gestante.nis}" />
                     
                     <p:outputLabel for="municipio_atedimento" value="#{msg.county}:.....................:" style="font-weight: bold"/>
-                    <p:outputLabel id="municipio_atedimento" value="#{gestanteBean.gestante.municipio_atendimento}" />
+                    <p:outputLabel id="municipio_atedimento" value="#{gestanteBean.gestante.municipioAtendimento}" />
                     
                     <p:outputLabel for="codigoIbge" value="#{msg.codeIBGE}:......................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="codigoIbge" value="#{gestanteBean.gestante.codigo_ibge}" />
+                    <p:outputLabel id="codigoIbge" value="#{gestanteBean.gestante.codigoIbge}" />
                     
                     <p:outputLabel for="uf" value="#{msg.state}:................................................:" style="font-weight: bold"/>
                     <p:outputLabel id="uf" value="#{gestanteBean.gestante.uf}" />
                     
                     <p:outputLabel for="estabelecimento" value="#{msg.healthFacility}:...............:" style="font-weight: bold"/>
-                    <p:outputLabel id="estabelecimento" value="#{gestanteBean.gestante.nome_estabelecimento_saude}" />
+                    <p:outputLabel id="estabelecimento" value="#{gestanteBean.gestante.nomeEstabelecimentoSaude}" />
                     
                     <p:outputLabel for="cnes" value="#{msg.cnes}:..................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="cnes" value="#{gestanteBean.gestante.CNES}" />
+                    <p:outputLabel id="cnes" value="#{gestanteBean.gestante.cnes}" />
                     
                     <p:outputLabel for="numArea" value="#{msg.area}:...............................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="numArea" value="#{gestanteBean.gestante.num_area}" />
+                    <p:outputLabel id="numArea" value="#{gestanteBean.gestante.numArea}" />
                     
                     <p:outputLabel for="nomeProfissional" value="#{msg.professionalName}:.......................:" style="font-weight: bold"/>
-                    <p:outputLabel id="nomeProfissional" value="#{gestanteBean.gestante.nome_profissional}" />
+                    <p:outputLabel id="nomeProfissional" value="#{gestanteBean.gestante.nomeProfissional}" />
                     
                     <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}:........................................:" style="font-weight: bold"/>
                     <p:outputLabel id="cartaoSusProfissional" value="#{gestanteBean.gestante.cartaoSusProfissional}" />
                     
                     <p:outputLabel for="microarea" value="#{msg.microarea}:......................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="microarea" value="#{gestanteBean.gestante.num_microarea}" />
+                    <p:outputLabel id="microarea" value="#{gestanteBean.gestante.numMicroarea}" />
                     
                     <p:outputLabel for="menorIdade" value="#{msg.minor}:.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="menorIdade" value="#{gestanteBean.gestante.menor_quinze}" />
+                    <p:outputLabel id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}" />
                     
                     <p:outputLabel for="representante" value="#{msg.familyRepresent}:.....................:" style="font-weight: bold"/>
-                    <p:outputLabel id="representante" value="#{gestanteBean.gestante.representante}" />
+                    <p:outputLabel id="representante" value="#{gestanteBean.gestante.responsavelGestante.nome}" />
                     
                     <p:outputLabel for="rua" value="#{msg.street}:.....................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="rua" value="#{gestanteBean.gestante.enderecoRua}" />
+                    <p:outputLabel id="rua" value="#{gestanteBean.gestante.responsavelGestante.enderecoCidade}" />
                     
                     <p:outputLabel for="numero" value="#{msg.number}:..............................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="numero" value="#{gestanteBean.gestante.enderecoNumero}" />
+                    <p:outputLabel id="numero" value="#{gestanteBean.gestante.responsavelGestante.enderecoNumero}" />
                     
                     <p:outputLabel for="cep" value="#{msg.postalCode}:....................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="cep" value="#{gestanteBean.gestante.enderecoCep}" />
+                    <p:outputLabel id="cep" value="#{gestanteBean.gestante.responsavelGestante.enderecoCep}" />
                     
                     <p:outputLabel for="bairro" value="#{msg.neighborhood}:.................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="bairro" value="#{gestanteBean.gestante.enderecoBairro}" />
+                    <p:outputLabel id="bairro" value="#{gestanteBean.gestante.responsavelGestante.enderecoBairro}" />
                     
                     <p:outputLabel for="telefone1" value="#{msg.phone1}:..........................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="telefone1" value="#{gestanteBean.gestante.telefone1}" />
+                    <p:outputLabel id="telefone1" value="#{gestanteBean.gestante.responsavelGestante.telefone1}" />
                     
                     <p:outputLabel for="telefone2" value="#{msg.phone2}:..........................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="telefone2" value="#{gestanteBean.gestante.telefone2}" />
+                    <p:outputLabel id="telefone2" value="#{gestanteBean.gestante.responsavelGestante.telefone2}" />
                     
                     <p:outputLabel for="email" value="#{msg.email}:.................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="email" value="#{gestanteBean.gestante.email}" />
+                    <p:outputLabel id="email" value="#{gestanteBean.gestante.responsavelGestante.email}" />
                     
                 </h:panelGrid>
                 <p:toolbar id="toolbarGestante" style="margin-top: 10px;">
