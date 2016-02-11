@@ -46,7 +46,9 @@
                     </p:column>
 
                     <p:column headerText="#{msg.nextAppointment}" width="60" filterMatchMode="contains" filterBy="#{agendamento.dataProximoPreNatal}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="proximaConsulta" value="#{agendamento.dataProximoPreNatal}"/>
+                        <h:outputText id="proximaConsulta" value="#{agendamento.dataProximoPreNatal}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
                     </p:column>
 
                     <p:column headerText="#{msg.agentOfHealth}" width="90" filterMatchMode="contains" filterBy="#{agendamento.agenteSaude}" filterStyle="width: 300px; display:none">

@@ -30,11 +30,11 @@ public class AgendamentoPreNatal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "agendamento_data")
     private Date data;
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "agendamento_data_pre_natal")
     private Date dataProximoPreNatal;
     

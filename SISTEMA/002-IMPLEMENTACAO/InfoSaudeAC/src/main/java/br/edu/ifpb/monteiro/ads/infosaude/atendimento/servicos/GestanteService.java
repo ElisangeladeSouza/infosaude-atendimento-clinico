@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.GestanteDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Gestante;
@@ -32,9 +33,10 @@ public class GestanteService implements GestanteServiceIF, Serializable {
     @Transactional
     @Override
     public void save(Gestante gestante) {
+        gestante.setData(new DateTimeUtilBean().getDateToday());
         if(gestante != null) {
             this.gestanteDao.salvar(gestante);
-        }
+        } 
     }
 
     /**

@@ -24,14 +24,14 @@
                 </h:inputHidden>
 
                 <h:panelGrid id="gridAgendamentoPreNatal" columns="2">
-                    
+
                     <p:outputLabel for="gestante" value="#{msg.pregnant}:"/>
                     <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" required="true" filter="true" filterMatchMode="contains"
                                      requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{gestanteBean.gestantes}" var="gestante" itemLabel="#{gestante.paciente.nome}" itemValue="#{gestante}"/>
                     </p:selectOneMenu>
-                    
+
                     <p:outputLabel for="proximaConsulta" value="#{msg.nextAppointment}: "/>
                     <p:calendar id="proximaConsulta" value="#{agendamentoPreNatalBean.agendamentoPreNatal.dataProximoPreNatal}" 
                                 navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
@@ -40,11 +40,11 @@
 
                     <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}: "/>
                     <p:inputText id="agenteSaude" value="#{agendamentoPreNatalBean.agendamentoPreNatal.agenteSaude}" size="40" maxlength="150"/>
-                    
+
                     <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
                     <p:inputTextarea id="observacoes" value="#{agendamentoPreNatalBean.agendamentoPreNatal.observacoes}" maxlength="200" 
                                      cols="38" rows="8"/>
-                    
+
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarAgendamento" style="margin-top: 10px;">
@@ -65,7 +65,7 @@
                     <f:facet name="right">
                         <p:button style="font-size: 13px;" value="#{msg.searchCadastreScheduling}"
                                   id="botaoPesquisar" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal"
-                                  icon="ui-icon ui-icon-search" rendered="#{exameBean.editando eq 'false'}">
+                                  icon="ui-icon ui-icon-search" rendered="#{agendamentoPreNatalBean.editando eq 'false'}">
                         </p:button>
                     </f:facet>
 

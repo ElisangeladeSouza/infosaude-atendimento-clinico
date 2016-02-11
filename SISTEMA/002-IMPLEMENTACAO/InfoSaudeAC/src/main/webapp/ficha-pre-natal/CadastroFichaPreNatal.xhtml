@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="fichaPreNatal" value="#{fichaPreNatalBean.fichaPreNatal}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloFichaPreNatal" name="titulo">#{fichaPreNatalBean.editando ? msg.editCadastrePrenatalRecord : msg.newRegisterPrenatalRecord} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoFichaPreNatal" name="conteudo">
+        <p:fieldset id="fieldsetFichaPreNatal" legend="#{fichaPreNatalBean.editando ? msg.editCadastrePrenatalRecord : msg.newRegisterPrenatalRecord}">
+            <h:form id="formCadastroFichaPreNatal">
+                <p:growl id="mensagens" autoUpdate="true"/>
+
+                <h:inputHidden id="data" value="#{fichaPreNatalBean.fichaPreNatal.dataAtendimento}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+
+                <h:panelGrid id="gridAcolhimento" columns="4">
+                    
+                    <p:outputLabel for="nomeGestante" value="#{msg.PregnantName} "/>
+                    <p:selectOneMenu id="nomeGestante" value="#{fichaPreNatalBean.fichaPreNatal.fichaPreNatais}" required="true" filter="true"
+                                     filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{gestanteBean.gestantes}" var="fichas" itemLabel="#{fichas.paciente.nome}" itemValue="#{fichas}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="tempoGestacional" value="#{msg.tempogestacional}: " style="margin-left: 23px"/>
+                    <p:selectOneMenu id="tempoGestacional" value="#{fichaPreNatalBean.fichaPreNatal.tempoGestacional}" required="true" filter="true" 
+                                     filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaPreNatalBean.tempoGestacionais}" itemValue="#{preNatal}" itemLabel="#{tempo.descricao}" var="tempo"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="tipoGravidez" value="#{msg.typeOfPregnancy}: " />
+                    <p:selectOneMenu id="tipoGravidez" value="#{fichaPreNatalBean.fichaPreNatal.tipoGravidez}" required="true" filter="true" 
+                                     filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaPreNatalBean.tiposGravidez}" itemValue="#{tiposGravidez}" itemLabel="#{tipos.descricao}" var="tipos"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="dum" value="#{msg.dum}: " style="margin-left: 23px"/>
+                    <p:calendar id="dum" value="#{fichaPreNatalBean.fichaPreNatal.dum}" 
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+                    
+                    <p:outputLabel for="dpp" value="#{msg.dpp}: " />
+                    <p:calendar id="dpp" value="#{fichaPreNatalBean.fichaPreNatal.dpp}" 
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+                    
+                    <p:outputLabel for="ig" value="#{msg.ig}: " style="margin-left: 23px"/>
+                    <p:calendar id="ig" value="#{fichaPreNatalBean.fichaPreNatal.ig}" 
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+                    
+                    <p:outputLabel for="semanasGestacao" value="#{msg.weekPregnancy}: "/>
+                    <p:inputText id="semanasGestacao" value="#{fichaPreNatalBean.fichaPreNatal.semanasGestacao}" maxlength="50" size="15"
+                                 placeholder="Se DUM ignorada"/>
+                    
+                    <p:outputLabel for="dataUltrassom" value="#{msg.dateUltrasound}: " style="margin-left: 23px"/>
+                    <p:calendar id="dataUltrassom" value="#{fichaPreNatalBean.fichaPreNatal.dateUltrassom}" 
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+                    
+                    <p:outputLabel for="peso" value="#{msg.weight}:"/>
+                    <p:inputText id="peso" size="9" styleClass="upper peso" maxlength="6"
+                                 value="#{fichaPreNatalBean.fichaPreNatal.peso}">
+                        <f:convertNumber type="number" />
+                    </p:inputText>
+                    
+                    <p:outputLabel for="altura" value="#{msg.height}:" style="margin-left: 23px"/>
+                    <p:inputText id="altura" size="9" styleClass="upper altura" maxlength="3"
+                                 value="#{fichaPreNatalBean.fichaPreNatal.altura}" >
+                        <f:convertNumber type="number"/>
+                    </p:inputText>
+                    
+                    <p:outputLabel for="gravidezPlanejada" value="#{msg.unplannedPregnancy}: "/>
+                    <p:selectOneRadio id="gravidezPlanejada" value="#{fichaPreNatalBean.fichaPreNatal.gravidezPlanejada}">
+                        <f:selectItem itemValue="true" itemLabel="Sim" />
+                        <f:selectItem itemValue="false" itemLabel="Não" />
+                    </p:selectOneRadio>
+                    
+                    <p:outputLabel for="deslocamento" value="#{msg.displacement}: " style="margin-left: 23px"/>
+                    <p:selectOneRadio id="deslocamento" value="#{fichaPreNatalBean.fichaPreNatal.auxilioDeslocamento}">
+                        <f:selectItem itemValue="true" itemLabel="Sim" />
+                        <f:selectItem itemValue="false" itemLabel="Não" />
+                    </p:selectOneRadio>
+
+                </h:panelGrid>    
+
+                <p:tabView id="tabViewDadosPreNatal" style="margin-top: 25px">
+                    <p:tab id="tabInfoGestacaoAtual" title="#{msg.currentPregnancy}">
+                        <h:panelGrid id="gridGestacaoAtual" columns="4">
+                            
+                            <p:outputLabel for="partoPrematuro" value="#{msg.prematureBirth}: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="partoPrematuro" value="#{fichaPreNatalBean.fichaPreNatal.partoPrematuro}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="roturaMembranas" value="Rotura prematura de membranas: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="roturaMembranas" value="#{fichaPreNatalBean.fichaPreNatal.roturaPrematuraMembranas}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="isomunizacaoRh" value="#{msg.isoimmunization}: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="isomunizacaoRh" value="#{fichaPreNatalBean.fichaPreNatal.isomunizacaoRh}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="istmoCervical" value="Incontinência Istmo-Cervical: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="istmoCervical" value="#{fichaPreNatalBean.fichaPreNatal.istmoCervical}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="infeccaoUrinaria" value="Infecção urinária: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="infeccaoUrinaria" value="#{fichaPreNatalBean.fichaPreNatal.infeccaoUrinaria}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+
+                            <p:outputLabel for="hivAids" value="HIV/AIDS: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="hivAids" value="#{fichaPreNatalBean.fichaPreNatal.hivAids}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="oligoPolidramnio" value="Oligo/polidrâmnio: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="oligoPolidramnio" value="#{fichaPreNatalBean.fichaPreNatal.oligoPolidramnio}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="cigarros" value="Cigarros: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="cigarros" value="#{fichaPreNatalBean.fichaPreNatal.cigarros}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="alcool" value="Alcool: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="alcool" value="#{fichaPreNatalBean.fichaPreNatal.alcool}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="drogas" value="Drogas: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="drogas" value="#{fichaPreNatalBean.fichaPreNatal.drogas}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="cardiopatia" value="Cardiopatia: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="cardiopatia" value="#{fichaPreNatalBean.fichaPreNatal.cardiopatia}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="ciur" value="#{msg.ciur}: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="ciur" value="#{fichaPreNatalBean.fichaPreNatal.ciur}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="diabetesGestacional" value="Diabetes Gestacional: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="diabetesGestacional" value="#{fichaPreNatalBean.fichaPreNatal.diabetesGestacional}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="insulina" value="Insulina: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="insulina" value="#{fichaPreNatalBean.fichaPreNatal.insulina}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não"/>
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="violenciaDomestica" value="Violência doméstica: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="violenciaDomestica" value="#{fichaPreNatalBean.fichaPreNatal.violenciaDomestica}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="posDatismo" value="Pós-Datismo: " style="margin-left: 23px"/>
+                            <p:selectOneRadio id="posDatismo" value="#{fichaPreNatalBean.fichaPreNatal.posDatismo}">
+                                <f:selectItem itemValue="true" itemLabel="Sim" />
+                                <f:selectItem itemValue="false" itemLabel="Não" />
+                            </p:selectOneRadio>
+                            
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
+
+                <p:toolbar id="toolbarFichaPreNatal" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{fichaPreNatalBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/ficha-pre-natal/PesquisaFichaPreNatal"
+                                  icon="fa fa-times" rendered="#{fichaPreNatalBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastrePrenatalRecord}"
+                                  id="botaoPesquisar" outcome="/ficha-pre-natal/PesquisaFichaPreNatal"
+                                  icon="ui-icon ui-icon-search" rendered="#{fichaPreNatalBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+                <p:blockUI id="blockUIFichaPreNatal" block="formCadastroFichaPreNatal" trigger="botaoSalvar"/>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

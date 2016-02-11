@@ -1,16 +1,14 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.AgendamentoPreNatalDao;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.FichaPreNatalDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.AgendamentoPreNatal;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AgendamentoPreNatalServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.FichaPreNatal;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.FichaPreNatalServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  * Classe de serviço que faz chamadas aos métodos de persistência e pode conter
@@ -19,43 +17,41 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class AgendamentoPreNatalService implements AgendamentoPreNatalServiceIF, Serializable {
+public class FichaPreNatalService implements FichaPreNatalServiceIF, Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    private static final Log LOGGER = LogFactory.getLog(AgendamentoPreNatalService.class);
-    
     @Inject
-    private AgendamentoPreNatalDao agendamentoPreNatalDao;
-
-    public AgendamentoPreNatalService() {
-    }
+    private FichaPreNatalDao fichaPreNatalDao;
     
+    public FichaPreNatalService() {
+    }
+
     /**
      * Método utilizado para salvar um novo cadastro no banco de dados ou editar
      * um cadastro existente.
      * 
-     * @param agendamentoPreNatal
+     * @param fichaPreNatal
      */
     @Transactional
     @Override
-    public void save(AgendamentoPreNatal agendamentoPreNatal) {
-        if(agendamentoPreNatal != null) {
-            agendamentoPreNatal.setData(new DateTimeUtilBean().getDateToday());
-            this.agendamentoPreNatalDao.salvar(agendamentoPreNatal);
+    public void save(FichaPreNatal fichaPreNatal) {
+        if (fichaPreNatal != null) {
+            fichaPreNatal.setDataAtendimento(new DateTimeUtilBean().getDateToday());
+            this.fichaPreNatalDao.salvar(fichaPreNatal);
         }
     }
     
     /**
      * Método utilizado para remover um cadastro do banco de dados.
      * 
-     * @param agendamentoPreNatal
+     * @param fichaPreNatal
+     * @throws NegocioException 
      */
     @Transactional
     @Override
-    public void delete(AgendamentoPreNatal agendamentoPreNatal) throws NegocioException {
-        agendamentoPreNatalDao.delete(findById(agendamentoPreNatal.getId()));
-        LOGGER.info("Agendagemento com id "+ agendamentoPreNatal.getId() + "removido.");
+    public void delete(FichaPreNatal fichaPreNatal) throws NegocioException {
+        fichaPreNatalDao.delete(findById(fichaPreNatal.getId()));
     }
     
     /**
@@ -63,21 +59,23 @@ public class AgendamentoPreNatalService implements AgendamentoPreNatalServiceIF,
      * determinada entidade através da passagem do seu ID como parâmetro.
      * 
      * @param id
-     * @return
+     * @return 
      */
-    public AgendamentoPreNatal findById(Long id) {
-        return agendamentoPreNatalDao.findById(id);
+    public FichaPreNatal findById(Long id) {
+        return fichaPreNatalDao.findById(id);
     }
     
     /**
      * Método responsável pela busca em toda lista.Método utilizado para retornar 
      * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
      * 
-     * @return
+     * @return 
      */
     @Override
-    public List<AgendamentoPreNatal> findAll() {
-        return agendamentoPreNatalDao.findAll();
+    public List<FichaPreNatal> findAll() {
+        return fichaPreNatalDao.findAll();
     }
 
+
+    
 }

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="fichaPreNatal" value="#{fichaPreNatalBean.fichaPreNatal}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloFichaPreNatal" name="titulo">#{msg.viewCadastrePrenatalRecord} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoFichaPreNatal" name="conteudo">
+
+        <p:fieldset id="fieldsetFichaPreNatal" legend="#{msg.viewCadastrePrenatalRecord}">
+            <h:form id="formCadastroFichaPreNatal">
+                <p:fieldset id="fieldsetFichaPreNatal" legend="#{msg.reception}">
+                    <h:panelGrid id="gridVisualizaFichaPreNatal" columns="2">
+
+                        <p:outputLabel for="dataAtendimento" value="#{msg.date}...................................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="dataAtendimento" value="#{fichaPreNatalBean.fichaPreNatal.dataAtendimento}"  >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </p:outputLabel>
+
+                        <p:outputLabel for="nomeGestante" value="#{msg.PregnantName}............................:" style="font-weight: bold" />
+                        <p:outputLabel id="nomeGestante" value="#{fichaPreNatalBean.fichaPreNatal.fichaPreNatais.paciente.nome}"/>
+
+                        <p:outputLabel for="dum" value="#{msg.dum}...................................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="dum" value="#{fichaPreNatalBean.fichaPreNatal.dum}" >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy" />
+                        </p:outputLabel>
+
+                        <p:outputLabel for="dpp" value="#{msg.dpp}....................................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="dpp" value="#{fichaPreNatalBean.fichaPreNatal.dpp}" >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </p:outputLabel>
+
+                        <p:outputLabel for="ig" value="#{msg.ig}.......................................................: " style="font-weight: bold"/>
+                        <p:outputLabel id="ig" value="#{fichaPreNatalBean.fichaPreNatal.ig}" >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </p:outputLabel>
+
+                        <p:outputLabel for="altura" value="#{msg.height}.................................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="altura" value="#{fichaPreNatalBean.fichaPreNatal.altura}" />
+
+                        <p:outputLabel for="peso" value="#{msg.weight}..................................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="peso" value="#{fichaPreNatalBean.fichaPreNatal.peso}" />
+
+                        <p:outputLabel for="auxilioDeslocamento" value="#{msg.displacement}......................:" style="font-weight: bold"/>
+                        <p:outputLabel id="auxilioDeslocamento" value="#{fichaPreNatalBean.fichaPreNatal.auxilioDeslocamento ? 'Sim' : 'Não'}" />
+
+                        <p:outputLabel for="semanasGestacao" value="#{msg.weekPregnancy}.....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="semanasGestacao" value="#{fichaPreNatalBean.fichaPreNatal.semanasGestacao}" />
+
+                        <p:outputLabel for="tipoGravidez" value="#{msg.typeOfPregnancy}..............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="tipoGravidez" value="#{fichaPreNatalBean.fichaPreNatal.tipoGravidez}" />
+
+                        <p:outputLabel for="gravidezPlanejada" value="#{msg.unplannedPregnancy}..........................: " style="font-weight: bold"/>
+                        <p:outputLabel id="gravidezPlanejada" value="#{fichaPreNatalBean.fichaPreNatal.gravidezPlanejada ? 'Sim' : 'Não'}" />
+
+                        <p:outputLabel for="dataUltrassom" value="#{msg.dateUltrasound}............................: " style="font-weight: bold"/>
+                        <p:outputLabel id="dataUltrassom" value="#{fichaPreNatalBean.fichaPreNatal.dateUltrassom}" >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </p:outputLabel>
+
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset id="fieldsetGestacaoAtual" legend="#{msg.currentPregnancy}" style="margin-top: 15px">
+                    <h:panelGrid id="gridVisualizaGestacaoAtual" columns="4">
+                        
+                        <p:outputLabel for="partoPrematuro" value="#{msg.prematureBirth}...............................: " style="font-weight: bold"/>
+                        <p:outputLabel id="partoPrematuro" value="#{fichaPreNatalBean.fichaPreNatal.partoPrematuro ? 'Sim' : 'Não'}"/>
+
+                        <p:outputLabel for="roturaMembranas" value="#{msg.prematureRuptureMembranes}.......: " style="font-weight: bold ; margin-left: 23px"/>
+                        <p:outputLabel id="roturaMembranas" value="#{fichaPreNatalBean.fichaPreNatal.roturaPrematuraMembranas ? 'Sim' : 'Não'}" />
+                        
+                        <p:outputLabel for="isomunizacaoRh" value="#{msg.isoimmunization}.............................: " style="font-weight: bold"/>
+                        <p:outputLabel id="isomunizacaoRh" value="#{fichaPreNatalBean.fichaPreNatal.isomunizacaoRh ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="istmoCervical" value="#{msg.IncontinenceIsthmusCervical}...............: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="istmoCervical" value="#{fichaPreNatalBean.fichaPreNatal.istmoCervical ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="infeccaoUrinaria" value="#{msg.urinaryInfection}..............................: " style="font-weight: bold"/>
+                        <p:outputLabel id="infeccaoUrinaria" value="#{fichaPreNatalBean.fichaPreNatal.infeccaoUrinaria ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="hivAids" value="#{msg.hivAids}................................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="hivAids" value="#{fichaPreNatalBean.fichaPreNatal.hivAids ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="oligoPolidramnio" value="#{msg.oligoPolyhydramnios}............................: " style="font-weight: bold"/>
+                        <p:outputLabel id="oligoPolidramnio" value="#{fichaPreNatalBean.fichaPreNatal.oligoPolidramnio ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="cigarros" value="#{msg.cigarettes}.................................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="cigarros" value="#{fichaPreNatalBean.fichaPreNatal.cigarros ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="alcool" value="#{msg.alcohol}................................................: " style="font-weight: bold"/>
+                        <p:outputLabel id="alcool" value="#{fichaPreNatalBean.fichaPreNatal.alcool ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="drogas" value="#{msg.drugs}...................................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="drogas" value="#{fichaPreNatalBean.fichaPreNatal.drogas ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="cardiopatia" value="#{msg.heartDisease}.......................................: " style="font-weight: bold"/>
+                        <p:outputLabel id="cardiopatia" value="#{fichaPreNatalBean.fichaPreNatal.cardiopatia ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="ciur" value="#{msg.ciur}.......................................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="ciur" value="#{fichaPreNatalBean.fichaPreNatal.ciur ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="diabetesGestacional" value="#{msg.GestationalDiabetes}.......................: " style="font-weight: bold"/>
+                        <p:outputLabel id="diabetesGestacional" value="#{fichaPreNatalBean.fichaPreNatal.diabetesGestacional ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="insulina" value="#{msg.Insulin}..................................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="insulina" value="#{fichaPreNatalBean.fichaPreNatal.insulina ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="violenciaDomestica" value="#{msg.DomesticViolence}.........................: " style="font-weight: bold"/>
+                        <p:outputLabel id="violenciaDomestica" value="#{fichaPreNatalBean.fichaPreNatal.violenciaDomestica ? 'Sim' : 'Não'}"/>
+                        
+                        <p:outputLabel for="posDatismo" value="#{msg.PostTermPregnancy}..........................................: " style="font-weight: bold; margin-left: 23px"/>
+                        <p:outputLabel id="posDatismo" value="#{fichaPreNatalBean.fichaPreNatal.posDatismo ? 'Sim' : 'Não'}"/>
+                        
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:toolbar id="toolbarFichaPreNatal" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/ficha-pre-natal/PesquisaFichaPreNatal"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

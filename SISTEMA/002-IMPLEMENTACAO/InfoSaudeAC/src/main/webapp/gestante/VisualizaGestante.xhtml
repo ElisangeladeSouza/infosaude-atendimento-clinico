@@ -18,13 +18,13 @@
         <p:fieldset id="fieldsetGestante" legend="#{msg.viewCadastrePregnant}">
             <h:form id="formCadastroGestante">
                 <h:panelGrid id="gridVisualizaGestante" columns="2">
-<!--                    <p:outputLabel for="data" value="#{msg.date}......................................:" style="font-weight: bold"/>
+                    <p:outputLabel for="data" value="#{msg.date}.....................................................:" style="font-weight: bold"/>
                     <p:outputLabel id="data" value="#{gestanteBean.gestante.data}"  >
                           <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                    </p:outputLabel>-->
+                    </p:outputLabel>
                     
-                    <p:outputLabel for="nome" value="#{msg.pregnant}:..................................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="nome" value="#{gestanteBean.gestante.paciente}" />
+                    <p:outputLabel for="nome" value="#{msg.pregnant}:.............................................:" style="font-weight: bold"/>
+                    <p:outputLabel id="nome" value="#{gestanteBean.gestante.paciente.nome}" />
                     
                     <p:outputLabel for="nis" value="#{msg.nis}:.................................................:" style="font-weight: bold"/>
                     <p:outputLabel id="nis" value="#{gestanteBean.gestante.nis}" />
@@ -57,7 +57,7 @@
                     <p:outputLabel id="microarea" value="#{gestanteBean.gestante.numMicroarea}" />
                     
                     <p:outputLabel for="menorIdade" value="#{msg.minor}:.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}" />
+                    <p:outputLabel id="menorIdade" value="#{gestanteBean.gestante.menorQuinze ? 'Sim' : 'Não'}" />
                     
                     <p:outputLabel for="representante" value="#{msg.familyRepresent}:.....................:" style="font-weight: bold"/>
                     <p:outputLabel id="representante" value="#{gestanteBean.gestante.responsavelGestante.nome}" />
@@ -96,5 +96,4 @@
             </h:form>
         </p:fieldset>
     </ui:define>
-
 </ui:composition>
