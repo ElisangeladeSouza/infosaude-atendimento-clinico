@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="visitaDomiciliar" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloVisitaDomiciliar" name="titulo">#{agendamentoVisitaDomiciliarBean.editando ? msg.editCadastreHomeVisitingSchedule : msg.newRegisterHomeVisitingSchedule} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoVisitaDomiciliar" name="conteudo">
+
+        <p:fieldset id="fieldsetVisitaDomiciliar" legend="#{agendamentoVisitaDomiciliarBean.editando ? msg.editCadastreHomeVisitingSchedule : msg.newRegisterHomeVisitingSchedule}">
+            <h:form id="formCadastroVisitaDomiciliar">
+                <p:growl id="mensagens" autoUpdate="true"/>
+
+                <h:inputHidden id="data" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+
+                <h:panelGrid id="gridAgendamentoVisitaDomiciliar" columns="2">
+
+                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente}" 
+                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="dataVisita" value="#{msg.dateVisiting}: " />
+                    <p:calendar id="dataVisita" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.dataVisita}" 
+                                navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
+                        <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:calendar>
+
+                    <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}: "/>
+                    <p:inputText id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}" size="40" maxlength="150"/>
+
+                    <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
+                    <p:inputTextarea id="observacoes" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.observacoes}" maxlength="200" 
+                                     cols="38" rows="8"/>
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarVisitaDomiciliar" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{agendamentoVisitaDomiciliarBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar"
+                                  icon="fa fa-times" rendered="#{agendamentoVisitaDomiciliarBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreHomeVisitingSchedule}"
+                                  id="botaoPesquisar" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar"
+                                  icon="ui-icon ui-icon-search" rendered="#{agendamentoVisitaDomiciliarBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+
+                </p:toolbar>
+                <p:blockUI id="blockUIVisitaDomiciliar" block="formCadastroVisitaDomiciliar" trigger="botaoSalvar"/>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

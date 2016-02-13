@@ -38,6 +38,7 @@
                         <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}"/>
                         <p:menuitem value="#{msg.scheduling}" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal" rendered="#{podeVerAgendamentoPreNatal}"/>
                         <p:menuitem value="#{msg.prenatalRecord}" outcome="/ficha-pre-natal/PesquisaFichaPreNatal" rendered="#{podeVerFichaPreNatal}"/>
+                        <p:menuitem value="#{msg.homeVisitingSchedule}" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar" rendered="#{podeVerAgendamentoVisitaDomiciliar}"/>
                         <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>

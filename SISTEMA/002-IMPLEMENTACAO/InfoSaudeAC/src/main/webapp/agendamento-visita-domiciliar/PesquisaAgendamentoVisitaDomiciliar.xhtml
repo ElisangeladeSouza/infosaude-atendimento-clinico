@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <ui:define id="uiPesquisaVisitaDomiciliar" name="titulo">#{msg.searchCadastreHomeVisitingSchedule} | #{msg.systemName}</ui:define>
+
+    <ui:define id="conteudoPesquisaVisitaDomiciliar" name="conteudo">
+
+        <p:fieldset legend="#{msg.searchCadastreHomeVisitingSchedule}">
+
+            <h:form id="formPesquisaVisitaDomiciliar">
+
+                <p:growl id="mensagens" autoUpdate="true"/>
+
+                <p:toolbar >
+                    <f:facet name="right">
+                        <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" 
+                                  disabled="#{not podeCadastrarAgendamentoVisitaDomiciliar}"  outcome="/agendamento-visita-domiciliar/CadastroAgendamentoVisitaDomiciliar"/>
+                    </f:facet>
+                </p:toolbar>
+
+                <p:dataTable id="datatablePesquisaVisitaDomiciliar" var="visitaDomiciliar" value="#{agendamentoVisitaDomiciliarBean.visitasDomiciliares}"
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
+                             paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaVisitaDomiciliar"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
+                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"
+                             scrollable="true" scrollRows="10" scrollHeight="290">
+
+                    <f:facet name="header">
+                        <p:outputPanel id="panelFiltroVisitaDomiciliar">
+                            <p:inputText id="globalFilter" onkeyup="PF('pesquisaVisitaDomiciliar').filter()" style="width:300px" placeholder="#{msg.searchAnyField}"/>
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{visitaDomiciliar.id}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="id" value="#{visitaDomiciliar.id}"/>
+                    </p:column>
+                    
+                    <p:column headerText="#{msg.patient}" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.paciente.nome}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="paciente" value="#{visitaDomiciliar.paciente.nome}"/>
+                    </p:column>
+                    
+                    <p:column headerText="#{msg.dateVisiting}" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.dataVisita}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="dataVisita" value="#{visitaDomiciliar.dataVisita}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="#{msg.agentOfHealth}" width="90" filterMatchMode="contains" filterBy="#{visitaDomiciliar.agenteSaude}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="agenteSaude" value="#{visitaDomiciliar.agenteSaude}"/>
+                    </p:column>
+                    
+                    <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
+                        <p:button id="botaoVisualizar" title="#{msg.view}" icon="ui-icon ui-icon-extlink" style="font-size: 10px"
+                                  outcome="/agendamento-visita-domiciliar/VisualizaAgendamentoVisitaDomiciliar">
+                            <f:param  name="visitaDomiciliar" value="#{visitaDomiciliar.id}"/>
+                            <p:tooltip for="botaoVisualizar" value="#{msg.viewSelectedRowDetails}"/>
+                        </p:button>   
+
+                        <p:button id="botaoEditar" title="#{msg.edit}" icon="ui-icon ui-icon-pencil" style="font-size: 10px" 
+                                  outcome="/agendamento-visita-domiciliar/CadastroAgendamentoVisitaDomiciliar">
+                            <f:param  name="visitaDomiciliar" value="#{visitaDomiciliar.id}"/>
+                            <p:tooltip for="botaoEditar" value="#{msg.editSelectedRow}"/>
+                        </p:button>
+
+                        <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
+                                         action="#{agendamentoVisitaDomiciliarBean.excluir}" process="@this" update="datatablePesquisaVisitaDomiciliar">
+                            <f:setPropertyActionListener value="#{visitaDomiciliar}" target="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliarSelecionado}"/>
+                            <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
+
+                            <p:confirm id="confirmaExclusao" icon="ui-icon-alert" header="#{msg.exclusionCadastreHomeVisitingSchedule}" 
+                                       message="#{msg.realyExcludeHomeVisitingSchedule}"/>
+
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
+

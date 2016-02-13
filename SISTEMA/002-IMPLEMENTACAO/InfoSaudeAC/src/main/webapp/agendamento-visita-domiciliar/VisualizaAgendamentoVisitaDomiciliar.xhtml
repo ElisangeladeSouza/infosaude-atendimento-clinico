@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="visitaDomiciliar" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloVisitaDomiciliar" name="titulo">#{msg.viewCadastreHomeVisitingSchedule} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoVisitaDomiciliar" name="conteudo">
+        <p:fieldset id="fieldsetVisitaDomiciliar" legend="#{msg.viewCadastreHomeVisitingSchedule}">
+            <h:form id="formCadastroVisitaDomiciliar">
+                <h:panelGrid id="gridVisualizaVisitaDomiciliar" columns="2">
+
+                    <p:outputLabel for="data" value="#{msg.date}..................................:" style="font-weight: bold"/>
+                    <p:outputLabel id="data" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.data}"  >
+                        <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                    </p:outputLabel>
+
+                    <p:outputLabel for="paciente" value="#{msg.patient}...........................:" style="font-weight: bold"/>
+                    <p:outputLabel id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente.nome}"/>
+                    
+                    <p:outputLabel for="dataVisita" value="#{msg.dateVisiting}...................:" style="font-weight: bold"/>
+                    <p:outputLabel id="dataVisita" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.dataVisita}"  >
+                        <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                    </p:outputLabel>
+
+                    <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}.............:" style="font-weight: bold"/>
+                    <p:outputLabel id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}"  />
+
+                    <p:outputLabel for="observacoes" value="#{msg.observations}....................:" style="font-weight: bold"/>
+                    <p:outputLabel id="observacoes" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.observacoes}"  />
+
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarVisitaDomiciliar" style="margin-top: 10px;">
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.backSearch}"
+                                  id="botaoPesquisar" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar"
+                                  icon="ui-icon ui-icon-search">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
