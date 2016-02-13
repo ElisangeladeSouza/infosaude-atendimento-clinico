@@ -1,5 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.RequisicaoExameDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.RequisicaoExame;
@@ -40,12 +41,10 @@ public class RequisicaoExameService implements RequisicaoExameServiceIF, Seriali
     @Transactional
     @Override
     public void save(RequisicaoExame requisicaoExame) {
-        requisicaoExameDao.salvar(requisicaoExame);
-//        if (requisicaoExame.getExames() == null) {
-//            throw new NegocioException("Todos os dados devem ser inseridos corretamente");
-//        } else{
-//            requisicaoExame.setData(new DateTimeUtilBean().getDateToday());
-//        }
+        if (requisicaoExame != null) {
+            requisicaoExame.setData(new DateTimeUtilBean().getDateToday());
+            this.requisicaoExameDao.salvar(requisicaoExame);
+        }
     }
 
     /**
