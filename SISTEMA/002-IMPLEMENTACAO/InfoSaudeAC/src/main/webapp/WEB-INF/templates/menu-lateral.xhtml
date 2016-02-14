@@ -16,22 +16,20 @@
 
                 <!--                Algumas tags do atributo rendered do menuitem, recebem uma variável 
                                 correspondente aos grupos de usuário que podem ter acesso a determinadas 
-                                partes do sistema.Para as telas onde apenas os usuários do grupo de 
-                                ADMINISTRADORES têm acesso, o método de restringir o acesso para o usuário 
-                                logado foi inserido diretamente no atributo rendered dos menus.-->
+                                partes do sistema. -->
                 <p:menu>
                     <p:submenu label="#{msg.cadastre}s">
-                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta" rendered="#{request.isUserInRole('Administradores')}"/>
-                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{request.isUserInRole('Administradores')}"/>
-                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{request.isUserInRole('Administradores')}"/>
-                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro" rendered="#{request.isUserInRole('Administradores')}"/>
-                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta" rendered="#{podeTudo}"/>
+                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{podeTudo}"/>
+                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{podeTudo}"/>
+                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro" rendered="#{podeTudo}"/>
+                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem" rendered="#{podeTudo}"/>
                         <p:menuitem value="#{msg.patient}" outcome="/paciente/PesquisaPaciente" rendered="#{podeVerPaciente}"/>
-                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista" rendered="#{request.isUserInRole('Administradores')}"/>
-                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista" rendered="#{podeTudo}"/>
+                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{podeTudo}"/>
                         <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}"/>
                         <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta" rendered="#{tudoCorpoMedico}"/>
-                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{request.isUserInRole('Administradores')}"/>
+                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}"/>
                         <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}"/>
                         <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento" rendered="#{tudoCorpoMedico}"/>
                         <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames" rendered="#{tudoCorpoMedico}"/>

@@ -20,7 +20,7 @@
                 <p:toolbar >
                     <f:facet name="right">
                         <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" 
-                                  disabled="#{not request.isUserInRole('Administradores')}" outcome="/conta/CadastroConta"/>
+                                  disabled="#{not podeTudo}" outcome="/conta/CadastroConta"/>
                     </f:facet>
                 </p:toolbar>
 
@@ -45,9 +45,9 @@
                         <h:outputText id="usuario" value="#{conta.userName}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.function}" width="80" filterMatchMode="contains" filterBy="#{conta.permissao}" filterStyle="width: 300px; display:none">
+<!--                    <p:column headerText="#{msg.function}" width="80" filterMatchMode="contains" filterBy="#{conta.permissao}" filterStyle="width: 300px; display:none">
                         <h:outputText id="permissao" value="#{conta.permissao.descricao}"/>
-                    </p:column>
+                    </p:column>-->
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
 

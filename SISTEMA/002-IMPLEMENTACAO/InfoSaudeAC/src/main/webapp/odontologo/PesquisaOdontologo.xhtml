@@ -19,7 +19,7 @@
                 <p:toolbar >
                     <f:facet name="right">
                         <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" 
-                                  disabled="#{not request.isUserInRole('Administradores')}"  outcome="/odontologo/CadastroOdontologo"/>
+                                  disabled="#{not podeTudo}"  outcome="/odontologo/CadastroOdontologo"/>
                     </f:facet>
                 </p:toolbar>
 

@@ -15,7 +15,7 @@
     <h:body>
 
         <p:dialog header="Login InfoSaúde" closable="false" visible="true" resizable="false" 
-                  draggable="false" id="loginDialog" width="305" style="padding: 5px;">
+                  draggable="false" id="loginDialog" width="310" style="padding: 5px;">
             <h:form id="loginForm" prependId="false">
                 <p:messages id="loginMessages" autoUpdate="true" closable="true"/>
 
@@ -23,28 +23,23 @@
                     <h:graphicImage library="imagens" name="isac_web_login.png"/>
                 </div>
 
-                <h:panelGrid columns="2" cellpadding="4" id="loginPanelGrid">
+                <h:panelGrid columns="2" id="loginPanelGrid">
 
-                    <h:panelGroup>
-                        <h:panelGrid columns="1" cellpadding="4" border="0">
-                            <p:outputLabel for="username" value="Usuário:"/>
-                            <p:inputText id="username" required="true" requiredMessage="#{msg.mandatoryLogin}" 
-                                         size="30" value="#{contaBean.conta.userName}"  style="margin-bottom: 15px"/>
+                    <p:outputLabel for="username" value="Usuário:"/>
+                    <p:inputText id="username" required="true" requiredMessage="#{msg.mandatoryLogin}" 
+                                 value="#{contaBean.conta.userName}"  style="margin-bottom: 15px"/>
 
-                            <p:outputLabel for="password" value="Senha:"/>
-                            <p:password id="password" size="30" required="true" requiredMessage="#{msg.mandatoryPassword}"
-                                        value="#{contaBean.conta.password}" style="margin-bottom: 15px"/>
+                    <p:outputLabel for="password" value="Senha:"/>
+                    <p:password id="password" required="true" requiredMessage="#{msg.mandatoryPassword}"
+                                value="#{contaBean.conta.password}" style="margin-bottom: 15px"/>
 
 
-                                <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
-                                                 update="@form" process="@this" action="#{contaBean.login}" ajax="false"
-                                                 style="float: right; margin-bottom: 15px"/>
+                    <p:commandButton value="Entrar" id="loginEnterButton" icon="ui-icon ui-icon-key"
+                                     update="@form" process="@this" action="#{contaBean.login}" ajax="false"
+                                     style="float: right; margin-bottom: 15px"/>
 
-                                <p:commandLink target="loginPasswordRecover" value="Esqueci minha senha"
-                                               onclick="PF('loginPasswordRecover').show(); return false;"/>
-                        </h:panelGrid>
-                    </h:panelGroup>
-
+                    <p:commandLink target="loginPasswordRecover" value="Esqueci minha senha"
+                                   onclick="PF('loginPasswordRecover').show(); return false;"/>
                 </h:panelGrid>
 
             </h:form>

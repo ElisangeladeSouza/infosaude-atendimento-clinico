@@ -20,7 +20,7 @@
                 <p:toolbar >
                     <f:facet name="right">
                         <p:button value="#{msg.newRegister}" id="botaoTelaCadastro"  icon="ui-icon ui-icon-pencil" 
-                                  disabled="#{not request.isUserInRole('Administradores')}"  outcome="/exame/CadastroExame"/>
+                                  disabled="#{not podeTudo}"  outcome="/exame/CadastroExame"/>
                     </f:facet>
                 </p:toolbar>
 

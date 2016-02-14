@@ -119,6 +119,8 @@
                                                      request.isUserInRole('TecnicosEnfermagem') or
                                                      request.isUserInRole('Administradores')}" scope="request"/> 
                 
+                <!--Permissões do administrador que tem acesso total e irrestrito-->
+                <c:set var="podeTudo" value="#{request.isUserInRole('Administradores')}" scope="request"/> 
             </h:form>
         </ui:insert>
     </div>
