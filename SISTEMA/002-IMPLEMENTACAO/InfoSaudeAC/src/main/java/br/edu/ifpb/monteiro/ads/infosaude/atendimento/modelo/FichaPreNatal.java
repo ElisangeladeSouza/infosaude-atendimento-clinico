@@ -1,5 +1,7 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.TempoGestacional;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.TipoGravidez;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -36,7 +38,7 @@ public class FichaPreNatal implements Serializable {
     private Date dataAtendimento;
     
     @Column(name = "ficha_pre_natal_tempo_gestacional", length = 15)
-    private String tempoGestacional;
+    private TempoGestacional tempoGestacional;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "ficha_pre_natal_dum")
@@ -61,7 +63,7 @@ public class FichaPreNatal implements Serializable {
     private String semanasGestacao;
     
     @Column(name = "ficha_pre_natal_tipo_gravidez")
-    private String tipoGravidez;
+    private TipoGravidez tipoGravidez;
     
     @Column(name = "ficha_pre_natal_gravidez_planejada")
     private boolean gravidezPlanejada;
