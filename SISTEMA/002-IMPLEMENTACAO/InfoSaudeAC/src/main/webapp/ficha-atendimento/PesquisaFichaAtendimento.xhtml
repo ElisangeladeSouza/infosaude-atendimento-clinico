@@ -40,17 +40,17 @@
                         <h:outputText id="id" value="#{fichaAtendimento.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.date}" style="text-align: center" width="10" filterMatchMode="exact" filterBy="#{fichaAtendimento.data}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.date}" style="text-align: center" width="8" filterMatchMode="exact" filterBy="#{fichaAtendimento.data}" filterStyle="width: 20px; display:none">
                         <h:outputText id="data" value="#{fichaAtendimento.data}">
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{fichaAtendimento.paciente.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.destination}" width="80" filterMatchMode="contains" filterBy="#{fichaAtendimento.destino}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.destination}" style="text-align: center" width="50" filterMatchMode="contains" filterBy="#{fichaAtendimento.destino}" filterStyle="width: 300px; display:none">
                         <h:outputText id="destino" value="#{fichaAtendimento.destino}"/>
                     </p:column>
 
@@ -70,7 +70,7 @@
                                          action="#{fichaAtendimentoBean.excluir}" process="@this" update="datatablePesquisaFichaAtendimento">
                             <f:setPropertyActionListener value="#{fichaAtendimento}" target="#{fichaAtendimentoBean.fichaAtendimentoSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
-                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreConsultant}" message="#{msg.realyExcludeConsultant}"/>
+                            <p:confirm icon="ui-icon-alert" header="#{msg.exclusionCadastreTreatmentForm}" message="#{msg.realyExcludeTreatmentForm}"/>
                         </p:commandButton>
 
                     </p:column>

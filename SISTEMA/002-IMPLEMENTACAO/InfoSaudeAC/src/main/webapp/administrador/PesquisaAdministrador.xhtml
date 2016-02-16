@@ -40,15 +40,15 @@
                         <h:outputText id="id" value="#{administrador.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{administrador.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.name}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{administrador.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="nome" value="#{administrador.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{administrador.cpfAdministrador}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="cpf" value="#{administrador.cpfAdministrador}" converter="cpfConverter"/>
+                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{administrador.cartaoSusAdministrador}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="cartaoSusAdministrador" value="#{administrador.cartaoSusAdministrador}" />
                     </p:column>
 
-                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{administrador.telefone1}" filterStyle="width: 80px; display:none">
+                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{administrador.telefone1}" filterStyle="width: 80px; display:none">
                         <h:outputText id="phone1" value="#{administrador.telefone1}"/>
                     </p:column>
 

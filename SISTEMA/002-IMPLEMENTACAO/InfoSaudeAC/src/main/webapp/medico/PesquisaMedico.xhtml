@@ -40,19 +40,15 @@
                         <h:outputText value="#{medico.id}"/>
                     </p:column>
 
-                    <p:column id="nome" headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{medico.nome}" filterStyle="width: 300px; display:none">
+                    <p:column id="nome" headerText="#{msg.name}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{medico.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText value="#{medico.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.crm}" style="text-align: center" width="20" filterMatchMode="contains" filterBy="#{medico.crm}" filterStyle="width: 80px; display:none">
+                    <p:column headerText="#{msg.crm}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{medico.crm}" filterStyle="width: 80px; display:none">
                         <h:outputText id="crm" value="#{medico.crm}"/>
                     </p:column>
-
-                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{medico.cpfMedico}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="cpf" value="#{medico.cpfMedico}" converter="cpfConverter"/>
-                    </p:column>
-
-                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{medico.telefone1}" filterStyle="width: 80px; display:none">
+                    
+                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{medico.telefone1}" filterStyle="width: 80px; display:none">
                         <h:outputText id="phone1" value="#{medico.telefone1}"/>
                     </p:column>
 

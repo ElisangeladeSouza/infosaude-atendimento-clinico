@@ -40,15 +40,15 @@
                         <h:outputText id="id" value="#{paciente.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.name}" width="80" filterMatchMode="contains" filterBy="#{paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.name}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="nome" value="#{paciente.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.cpf}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{paciente.cpf}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="cpf" value="#{paciente.cpf}" converter="cpfConverter"/>
+                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{paciente.cartaoSus}" filterStyle="width: 80px; display:none">
+                        <h:outputText id="cartaoSusPaciente" value="#{paciente.cartaoSus}" />
                     </p:column>
 
-                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{paciente.telefone1}" filterStyle="width: 80px; display:none">
+                    <p:column headerText="#{msg.phone1}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{paciente.telefone1}" filterStyle="width: 80px; display:none">
                         <h:outputText id="phone1" value="#{paciente.telefone1}"/>
                     </p:column>
 

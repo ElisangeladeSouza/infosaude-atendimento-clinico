@@ -38,12 +38,18 @@
                     <p:column headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{consulta.id}" filterStyle="width: 20px; display:none">
                         <h:outputText id="id" value="#{consulta.id}"/>
                     </p:column>
+                    
+                    <p:column headerText="#{msg.date}" style="text-align: center" width="8" filterMatchMode="exact" filterBy="#{consulta.fichaAtendimento.data}" filterStyle="width: 20px; display:none">
+                        <h:outputText id="data" value="#{consulta.fichaAtendimento.data}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </h:outputText>
+                    </p:column>
 
-                    <p:column headerText="#{msg.patient}" width="80" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{consulta.fichaAtendimento.paciente.nome}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.cartaoSus}" filterStyle="width: 80px; display:none">
+                    <p:column headerText="#{msg.susCard}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.cartaoSus}" filterStyle="width: 80px; display:none">
                         <h:outputText id="crm" value="#{consulta.fichaAtendimento.paciente.cartaoSus}"/>
                     </p:column>
 

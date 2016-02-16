@@ -51,8 +51,12 @@
                         <h:outputText id="codigo" value="#{triagem.codigo}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" style="text-align: center" width="140" filterMatchMode="exact" filterBy="#{triagem.paciente.nome}" filterStyle="width: 50px; display:none">
+                    <p:column headerText="#{msg.patient}" style="text-align: center" width="60" filterMatchMode="exact" filterBy="#{triagem.paciente.nome}" filterStyle="width: 50px; display:none">
                         <h:outputText id="paciente" value="#{triagem.paciente.nome}"/>
+                    </p:column>
+                    
+                    <p:column headerText="#{msg.degreeOfUrgency}" style="text-align: center" width="40" filterMatchMode="exact" filterBy="#{triagem.grauUrgencia}" filterStyle="width: 50px; display:none">
+                        <h:outputText id="grauUrgencia" value="#{triagem.grauUrgencia}"/>
                     </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">

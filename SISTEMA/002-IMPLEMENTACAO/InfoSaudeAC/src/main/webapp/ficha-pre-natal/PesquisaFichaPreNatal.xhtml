@@ -40,8 +40,12 @@
                         <h:outputText id="id" value="#{fichaPreNatal.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.pregnant}" width="30" filterMatchMode="contains" filterBy="#{fichaPreNatal.fichaPreNatais.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.pregnant}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{fichaPreNatal.fichaPreNatais.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="nome" value="#{fichaPreNatal.fichaPreNatais.paciente.nome}"/>
+                    </p:column>
+                    
+                    <p:column headerText="#{msg.displacement}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{fichaPreNatal.auxilioDeslocamento}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="auxilioDeslocamento" value="#{fichaPreNatal.auxilioDeslocamento  ? 'Sim' : 'Não'}"/>
                     </p:column>
 
                     <p:column headerText="#{msg.typeOfPregnancy}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{fichaPreNatal.tipoGravidez}" filterStyle="width: 80px; display:none">

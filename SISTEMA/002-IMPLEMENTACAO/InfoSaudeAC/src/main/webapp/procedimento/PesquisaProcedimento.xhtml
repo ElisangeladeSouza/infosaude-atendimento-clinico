@@ -40,20 +40,10 @@
                         <h:outputText id="id" value="#{procedimento.id}"/>
                     </p:column>
 
-<!--                     <p:column headerText="#{msg.date}" style="text-align: center" width="7" filterMatchMode="exact" filterBy="#{procedimento.data}" filterStyle="width: 20px; display:none">
-    <h:outputText id="data" value="#{procedimento.data}">
-        <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-    </h:outputText>
-</p:column>-->
-
                     <p:column headerText="#{msg.code}" style="text-align: center" width="5" filterMatchMode="exact" filterBy="#{procedimento.codigo}" filterStyle="width: 30px; display:none">
                         <h:outputText id="codigo" value="#{procedimento.codigo}"/>
                     </p:column>
 
-<!--                    <p:column headerText="#{msg.patient}" style="text-align: center" width="50" filterMatchMode="exact" filterBy="#{procedimento.paciente.nome}" filterStyle="width: 50px; display:none">
-    <h:outputText id="paciente" value="#{procedimento.paciente.nome}"/>
-</p:column>
-                    -->
                     <p:column headerText="#{msg.description}" style="text-align: center" width="70" filterMatchMode="exact" filterBy="#{procedimento.descricao}" filterStyle="width: 50px; display:none">
                         <h:outputText id="descricao" value="#{procedimento.descricao}"/>
                     </p:column>

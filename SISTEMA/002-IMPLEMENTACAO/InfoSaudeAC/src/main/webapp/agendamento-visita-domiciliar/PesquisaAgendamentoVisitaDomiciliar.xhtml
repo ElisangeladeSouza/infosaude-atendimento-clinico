@@ -41,17 +41,17 @@
                         <h:outputText id="id" value="#{visitaDomiciliar.id}"/>
                     </p:column>
                     
-                    <p:column headerText="#{msg.patient}" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{visitaDomiciliar.paciente.nome}"/>
                     </p:column>
                     
-                    <p:column headerText="#{msg.dateVisiting}" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.dataVisita}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.dateVisiting}" style="text-align: center" width="30" filterMatchMode="contains" filterBy="#{visitaDomiciliar.dataVisita}" filterStyle="width: 300px; display:none">
                         <h:outputText id="dataVisita" value="#{visitaDomiciliar.dataVisita}">
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="#{msg.agentOfHealth}" width="90" filterMatchMode="contains" filterBy="#{visitaDomiciliar.agenteSaude}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.agentOfHealth}" style="text-align: center" width="90" filterMatchMode="contains" filterBy="#{visitaDomiciliar.agenteSaude}" filterStyle="width: 300px; display:none">
                         <h:outputText id="agenteSaude" value="#{visitaDomiciliar.agenteSaude}"/>
                     </p:column>
                     

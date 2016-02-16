@@ -38,19 +38,15 @@
                         <h:outputText id="id" value="#{requisicaoExames.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.code}" style="text-align: center" width="2%" filterMatchMode="contains" filterBy="#{requisicaoExames.codigo}" filterStyle="width: 80px; display:none">
-                        <h:outputText id="crm" value="#{requisicaoExames.codigo}"/>
-                    </p:column>
-
-                    <p:column headerText="#{msg.cnes}" style="text-align: center" width="3%" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCnes}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.cnes}" style="text-align: center" width="10" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCnes}" filterStyle="width: 20px; display:none">
                         <h:outputText id="cnes" value="#{requisicaoExames.solicitanteCnes}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.city}" style="text-align: center" width="5%" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCidade}" filterStyle="width: 20px; display:none">
+                    <p:column headerText="#{msg.city}" style="text-align: center" width="20" filterMatchMode="contains" filterBy="#{requisicaoExames.solicitanteCidade}" filterStyle="width: 20px; display:none">
                         <h:outputText id="cidade" value="#{requisicaoExames.solicitanteCidade}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.examination}" width="10%" filterMatchMode="contains" filterBy="#{requisicaoExames.exames}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.examination}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{requisicaoExames.exames}" filterStyle="width: 300px; display:none">
                         <h:outputText id="exames" value="#{requisicaoExames.exames}"/>
                     </p:column>
 
