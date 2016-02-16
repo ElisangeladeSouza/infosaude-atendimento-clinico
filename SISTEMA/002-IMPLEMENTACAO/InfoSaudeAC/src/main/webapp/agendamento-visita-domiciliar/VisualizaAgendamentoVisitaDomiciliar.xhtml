@@ -16,28 +16,30 @@
     <ui:define id="uiConteudoVisitaDomiciliar" name="conteudo">
         <p:fieldset id="fieldsetVisitaDomiciliar" legend="#{msg.viewCadastreHomeVisitingSchedule}">
             <h:form id="formCadastroVisitaDomiciliar">
-                <h:panelGrid id="gridVisualizaVisitaDomiciliar" columns="2">
+                <p:fieldset id="visualizaPessoalProcedimento" legend="#{msg.information}">
+                    <h:panelGrid id="gridVisualizaVisitaDomiciliar" columns="2">
 
-                    <p:outputLabel for="data" value="#{msg.date}..................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="data" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.data}"  >
-                        <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
-                    </p:outputLabel>
+                        <p:outputLabel for="data" value="#{msg.date}..................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="data" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.data}"  >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </p:outputLabel>
 
-                    <p:outputLabel for="paciente" value="#{msg.patient}...........................:" style="font-weight: bold"/>
-                    <p:outputLabel id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente.nome}"/>
-                    
-                    <p:outputLabel for="dataVisita" value="#{msg.dateVisiting}...................:" style="font-weight: bold"/>
-                    <p:outputLabel id="dataVisita" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.dataVisita}"  >
-                        <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
-                    </p:outputLabel>
+                        <p:outputLabel for="paciente" value="#{msg.patient}...........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente.nome}"/>
 
-                    <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}.............:" style="font-weight: bold"/>
-                    <p:outputLabel id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}"  />
+                        <p:outputLabel for="dataVisita" value="#{msg.dateVisiting}...................:" style="font-weight: bold"/>
+                        <p:outputLabel id="dataVisita" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.dataVisita}"  >
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                        </p:outputLabel>
 
-                    <p:outputLabel for="observacoes" value="#{msg.observations}....................:" style="font-weight: bold"/>
-                    <p:outputLabel id="observacoes" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.observacoes}"  />
+                        <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}.............:" style="font-weight: bold"/>
+                        <p:outputLabel id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}"  />
 
-                </h:panelGrid>
+                        <p:outputLabel for="observacoes" value="#{msg.observations}....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="observacoes" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.observacoes}"  />
+
+                    </h:panelGrid>
+                </p:fieldset>
 
                 <p:toolbar id="toolbarVisitaDomiciliar" style="margin-top: 10px;">
 

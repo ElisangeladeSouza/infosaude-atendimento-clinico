@@ -19,36 +19,39 @@
 
             <h:form id="formCadastroConsulta">
 
-                <h:panelGrid id="gridVisualizaPessoalConsulta" columns="2">
-                    <p:outputLabel for="data" value="#{msg.date}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="data" value="#{consultaBean.consulta.data}"/>
+                <p:fieldset id="visualizaPessoalEnfermeiro" legend="#{msg.information}">
+                    <h:panelGrid id="gridVisualizaPessoalConsulta" columns="2">
+                        <p:outputLabel for="data" value="#{msg.date}................................:" style="font-weight: bold"/>
+                        <p:outputLabel id="data" value="#{consultaBean.consulta.data}">
+                            <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </p:outputLabel>
 
-                    <p:outputLabel for="codigo" value="#{msg.code}.................................:" style="font-weight: bold"/>
-                    <p:outputLabel id="codigo" value="#{consultaBean.consulta.codigo}"/>
+                        <p:outputLabel for="codigo" value="#{msg.code}............................:" style="font-weight: bold"/>
+                        <p:outputLabel id="codigo" value="#{consultaBean.consulta.codigo}"/>
 
-                    <p:outputLabel for="paciente" value="#{msg.patient}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente.nome}"/>
+                        <p:outputLabel for="paciente" value="#{msg.patient}.........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente.nome}"/>
 
-                    <p:outputLabel for="sintomas" value="#{msg.symptom}s.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="sintomas" value="#{consultaBean.consulta.sintomas}"/>
+                        <p:outputLabel for="sintomas" value="#{msg.symptom}s........................:" style="font-weight: bold"/>
+                        <p:outputLabel id="sintomas" value="#{consultaBean.consulta.sintomas}"/>
 
-                    <p:outputLabel for="anamnese" value="#{msg.anamnese}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="anamnese" value="#{consultaBean.consulta.anamnese}"/>
+                        <p:outputLabel for="anamnese" value="#{msg.anamnese}......................:" style="font-weight: bold"/>
+                        <p:outputLabel id="anamnese" value="#{consultaBean.consulta.anamnese}"/>
 
-                    <p:outputLabel for="diagnostico" value="#{msg.diagnosis}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="diagnostico" value="#{consultaBean.consulta.diagnostico}"/>
+                        <p:outputLabel for="diagnostico" value="#{msg.diagnosis}....................:" style="font-weight: bold"/>
+                        <p:outputLabel id="diagnostico" value="#{consultaBean.consulta.diagnostico}"/>
 
-                    <p:outputLabel for="prescricao" value="#{msg.prescription}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="prescricao" value="#{consultaBean.consulta.prescricao}"/>
+                        <p:outputLabel for="prescricao" value="#{msg.prescription}......................:" style="font-weight: bold"/>
+                        <p:outputLabel id="prescricao" value="#{consultaBean.consulta.prescricao}"/>
 
-                    <p:outputLabel for="exames" value="#{msg.examination}s.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="exames" value="#{consultaBean.consulta.exames}"/>
+<!--                    <p:outputLabel for="exames" value="#{msg.examination}s.............................:" style="font-weight: bold"/>
+                    <p:outputLabel id="exames" value="#{consultaBean.consulta.exames}"/>-->
 
-                    <p:outputLabel for="observacoes" value="#{msg.observations}.............................:" style="font-weight: bold"/>
-                    <p:outputLabel id="observacoes" value="#{consultaBean.consulta.observacoes}"/>
+                        <p:outputLabel for="observacoes" value="#{msg.observations}..................:" style="font-weight: bold"/>
+                        <p:outputLabel id="observacoes" value="#{consultaBean.consulta.observacoes}"/>
 
-                </h:panelGrid>
-
+                    </h:panelGrid>
+                </p:fieldset>
                 <p:toolbar id="toolbarConsulta" style="margin-top: 10px;">
 
                     <f:facet name="right">
