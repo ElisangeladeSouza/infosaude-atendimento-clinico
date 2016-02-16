@@ -32,7 +32,7 @@ public class RequisicaoExame implements Serializable {
     @Column(name = "requisicao_exame_codigo", length = 20)
     private String codigo;
 
-    @Column(name = "requisicao_solicitante_cnes", length = 200)
+    @Column(name = "requisicao_solicitante_cnes", length = 15)
     private String solicitanteCnes;
 
     @Column(name = "requisicao_solicitante_endereco", length = 200)
