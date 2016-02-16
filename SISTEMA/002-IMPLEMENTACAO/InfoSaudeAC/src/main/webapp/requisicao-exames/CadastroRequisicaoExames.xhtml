@@ -35,10 +35,10 @@
                     <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" />
 
                     <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
-                    <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" />
+                    <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
 
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
-                    <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" />
+                    <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" style="width: 210px"/>
 
                     <p:outputLabel for="exames" value="#{msg.examination}s: "/>
                     <p:selectManyMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" filter="true" showCheckbox="true"
