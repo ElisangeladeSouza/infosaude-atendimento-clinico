@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="/WEB-INF/templates/cabecalho.xhtml"> 
+
+    <ui:define name="conteudo">
+
+        <h:form>
+            <p:inputText id="insertText" value="#{systemUtilBean.text}" size="15"/>
+            <p:commandButton id="hashNow" value="Criptografar!" action="#{systemUtilBean.getHashText(text)}" update="outTextHashed"/>
+            <br/>
+            <br/>
+            <p:outputLabel for="outTextHashed" value="Texto criptografado: " style="font-weight: bold"/>
+            <p:outputLabel id="outTextHashed" value="#{systemUtilBean.text}"/>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
