@@ -17,26 +17,30 @@
                 <!--                Algumas tags do atributo rendered do menuitem, recebem uma variável 
                                 correspondente aos grupos de usuário que podem ter acesso a determinadas 
                                 partes do sistema. -->
-                <p:menu>
+                <p:menu toggleable="true" style="width: 181px">
                     <p:submenu label="#{msg.cadastre}s">
-                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.patient}" outcome="/paciente/PesquisaPaciente" rendered="#{podeVerPaciente}"/>
-                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}"/>
-                        <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta" rendered="#{tudoCorpoMedico}"/>
-                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}"/>
-                        <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}"/>
-                        <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento" rendered="#{tudoCorpoMedico}"/>
-                        <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames" rendered="#{tudoCorpoMedico}"/>
-                        <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}"/>
-                        <p:menuitem value="#{msg.scheduling}" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal" rendered="#{podeVerAgendamentoPreNatal}"/>
-                        <p:menuitem value="#{msg.prenatalRecord}" outcome="/ficha-pre-natal/PesquisaFichaPreNatal" rendered="#{podeVerFichaPreNatal}"/>
-                        <p:menuitem value="#{msg.homeVisitingSchedule}" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar" rendered="#{podeVerAgendamentoVisitaDomiciliar}"/>
+                        <p:menuitem value="#{msg.count}" outcome="/conta/PesquisaConta" rendered="#{podeTudo}" icon="fa fa-group"/>
+                        <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{podeTudo}" icon="fa fa-user-md"/>
+                        <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{podeTudo}" icon="fa fa-stethoscope"/>
+                        <p:menuitem value="#{msg.nurse}" outcome="/enfermeiro/PesquisaEnfermeiro" rendered="#{podeTudo}" icon="fa fa-medkit"/>
+                        <p:menuitem value="#{msg.practicalNurse}" outcome="/tecnico-enfermagem/PesquisaTecnicoEnfermagem" rendered="#{podeTudo}" icon="fa fa-ambulance"/>
+                        <p:menuitem value="#{msg.patient}" outcome="/paciente/PesquisaPaciente" rendered="#{podeVerPaciente}" icon="fa fa-male"/>
+                        <p:menuitem value="#{msg.recepcionist}" outcome="/recepcionista/PesquisaRecepcionista" rendered="#{podeTudo}" icon="fa fa-female"/>
+                        <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{podeTudo}" icon="fa fa-user"/>
+                        <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}" icon="fa fa-female"/>
+                        <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}" icon="fa fa-eyedropper"/>
+                    </p:submenu>
+                    <p:submenu label="#{msg.consultation}">
+                        <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}" icon="fa fa-list-ol"/>
+                        <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}" icon="fa fa-arrows-alt"/>
+                        <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta" rendered="#{tudoCorpoMedico}" icon="fa fa-list-alt"/>
+                        <p:menuitem value="#{msg.examinationRequest}" outcome="/requisicao-exames/PesquisaRequisicaoExames" rendered="#{tudoCorpoMedico}" icon="fa fa-exchange"/>
+                        <p:menuitem value="#{msg.procedure}" outcome="/procedimento/PesquisaProcedimento" rendered="#{tudoCorpoMedico}" icon="fa fa-bars"/>
+                        <p:menuitem value="#{msg.scheduling}" outcome="/agendamento-pre-natal/PesquisaAgendamentoPreNatal" rendered="#{podeVerAgendamentoPreNatal}" icon="fa fa-calendar"/>
+                        <p:menuitem value="#{msg.prenatalRecord}" outcome="/ficha-pre-natal/PesquisaFichaPreNatal" rendered="#{podeVerFichaPreNatal}" icon="fa fa-file-text-o"/>
+                        <p:menuitem value="#{msg.homeVisitingSchedule}" outcome="/agendamento-visita-domiciliar/PesquisaAgendamentoVisitaDomiciliar" rendered="#{podeVerAgendamentoVisitaDomiciliar}" icon="fa fa-pencil-square-o"/>
+                    </p:submenu>
+                    <p:submenu label="#{msg.system}">
                         <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>
