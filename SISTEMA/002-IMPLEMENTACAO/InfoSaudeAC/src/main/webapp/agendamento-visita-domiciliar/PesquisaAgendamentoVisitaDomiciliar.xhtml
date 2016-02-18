@@ -41,7 +41,7 @@
                         <h:outputText id="id" value="#{visitaDomiciliar.id}"/>
                     </p:column>
                     
-                    <p:column headerText="#{msg.patient}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" width="60" filterMatchMode="contains" filterBy="#{visitaDomiciliar.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{visitaDomiciliar.paciente.nome}"/>
                     </p:column>
                     
@@ -51,7 +51,7 @@
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="#{msg.agentOfHealth}" style="text-align: center" width="90" filterMatchMode="contains" filterBy="#{visitaDomiciliar.agenteSaude}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.agentOfHealth}" width="90" filterMatchMode="contains" filterBy="#{visitaDomiciliar.agenteSaude}" filterStyle="width: 300px; display:none">
                         <h:outputText id="agenteSaude" value="#{visitaDomiciliar.agenteSaude}"/>
                     </p:column>
                     

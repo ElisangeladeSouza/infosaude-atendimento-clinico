@@ -41,7 +41,7 @@
                         <h:outputText id="id" value="#{agendamento.id}"/>
                     </p:column>
                     
-                    <p:column headerText="#{msg.pregnant}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{agendamento.gestante.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.pregnant}" width="60" filterMatchMode="contains" filterBy="#{agendamento.gestante.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="gestante" value="#{agendamento.gestante.paciente.nome}"/>
                     </p:column>
 
@@ -51,7 +51,7 @@
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="#{msg.agentOfHealth}" style="text-align: center" width="90" filterMatchMode="contains" filterBy="#{agendamento.agenteSaude}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.agentOfHealth}" width="90" filterMatchMode="contains" filterBy="#{agendamento.agenteSaude}" filterStyle="width: 300px; display:none">
                         <h:outputText id="agenteSaude" value="#{agendamento.agenteSaude}"/>
                     </p:column>
                     

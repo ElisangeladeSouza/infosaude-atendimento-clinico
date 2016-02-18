@@ -40,7 +40,7 @@
                         <h:outputText id="id" value="#{fichaPreNatal.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.pregnant}" style="text-align: center" width="60" filterMatchMode="contains" filterBy="#{fichaPreNatal.fichaPreNatais.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.pregnant}" width="60" filterMatchMode="contains" filterBy="#{fichaPreNatal.fichaPreNatais.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="nome" value="#{fichaPreNatal.fichaPreNatais.paciente.nome}"/>
                     </p:column>
                     

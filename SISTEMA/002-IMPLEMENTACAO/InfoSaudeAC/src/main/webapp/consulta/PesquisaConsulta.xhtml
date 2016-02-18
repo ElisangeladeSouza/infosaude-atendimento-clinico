@@ -45,7 +45,7 @@
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="#{msg.patient}" style="text-align: center" width="70" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.patient}" width="70" filterMatchMode="contains" filterBy="#{consulta.fichaAtendimento.paciente.nome}" filterStyle="width: 300px; display:none">
                         <h:outputText id="paciente" value="#{consulta.fichaAtendimento.paciente.nome}"/>
                     </p:column>
 
