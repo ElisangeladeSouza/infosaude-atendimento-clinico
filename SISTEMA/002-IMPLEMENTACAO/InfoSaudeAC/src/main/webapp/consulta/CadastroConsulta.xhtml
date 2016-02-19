@@ -41,7 +41,7 @@
                     </h:panelGroup>
 
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s:"/>
-                    <p:inputText id="sintomas" value="#{consultaBean.consulta.sintomas}"  size="22"/>
+                    <p:inputTextarea id="sintomas" value="#{consultaBean.consulta.sintomas}"  maxlength="255"/>
 
                     <p:outputLabel for="anamnese" value="#{msg.anamnese}:"/>
                     <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}"  maxlength="255"/>
@@ -53,12 +53,6 @@
                     <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}"  maxlength="255"
                                      required="true" requiredMessage="#{msg.aPrescriptionIsRequired}"/>
 
-<!--                    <p:outputLabel for="exames" value="#{msg.examination}s:"/>
-                    <p:inputTextarea id="exames" value="#{consultaBean.consulta.exames}" />-->
-
-                </h:panelGrid>
-
-                <h:panelGrid id="gridVisualizaContatoMedico" columns="2">
                     <p:outputLabel for="observacoes" value="#{msg.observations}:"/>
                     <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500"/>
                 </h:panelGrid>
@@ -87,5 +81,4 @@
             </h:form>    
         </p:fieldset>
     </ui:define>
-
 </ui:composition>

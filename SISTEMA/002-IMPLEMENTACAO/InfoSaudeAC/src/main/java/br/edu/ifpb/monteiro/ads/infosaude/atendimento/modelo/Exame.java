@@ -29,11 +29,11 @@ public class Exame implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "exame_descricao", length = 200, nullable = false)
+    @Column(name = "exame_descricao", length = 100, nullable = false)
     private String descricao;
 
     @Lob
-    @Column(name = "exame_detalhes")
+    @Column(name = "exame_detalhes", length = 200)
     private String detalhes;
 
     @Temporal(TemporalType.TIMESTAMP)
