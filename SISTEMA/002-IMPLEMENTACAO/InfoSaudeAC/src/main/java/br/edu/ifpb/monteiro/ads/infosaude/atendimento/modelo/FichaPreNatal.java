@@ -150,5 +150,6 @@ public class FichaPreNatal implements Serializable {
     private AgendamentoPreNatal agendamentoPreNatal;
     
     @ManyToOne
+    @JoinColumn(name = "gestante_pk", nullable = false)
     private Gestante fichaPreNatais;
 }

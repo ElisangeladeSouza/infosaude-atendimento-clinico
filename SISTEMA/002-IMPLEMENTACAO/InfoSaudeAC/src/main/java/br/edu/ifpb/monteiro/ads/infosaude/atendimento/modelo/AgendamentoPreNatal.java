@@ -45,7 +45,7 @@ public class AgendamentoPreNatal implements Serializable {
     private String observacoes;
     
     @OneToOne
-    @JoinColumn(name = "gestante_pk")
+    @JoinColumn(name = "gestante_pk", nullable = false)
     private Gestante gestante;
     
 }

@@ -50,7 +50,7 @@ public class AgendamentoVisitaDomiciliar implements Serializable {
     private String observacoes;
     
     @OneToOne
-    @JoinColumn(name = "paciente_pk")
+    @JoinColumn(name = "paciente_pk", nullable = false)
     private Paciente paciente;
     
 }
