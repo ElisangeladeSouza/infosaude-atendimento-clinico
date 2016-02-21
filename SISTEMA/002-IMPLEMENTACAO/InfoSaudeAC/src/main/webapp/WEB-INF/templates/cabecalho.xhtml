@@ -28,6 +28,7 @@
             <h:form id="formUsuarioLogado" styleClass="formulario-usuario-logado">
                 <h:outputLabel value="#{msg.welcome}, " styleClass="boas-vindas-usuario-logado"/>  
                 <h:outputLabel id="menuButtonLogado" value="#{contaBean.usuarioLogado}" styleClass="nome-usuario-logado"/>
+                <h:commandLink id="sair" value="#{msg.exit}" action="#{contaBean.logout}" styleClass="link-sair"/>
             </h:form> 
 
         </header>

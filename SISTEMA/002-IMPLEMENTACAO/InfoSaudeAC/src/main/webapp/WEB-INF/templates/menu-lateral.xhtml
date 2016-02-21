@@ -18,7 +18,7 @@
                                 correspondente aos grupos de usuário que podem ter acesso a determinadas 
                                 partes do sistema. -->
                 <p:menu toggleable="true" style="width: 181px">
-                    <p:submenu label="#{msg.consultation}">
+                    <p:submenu label="#{msg.consultation}" expanded="true">
                         <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}" icon="fa fa-list-ol"/>
                         <p:menuitem value="#{msg.screening}" outcome="/triagem/PesquisaTriagem" rendered="#{podeVerTriagem}" icon="fa fa-arrows-alt"/>
                         <p:menuitem value="#{msg.consultation}" outcome="/consulta/PesquisaConsulta" rendered="#{tudoCorpoMedico}" icon="fa fa-list-alt"/>
@@ -39,9 +39,6 @@
                         <p:menuitem value="#{msg.administrator}" outcome="/administrador/PesquisaAdministrador" rendered="#{podeTudo}" icon="fa fa-user"/>
                         <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}" icon="fa fa-female"/>
                         <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}" icon="fa fa-eyedropper"/>
-                    </p:submenu>
-                    <p:submenu label="#{msg.system}">
-                        <p:menuitem icon="fa fa-sign-out" title="Sair" value="#{msg.exit}" id="botaoSair" action="#{contaBean.logout}"/>
                     </p:submenu>
                 </p:menu>
             </h:form>

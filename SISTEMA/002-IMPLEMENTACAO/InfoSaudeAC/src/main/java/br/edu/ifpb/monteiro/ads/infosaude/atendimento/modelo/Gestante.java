@@ -37,7 +37,7 @@ public class Gestante implements Serializable {
     @Column(name = "gestante_municipio_atendimento", nullable = false, length = 100)
     private String municipioAtendimento;
 
-    @Column(name = "gestante_código_ibge", length = 15)
+    @Column(name = "gestante_código_ibge", length = 7)
     private String codigoIbge;
 
     @Enumerated(EnumType.STRING)

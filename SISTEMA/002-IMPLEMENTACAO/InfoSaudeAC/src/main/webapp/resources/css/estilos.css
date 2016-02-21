@@ -22,16 +22,25 @@
 .nome-usuario-logado{
     height: 10px;
     text-align: right;
-    font-size: 13px;
-    float: right;
+    font-size: 14px;
+    padding-right: 30px;
     color: black;
+    text-shadow:#fff 1px -1px 2px, #fff -1px 1px 2px, #fff 1px 1px 2px, #fff -1px -1px 2px;
+}
+
+.link-sair{
+    height: 10px;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
     text-shadow:#fff 1px -1px 2px, #fff -1px 1px 2px, #fff 1px 1px 2px, #fff -1px -1px 2px;
 }
 
 .boas-vindas-usuario-logado{
     height: 10px; 
-    font-size: 13px;
-    margin-right: 5px;
+    font-size: 14px;
+    float: left;
+    padding-right: 4px;
     color: black;
     text-shadow:#fff 1px -1px 2px, #fff -1px 1px 2px, #fff 1px 1px 2px, #fff -1px -1px 2px;
 }
