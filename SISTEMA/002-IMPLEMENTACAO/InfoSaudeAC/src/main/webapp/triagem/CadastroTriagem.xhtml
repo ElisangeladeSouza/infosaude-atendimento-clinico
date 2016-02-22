@@ -39,7 +39,7 @@
                     <p:outputLabel for="entrevista" value="#{msg.interview}"/>
                     <p:inputTextarea id="entrevista" value="#{triagemBean.triagem.entrevista}" maxlength="200" rows="8" cols="40"/>
                     
-                    <p:outputLabel for="grauUrgencia" value="#{msg.degreeOfUrgency}"/>
+                    <p:outputLabel for="grauUrgencia" value="#{msg.degreeOfUrgency}" styleClass="ui-selectonemenu-label ui-inputfield ui-corner-all"/>
                     <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true"
                                      requiredMessage="#{msg.aDegreeOfUrgencyIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>

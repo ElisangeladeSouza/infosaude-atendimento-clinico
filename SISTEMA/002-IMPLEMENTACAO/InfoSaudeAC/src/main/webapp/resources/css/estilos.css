@@ -174,3 +174,7 @@ footer {
 .campo-invalido-mensagem {
     color: red;
 }
+
+.ui-selectonemenu-label ui-inputfield ui-corner-all{
+    color: red;
+}
