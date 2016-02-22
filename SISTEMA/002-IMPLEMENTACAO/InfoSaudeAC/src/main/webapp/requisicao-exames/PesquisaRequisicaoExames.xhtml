@@ -58,7 +58,7 @@
                         </p:button>   
 
                         <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
-                                         action="#{requisicaoExameBean.excluir}" process="@this" update="datatablePesquisaRequisicaoExames">
+                                         action="#{requisicaoExameBean.excluir}" process="@this" update=":formPesquisaRequisicaoExames:datatablePesquisaRequisicaoExames">
                             <f:setPropertyActionListener value="#{requisicaoExames}" target="#{requisicaoExameBean.requisicaoExameSelecionada}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 

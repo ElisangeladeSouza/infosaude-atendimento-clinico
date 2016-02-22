@@ -45,6 +45,7 @@ public class RequisicaoExame implements Serializable {
     @Column(name = "requisicao_data")
     private Date data;
 
+    @Column(name = "requisicao_solicitante_exames", nullable = false)
     private List<String> exames;
 
 }

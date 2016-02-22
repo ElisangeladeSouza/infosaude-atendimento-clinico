@@ -42,7 +42,8 @@
 
                     <p:outputLabel for="exames" value="#{msg.examination}s: "/>
                     <p:selectManyMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" filter="true" showCheckbox="true"
-                                      filterMatchMode="contains" scrollHeight="150" style="width: 166px">
+                                      filterMatchMode="contains" scrollHeight="150" style="width: 166px" required="true" 
+                                      requiredMessage="#{msg.aListExams}">
                         <f:selectItems value="#{exameBean.exames}" var="exame" itemLabel="#{exame.descricao}" itemValue="#{exame.descricao}"/>
                     </p:selectManyMenu>
 
