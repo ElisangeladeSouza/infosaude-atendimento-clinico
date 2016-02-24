@@ -26,17 +26,19 @@
                                  required="true" size="20"  maxlength="200"/>
 
                     <p:outputLabel for="senha" value="#{msg.password}: "/>
-                    <p:password id="senha" value="#{contaBean.conta.password}" requiredMessage="#{msg.aPasswordIsRequired}"
+                    <p:password id="senha" value="#{contaBean.confereSenha}" requiredMessage="#{msg.aPasswordIsRequired}"
                                 promptLabel="Digite sua senha" weakLabel="Senha fraca" goodLabel="Senha boa" strongLabel="Senha forte" 
                                 feedback="true" required="true"  maxlength="40" match="confirmaSenha" validatorMessage="As senhas não conferem"/>
 
                     <p:outputLabel for="confirmaSenha" value="#{msg.passwordConfirmation}: "/>
                     <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40"/>
 
-<!--                    <p:outputLabel for="funcao" value="#{msg.function}:"/>
-                    <p:selectCheckboxMenu id="funcao" value="#{contaBean.conta.permissao}" required="true" label="Níveis de acesso" panelStyle="width:160px" style="width: 165px">
-                        <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes}" itemLabel="#{permissoes.descricao}" var="permissoes"/>
-                    </p:selectCheckboxMenu>-->
+                   <p:outputLabel for="funcao" value="#{msg.function}: "/>
+                    <p:selectOneMenu id="funcao" value="#{contaBean.conta.userRoles}" required="true" panelStyle="width:160px" style="width: 180px">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes.descricao}" itemLabel="#{permissoes.descricao}" 
+                                       var="permissoes"/>
+                    </p:selectOneMenu>
 
                 </h:panelGrid>
 

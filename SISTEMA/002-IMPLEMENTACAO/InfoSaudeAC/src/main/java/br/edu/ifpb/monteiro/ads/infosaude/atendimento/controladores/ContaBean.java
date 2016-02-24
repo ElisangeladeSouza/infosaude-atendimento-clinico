@@ -7,6 +7,7 @@ import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ContaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ContaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -47,9 +48,11 @@ public class ContaBean implements Serializable {
 
     private List<Conta> contas;
 
-    private final List<Permissao> permissoes;
-
+    private static transient List<Permissao> permissoes= new ArrayList<>();
+    
     private final String usuarioLogado;
+
+    private String confereSenha;
 
     /**
      * Construtor da classe Inicia o array com as permissões possiveis para cada
@@ -58,7 +61,7 @@ public class ContaBean implements Serializable {
      * @see Permissao
      */
     public ContaBean() {
-        this.permissoes = Arrays.asList(Permissao.values());
+        permissoes = Arrays.asList(Permissao.values());
         this.usuarioLogado = (String) SecurityUtils.getSubject().getPrincipal();
     }
 
@@ -74,14 +77,18 @@ public class ContaBean implements Serializable {
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
-        this.contaService.save(conta);
-        if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName()
-                    + "' atualizado com sucesso!");
+        if(conta.getPassword() == null ? confereSenha == null : conta.getPassword().equals(confereSenha)) {
+            this.contaService.save(conta);
+            if(getEditando()) {
+                 FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName() + "'atualizado com sucesso!");
+                 FacesUtil.redirecionaPara("PesquisaConta.xhtml");
+            } else {
+                FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+            }
+            conta = new Conta();
         } else {
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+            FacesUtil.mensagemAviso("Senhas não conferem!");
         }
-        conta = new Conta();
     }
 
     /**
@@ -186,5 +193,13 @@ public class ContaBean implements Serializable {
 
     public String getUsuarioLogado() {
         return usuarioLogado;
+    }
+    
+    public String getConfereSenha() {
+        return confereSenha;
+    }
+
+    public void setConfereSenha(String confereSenha) {
+        this.confereSenha = confereSenha;
     }
 }
