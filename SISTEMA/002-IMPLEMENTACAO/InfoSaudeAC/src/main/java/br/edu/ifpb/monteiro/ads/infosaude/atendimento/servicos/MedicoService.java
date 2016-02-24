@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.MedicoDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Medico;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.relatorios.RelatorioTodosMedicos;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.MedicoServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
@@ -22,6 +23,9 @@ public class MedicoService implements MedicoServiceIF, Serializable {
 
     @Inject
     private MedicoDao medicoDao;
+    
+    @Inject
+    private RelatorioTodosMedicos relatorioTodosMedicos;
 
     public MedicoService() {
     }
@@ -72,4 +76,10 @@ public class MedicoService implements MedicoServiceIF, Serializable {
     public List<Medico> findAll() {
         return medicoDao.findAll();
     }
+    
+    @Override
+    public void relatorioTodosMedicos(){
+        relatorioTodosMedicos.emitir();
+    }
+    
 }

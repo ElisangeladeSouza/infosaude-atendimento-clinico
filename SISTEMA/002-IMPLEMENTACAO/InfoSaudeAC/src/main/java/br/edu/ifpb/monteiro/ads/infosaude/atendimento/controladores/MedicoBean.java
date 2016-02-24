@@ -40,7 +40,7 @@ public class MedicoBean implements Serializable {
 
     @Inject
     private PessoaServiceIF pessoaService;
-
+    
     private transient List<Medico> medicos;
 
     /**
@@ -121,6 +121,11 @@ public class MedicoBean implements Serializable {
         return this.medico.getId() != null;
     }
 
+    public void relatorioTodosMedicos(){
+        medicoService.relatorioTodosMedicos();
+    }
+    
+    
     public Medico getMedicoSelecionado() {
         return medicoSelecionado;
     }

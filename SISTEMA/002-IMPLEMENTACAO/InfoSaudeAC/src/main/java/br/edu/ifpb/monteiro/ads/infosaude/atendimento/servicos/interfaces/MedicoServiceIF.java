@@ -20,4 +20,6 @@ public interface MedicoServiceIF {
 
     public void delete(Medico medicoSelecionado);
     
+    public void relatorioTodosMedicos();
+    
 }
