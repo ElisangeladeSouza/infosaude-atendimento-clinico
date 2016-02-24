@@ -32,6 +32,7 @@
 
                     <p:outputLabel for="confirmaSenha" value="#{msg.passwordConfirmation}: "/>
                     <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40"/>
+                    
 
                    <p:outputLabel for="funcao" value="#{msg.function}: "/>
                     <p:selectOneMenu id="funcao" value="#{contaBean.conta.userRoles}" required="true" panelStyle="width:160px" style="width: 180px">
@@ -40,6 +41,10 @@
                                        var="permissoes"/>
                     </p:selectOneMenu>
 
+                    <p:outputLabel for="email" value="#{msg.email}: "/>
+                    <p:inputText id="email" styleClass="lower" value="#{contaBean.conta.email}" size="38" required="true" 
+                         validatorMessage="E-mail com formato incorreto" maxlength="100"/>
+                    
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarConta" style="margin-top: 10px;">

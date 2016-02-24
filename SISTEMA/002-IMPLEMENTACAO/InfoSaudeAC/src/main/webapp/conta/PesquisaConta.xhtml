@@ -41,13 +41,13 @@
                         <h:outputText id="id" value="#{conta.id}"/>
                     </p:column>
 
-                    <p:column headerText="#{msg.user}" width="80" filterMatchMode="contains" filterBy="#{conta.userName}" filterStyle="width: 300px; display:none">
+                    <p:column headerText="#{msg.user}" width="70" filterMatchMode="contains" filterBy="#{conta.userName}" filterStyle="width: 300px; display:none">
                         <h:outputText id="usuario" value="#{conta.userName}"/>
                     </p:column>
 
-<!--                    <p:column headerText="#{msg.function}" width="80" filterMatchMode="contains" filterBy="#{conta.permissao}" filterStyle="width: 300px; display:none">
-                        <h:outputText id="permissao" value="#{conta.permissao.descricao}"/>
-                    </p:column>-->
+                    <p:column headerText="#{msg.function}" width="80" filterMatchMode="contains" filterBy="#{conta.userRoles}" filterStyle="width: 300px; display:none">
+                        <h:outputText id="permissao" value="#{conta.userRoles}"/>
+                    </p:column>
 
                     <p:column id="acoes" headerText="#{msg.actions}" style="text-align: center" width="25">
 

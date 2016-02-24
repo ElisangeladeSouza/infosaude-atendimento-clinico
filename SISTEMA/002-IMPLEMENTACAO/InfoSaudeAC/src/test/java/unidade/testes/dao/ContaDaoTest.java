@@ -54,6 +54,8 @@ public class ContaDaoTest {
 
         conta.setPassword("default");
         conta.setUserName("default");
+        conta.setEmail("default@gmail.com");
+        conta.setUserRoles("Administradores");
 
         contaDao.getEntityManager().getTransaction().begin();
         contaDao.salvar(conta);
