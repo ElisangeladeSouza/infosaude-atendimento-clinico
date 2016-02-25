@@ -120,11 +120,6 @@ public class MedicoBean implements Serializable {
     public boolean getEditando() {
         return this.medico.getId() != null;
     }
-
-    public void relatorioTodosMedicos(){
-        medicoService.relatorioTodosMedicos();
-    }
-    
     
     public Medico getMedicoSelecionado() {
         return medicoSelecionado;

@@ -24,9 +24,6 @@ public class MedicoService implements MedicoServiceIF, Serializable {
     @Inject
     private MedicoDao medicoDao;
     
-    @Inject
-    private RelatorioTodosMedicos relatorioTodosMedicos;
-
     public MedicoService() {
     }
 
@@ -75,11 +72,6 @@ public class MedicoService implements MedicoServiceIF, Serializable {
     @Override
     public List<Medico> findAll() {
         return medicoDao.findAll();
-    }
-    
-    @Override
-    public void relatorioTodosMedicos(){
-        relatorioTodosMedicos.emitir();
     }
     
 }
