@@ -53,57 +53,59 @@ public class GeradorRelatorios {
         return FacesContext.getCurrentInstance().getExternalContext().getRealPath("/resources/relatorios/");
     }
 
-    public void preparaRelatorio(String nomeArquivoJasper, String nomeArquivoPdf) {
+    public void preparaRelatorioPdf(String nomeArquivoJasper, String nomeArquivoPdf) {
         try {
 
-            /*
-                Monta o caminho completo do arquivo de template compilado (.jasper) do relatório.
-             */
+            //Monta o caminho completo do arquivo de template compilado (.jasper) do relatório.
             String caminhoArquivoJasper = pegarCaminhoRelatorio() + nomeArquivoJasper;
 
-            // abre a conexão com o banco de dados
+            // Inicia a transação com o banco de dados
             entityManager.getTransaction().begin();
 
-            /* Resultado do relatório o jasperprint representa o documento gerado. Ao preencher relatório com os dados, 
-             os resultados podem ser enviados pela rede, armazenados em um formulário serializado em disco ou 
-             exportados para vários outros formatos, como PDF, HTML, XLS, CSV ou XML. 
-            
-             O JasperFillManager é uma fachada para a classe que será utilizada para buscar os dados na base de dados
-             este porde ser obtido de varias formas. Aqui passamos como parametro do fillReport o 'local do arquivo',
-             os parametros que seram passados na consulta para o relatório e a conexao com o banco
+            /*
+             * O atributo do tipo JasperPrint recebe o resultado do relatório, baseados nos parâmetros do 
+             * fillReport que precisa do 'local do arquivo' compilado do relatório (.jasper), possíveis 
+             * parâmetros que o relatório necessite e a conexao com o banco
              */
             JasperPrint jasperPrint = JasperFillManager.fillReport(caminhoArquivoJasper, null, getConexao());
 
-            // Array de byte do relatório no formato pdf. o JasperExportManager é uma fachada para os tipos de modelos que 
-            // podem ser gerados a partir do resultado do jasperPrint
-            // Aqui foi utilizado o exportReportToPdf para exportar o relatorio passado como parametro para o formato pdf 
-            byte[] b = JasperExportManager.exportReportToPdf(jasperPrint);
+            /*
+             * Um array de bytes recebe o arquivo já exportado para pdf através do método exportReportToPdf()
+             */
+            byte[] arquivoPdf = JasperExportManager.exportReportToPdf(jasperPrint);
 
-            // Permite passar informações no cabeçalho da página: o nome do arquivo de download, o contentType que é uma
-            // arquivo aplication/pdf por ser um pdf, por exemplo
-            HttpServletResponse res = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            /*
+             * Precisamos do HttpServletResponse para encaminhar a resposta do da requisição do relatório para o browser do usuário, além
+             * de permitir que sejam passadas informações para o cabeçalho da requisição.
+             */
+            HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
 
-            // passando o tipo do arquivo de saida
-            res.setContentType("application/pdf");
+            /*
+             * Define, explicitamente, o tipo de saída do relatório.
+             */
+            response.setContentType("application/pdf");
 
-            //Gerar o relatório e disponibiliza diretamente na página. passando como parametro no cabeçario
-            // o o Content-disposition acho 'que indica que os parametros devem está disponivel no inicio do cabeçario,
-            // o inline para ser mostrado altomaticamente e o filename com o nome do arquivo para download.
-            res.setHeader("Content-disposition", "inline;filename=" + nomeArquivoPdf);
+            /*
+             * Define como o relatório será disposto para o usuário no browser e o nome que o arquivo 
+             * terá quando o mesmo for salvo localmente. O parâmetro 'inline' exibe o relatório no 
+             * navegador do usuário e 'attachment' força o download.
+             */
+            response.setHeader("Content-disposition", "inline;filename=" + nomeArquivoPdf);
 
-            //Código abaixo gerar o relatório e disponibiliza para o cliente baixar ou salvar   
-            // ---> res.setHeader("Content-disposition", "attachment;filename=arquivo.pdf");  
-            // response, criar o arquipo contido em b 'array de byte do relatório'
-            res.getOutputStream().write(b);
+            /*
+             * O response do HTTPServletReponse recebe o arquivo binário antes de o encaminhar para o browser do usuário.
+             */
+            response.getOutputStream().write(arquivoPdf);
 
             // retorna a codificação de caractere utilizada
-            res.getCharacterEncoding();
+            response.getCharacterEncoding();
 
             // Confirma o termino da execução para pagina jsf. Não permitindo alteração após  
             // a execução do relatório
             FacesContext.getCurrentInstance().responseComplete();
 
             fecharConexao();
+
         } catch (JRException | IOException ex) {
             ex.printStackTrace();
         }

@@ -1,23 +1,21 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Pattern;
 import lombok.Data;
 
 /**
- * Entidade que representa as contas dos usuários do sistema. Nela estão 
- * contidas as permissões para acessar, inserir, editar, consultar e excluir 
+ * Entidade que representa as contas dos usuários do sistema. Nela estão
+ * contidas as permissões para acessar, inserir, editar, consultar e excluir
  * informações no sistema.
- * 
- * @author elisangela <elysangeladesouza@gmail.com> e contribuição de Marcus Patriota <macusvp@gmail.com>
+ *
+ * @author elisangela <elysangeladesouza@gmail.com> e contribuição de Marcus
+ * Patriota <macusvp@gmail.com>
  */
 @Entity
 @Data
@@ -35,14 +33,14 @@ public class Conta implements Serializable {
 
     @Column(name = "password", nullable = false, length = 40)
     private String password;
-    
+
     //@Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     private String userRoles;
-    
+
     @Pattern(regexp = "^$|^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$",
             message = "E-mail com formato incorreto")
     @Column(name = "pessoa_email", length = 100, nullable = false, unique = true)
     private String email;
-    
+
 }

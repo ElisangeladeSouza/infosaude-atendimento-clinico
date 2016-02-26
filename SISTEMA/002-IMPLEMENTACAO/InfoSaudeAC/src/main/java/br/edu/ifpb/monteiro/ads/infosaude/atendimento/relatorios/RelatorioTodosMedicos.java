@@ -19,12 +19,13 @@ public class RelatorioTodosMedicos implements Serializable {
      * <b>GeradorRelatorios</b> e que fazem a conexão com o banco de dados e
      * tratam os dados para gerar os relatórios. Ao chamar essa classe
      * utilitária de geração de relatórios, dois parâmetros são passados, onde o
-     * primeiro refere-se ao nome do arquivo de template de relatório compilado (.jasper) e
-     * o segundo ao nome do relatório em PDF que o usuário visualizará.
+     * primeiro refere-se ao nome do arquivo de template de relatório compilado
+     * (.jasper) e o segundo ao nome do relatório em PDF que o usuário
+     * visualizará.
      *
      * @see GeradorRelatorios
      */
     public void emitir() {
-        geradorRelatorios.preparaRelatorio("/relatorio_todos_medicos.jasper", "Relatório de médicos cadastrados.pdf");
+        geradorRelatorios.preparaRelatorioPdf("/relatorio_todos_medicos.jasper", "Relatório de médicos cadastrados.pdf");
     }
 }
