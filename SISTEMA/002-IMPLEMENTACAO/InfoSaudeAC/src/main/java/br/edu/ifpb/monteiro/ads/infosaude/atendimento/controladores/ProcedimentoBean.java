@@ -80,6 +80,7 @@ public class ProcedimentoBean implements Serializable {
     public void excluir() throws NegocioException {
         this.procedimentoService.delete(procedimentoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaProcedimento.xhtml");
     }
 
     /**

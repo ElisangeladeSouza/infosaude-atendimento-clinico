@@ -75,6 +75,7 @@ public class AgendamentoPreNatalBean implements Serializable {
     public void excluir() throws NegocioException {
         this.agendamentoPreNatalService.delete(agendamentoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaAgendamentoPreNatal.xhtml");
     }
     
     /**

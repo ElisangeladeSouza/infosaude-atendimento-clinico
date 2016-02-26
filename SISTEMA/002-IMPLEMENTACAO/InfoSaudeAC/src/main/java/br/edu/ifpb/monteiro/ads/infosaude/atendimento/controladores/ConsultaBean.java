@@ -83,6 +83,7 @@ public class ConsultaBean implements Serializable {
         this.consultaService.delete(consultaSelecionada);
         LOGGER.info("Exclusão de consulta efetuada.");
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaConsulta.xhtml");
     }
 
     /**

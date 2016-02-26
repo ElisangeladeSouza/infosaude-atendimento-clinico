@@ -75,6 +75,7 @@ public class AgendamentoVisitaDomiciliarBean implements Serializable {
     public void excluir() throws NegocioException {
         this.agendamentoVisitaDomiciliarService.delete(agendamentoVisitaDomiciliarSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaAgendamentoVisitaDomiciliar.xhtml");
     }
     
     /**

@@ -100,6 +100,7 @@ public class GestanteBean implements Serializable {
     public void excluir() throws NegocioException {
         this.gestanteService.delete(gestanteSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaGestante.xhtml");
     }
 
     /**

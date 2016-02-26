@@ -107,6 +107,7 @@ public class OdontologoBean implements Serializable {
     public void excluir() throws NegocioException {
         this.odontologoService.delete(odontologoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaOdontologo.xhtml");
     }
 
     /**

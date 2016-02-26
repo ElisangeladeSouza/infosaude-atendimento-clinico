@@ -11,10 +11,10 @@
 
     <ui:define id="conteudoPesquisaMedico" name="conteudo">
 
-        <p:fieldset legend="#{msg.searchCadastreDoctor}">
-            <h:form id="formPesquisaMedico">
+        <h:form id="formPesquisaMedico">
+            <p:growl id="mensagens" autoUpdate="true"/>
+            <p:fieldset legend="#{msg.searchCadastreDoctor}">
 
-                <p:growl id="mensagens" autoUpdate="true"/>
 
                 <p:toolbar >
                     <f:facet name="right">
@@ -47,7 +47,7 @@
                     <p:column headerText="#{msg.crm}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{medico.crm}" filterStyle="width: 80px; display:none">
                         <h:outputText id="crm" value="#{medico.crm}"/>
                     </p:column>
-                    
+
                     <p:column headerText="#{msg.phone1}" style="text-align: center" width="40" filterMatchMode="contains" filterBy="#{medico.telefone1}" filterStyle="width: 80px; display:none">
                         <h:outputText id="phone1" value="#{medico.telefone1}"/>
                     </p:column>
@@ -65,7 +65,7 @@
                         </p:button>
 
                         <p:commandButton id="botaoExcluir" title="#{msg.delete}" icon="ui-icon ui-icon-trash" style="font-size: 10px"
-                                         action="#{medicoBean.excluir}" process="@this" update="datatablePesquisaMedico">
+                                         action="#{medicoBean.excluir}" process="@this" update="@form">
                             <f:setPropertyActionListener value="#{medico}" target="#{medicoBean.medicoSelecionado}"/>
                             <p:tooltip for="botaoExcluir" value="#{msg.deleteSelectedRow}"/>
 
@@ -76,8 +76,8 @@
 
                 </p:dataTable>
 
-            </h:form>
-        </p:fieldset>
+            </p:fieldset>
+        </h:form>
     </ui:define>
 </ui:composition>
 

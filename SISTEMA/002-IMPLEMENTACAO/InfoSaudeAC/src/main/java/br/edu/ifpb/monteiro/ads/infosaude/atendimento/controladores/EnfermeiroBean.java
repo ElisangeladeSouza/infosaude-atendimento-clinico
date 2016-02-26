@@ -107,6 +107,7 @@ public class EnfermeiroBean implements Serializable {
     public void excluir() throws NegocioException {
         this.enfermeiroService.delete(enfermeiroSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaEnfermeiro.xhtml");
     }
 
     /**

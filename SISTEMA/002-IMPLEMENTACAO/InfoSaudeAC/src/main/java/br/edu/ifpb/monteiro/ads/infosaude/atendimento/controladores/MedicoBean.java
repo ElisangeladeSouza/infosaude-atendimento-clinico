@@ -108,6 +108,7 @@ public class MedicoBean implements Serializable {
     public void excluir() throws NegocioException {
         this.medicoService.delete(medicoSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
     }
 
     /**

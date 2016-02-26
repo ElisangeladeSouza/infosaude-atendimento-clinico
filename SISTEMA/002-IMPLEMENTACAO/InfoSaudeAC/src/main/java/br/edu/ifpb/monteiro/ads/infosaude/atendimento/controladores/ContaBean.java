@@ -100,6 +100,7 @@ public class ContaBean implements Serializable {
     public void excluir() throws NegocioException {
         this.contaService.delete(contaSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaConta.xhtml");
     }
 
     /**

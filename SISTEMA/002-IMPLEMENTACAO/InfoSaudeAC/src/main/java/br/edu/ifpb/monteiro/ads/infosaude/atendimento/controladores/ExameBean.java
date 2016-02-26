@@ -77,6 +77,7 @@ public class ExameBean implements Serializable {
     public void excluir() throws NegocioException {
         this.exameService.delete(exameSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaExame.xhtml");
     }
 
     /**

@@ -92,6 +92,7 @@ public class FichaPreNatalBean implements Serializable {
     public void excluir() throws NegocioException {
         this.fichaPreNatalService.delete(fichaPreNatalSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaFichaPreNatal.xhtml");
     }
 
     /**

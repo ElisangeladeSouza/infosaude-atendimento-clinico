@@ -101,6 +101,7 @@ public class TriagemBean implements Serializable {
     public void excluir() throws NegocioException {
         this.triagemService.delete(triagemSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
     }
 
     /**

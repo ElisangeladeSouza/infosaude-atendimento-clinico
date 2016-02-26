@@ -100,6 +100,7 @@ public class FichaAtendimentoBean implements Serializable {
     public void excluir() throws NegocioException {
         this.fichaAtendimentoService.delete(fichaAtendimentoSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaFichaAtendimento.xhtml");
     }
 
     /**

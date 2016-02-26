@@ -108,6 +108,7 @@ public class AdministradorBean implements Serializable {
     public void excluir() throws NegocioException {
         this.administradorService.delete(administradorSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
     }
 
     /**

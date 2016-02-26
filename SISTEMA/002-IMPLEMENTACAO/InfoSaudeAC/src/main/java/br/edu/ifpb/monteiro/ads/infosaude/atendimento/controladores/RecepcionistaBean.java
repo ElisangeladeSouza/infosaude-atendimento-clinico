@@ -107,6 +107,7 @@ public class RecepcionistaBean implements Serializable {
     public void excluir() throws NegocioException {
         this.recepcionistaService.delete(recepcionistaSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
+        FacesUtil.redirecionaPara("PesquisaRecepcionista.xhtml");
     }
 
     /**
