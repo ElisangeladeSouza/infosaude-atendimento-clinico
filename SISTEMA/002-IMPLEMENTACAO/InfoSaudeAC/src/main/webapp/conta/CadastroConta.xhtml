@@ -28,10 +28,14 @@
                     <p:outputLabel for="senha" value="#{msg.password}: "/>
                     <p:password id="senha" value="#{contaBean.confereSenha}" requiredMessage="#{msg.aPasswordIsRequired}"
                                 promptLabel="Digite sua senha" weakLabel="Senha fraca" goodLabel="Senha boa" strongLabel="Senha forte" 
-                                feedback="true" required="true"  maxlength="40" match="confirmaSenha" validatorMessage="As senhas não conferem"/>
+                                feedback="true" required="true"  maxlength="40" match="confirmaSenha" validatorMessage="As senhas não conferem">
+                                <f:validateLength minimum="5" />
+                    </p:password>
 
                     <p:outputLabel for="confirmaSenha" value="#{msg.passwordConfirmation}: "/>
-                    <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40"/>
+                    <p:password id="confirmaSenha" value="#{contaBean.conta.password}" required="true"  maxlength="40">
+                                <f:validateLength minimum="5"/>
+                    </p:password>
                     
 
                    <p:outputLabel for="funcao" value="#{msg.function}: "/>

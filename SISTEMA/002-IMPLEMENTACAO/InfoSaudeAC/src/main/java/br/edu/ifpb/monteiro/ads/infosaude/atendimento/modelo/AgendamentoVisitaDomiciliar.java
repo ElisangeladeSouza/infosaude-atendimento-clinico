@@ -46,6 +46,9 @@ public class AgendamentoVisitaDomiciliar implements Serializable {
     @Column(name = "visita_domiciliar_enfermeiro", length = 150)
     private String enfermeiro;
     
+    @Column(name = "visita_domiciliar_medico", length = 150)
+    private String medico;
+    
     @Column(name = "visita_domiciliar_observacoes")
     private String observacoes;
     
