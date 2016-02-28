@@ -40,6 +40,9 @@
                         <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}" icon="fa fa-female"/>
                         <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}" icon="fa fa-eyedropper"/>
                     </p:submenu>
+                     <p:submenu label="#{msg.system}">
+                        <p:menuitem value="#{msg.ubs}" outcome="/ubs/PesquisaUBS" rendered="#{podeTudo}" icon="fa fa-gears"/>
+                    </p:submenu>
                 </p:menu>
             </h:form>
         </ui:insert>

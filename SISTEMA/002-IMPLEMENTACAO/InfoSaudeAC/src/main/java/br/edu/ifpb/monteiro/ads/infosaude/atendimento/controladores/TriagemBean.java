@@ -76,8 +76,7 @@ public class TriagemBean implements Serializable {
     
     /**
      * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Triagem e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro.
+     * Triagem e salvar. 
      * 
      * @throws NegocioException
      */

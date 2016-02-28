@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/templates/cabecalho.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="ubs" value="#{ubsBean.ubs}"/>
+    </f:metadata>
+
+    <ui:define id="uiTituloUbs" name="titulo">#{ubsBean.editando ? msg.editCadastreHealthUnit : msg.newRegisterHealthUnit} | #{msg.systemName}</ui:define>
+
+    <ui:define id="uiConteudoUbs" name="conteudo">
+
+        <p:fieldset id="fieldsetUbs" legend="#{ubsBean.editando ? msg.editCadastreHealthUnit : msg.newRegisterHealthUnit}">
+            <h:form id="formCadastroUbs" style="margin-top: 10px">
+                <p:growl id="mensagens" autoUpdate="true"/>
+
+                <h:inputHidden id="dataHora" value="#{ubsBean.ubs.data}">
+                    <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
+                </h:inputHidden>
+
+                <h:panelGrid id="gridDadosUbs" columns="2">
+
+                    <p:outputLabel for="nome" value="#{msg.name}: "/>
+                    <p:inputText id="nome" value="#{ubsBean.ubs.nome}" size="38" maxlength="50" required="true" 
+                                 requiredMessage="#{msg.mandatoryName}" />
+                    
+                    <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
+                    <p:inputText id="bairro" value="#{ubsBean.ubs.endereco.enderecoBairro}" size="38" maxlength="100"/>
+                    
+                    <p:outputLabel for="rua" value="#{msg.street}: " />
+                    <p:inputText id="rua" value="#{ubsBean.ubs.endereco.enderecoRua}" size="35" maxlength="150"/>
+                    
+                    <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
+                    <p:inputText id="cnes" value="#{ubsBean.ubs.cnes}" size="20" maxlength="15" required="true"/>
+                    
+                    <p:outputLabel for="telefone" value="#{msg.phone1}: "/>
+                    <p:inputText id="telefone" styleClass="phone upper" value="#{ubsBean.ubs.telefoneUbs}" 
+                         size="20" maxlength="20" />
+                    
+                    <p:outputLabel for="estado" value="#{msg.state}: " />
+                    <p:selectOneMenu id="estado" value="#{ubsBean.ubs.endereco.enderecoEstado}">
+                        <p:ajax process="@this" event="change" update="cidade" listener="#{ubsBean.carregarCidades}" />
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="cidade" value="#{msg.city}: " />
+                    <p:selectOneMenu id="cidade" value="#{ubsBean.ubs.endereco.enderecoCidade}" filter="true"
+                                     filterMatchMode="startsWith" disabled="#{ubsBean.ubs.endereco.enderecoEstado eq null}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="numero" value="#{msg.number}: "/>
+                    <p:inputText id="numero" value="#{ubsBean.ubs.endereco.enderecoNumero}" size="10" maxlength="6"/>
+
+                    <p:outputLabel for="cep" value="#{msg.postalCode}: " />
+                    <p:inputMask mask="99999-999" id="cep" value="#{ubsBean.ubs.endereco.enderecoCep}" size="10" maxlength="10"/>
+                    
+                </h:panelGrid>
+
+                <p:toolbar id="toolbarUbs" style="margin-top: 10px;">
+                    <f:facet name="left">
+                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                         action="#{ubsBean.salvar}"  id="botaoSalvar" 
+                                         update="@form" icon="ui-icon ui-icon-disk">
+                        </p:commandButton>
+                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                  id="botaoCancelar" outcome="/ubs/PesquisaUBS"
+                                  icon="fa fa-times" rendered="#{ubsBean.editando}" 
+                                  disabled="#{botaoEditar}">
+                        </p:button>
+                    </f:facet>
+
+                    <f:facet name="right">
+                        <p:button style="font-size: 13px;" value="#{msg.searchCadastreHealthUnit}"
+                                  id="botaoPesquisar" outcome="/ubs/PesquisaUBS"
+                                  icon="ui-icon ui-icon-search" rendered="#{ubsBean.editando eq 'false'}">
+                        </p:button>
+                    </f:facet>
+                </p:toolbar>
+                <p:blockUI id="blockUIUbs" block="formCadastroUbs" trigger="botaoSalvar"/>
+            </h:form>    
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
