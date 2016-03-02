@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  *
- * @author wilde
+ * @author wilde <wildearruda@gmail.com>
  */
 public class CPFConverterTest {
 

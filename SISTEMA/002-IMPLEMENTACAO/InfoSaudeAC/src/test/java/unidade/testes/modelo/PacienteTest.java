@@ -15,9 +15,6 @@ public class PacienteTest {
 
     private Paciente paciente;
 
-    /**
-     *
-     */
     public PacienteTest() {
     }
 

@@ -15,8 +15,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Testes unitários da classe OdontologoDao.
+ * 
+ * @author wilde <wildearruda@gmail.com> 
  */
 public class OdontologoDaoTest {
 
@@ -27,14 +28,13 @@ public class OdontologoDaoTest {
     private static List<Odontologo> listaOdontologos;
     private static Long id;
 
-    /**
-     *
-     */
     public OdontologoDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -46,7 +46,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa se cadastro de Odontologo está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNull() {
@@ -60,7 +61,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
      */
     @Test
     public void testSalvarOdontologoCamposObrigatorios() {
@@ -103,7 +105,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Administrator, preenchimento de
+     * todos os campos.
      */
     @Test
     public void testSalvarOdontologoTodosCampos() {
@@ -147,7 +150,9 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Odontologo com as mesmas 
+     * informações de um cadastro já existente. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoDuplicado() {
@@ -182,7 +187,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo nome preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNome() {
@@ -198,7 +204,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCpf() {
@@ -214,7 +221,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cro preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCro() {
@@ -230,7 +238,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo Cartão SUS preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoSus() {
@@ -246,7 +255,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo email preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoEmail() {
@@ -262,7 +272,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome e cpf. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNomeCpf() {
@@ -279,7 +290,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome, cpf e cro. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoNomeCpfCro() {
@@ -297,7 +309,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoCpfDuplicado() {
@@ -327,7 +340,9 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um odontologo com um Cartão SUS já
+     * cadastrado no sistema. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarOdontologoSusDuplicado() {
@@ -357,7 +372,9 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro dos campos CPF e Cartão SUS de todo o 
+     * sistema.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test
     public void testSalvarCpfSusTodoSistema() {
@@ -376,7 +393,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca em uma lista com todos os resultados encontrados
+     * no banco de dados.
      */
     @Test
     public void testFindAll() {
@@ -400,7 +418,8 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void testFindById() {
@@ -433,7 +452,7 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {
@@ -456,7 +475,7 @@ public class OdontologoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     @Test
     public void testDelete() {

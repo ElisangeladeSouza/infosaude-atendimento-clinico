@@ -14,8 +14,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Testes unitários da classe RequisicaoExameDao.
+ * 
+ * @author wilde <wildearruda@gmail.com> 
  */
 public class RequisicaoExameDaoTest {
 
@@ -23,14 +24,13 @@ public class RequisicaoExameDaoTest {
     private static EntityManager entityManager;
     private static RequisicaoExameDao requisicaoExameDao;
 
-    /**
-     *
-     */
     public RequisicaoExameDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -42,7 +42,9 @@ public class RequisicaoExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca por um campo que está nulo.
+     * Caso isso aconteça uma exceção deve ser lançada.
+     * 
      * @throws UBSException
      */
     @Test(expected = Exception.class)
@@ -54,6 +56,9 @@ public class RequisicaoExameDaoTest {
 
     }
 
+    /**
+     * Método que testa se RequisiccaoExame está salvando uma lista de exames.
+     */
     @Test
     public void testSave() {
 
@@ -79,7 +84,7 @@ public class RequisicaoExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {

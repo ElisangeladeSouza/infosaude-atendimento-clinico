@@ -12,8 +12,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+  Testes unitários da classe ContaDao.
+  * 
+ * @author wilde <wildearruda@gmail.com> 
  */
 public class ContaDaoTest {
 
@@ -27,6 +28,11 @@ public class ContaDaoTest {
     public ContaDaoTest() {
     }
 
+    /**
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
+     */
     @BeforeClass
     public static void setUpClass() {
         contaDao = new ContaDao();
@@ -36,6 +42,10 @@ public class ContaDaoTest {
         contaDao.setEntityManager(entityManager);
     }
 
+    /**
+     * Método que testa se cadastro de Conta está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
+     */
     @Test(expected = Exception.class)
     public void testSalvarContaNull() {
 
@@ -47,6 +57,10 @@ public class ContaDaoTest {
 
     }
 
+    /**
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
+     */
     @Test
     public void testSalvarContaCamposObrigatorios() {
 

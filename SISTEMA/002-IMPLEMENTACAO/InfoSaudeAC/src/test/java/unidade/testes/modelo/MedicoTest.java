@@ -15,9 +15,6 @@ public class MedicoTest {
 
     private Medico medico;
 
-    /**
-     *
-     */
     public MedicoTest() {
     }
 

@@ -15,9 +15,6 @@ public class AdministradorTest {
 
     private Administrador administrador = new Administrador();
 
-    /**
-     *
-     */
     public AdministradorTest() {
     }
 

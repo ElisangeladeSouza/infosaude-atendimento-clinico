@@ -14,8 +14,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author elisangela
+ * Testes unitários da classe PessoaDao.
+ * 
+ * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class PessoaDaoTest {
 
@@ -26,14 +27,13 @@ public class PessoaDaoTest {
     private static List<Pessoa> listaPessoas;
     private static Long id;
 
-    /**
-     *
-     */
     public PessoaDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -46,7 +46,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa se cadastro de Pessoa está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarPessoaNull() {
@@ -58,7 +59,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
      */
     @Test
     public void testSalvarPessoaCamposObrigatorios() {
@@ -97,7 +99,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Pessoa, preeenchimento de
+     * todos os campos.
      */
     @Test
     public void testSalvarPessoaTodosCampos() {
@@ -135,7 +138,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo email preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarPessoaEmail() {
@@ -151,7 +155,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca em uma lista com todos os resultados encontrados
+     * no banco de dados.
      */
     @Test
     public void testFindAll() {
@@ -190,7 +195,8 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void testFindById() {
@@ -228,7 +234,7 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {
@@ -256,7 +262,7 @@ public class PessoaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     @Test
     public void testDelete() {

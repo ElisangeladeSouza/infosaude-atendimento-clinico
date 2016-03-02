@@ -15,8 +15,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Testes unitários da classe MedicoDao.
+ * 
+ * @author wilde <wildearruda@gmail.com>
  */
 public class MedicoDaoTest {
 
@@ -27,14 +28,13 @@ public class MedicoDaoTest {
     private static List<Medico> listaMedicos;
     private static Long id;
 
-    /**
-     *
-     */
     public MedicoDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -46,7 +46,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa se cadastro de Medico está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNull() {
@@ -60,7 +61,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
      */
     @Test
     public void testSalvarMedicoCamposObrigatorios() {
@@ -102,7 +104,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Medico, preenchimento de
+     * todos os campos.
      */
     @Test
     public void testSalvarMedicoTodosCampos() {
@@ -146,7 +149,9 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Medico com as mesmas 
+     * informações de um cadastro já existente. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoDuplicado() {
@@ -181,7 +186,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo nome preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNome() {
@@ -197,7 +203,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCpf() {
@@ -213,7 +220,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo crm preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCrm() {
@@ -229,7 +237,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo Cartão SUS preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoSus() {
@@ -245,7 +254,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo email preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoEmail() {
@@ -261,7 +271,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome e cpf. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNomeCpf() {
@@ -278,7 +289,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome, cpf e crm. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoNomeCpfCrm() {
@@ -296,7 +308,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoCpfDuplicado() {
@@ -326,7 +339,9 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Medico com um Cartão SUS já
+     * cadastrado no sistema. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarMedicoSusDuplicado() {
@@ -356,7 +371,9 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro dos campos CPF e Cartão SUS de todo o 
+     * sistema.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test
     public void testSalvarCpfSusTodoSistema() {
@@ -375,7 +392,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca em uma lista com todos os resultados encontrados
+     * no banco de dados.
      */
     @Test
     public void testFindAll() {
@@ -399,7 +417,8 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void testFindById() {
@@ -432,7 +451,7 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {
@@ -455,7 +474,7 @@ public class MedicoDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     @Test
     public void testDelete() {

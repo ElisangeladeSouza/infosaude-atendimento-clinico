@@ -15,9 +15,6 @@ public class RecepcionistaTest {
 
     private Recepcionista recepcionista;
 
-    /**
-     *
-     */
     public RecepcionistaTest() {
     }
 

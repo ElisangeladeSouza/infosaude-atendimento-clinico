@@ -16,7 +16,7 @@ import org.mockito.MockitoAnnotations;
 
 /**
  *
- * @author wilde
+ * @author wilde <wildearruda@gmail.com>
  */
 public class ExameServiceTest {
 

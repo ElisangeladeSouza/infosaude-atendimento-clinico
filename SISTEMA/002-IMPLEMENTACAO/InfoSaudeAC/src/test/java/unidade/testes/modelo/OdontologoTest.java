@@ -15,9 +15,6 @@ public class OdontologoTest {
 
     private Odontologo odontologo;
 
-    /**
-     *
-     */
     public OdontologoTest() {
     }
 

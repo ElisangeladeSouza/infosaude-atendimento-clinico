@@ -5,24 +5,24 @@ import javax.faces.validator.ValidatorException;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Teste unitários da classe de validação de CPF.
+ * 
+ * @author wilde <wildearruda@gmail.com>
  */
 public class CPFValidatorTest {
 
     /**
      * Test of validate method, of class CPFValidator.
+     * Este teste passa um cpf inválido e espera uma exceção
      */
-    //Este teste passa um cpf inválido e espera uma exceção
     @Test(expected = ValidatorException.class)
     public void testeCPFInvalidoRetornaExcecao() {
         CPFValidator cpfValidator = new CPFValidator();
         cpfValidator.validate(null, null, "00011122233");
     }
 
-    //Este teste passa um cpf inválido e espera uma exceção
     /**
-     *
+     * Este teste passa um cpf inválido e espera uma exceção
      */
     @Test(expected = ValidatorException.class)
     public void testeCPFInvalidoNumerosIguaisRetornaExcecao() {
@@ -30,9 +30,8 @@ public class CPFValidatorTest {
         cpfValidator.validate(null, null, "00000000000");
     }
 
-    //Este teste passa um cpf em braco e espera uma exceção
     /**
-     *
+     * Este teste passa um cpf em braco e espera uma exceção
      */
     @Test(expected = ValidatorException.class)
     public void testeCPFVazioRetornaExcecao() {

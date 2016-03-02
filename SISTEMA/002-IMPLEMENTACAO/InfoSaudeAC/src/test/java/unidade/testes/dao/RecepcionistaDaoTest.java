@@ -14,8 +14,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Testes unitários da classe RecepcionistaDao.
+ * 
+ * @author wilde <wildearruda@gmail.com> 
  */
 public class RecepcionistaDaoTest {
 
@@ -26,14 +27,13 @@ public class RecepcionistaDaoTest {
     private static List<Recepcionista> listaRecepcionistas;
     private static Long id;
 
-    /**
-     *
-     */
     public RecepcionistaDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -45,7 +45,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa se cadastro de Recepcionista está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNull() {
@@ -59,7 +60,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
      */
     @Test
     public void testSalvarRecepcionistaCamposObrigatorios() {
@@ -100,7 +102,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Recepcionista, preeenchimento de
+     * todos os campos.
      */
     @Test
     public void testSalvarRecepcionistaTodosCampos() {
@@ -143,7 +146,9 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Recepcionista com as mesmas 
+     * informações de um cadastro já existente. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaDuplicado() {
@@ -177,7 +182,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo nome preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNome() {
@@ -193,7 +199,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaCpf() {
@@ -209,7 +216,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo Cartão SUS preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaSus() {
@@ -225,7 +233,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo email preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaEmail() {
@@ -241,7 +250,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome e cpf. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaNomeCpf() {
@@ -258,7 +268,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaCpfDuplicado() {
@@ -286,7 +297,9 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Recepcionista com um Cartão SUS já
+     * cadastrado no sistema. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarRecepcionistaSusDuplicado() {
@@ -314,7 +327,9 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro dos campos CPF e Cartão SUS de todo o 
+     * sistema.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test
     public void testSalvarCpfSusTodoSistema() {
@@ -332,7 +347,8 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void testFindById() {
@@ -364,7 +380,7 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {
@@ -386,7 +402,7 @@ public class RecepcionistaDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     @Test
     public void testDelete() {

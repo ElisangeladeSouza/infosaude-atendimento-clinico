@@ -10,7 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * Testes unitários da classe FichaPreNatalDao.
+ * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class FichaPreNatalDaoTest {
@@ -22,6 +23,11 @@ public class FichaPreNatalDaoTest {
     public FichaPreNatalDaoTest() {
     }
     
+    /**
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
+     */
     @BeforeClass
     public static void setUpClass() {
         
@@ -31,6 +37,10 @@ public class FichaPreNatalDaoTest {
         fichaPreNatalDao.setEntityManager(entityManager);
     }
     
+    /**
+     * Método que testa se cadastro de FichaPreNatal está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
+     */
     @Test(expected = Exception.class)
     public void testSalvarFichaPreNatalNull() {
         
@@ -41,6 +51,12 @@ public class FichaPreNatalDaoTest {
         fichaPreNatalDao.getEntityManager().getTransaction().commit();
     }
     
+    /**
+     * Método que testa a busca por um campo que está nulo.
+     * Caso isso aconteça uma exceção deve ser lançada.
+     * 
+     * @throws UBSException
+     */
     @Test(expected = Exception.class)
     public void testBuscarPorCampoNull() throws UBSException {
         
@@ -49,6 +65,9 @@ public class FichaPreNatalDaoTest {
         fichaPreNatalDao.buscarPorCampo(null, fichaPreNatal);
     }
     
+    /**
+     * Método que testa a a busca de um registro com ID inexistente.
+     */
     @Test
     public void testFindByIdInexistente() {
         FichaPreNatal fichaPreNatal = new FichaPreNatal();

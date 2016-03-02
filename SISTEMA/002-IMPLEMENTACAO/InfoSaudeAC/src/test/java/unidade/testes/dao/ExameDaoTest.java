@@ -13,7 +13,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * Testes unitários da classe ExameDao.
+ * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class ExameDaoTest {
@@ -24,14 +25,13 @@ public class ExameDaoTest {
     private static List<Exame> listaExames;
     private static Long id;
 
-    /**
-     *
-     */
     public ExameDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -42,7 +42,8 @@ public class ExameDaoTest {
     }
 
     /**
-     * Teste para salvar o cadastro de exame null.
+     * Método que testa se cadastro de Exame está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarExameNull() {
@@ -54,7 +55,8 @@ public class ExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Exame, preenchimento de
+     * todos os campos.
      */
     @Test
     public void textSalvarExameCadastroCompleto() {
@@ -84,7 +86,8 @@ public class ExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca em uma lista com todos os resultados encontrados
+     * no banco de dados.
      */
     @Test
     public void testFindAll() {
@@ -103,7 +106,8 @@ public class ExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void textFindById() {
@@ -132,7 +136,7 @@ public class ExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     public void testFindByIdInexistente() {
         Exame exame = new Exame();
@@ -149,7 +153,7 @@ public class ExameDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     public void testDelete() {
         Exame exame = new Exame();

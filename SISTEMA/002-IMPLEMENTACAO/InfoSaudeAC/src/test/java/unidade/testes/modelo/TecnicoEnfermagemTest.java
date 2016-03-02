@@ -15,9 +15,6 @@ public class TecnicoEnfermagemTest {
 
     private TecnicoEnfermagem tecnicoEnfermagem;
 
-    /**
-     *
-     */
     public TecnicoEnfermagemTest() {
     }
 

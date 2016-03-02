@@ -15,8 +15,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author wilde
+ * Teste unitários da classe de AdministradorDao.
+ * 
+ * @author wilde <wildearruda@gmail.com> 
  */
 public class AdministradorDaoTest {
 
@@ -27,14 +28,13 @@ public class AdministradorDaoTest {
     private static List<Administrador> listaAdministradores;
     private static Long id;
 
-    /**
-     *
-     */
     public AdministradorDaoTest() {
     }
 
     /**
-     *
+     * Antes da classe de testes iniciar a conexão com o banco de dados as
+     * variáveis abaixo serão iniciadas e será creado o entity manager com a 
+     * unidade de persistência do banco de testes hsqldb.
      */
     @BeforeClass
     public static void setUpClass() {
@@ -44,9 +44,10 @@ public class AdministradorDaoTest {
         entityManager = entityManagerProducer.create();
         administradorDao.setEntityManager(entityManager);
     }
-
+    
     /**
-     *
+     * Método que testa se cadastro de Administrador está sendo salvo nulo. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNull() {
@@ -59,7 +60,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa se o cadastro salva com a inserção de informações apenas 
+     * nos campos obrigatórios.
      */
     @Test
     public void testSalvarAdministradorCamposObrigatorios() {
@@ -101,7 +103,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro completo de Administrator, preenchimento de
+     * todos os campos.
      */
     @Test
     public void testSalvarAdministradorTodosCampos() {
@@ -145,7 +148,9 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Administrador com as mesmas 
+     * informações de um cadastro já existente. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorDuplicado() {
@@ -178,7 +183,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo nome preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNome() {
@@ -193,7 +199,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorCpf() {
@@ -208,7 +215,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo Cartão SUS preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorSus() {
@@ -223,7 +231,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo email preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorEmail() {
@@ -238,7 +247,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com o preenchimento dos campos nome e cpf. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorNomeCpf() {
@@ -254,7 +264,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa um cadastro com apenas o campo cpf preenchido.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorCpfDuplicado() {
@@ -282,7 +293,9 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro de um Administrador com um Cartão SUS já
+     * cadastrado no sistema. 
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test(expected = Exception.class)
     public void testSalvarAdministradorSusDuplicado() {
@@ -310,7 +323,9 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa o cadastro dos campos CPF e Cartão SUS de todo o 
+     * sistema.
+     * Caso isso aconteça uma exceção deve ser lançada.
      */
     @Test
     public void testSalvarCpfSusTodoSistema() {
@@ -328,7 +343,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca em uma lista com todos os resultados encontrados
+     * no banco de dados.
      */
     @Test
     public void testFindAll() {
@@ -351,7 +367,8 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa a busca de um registro no banco de dados para
+     * determinada entidade através da passagem do seu ID como parâmetro.
      */
     @Test
     public void testFindById() {
@@ -383,7 +400,7 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa a a busca de um registro com ID inexistente.
      */
     @Test
     public void testFindByIdInexistente() {
@@ -405,7 +422,7 @@ public class AdministradorDaoTest {
     }
 
     /**
-     *
+     * Método que testa a exclusão de cadastros do banco de dados.
      */
     @Test
     public void testDelete() {

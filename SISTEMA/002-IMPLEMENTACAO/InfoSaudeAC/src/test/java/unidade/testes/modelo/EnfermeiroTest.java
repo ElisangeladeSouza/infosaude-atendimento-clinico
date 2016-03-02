@@ -15,9 +15,6 @@ public class EnfermeiroTest {
 
     private Enfermeiro enfermeiro;
 
-    /**
-     *
-     */
     public EnfermeiroTest() {
     }
 

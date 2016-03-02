@@ -13,9 +13,6 @@ public class ExameTest {
 
     private Exame exame;
 
-    /**
-     *
-     */
     public ExameTest() {
     }
 
