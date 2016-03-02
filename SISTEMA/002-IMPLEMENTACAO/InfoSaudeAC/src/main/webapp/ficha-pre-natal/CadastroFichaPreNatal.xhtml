@@ -27,22 +27,22 @@
                         <h:panelGrid id="gridAcolhimento" columns="4">
 
                             <p:outputLabel for="nomeGestante" value="#{msg.PregnantName} "/>
-                            <p:selectOneMenu id="nomeGestante" value="#{fichaPreNatalBean.fichaPreNatal.fichaPreNatais}" required="true" filter="true"
-                                             filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                            <p:selectOneMenu id="nomeGestante" value="#{fichaPreNatalBean.fichaPreNatal.fichaPreNatais}" style="width: 180px"
+                                             required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{gestanteBean.gestantes}" var="fichas" itemLabel="#{fichas.paciente.nome}" itemValue="#{fichas}"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="tempoGestacional" value="#{msg.tempogestacional}: " style="margin-left: 23px"/>
-                            <p:selectOneMenu id="tempoGestacional" value="#{fichaPreNatalBean.fichaPreNatal.tempoGestacional}" required="true" filter="true" 
-                                             filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                            <p:selectOneMenu id="tempoGestacional" value="#{fichaPreNatalBean.fichaPreNatal.tempoGestacional}" style="width: 180px"
+                                             required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{fichaPreNatalBean.tempoGestacionais}" itemValue="#{preNatal}" itemLabel="#{tempo.descricao}" var="tempo"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="tipoGravidez" value="#{msg.typeOfPregnancy}: " />
-                            <p:selectOneMenu id="tipoGravidez" value="#{fichaPreNatalBean.fichaPreNatal.tipoGravidez}" required="true" filter="true" 
-                                             filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                            <p:selectOneMenu id="tipoGravidez" value="#{fichaPreNatalBean.fichaPreNatal.tipoGravidez}" style="width: 180px" 
+                                             required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{fichaPreNatalBean.tiposGravidez}" itemValue="#{tiposGravidez}" itemLabel="#{tipos.descricao}" var="tipos"/>
                             </p:selectOneMenu>

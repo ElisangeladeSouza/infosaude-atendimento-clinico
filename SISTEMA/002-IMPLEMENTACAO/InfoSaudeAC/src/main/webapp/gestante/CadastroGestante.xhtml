@@ -25,8 +25,8 @@
                 <h:panelGrid id="gridEstabelecimento" columns="2">
 
                     <p:outputLabel for="nomeGestante" value="#{msg.PregnantName}: "/>
-                    <p:selectOneMenu id="nomeGestante" value="#{gestanteBean.gestante.paciente}" required="true" filter="true" filterMatchMode="contains"
-                                     requiredMessage="#{msg.aNameIsRequired}">
+                    <p:selectOneMenu id="nomeGestante" value="#{gestanteBean.gestante.paciente}" style="width: 180px" required="true" 
+                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
                     </p:selectOneMenu>
@@ -55,7 +55,7 @@
                                          requiredMessage="#{msg.aHealthFacility}" required="true" size="35" maxlength="100"/>
                             
                             <p:outputLabel for="uf" value="#{msg.state}: "  style="margin-left: 10px"/>
-                            <p:selectOneMenu id="uf" value="#{gestanteBean.gestante.uf}">
+                            <p:selectOneMenu id="uf" value="#{gestanteBean.gestante.uf}" style="width: 180px">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{uf}" itemLabel="#{uf.descricao}" var="uf"/>
                             </p:selectOneMenu>

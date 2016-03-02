@@ -26,8 +26,8 @@
                 <h:panelGrid id="gridAgendamentoPreNatal" columns="2">
 
                     <p:outputLabel for="gestante" value="#{msg.pregnant}:"/>
-                    <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" required="true" filter="true" filterMatchMode="contains"
-                                     requiredMessage="#{msg.aNameIsRequired}">
+                    <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" style="width: 180px" 
+                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{gestanteBean.gestantes}" var="gestante" itemLabel="#{gestante.paciente.nome}" itemValue="#{gestante}"/>
                     </p:selectOneMenu>

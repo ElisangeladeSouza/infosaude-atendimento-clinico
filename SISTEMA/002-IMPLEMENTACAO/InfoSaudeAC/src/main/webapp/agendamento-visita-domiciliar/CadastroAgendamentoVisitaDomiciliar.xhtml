@@ -26,7 +26,7 @@
                 <h:panelGrid id="gridAgendamentoVisitaDomiciliar" columns="2">
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente}" 
+                    <p:selectOneMenu id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente}" style="width: 180px"
                                      required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>

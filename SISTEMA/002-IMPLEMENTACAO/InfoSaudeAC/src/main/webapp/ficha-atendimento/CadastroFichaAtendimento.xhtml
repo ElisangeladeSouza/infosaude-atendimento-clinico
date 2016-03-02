@@ -29,8 +29,8 @@
                     <p:inputText id="codigo" value="#{fichaAtendimentoBean.fichaAtendimento.codigo}"  size="20"/>
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" required="true" filter="true" filterMatchMode="contains"
-                                     requiredMessage="#{msg.aNameIsRequired}">
+                    <p:selectOneMenu id="paciente" value="#{fichaAtendimentoBean.fichaAtendimento.paciente}" style="width: 180px" 
+                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
                     </p:selectOneMenu>
