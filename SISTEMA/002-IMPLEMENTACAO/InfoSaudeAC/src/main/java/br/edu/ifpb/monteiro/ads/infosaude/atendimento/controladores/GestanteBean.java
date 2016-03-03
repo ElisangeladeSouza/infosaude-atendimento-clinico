@@ -39,7 +39,7 @@ public class GestanteBean implements Serializable {
     private PessoaServiceIF pessoaService;
     
     private transient List<Gestante> gestantes;
-
+    
     /**
     * Construtor da classe
     */
@@ -83,7 +83,7 @@ public class GestanteBean implements Serializable {
     public void salvar() throws NegocioException {
         this.gestanteService.save(gestante);
         if (getEditando()) {
-//            FacesUtil.mensagemSucesso("Cadastro do gestante '" + gestante.getPaciente().getNome() + "' atualizado com sucesso!");
+            FacesUtil.mensagemSucesso("Cadastro da gestante '" + gestante.getPaciente().getId() + "' atualizado com sucesso!");
             FacesUtil.redirecionaPara("PesquisaGestante.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");

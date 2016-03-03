@@ -80,6 +80,11 @@ public class Gestante implements Serializable {
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
     
+    public Gestante() {
+        responsavelGestante = new ResponsavelGestante();
+        Pessoa pessoa = new Pessoa();
+    }
+    
     @PostConstruct
     public void init() {
         this.responsavelGestante = new ResponsavelGestante();
