@@ -18,7 +18,7 @@
 
         <p:fieldset legend="#{pacienteBean.editando ? msg.editCadastrePatient : msg.newRegisterPatient}">
             <h:form id="formCadastroPaciente">
-                <p:growl autoUpdate="true"/>
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
 
                 <h:inputHidden id="data" value="#{pacienteBean.paciente.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
@@ -78,24 +78,24 @@
                     <p:tab id="tabEnderecoPaciente" title="#{msg.address}">
                         <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{pacienteBean.paciente.enderecoEstado}" style="margin-left: 43px">
+                            <p:selectOneMenu id="estado" value="#{pacienteBean.paciente.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{pacienteBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.enderecoCidade}" filter="true"  style="width: 210px"
-                                             filterMatchMode="startsWith" disabled="#{pacienteBean.paciente.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{pacienteBean.paciente.endereco.enderecoCidade}" filter="true"  style="width: 210px"
+                                             filterMatchMode="startsWith" disabled="#{pacienteBean.paciente.endereco.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{pacienteBean.paciente.enderecoRua}"
-                                             valueNumero="#{pacienteBean.paciente.enderecoNumero}"
-                                             valueBairro="#{pacienteBean.paciente.enderecoBairro}"
-                                             valueCep="#{pacienteBean.paciente.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{pacienteBean.paciente.endereco.enderecoRua}"
+                                             valueNumero="#{pacienteBean.paciente.endereco.enderecoNumero}"
+                                             valueBairro="#{pacienteBean.paciente.endereco.enderecoBairro}"
+                                             valueCep="#{pacienteBean.paciente.endereco.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosPaciente" title="#{msg.documentation}">

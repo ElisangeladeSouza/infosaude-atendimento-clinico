@@ -45,25 +45,6 @@ public class Pessoa implements Serializable {
     @Column(name = "pessoa_rg", length = 15)
     private String rg;
 
-    @Column(name = "pessoa_endereco_rua", length = 150)
-    private String enderecoRua;
-
-    @Column(name = "pessoa_endereco_numero", length = 6)
-    private String enderecoNumero;
-
-    @Column(name = "pessoa_endereco_bairro", length = 100)
-    private String enderecoBairro;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "pessoa_endereco_estado")
-    private Estados enderecoEstado;
-
-    @Column(name = "pessoa_endereco_cidade", length = 100)
-    private String enderecoCidade;
-
-    @Column(name = "pessoa_endereco_cep", length = 10)
-    private String enderecoCep;
-
     @Temporal(TemporalType.DATE)
     @Column(name = "pessoa_data_nascimento")
     private Date dataNascimento;

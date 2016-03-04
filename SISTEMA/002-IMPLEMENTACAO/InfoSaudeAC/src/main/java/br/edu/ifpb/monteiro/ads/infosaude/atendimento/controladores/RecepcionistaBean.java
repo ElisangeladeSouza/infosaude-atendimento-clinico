@@ -60,8 +60,8 @@ public class RecepcionistaBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        if (recepcionista.getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEnderecoEstado().getCodigo())) {
+        if (recepcionista.getEndereco().getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEndereco().getEnderecoEstado().getCodigo())) {
                 PessoaBean.cidades.add(cidadesFiltradas);
             }
         }

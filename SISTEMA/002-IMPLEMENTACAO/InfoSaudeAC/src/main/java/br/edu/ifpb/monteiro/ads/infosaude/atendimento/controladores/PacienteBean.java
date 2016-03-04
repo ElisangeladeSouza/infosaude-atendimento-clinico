@@ -60,8 +60,8 @@ public class PacienteBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        if (paciente.getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(paciente.getEnderecoEstado().getCodigo())) {
+        if (paciente.getEndereco().getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(paciente.getEndereco().getEnderecoEstado().getCodigo())) {
                 PessoaBean.cidades.add(cidadesFiltradas);
             }
         }

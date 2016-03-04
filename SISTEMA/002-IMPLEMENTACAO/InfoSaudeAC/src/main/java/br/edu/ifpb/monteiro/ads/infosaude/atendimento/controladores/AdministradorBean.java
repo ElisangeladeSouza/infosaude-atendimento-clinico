@@ -16,11 +16,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * * Managed bean usado pela página de cadastro de adminsitrador.
- * É responsável por ligar a classe de modelo Administrador à página de 
- * visualização processando as solicitações do usuário e retornando os dados à 
- * visualização.
- * 
+ * * Managed bean usado pela página de cadastro de adminsitrador. É responsável
+ * por ligar a classe de modelo Administrador à página de visualização
+ * processando as solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -49,20 +48,21 @@ public class AdministradorBean implements Serializable {
      */
     public AdministradorBean() {
     }
-    
+
     @PostConstruct
     public void init() {
         this.administradores = administradorService.findAll();
     }
 
     /**
-     * Método responsável por carregar uma lista com todas as cidades cadastradas.
-     * Esta lista será usada para preencher o respectivo campo de cidade na view.
+     * Método responsável por carregar uma lista com todas as cidades
+     * cadastradas. Esta lista será usada para preencher o respectivo campo de
+     * cidade na view.
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        if (administrador.getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEnderecoEstado().getCodigo())) {
+        if (administrador.getEndereco().getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEndereco().getEnderecoEstado().getCodigo())) {
                 PessoaBean.cidades.add(cidadesFiltradas);
             }
         }
@@ -70,6 +70,7 @@ public class AdministradorBean implements Serializable {
 
     /**
      * Lista de administradores da UBS.
+     *
      * @return
      */
     public List<Administrador> getAdministradores() {
@@ -77,10 +78,10 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Administrador e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro.
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Administrador e salvar. Se algum erro ocorrer, deve-se fazer
+     * rollback e apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -88,10 +89,10 @@ public class AdministradorBean implements Serializable {
             this.administradorService.save(administrador);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Cadastro do administrador '" + administrador.getNome() + "' atualizado com sucesso!");
-                FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
+            FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
             administrador = new Administrador();
         } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
@@ -102,7 +103,7 @@ public class AdministradorBean implements Serializable {
     /**
      * Método responsável por excluir um objeto do tipo Administrador e exibir
      * ao final do processo uma mensagem informativa.
-     * 
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

@@ -17,8 +17,8 @@
 
         <p:fieldset id="fieldsetVisitaDomiciliar" legend="#{agendamentoVisitaDomiciliarBean.editando ? msg.editCadastreHomeVisitingSchedule : msg.newRegisterHomeVisitingSchedule}">
             <h:form id="formCadastroVisitaDomiciliar">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>

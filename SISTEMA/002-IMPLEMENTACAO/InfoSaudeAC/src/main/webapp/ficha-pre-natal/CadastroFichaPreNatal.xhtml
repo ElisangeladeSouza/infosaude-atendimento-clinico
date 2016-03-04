@@ -16,8 +16,8 @@
     <ui:define id="uiConteudoFichaPreNatal" name="conteudo">
         <p:fieldset id="fieldsetFichaPreNatal" legend="#{fichaPreNatalBean.editando ? msg.editCadastrePrenatalRecord : msg.newRegisterPrenatalRecord}">
             <h:form id="formCadastroFichaPreNatal">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{fichaPreNatalBean.fichaPreNatal.dataAtendimento}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>

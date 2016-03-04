@@ -17,8 +17,8 @@
 
         <p:fieldset id="fieldsetUbs" legend="#{ubsBean.editando ? msg.editCadastreHealthUnit : msg.newRegisterHealthUnit}">
             <h:form id="formCadastroUbs" style="margin-top: 10px">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="dataHora" value="#{ubsBean.ubs.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>

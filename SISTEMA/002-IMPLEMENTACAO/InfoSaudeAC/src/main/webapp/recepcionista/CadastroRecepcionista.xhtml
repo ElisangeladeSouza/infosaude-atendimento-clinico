@@ -18,8 +18,8 @@
 
         <p:fieldset id="fieldsetRecepcionista" legend="#{recepcionistaBean.editando ? msg.editCadastreReceptionist : msg.newRegisterReceptionist}">
             <h:form id="formCadastroRecepcionista">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{recepcionistaBean.recepcionista.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -44,24 +44,24 @@
                     <p:tab id="tabEnderecoRecepcionista" title="#{msg.address}">
                         <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.enderecoEstado}" style="margin-left: 43px">
+                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{recepcionistaBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.enderecoCidade}" filter="true" style="width: 210px" 
-                                             filterMatchMode="startsWith" disabled="#{recepcionistaBean.recepcionista.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.endereco.enderecoCidade}" filter="true" style="width: 210px" 
+                                             filterMatchMode="startsWith" disabled="#{recepcionistaBean.recepcionista.endereco.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{recepcionistaBean.recepcionista.enderecoRua}"
-                                             valueNumero="#{recepcionistaBean.recepcionista.enderecoNumero}"
-                                             valueBairro="#{recepcionistaBean.recepcionista.enderecoBairro}"
-                                             valueCep="#{recepcionistaBean.recepcionista.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{recepcionistaBean.recepcionista.endereco.enderecoRua}"
+                                             valueNumero="#{recepcionistaBean.recepcionista.endereco.enderecoNumero}"
+                                             valueBairro="#{recepcionistaBean.recepcionista.endereco.enderecoBairro}"
+                                             valueCep="#{recepcionistaBean.recepcionista.endereco.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosRecepcionista" title="#{msg.documentation}">

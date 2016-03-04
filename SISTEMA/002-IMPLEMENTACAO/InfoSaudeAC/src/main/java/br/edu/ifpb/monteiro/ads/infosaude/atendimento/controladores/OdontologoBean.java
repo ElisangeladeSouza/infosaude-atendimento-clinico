@@ -60,8 +60,8 @@ public class OdontologoBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        if (odontologo.getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(odontologo.getEnderecoEstado().getCodigo())) {
+        if (odontologo.getEndereco().getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(odontologo.getEndereco().getEnderecoEstado().getCodigo())) {
                 PessoaBean.cidades.add(cidadesFiltradas);
             }
         }

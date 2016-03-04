@@ -9,7 +9,6 @@ import javax.persistence.Embeddable;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-//@Entity
 @Embeddable
 public class ResponsavelGestante extends Pessoa implements Serializable {
     

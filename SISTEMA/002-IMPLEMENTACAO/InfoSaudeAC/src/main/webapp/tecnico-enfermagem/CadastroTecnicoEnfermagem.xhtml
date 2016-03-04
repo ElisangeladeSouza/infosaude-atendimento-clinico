@@ -18,8 +18,8 @@
 
         <p:fieldset id="fieldsetTecEnfermagem" legend="#{tecnicoEnfermagemBean.editando ? msg.editCadastrePracticalNurse : msg.newRegisterPracticalNurse}">
             <h:form id="formCadastroTecnicoEnfermagem">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -48,24 +48,24 @@
                     <p:tab id="tabEnderecoTecnicoEnfermagem" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoCC" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado}" style="margin-left: 43px">
+                            <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{tecnicoEnfermagemBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCidade}" filter="true" 
-                                             filterMatchMode="startsWith" disabled="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoCidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoRua}"
-                                             valueNumero="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoNumero}"
-                                             valueBairro="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoBairro}"
-                                             valueCep="#{tecnicoEnfermagemBean.tecnicoEnfermagem.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoRua}"
+                                             valueNumero="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoNumero}"
+                                             valueBairro="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoBairro}"
+                                             valueCep="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosTencicoEnfermagem" title="#{msg.documentation}">

@@ -16,8 +16,8 @@
     <ui:define id="uiConteudoGestante" name="conteudo">
         <p:fieldset id="fieldsetGestante" legend="#{gestanteBean.editando ? msg.editCadastrePregnant : msg.newRegisterPregnant}">
             <h:form id="formCadastroGestante">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{gestanteBean.gestante.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -95,26 +95,26 @@
                             </p:calendar>
 
                             <p:outputLabel for="rua" value="#{msg.street}: " />
-                            <p:inputText id="rua" value="#{gestanteBean.gestante.responsavelGestante.enderecoRua}" size="35" maxlength="150"/>
+                            <p:inputText id="rua" value="#{gestanteBean.gestante.endereco.enderecoRua}" size="35" maxlength="150"/>
 
                             <p:outputLabel for="numero" value="#{msg.number}: " style="margin-left: 10px"/>
-                            <p:inputText id="numero" value="#{gestanteBean.gestante.responsavelGestante.enderecoNumero}" size="10" maxlength="6"/>
+                            <p:inputText id="numero" value="#{gestanteBean.gestante.endereco.enderecoNumero}" size="10" maxlength="6"/>
 
-                            <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                            <p:inputText id="bairro" value="#{gestanteBean.gestante.responsavelGestante.enderecoBairro}" size="35" maxlength="100"/>
+                            <p:outputLabel for="bairro" value="#{msg.neighborhood}: "/>
+                            <p:inputText id="bairro" value="#{gestanteBean.gestante.endereco.enderecoBairro}" size="35" maxlength="100"/>
 
-                            <p:outputLabel for="cep" value="#{msg.postalCode}:" style="margin-left: 10px"/>
-                            <p:inputMask mask="99999-999" id="cep" value="#{gestanteBean.gestante.responsavelGestante.enderecoCep}" size="10" maxlength="8"/>
+                            <p:outputLabel for="cep" value="#{msg.postalCode}: " style="margin-left: 10px"/>
+                            <p:inputMask mask="99999-999" id="cep" value="#{gestanteBean.gestante.endereco.enderecoCep}" size="10" maxlength="8"/>
 
-                            <p:outputLabel for="email" value="#{msg.email}:"/>
+                            <p:outputLabel for="email" value="#{msg.email}: "/>
                             <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.responsavelGestante.email}" size="35" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
                             
-                            <p:outputLabel for="telefone1" value="#{msg.phone1}:" style="margin-left: 10px"/>
+                            <p:outputLabel for="telefone1" value="#{msg.phone1}: " style="margin-left: 10px"/>
                             <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone1}" 
                                          size="20" maxlength="20"/>
 
-                            <p:outputLabel for="telefone2" value="#{msg.phone2}:"/>
+                            <p:outputLabel for="telefone2" value="#{msg.phone2}: "/>
                             <p:inputText id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone2}" 
                                          size="20" maxlength="20"/>
                         </h:panelGrid>

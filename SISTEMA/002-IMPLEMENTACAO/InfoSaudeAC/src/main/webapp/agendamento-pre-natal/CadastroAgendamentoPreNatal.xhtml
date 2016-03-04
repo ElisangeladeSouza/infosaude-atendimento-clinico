@@ -17,8 +17,8 @@
 
         <p:fieldset id="fieldsetAgendamento" legend="#{agendamentoPreNatalBean.editando ? msg.editCadastreScheduling : msg.newRegisterScheduling}">
             <h:form id="formCadastroAgendamento">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true"class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{agendamentoPreNatalBean.agendamentoPreNatal.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>

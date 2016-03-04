@@ -60,8 +60,8 @@ public class TecnicoEnfermagemBean implements Serializable {
      */
     public void carregarCidades() {
         PessoaBean.cidades.clear();
-        if (tecnicoEnfermagem.getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(tecnicoEnfermagem.getEnderecoEstado().getCodigo())) {
+        if (tecnicoEnfermagem.getEndereco().getEnderecoEstado() != null) {
+            for (String cidadesFiltradas : pessoaService.retornaCidades(tecnicoEnfermagem.getEndereco().getEnderecoEstado().getCodigo())) {
                 PessoaBean.cidades.add(cidadesFiltradas);
             }
         }

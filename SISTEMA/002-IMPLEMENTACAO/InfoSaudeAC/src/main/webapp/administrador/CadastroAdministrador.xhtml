@@ -16,9 +16,9 @@
 
     <ui:define id="uiConteudoAdministrador" name="conteudo">
 
-        <p:fieldset id="fieldsetAdministrador" legend="#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator}">
-            <h:form id="formCadastroAdministrador">
-                <p:growl id="mensagens" autoUpdate="true"/>
+        <h:form id="formCadastroAdministrador">
+            <p:fieldset id="fieldsetAdministrador" legend="#{administradorBean.editando ? msg.editCadastreAdministrator : msg.newRegisterAdministrator}">
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
 
                 <h:inputHidden id="data" value="#{administradorBean.administrador.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
@@ -44,24 +44,24 @@
                     <p:tab id="tabEnderecoAdministrador" title="#{msg.address}">
                         <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{administradorBean.administrador.enderecoEstado}" style="margin-left: 43px">
+                            <p:selectOneMenu id="estado" value="#{administradorBean.administrador.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{administradorBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{administradorBean.administrador.enderecoCidade}" filter="true" 
-                                             filterMatchMode="startsWith" disabled="#{administradorBean.administrador.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{administradorBean.administrador.endereco.enderecoCidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{administradorBean.administrador.endereco.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{administradorBean.administrador.enderecoRua}"
-                                             valueNumero="#{administradorBean.administrador.enderecoNumero}"
-                                             valueBairro="#{administradorBean.administrador.enderecoBairro}"
-                                             valueCep="#{administradorBean.administrador.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{administradorBean.administrador.endereco.enderecoRua}"
+                                             valueNumero="#{administradorBean.administrador.endereco.enderecoNumero}"
+                                             valueBairro="#{administradorBean.administrador.endereco.enderecoBairro}"
+                                             valueCep="#{administradorBean.administrador.endereco.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosAdministrador" title="#{msg.documentation}">
@@ -70,31 +70,31 @@
 
                 </p:tabView>
 
-                <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
-                    <f:facet name="left">
-                        <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
-                                         action="#{administradorBean.salvar}"  id="botaoSalvar" 
-                                         update="@form" 
-                                         icon="ui-icon ui-icon-disk">
-                        </p:commandButton>
+            </p:fieldset>
+            <p:toolbar id="toolbarAdministrador" style="margin-top: 10px;">
+                <f:facet name="left">
+                    <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                     action="#{administradorBean.salvar}"  id="botaoSalvar" 
+                                     update="@form" 
+                                     icon="ui-icon ui-icon-disk">
+                    </p:commandButton>
 
-                        <p:button style="font-size: 13px;" value="#{msg.cancel}"
-                                  id="botaoCancelar" outcome="/administrador/PesquisaAdministrador"
-                                  icon="fa fa-times" rendered="#{administradorBean.editando}">
-                        </p:button>
+                    <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                              id="botaoCancelar" outcome="/administrador/PesquisaAdministrador"
+                              icon="fa fa-times" rendered="#{administradorBean.editando}">
+                    </p:button>
 
-                    </f:facet>
+                </f:facet>
 
-                    <f:facet name="right">
-                        <p:button style="font-size: 13px;" value="#{msg.searchAdministrator}"
-                                  id="botaoPesquisar" outcome="/administrador/PesquisaAdministrador"
-                                  icon="ui-icon ui-icon-search" rendered="#{administradorBean.editando eq 'false'}">
-                        </p:button>
-                    </f:facet>
+                <f:facet name="right">
+                    <p:button style="font-size: 13px;" value="#{msg.searchAdministrator}"
+                              id="botaoPesquisar" outcome="/administrador/PesquisaAdministrador"
+                              icon="ui-icon ui-icon-search" rendered="#{administradorBean.editando eq 'false'}">
+                    </p:button>
+                </f:facet>
 
-                </p:toolbar>
-                <p:blockUI block="formCadastroAdministrador" trigger="botaoSalvar"/>
-            </h:form>
-        </p:fieldset>
+            </p:toolbar>
+            <p:blockUI block="formCadastroAdministrador"  trigger="botaoSalvar"/>
+        </h:form>
     </ui:define>
 </ui:composition>

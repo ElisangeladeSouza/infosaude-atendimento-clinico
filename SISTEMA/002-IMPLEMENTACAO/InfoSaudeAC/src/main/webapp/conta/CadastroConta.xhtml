@@ -17,8 +17,8 @@
 
         <p:fieldset id="fieldsetConta" legend="#{contaBean.editando ? msg.editCadastreCount : msg.newRegisterCount}">
             <h:form id="formCadastroConta">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:panelGrid id="gridObrigatoriosConta" columns="2">
 
                     <p:outputLabel for="usuario" value="#{msg.user}: "/>

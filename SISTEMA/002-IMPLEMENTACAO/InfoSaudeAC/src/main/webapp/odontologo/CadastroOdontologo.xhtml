@@ -18,8 +18,8 @@
 
         <p:fieldset id="fieldsetOdontologo" legend="#{odontologoBean.editando ? msg.editCadastreDentist : msg.newRegisterDentist}">
             <h:form id="formCadastroOdontologo">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{odontologoBean.odontologo.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
@@ -47,24 +47,24 @@
                     <p:tab id="tabEnderecoOdonotologo" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoCC" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{odontologoBean.odontologo.enderecoEstado}" style="margin-left: 43px">
+                            <p:selectOneMenu id="estado" value="#{odontologoBean.odontologo.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{odontologoBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{odontologoBean.odontologo.enderecoCidade}" filter="true" style="width: 210px"
-                                             filterMatchMode="startsWith" disabled="#{odontologoBean.odontologo.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{odontologoBean.odontologo.endereco.enderecoCidade}" filter="true" style="width: 210px"
+                                             filterMatchMode="startsWith" disabled="#{odontologoBean.odontologo.endereco.enderecoEstado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-
-                        <isac:pessoaEndereco valueRua="#{odontologoBean.odontologo.enderecoRua}"
-                                             valueNumero="#{odontologoBean.odontologo.enderecoNumero}"
-                                             valueBairro="#{odontologoBean.odontologo.enderecoBairro}"
-                                             valueCep="#{odontologoBean.odontologo.enderecoCep}"/>
+                        
+                        <isac:pessoaEndereco valueRua="#{odontologoBean.odontologo.endereco.enderecoRua}"
+                                             valueNumero="#{odontologoBean.odontologo.endereco.enderecoNumero}"
+                                             valueBairro="#{odontologoBean.odontologo.endereco.enderecoBairro}"
+                                             valueCep="#{odontologoBean.odontologo.endereco.enderecoCep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosOdontologo" title="#{msg.documentation}">

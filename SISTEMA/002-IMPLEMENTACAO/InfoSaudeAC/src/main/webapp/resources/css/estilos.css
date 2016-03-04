@@ -21,7 +21,7 @@ header{
     background-color: lightskyblue;
     color: white; 
     box-shadow: 0px 3px 3px #ccc;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .alterna-sidebar{
@@ -213,7 +213,9 @@ footer {
     width: 350px;
 }
 
-
+.sobreporMensagens {
+    z-index: 9999;
+}
 
 
 

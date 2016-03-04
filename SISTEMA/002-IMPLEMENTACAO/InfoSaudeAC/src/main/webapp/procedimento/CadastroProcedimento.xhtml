@@ -17,8 +17,8 @@
 
         <p:fieldset id="fieldsetProcedimento" legend="#{procedimentoBean.editando ? msg.editCadastreProcedure : msg.newRegisterProcedure}">
             <h:form id="formCadastroProcedimento">
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="data" value="#{procedimentoBean.procedimento.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>

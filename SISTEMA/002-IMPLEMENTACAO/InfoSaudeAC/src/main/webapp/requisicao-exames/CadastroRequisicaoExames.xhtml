@@ -19,8 +19,8 @@
 
             <h:form id="formCadastroRequisicaoExames">
 
-                <p:growl id="mensagens" autoUpdate="true"/>
-
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
+                
                 <h:inputHidden id="dataHora" value="#{requisicaoExameBean.requisicaoExame.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
