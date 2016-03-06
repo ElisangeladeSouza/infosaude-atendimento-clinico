@@ -1,12 +1,10 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +12,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import lombok.Data;
 
@@ -36,7 +35,7 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotNull(message = "Um nome deve ser informado")
+    @NotNull(message = "Um nome deve ser informado")
     @Column(name = "pessoa_nome", nullable = false, length = 150)
     private String nome;
 
@@ -67,5 +66,12 @@ public class Pessoa implements Serializable {
 
     @Column(name = "pessoa_cor_raca", length = 15)
     private String corOuRaca;
+
+    @Embedded
+    private Endereco endereco;
+
+    public Pessoa() {
+        this.endereco = new Endereco();
+    }
 
 }

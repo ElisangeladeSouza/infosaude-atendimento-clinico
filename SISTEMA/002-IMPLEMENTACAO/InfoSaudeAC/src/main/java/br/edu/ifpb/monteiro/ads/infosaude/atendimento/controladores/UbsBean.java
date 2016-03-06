@@ -63,12 +63,7 @@ public class UbsBean implements Serializable {
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
-        UbsBean.cidades.clear();
-        if (endereco.getEnderecoEstado() != null) {
-            for (String ubsFiltradas : pessoaService.retornaCidades(endereco.getEnderecoEstado().getCodigo())) {
-                PessoaBean.cidades.add(ubsFiltradas);
-            }
-        }
+       pessoaService.retornaCidades(ubs.getEndereco().getEnderecoEstado(), ubs.getEndereco().getEnderecoEstado().getCodigo());
     }
     
     /**

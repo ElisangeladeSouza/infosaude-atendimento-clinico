@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,11 +27,4 @@ public class Odontologo extends Pessoa implements Serializable {
 
     @Column(name = "odontologo_cro", unique = true, length = 30)
     private String cro;
-    
-    @Embedded
-    private Endereco endereco;
-    
-    public Odontologo() {
-        endereco = new Endereco();
-    }
 }

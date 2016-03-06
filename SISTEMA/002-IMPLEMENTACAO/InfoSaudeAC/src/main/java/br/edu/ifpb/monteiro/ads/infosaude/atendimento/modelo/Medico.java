@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,12 +27,10 @@ public class Medico extends Pessoa implements Serializable {
 
     @Column(name = "medico_crm", unique = true, length = 30)
     private String crm;
-    
-    @Embedded
-    private Endereco endereco;
-    
-    public Medico() {
-        endereco = new Endereco();
-    }
 
+//    @Embedded
+//    private Endereco endereco;
+//    public Medico() {
+//        endereco = new Endereco();
+//    }
 }

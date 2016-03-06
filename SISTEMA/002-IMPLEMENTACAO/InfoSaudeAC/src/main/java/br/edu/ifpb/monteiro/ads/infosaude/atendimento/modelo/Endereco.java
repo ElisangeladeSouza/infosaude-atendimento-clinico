@@ -11,17 +11,16 @@ import lombok.Data;
 /**
  * Endereco não é uma entidade, mas sim, uma classe criada para reaproveitar os
  * seus dados nas demais entidades do sistema que necessitam de atributos do
- * tipo endereço em seus cadastros. 
- * Evitando a repetição de atributos.
- * 
+ * tipo endereço em seus cadastros. Evitando a repetição de atributos.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Embeddable
 @Data
 public class Endereco implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Column(name = "endereco_rua", length = 150)
     private String enderecoRua;
 
@@ -40,5 +39,5 @@ public class Endereco implements Serializable {
 
     @Column(name = "endereco_cep", length = 10)
     private String enderecoCep;
-    
+
 }

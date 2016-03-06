@@ -1,13 +1,13 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.relatorios;
 
 import java.io.IOException;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;

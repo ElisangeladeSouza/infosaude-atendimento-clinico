@@ -59,12 +59,7 @@ public class RecepcionistaBean implements Serializable {
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
-        PessoaBean.cidades.clear();
-        if (recepcionista.getEndereco().getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(recepcionista.getEndereco().getEnderecoEstado().getCodigo())) {
-                PessoaBean.cidades.add(cidadesFiltradas);
-            }
-        }
+        pessoaService.retornaCidades(recepcionista.getEndereco().getEnderecoEstado(), recepcionista.getEndereco().getEnderecoEstado().getCodigo());
     }
 
     /**

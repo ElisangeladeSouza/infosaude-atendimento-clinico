@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -57,11 +56,4 @@ public class Paciente extends Pessoa implements Serializable {
     @OneToOne
     @JoinColumn(name = "agendamento_visita_domiciliar_pk")
     private AgendamentoVisitaDomiciliar agendamentoVisitaDomiciliar;
-    
-    @Embedded
-    private Endereco endereco;
-    
-    public Paciente() {
-        endereco = new Endereco();
-    }
 }

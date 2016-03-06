@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,12 +27,4 @@ public class Administrador extends Pessoa implements Serializable {
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
     private String cartaoSusAdministrador;
-    
-    @Embedded
-    private Endereco endereco;
-    
-    public Administrador() {
-        endereco = new Endereco();
-    }
-    
 }

@@ -59,12 +59,7 @@ public class PacienteBean implements Serializable {
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
-        PessoaBean.cidades.clear();
-        if (paciente.getEndereco().getEnderecoEstado() != null) {
-            for (String cidadesFiltradas : pessoaService.retornaCidades(paciente.getEndereco().getEnderecoEstado().getCodigo())) {
-                PessoaBean.cidades.add(cidadesFiltradas);
-            }
-        }
+        pessoaService.retornaCidades(paciente.getEndereco().getEnderecoEstado(), paciente.getEndereco().getEnderecoEstado().getCodigo());
     }
 
     /**
