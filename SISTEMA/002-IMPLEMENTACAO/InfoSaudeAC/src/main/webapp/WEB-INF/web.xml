@@ -16,6 +16,13 @@
         <param-value>true</param-value>
     </context-param>
     
+    <!--Faz com que os campos sejam validados como valores nulos mesmo quando 
+    estão em branco (ativa a validação pelo Bean Validation para @NotNull)-->
+    <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
     <!--Set the Timezone to be equals  the system timezone--> 
     <context-param>
         <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
