@@ -44,6 +44,12 @@ public class Procedimento implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "procedimento_data")
     private Date data;
+    
+    @Column(name="procedimento_cartao_sus_profissional", nullable = false, length = 20)
+    private String cartaoSusProfissional;
+    
+    @Column(name = "procedimento_cnes", length = 15)
+    private String cnes;
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")

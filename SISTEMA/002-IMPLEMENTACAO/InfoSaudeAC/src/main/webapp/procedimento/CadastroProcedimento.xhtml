@@ -30,15 +30,23 @@
                                  requiredMessage="#{msg.aCodeIsRequired}" maxlength="20" />
 
                     <p:outputLabel for="descricao" value="#{msg.description}: " />
-                    <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true"
-                                     requiredMessage="#{msg.aDescriptionIsRequired}" />
+                    <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true" maxlength="500"
+                                    rows="6" cols="23" requiredMessage="#{msg.aDescriptionIsRequired}" placeholder="Descrever procedimento"/>
 
-<!--                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-<p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.paciente}" required="true"  
-                 filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-    <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-    <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
-</p:selectOneMenu>-->
+                    <p:outputLabel for="paciente" value="#{msg.patient}: "/>
+                    <p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.fichaAtendimento}" required="true" style="width: 180px" 
+                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="procedimento" itemLabel="#{procedimento.paciente.nome}" itemValue="#{procedimento}" class="upper"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
+                    <p:inputMask id="cartaoSusProfissional" value="#{procedimentoBean.procedimento.cartaoSusProfissional}" 
+                                         requiredMessage="#{msg.mandatorySusCard}" required="true" size="20" mask="999 9999 9999 9999"
+                                         maxlength="20" placeholder="Do profissional"/>
+                    
+                    <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
+                    <p:inputText id="cnes" value="#{procedimentoBean.procedimento.cnes}" size="20" maxlength="15"/>
 
                 </h:panelGrid>
 
