@@ -46,7 +46,7 @@
                                          maxlength="20" placeholder="Do profissional"/>
                     
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
-                    <p:inputText id="cnes" value="#{procedimentoBean.procedimento.cnes}" size="20" maxlength="15"/>
+                    <p:inputMask id="cnes" mask="999999999999999" value="#{procedimentoBean.procedimento.cnes}" size="20" maxlength="15"/>
 
                 </h:panelGrid>
 

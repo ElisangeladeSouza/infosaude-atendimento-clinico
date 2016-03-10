@@ -32,7 +32,8 @@
                                  requiredMessage="É necessário informar um código"/>
 
                     <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}:"/>
-                    <p:inputText id="solicitanteCnes" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" size="20" maxlength="15" />
+                    <p:inputMask id="solicitanteCnes" mask="999999999999999" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" 
+                                 size="20" maxlength="15" />
 
                     <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
                     <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
