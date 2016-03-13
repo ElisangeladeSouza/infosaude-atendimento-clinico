@@ -24,6 +24,9 @@
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosProcedimento" columns="2">
+                    
+                    <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
+                    <p:outputLabel id="cnes" value="#{procedimentoBean.procedimento.cnes}"/>
 
                     <p:outputLabel for="codigo" value="#{msg.code}: "/>
                     <p:inputText id="codigo" value="#{procedimentoBean.procedimento.codigo}" required="true"
@@ -45,9 +48,6 @@
                                          requiredMessage="#{msg.mandatorySusCard}" required="true" size="20" mask="999 9999 9999 9999"
                                          maxlength="20" placeholder="Do profissional"/>
                     
-                    <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
-                    <p:inputMask id="cnes" mask="999999999999999" value="#{procedimentoBean.procedimento.cnes}" size="20" maxlength="15"/>
-
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarProcedimento" style="margin-top: 10px;">

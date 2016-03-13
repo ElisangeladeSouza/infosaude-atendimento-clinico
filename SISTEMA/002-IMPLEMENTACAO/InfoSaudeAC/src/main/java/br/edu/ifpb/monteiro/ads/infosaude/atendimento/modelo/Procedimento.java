@@ -2,6 +2,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,8 @@ import lombok.Data;
 
 /**
  * Entidade que representa o Procedimento a ser executado por algum profissional
- * de saúde da UBS. Alguns procedimentos clínicos e pequenos procedimentos 
- * cirúrgicos podem ser realizados nas UBS, exemplo: curativo, retirada de 
+ * de saúde da UBS. Alguns procedimentos clínicos e pequenos procedimentos
+ * cirúrgicos podem ser realizados nas UBS, exemplo: curativo, retirada de
  * pontos, aferição de pressão arterial, etc. Ao extender Pessoa, passa a herdar
  * todos os seus atributos.
  *
@@ -44,12 +45,12 @@ public class Procedimento implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "procedimento_data")
     private Date data;
-    
-    @Column(name="procedimento_cartao_sus_profissional", nullable = false, length = 20)
+
+    @Column(name = "procedimento_cartao_sus_profissional", nullable = false, length = 20)
     private String cartaoSusProfissional;
-    
+
     @Column(name = "procedimento_cnes", length = 15)
-    private String cnes;
+    private Long cnes;
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
@@ -62,5 +63,11 @@ public class Procedimento implements Serializable {
     @OneToOne(mappedBy = "procedimentoPaciente")
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Paciente paciente;
+
+    @PostConstruct
+    public void init() {
+        Ubs ubs = new Ubs();
+        setCnes(ubs.getCnes());
+    }
 
 }
