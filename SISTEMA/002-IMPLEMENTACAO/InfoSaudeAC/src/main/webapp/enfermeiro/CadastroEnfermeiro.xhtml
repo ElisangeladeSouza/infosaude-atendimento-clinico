@@ -48,24 +48,24 @@
                     <p:tab id="tabEnderecoEnfermeiro" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoCC" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{enfermeiroBean.enfermeiro.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
+                            <p:selectOneMenu id="estado" value="#{enfermeiroBean.enfermeiro.endereco.estado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{enfermeiroBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{enfermeiroBean.enfermeiro.endereco.enderecoCidade}" filter="true" style="width: 210px"
-                                             filterMatchMode="startsWith" disabled="#{enfermeiroBean.enfermeiro.endereco.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{enfermeiroBean.enfermeiro.endereco.cidade}" filter="true" style="width: 210px"
+                                             filterMatchMode="startsWith" disabled="#{enfermeiroBean.enfermeiro.endereco.estado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{enfermeiroBean.enfermeiro.endereco.enderecoRua}"
-                                             valueNumero="#{enfermeiroBean.enfermeiro.endereco.enderecoNumero}"
-                                             valueBairro="#{enfermeiroBean.enfermeiro.endereco.enderecoBairro}"
-                                             valueCep="#{enfermeiroBean.enfermeiro.endereco.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{enfermeiroBean.enfermeiro.endereco.rua}"
+                                             valueNumero="#{enfermeiroBean.enfermeiro.endereco.numero}"
+                                             valueBairro="#{enfermeiroBean.enfermeiro.endereco.bairro}"
+                                             valueCep="#{enfermeiroBean.enfermeiro.endereco.cep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosEnfermeiro" title="#{msg.documentation}">

@@ -60,7 +60,7 @@ public class AdministradorBean implements Serializable {
      * cidade na view.
      */
     public void carregarCidades() {
-        pessoaService.retornaCidades(administrador.getEndereco().getEnderecoEstado(), administrador.getEndereco().getEnderecoEstado().getCodigo());
+        pessoaService.retornaCidades(administrador.getEndereco().getEstado(), administrador.getEndereco().getEstado().getCodigo());
 //        PessoaBean.cidades.clear();
 //        if (administrador.getEndereco().getEnderecoEstado() != null) {
 //            for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEndereco().getEnderecoEstado().getCodigo())) {

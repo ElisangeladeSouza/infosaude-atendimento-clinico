@@ -4,13 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <div class="menu">
-        
+
         <!--Tag que chama a tela de permissões que contém as roles atribuidas a cada grupo de usuários do sistema.-->
         <ui:include src="permissoes-telas.xhtml"/>
-        
+
+        <f:metadata>
+            <f:viewParam name="ubs" value="#{ubsBean.ubs}"/>
+        </f:metadata>
+
         <ui:insert name="menu">
             <h:form>
 
@@ -40,8 +46,12 @@
                         <p:menuitem value="#{msg.pregnant}" outcome="/gestante/PesquisaGestante" rendered="#{podeVerGestante}" icon="fa fa-female"/>
                         <p:menuitem value="#{msg.examination}" outcome="/exame/PesquisaExame" rendered="#{podeTudo}" icon="fa fa-eyedropper"/>
                     </p:submenu>
-                     <p:submenu label="#{msg.system}">
-                        <p:menuitem value="#{msg.ubs}" outcome="/ubs/PesquisaUBS" rendered="#{podeTudo}" icon="fa fa-gears"/>
+                    <p:submenu label="#{msg.system}">
+                        <p:menuitem value="#{msg.ubs}" outcome="/ubs/CadastroUBS" rendered="#{podeTudo}" icon="fa fa-gears">
+                            <c:forEach var="ubs" items="#{ubsBean.todasUbs}">
+                                <f:param name="ubs" value="#{ubs.id}"/>
+                            </c:forEach>
+                        </p:menuitem>
                     </p:submenu>
                 </p:menu>
             </h:form>

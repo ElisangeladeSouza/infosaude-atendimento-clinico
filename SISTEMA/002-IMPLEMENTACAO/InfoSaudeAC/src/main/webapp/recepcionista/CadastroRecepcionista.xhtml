@@ -44,24 +44,24 @@
                     <p:tab id="tabEnderecoRecepcionista" title="#{msg.address}">
                         <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
+                            <p:selectOneMenu id="estado" value="#{recepcionistaBean.recepcionista.endereco.estado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{recepcionistaBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.endereco.enderecoCidade}" filter="true" style="width: 210px" 
-                                             filterMatchMode="startsWith" disabled="#{recepcionistaBean.recepcionista.endereco.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{recepcionistaBean.recepcionista.endereco.cidade}" filter="true" style="width: 210px" 
+                                             filterMatchMode="startsWith" disabled="#{recepcionistaBean.recepcionista.endereco.estado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{recepcionistaBean.recepcionista.endereco.enderecoRua}"
-                                             valueNumero="#{recepcionistaBean.recepcionista.endereco.enderecoNumero}"
-                                             valueBairro="#{recepcionistaBean.recepcionista.endereco.enderecoBairro}"
-                                             valueCep="#{recepcionistaBean.recepcionista.endereco.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{recepcionistaBean.recepcionista.endereco.rua}"
+                                             valueNumero="#{recepcionistaBean.recepcionista.endereco.numero}"
+                                             valueBairro="#{recepcionistaBean.recepcionista.endereco.bairro}"
+                                             valueCep="#{recepcionistaBean.recepcionista.endereco.cep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosRecepcionista" title="#{msg.documentation}">

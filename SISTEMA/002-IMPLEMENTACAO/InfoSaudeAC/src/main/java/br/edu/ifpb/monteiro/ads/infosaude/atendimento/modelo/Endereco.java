@@ -22,22 +22,22 @@ public class Endereco implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "endereco_rua", length = 150)
-    private String enderecoRua;
+    private String rua;
 
     @Column(name = "endereco_numero", length = 6)
-    private String enderecoNumero;
+    private String numero;
 
     @Column(name = "endereco_bairro", length = 100)
-    private String enderecoBairro;
+    private String bairro;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "endereco_estado")
-    private Estados enderecoEstado;
+    private Estados estado;
 
     @Column(name = "endereco_cidade", length = 100)
-    private String enderecoCidade;
+    private String cidade;
 
     @Column(name = "endereco_cep", length = 10)
-    private String enderecoCep;
+    private String cep;
 
 }

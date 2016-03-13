@@ -44,24 +44,24 @@
                     <p:tab id="tabEnderecoAdministrador" title="#{msg.address}">
                         <h:panelGrid id="gridEndereco" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{administradorBean.administrador.endereco.enderecoEstado}" style="margin-left: 43px; width: 180px">
+                            <p:selectOneMenu id="estado" value="#{administradorBean.administrador.endereco.estado}" style="margin-left: 43px; width: 180px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{administradorBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{administradorBean.administrador.endereco.enderecoCidade}" filter="true" 
-                                             filterMatchMode="startsWith" disabled="#{administradorBean.administrador.endereco.enderecoEstado eq null}">
+                            <p:selectOneMenu id="cidade" value="#{administradorBean.administrador.endereco.cidade}" filter="true" 
+                                             filterMatchMode="startsWith" disabled="#{administradorBean.administrador.endereco.estado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <isac:pessoaEndereco valueRua="#{administradorBean.administrador.endereco.enderecoRua}"
-                                             valueNumero="#{administradorBean.administrador.endereco.enderecoNumero}"
-                                             valueBairro="#{administradorBean.administrador.endereco.enderecoBairro}"
-                                             valueCep="#{administradorBean.administrador.endereco.enderecoCep}"/>
+                        <isac:pessoaEndereco valueRua="#{administradorBean.administrador.endereco.rua}"
+                                             valueNumero="#{administradorBean.administrador.endereco.numero}"
+                                             valueBairro="#{administradorBean.administrador.endereco.bairro}"
+                                             valueCep="#{administradorBean.administrador.endereco.cep}"/>
                     </p:tab>
 
                     <p:tab id="tabDocumentosAdministrador" title="#{msg.documentation}">

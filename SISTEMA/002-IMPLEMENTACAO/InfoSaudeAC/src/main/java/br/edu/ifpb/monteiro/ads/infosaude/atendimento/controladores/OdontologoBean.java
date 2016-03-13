@@ -59,7 +59,7 @@ public class OdontologoBean implements Serializable {
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
-        pessoaService.retornaCidades(odontologo.getEndereco().getEnderecoEstado(), odontologo.getEndereco().getEnderecoEstado().getCodigo());
+        pessoaService.retornaCidades(odontologo.getEndereco().getEstado(), odontologo.getEndereco().getEstado().getCodigo());
     }
 
     /**

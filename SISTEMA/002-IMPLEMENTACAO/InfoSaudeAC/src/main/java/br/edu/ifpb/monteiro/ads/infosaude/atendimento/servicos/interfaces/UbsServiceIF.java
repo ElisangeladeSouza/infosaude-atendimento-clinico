@@ -13,8 +13,4 @@ public interface UbsServiceIF {
 
     public void save(Ubs ubs);
 
-    public void delete(Ubs ubsSelecionada);
-    
-    public List<String> retornaCidades(int codigoUF);
-    
 }

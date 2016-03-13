@@ -59,7 +59,7 @@ public class TecnicoEnfermagemBean implements Serializable {
      * Esta lista será usada para preencher o respectivo campo de cidade na view.
      */
     public void carregarCidades() {
-       pessoaService.retornaCidades(tecnicoEnfermagem.getEndereco().getEnderecoEstado(), tecnicoEnfermagem.getEndereco().getEnderecoEstado().getCodigo());
+       pessoaService.retornaCidades(tecnicoEnfermagem.getEndereco().getEstado(), tecnicoEnfermagem.getEndereco().getEstado().getCodigo());
     }
 
     /**

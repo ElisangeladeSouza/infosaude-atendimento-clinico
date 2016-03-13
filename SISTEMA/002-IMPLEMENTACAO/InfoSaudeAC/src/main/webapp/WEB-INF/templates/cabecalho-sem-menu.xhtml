@@ -16,6 +16,7 @@
         <link rel="icon" type="image/x-icon" href="http://localhost:8080/InfoSaudeAC/resources/imagens/favicon.ico" />
     </h:head>
 
+    <!--Este arquivo tem a função de servir como template apenas para a tela de acesso negado-->
     <h:body>
 
         <ui:include src="permissoes-telas.xhtml"/>
@@ -41,106 +42,6 @@
                 <p:outputLabel value="#{msg.systemVersion}" style="float: right;"/>
             </div>
         </footer>
-
-        <h:form>
-            <p:confirmDialog id="confirmDialog" global="true">
-                <p:commandButton id="confirmNo" value="#{msg.no}" type="button" styleClass="ui-confirmdialog-no" 
-                                 icon="ui-icon-close"/>
-
-                <p:commandButton id="confirmYes" value="#{msg.yes}" type="button" styleClass="ui-confirmdialog-yes" 
-                                 icon="ui-icon-check"/>
-            </p:confirmDialog>
-        </h:form>
-
-        <!--This script changes the mask of money format-->
-        <script>
-            function validateMoney() {
-                $(".money").maskMoney({
-                    decimal: ",",
-                    thousands: ".",
-                    allowZero: true,
-                    symbol: "RS"
-                });
-            }
-
-            $(document).ready(function () {
-                validateMoney();
-            });
-        </script>
-
-        <!--This script changes the mask of phone numbers with 8 and 9 digits-->
-        <script>
-
-            function validatePhone() {
-
-                var masks = ['(00) 00000-0000', '(00) 0000-00009'],
-                        maskBehavior = function (val, e, field, options) {
-                            return val.length > 14 ? masks[0] : masks[1];
-                        };
-
-                $('.phone').mask(maskBehavior, {onKeyPress:
-                            function (val, e, field, options) {
-                                field.mask(maskBehavior(val, e, field, options), options);
-                            }
-                });
-            }
-            $(document).ready(function () {
-                validatePhone();
-            }
-            );
-        </script>
-
-        <!--Script que formata o valor inserido no campo peso da tela de paciente com Jquery.-->
-        <script>
-            function validateWeight() {
-                $(".peso").maskMoney({
-                    decimal: ",",
-                    thousands: ".",
-                    allowZero: false
-                });
-            }
-
-            $(document).ready(function () {
-                validateWeight();
-            });
-        </script>
-
-        <!--Script que formata o valor inserido no campo altura da tela de paciente com Jquery.-->
-        <script>
-            function validateHeight() {
-                $(".altura").maskMoney({
-                    decimal: ",",
-                    thousands: ".",
-                    allowZero: false
-                });
-            }
-
-            $(document).ready(function () {
-                validateHeight();
-            });
-        </script>
-
-        <!--Este script exibe uma mensagem Javscript no navegador informando sobre qualquer alteração não salva na tela.-->
-        <!--        <script>
-                    $(document).ready(function () {
-                        // Sempre que um input Mudar
-                        $(':input').change(function () {
-                            setConfirmaSairSemSalvar(true);
-                        });
-        
-                        // Sem mudança no form
-                        $('form').submit(function () {
-                            setConfirmaSairSemSalvar(false);
-                        });
-                    });
-        
-                    function setConfirmaSairSemSalvar(on) {
-                        var message = "Você fez alterações e não salvou. Todos os dados não salvos serão perdidos.\n\nDeseja sair da tela assim mesmo?";
-                        window.onbeforeunload = (on) ? function () {
-                            return message;
-                        } : null;
-                    }
-                </script>-->
 
     </h:body>
 </html>

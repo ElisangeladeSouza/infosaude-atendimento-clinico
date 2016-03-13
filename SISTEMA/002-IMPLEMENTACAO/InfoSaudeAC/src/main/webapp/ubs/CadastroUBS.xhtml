@@ -18,50 +18,49 @@
         <p:fieldset id="fieldsetUbs" legend="#{ubsBean.editando ? msg.editCadastreHealthUnit : msg.newRegisterHealthUnit}">
             <h:form id="formCadastroUbs" style="margin-top: 10px">
                 <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
-                
+
                 <h:inputHidden id="dataHora" value="#{ubsBean.ubs.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
                 <h:panelGrid id="gridDadosUbs" columns="2">
 
-                    <p:outputLabel for="nome" value="#{msg.name}: "/>
-                    <p:inputText id="nome" value="#{ubsBean.ubs.nome}" size="38" maxlength="50" required="true" 
-                                 requiredMessage="#{msg.mandatoryName}" />
-                    
-                    <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
-                    <p:inputText id="bairro" value="#{ubsBean.ubs.endereco.enderecoBairro}" size="38" maxlength="100"/>
-                    
-                    <p:outputLabel for="rua" value="#{msg.street}: " />
-                    <p:inputText id="rua" value="#{ubsBean.ubs.endereco.enderecoRua}" size="35" maxlength="150"/>
-                    
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
-                    <p:inputText id="cnes" value="#{ubsBean.ubs.cnes}" size="20" maxlength="15" required="true"/>
-                    
-                    <p:outputLabel for="telefone" value="#{msg.phone1}: "/>
-                    <p:inputText id="telefone" styleClass="phone upper" value="#{ubsBean.ubs.telefoneUbs}" 
-                         size="20" maxlength="20" />
-                    
+                    <h:panelGroup>
+                        <p:inputMask id="cnes" mask="999999999999999" value="#{ubsBean.ubs.cnes}" size="18" maxlength="15" required="true"/>
+                        <p:outputLabel for="telefone" value="#{msg.phone1}: " style="margin-left: 8px"/>
+                        <p:inputText id="telefone" styleClass="phone upper" value="#{ubsBean.ubs.telefoneUbs}" 
+                                     size="15" maxlength="20" />
+                    </h:panelGroup>
+
+                    <p:outputLabel for="nome" value="#{msg.name}: "/>
+                    <p:inputText id="nome" value="#{ubsBean.ubs.nome}" size="45" maxlength="50" required="true" 
+                                 requiredMessage="#{msg.mandatoryName}" />
+
+                    <p:outputLabel for="rua" value="#{msg.street}: " />
+                    <h:panelGroup>
+                        <p:inputText id="rua" value="#{ubsBean.ubs.endereco.rua}" size="38" maxlength="150" style="margin-right: 1px"/>
+                        <p:inputText id="numero" value="#{ubsBean.ubs.endereco.numero}" style="width: 44px" maxlength="6" placeholder="Nº"/>
+                    </h:panelGroup>
+
+                    <p:outputLabel for="bairro" value="#{msg.neighborhood}:"/>
+                    <h:panelGroup>
+                        <p:inputText id="bairro" value="#{ubsBean.ubs.endereco.bairro}" size="18" maxlength="100"/>
+                        <p:outputLabel for="cep" value="#{msg.postalCode}: " style="margin-left: 8px"/>
+                        <p:inputMask mask="99999-999" id="cep" value="#{ubsBean.ubs.endereco.cep}" size="17" maxlength="10"
+                                     style="margin-left: 25px"/>
+                    </h:panelGroup>
+
                     <p:outputLabel for="estado" value="#{msg.state}: " />
-                    <p:selectOneMenu id="estado" value="#{ubsBean.ubs.endereco.enderecoEstado}">
-                        <p:ajax process="@this" event="change" update="cidade" listener="#{ubsBean.carregarCidades}" />
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado" />
-                    </p:selectOneMenu>
+                    <h:panelGroup>
+                        <p:selectOneMenu id="estado" value="#{ubsBean.ubs.endereco.estado}" style="width: 122px; display: inline-block; vertical-align: top;">
+                            <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                            <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado" />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="cidade" value="#{msg.city}: " style="margin-left: 8px"/>
+                        <p:inputText id="cidade" value="#{ubsBean.ubs.endereco.cidade}" style="margin-left: 11px; width: 133px"/>
+                    </h:panelGroup>
 
-                    <p:outputLabel for="cidade" value="#{msg.city}: " />
-                    <p:selectOneMenu id="cidade" value="#{ubsBean.ubs.endereco.enderecoCidade}" filter="true"
-                                     filterMatchMode="startsWith" disabled="#{ubsBean.ubs.endereco.enderecoEstado eq null}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
-                    </p:selectOneMenu>
-
-                    <p:outputLabel for="numero" value="#{msg.number}: "/>
-                    <p:inputText id="numero" value="#{ubsBean.ubs.endereco.enderecoNumero}" size="10" maxlength="6"/>
-
-                    <p:outputLabel for="cep" value="#{msg.postalCode}: " />
-                    <p:inputMask mask="99999-999" id="cep" value="#{ubsBean.ubs.endereco.enderecoCep}" size="10" maxlength="10"/>
-                    
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarUbs" style="margin-top: 10px;">
@@ -71,9 +70,8 @@
                                          update="@form" icon="ui-icon ui-icon-disk">
                         </p:commandButton>
                         <p:button style="font-size: 13px;" value="#{msg.cancel}"
-                                  id="botaoCancelar" outcome="/ubs/PesquisaUBS"
-                                  icon="fa fa-times" rendered="#{ubsBean.editando}" 
-                                  disabled="#{botaoEditar}">
+                                  id="botaoCancelar" outcome="/Home"
+                                  icon="fa fa-times" disabled="#{botaoEditar}">
                         </p:button>
                     </f:facet>
 
