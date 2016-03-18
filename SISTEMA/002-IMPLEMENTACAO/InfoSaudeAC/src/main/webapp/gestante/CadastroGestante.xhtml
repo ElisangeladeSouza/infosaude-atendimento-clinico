@@ -36,7 +36,7 @@
 
                     <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
                     <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}">
-                        <!--<p:ajax process="@this" rendered="tabInfoResponsavel"/>-->
+                        <f:ajax render="@this formCadastroGestante tabInfoResponsavel"/>
                     </p:selectBooleanCheckbox>    
 
                 </h:panelGrid>    
@@ -82,7 +82,7 @@
                         </h:panelGrid>
                     </p:tab>
                     
-                    <p:tab id="tabInfoResponsavel" title="#{msg.responsible}">
+                    <p:tab id="tabInfoResponsavel" title="#{msg.responsible}" rendered="#{gestanteBean.gestante.menorQuinze ne false}">
                         <h:panelGrid id="gridResponsavel" columns="4">
 
                             <p:outputLabel for="representante" value="#{msg.familyRepresent}: "/>

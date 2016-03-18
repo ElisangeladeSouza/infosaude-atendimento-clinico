@@ -18,30 +18,32 @@ import javax.inject.Inject;
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class GestanteService implements GestanteServiceIF, Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private GestanteDao gestanteDao;
 
     /**
      * Método utilizado para salvar um novo cadastro no banco de dados ou editar
      * um cadastro existente.
-     * 
-     * @param gestante 
+     *
+     * @param gestante
      */
     @Transactional
     @Override
     public void save(Gestante gestante) {
         gestante.setData(new DateTimeUtilBean().getDateToday());
-        if(gestante != null) {
+            if (gestante.isMenorQuinze() == false) {
+                gestante.getIdResponsavelGestante().setNome("Nenhum responsavel");
+            }
             this.gestanteDao.salvar(gestante);
-        } 
     }
 
     /**
      * Método utilizado para remover um cadastro do banco de dados.
-     * @param gestante 
+     *
+     * @param gestante
      * @throws NegocioException
      */
     @Transactional
@@ -49,22 +51,23 @@ public class GestanteService implements GestanteServiceIF, Serializable {
     public void delete(Gestante gestante) throws NegocioException {
         gestanteDao.delete(findById(gestante.getId()));
     }
-    
+
     /**
      * Método utilizado para buscar um registro no banco de dados para
      * determinada entidade através da passagem do seu ID como parâmetro.
-     * 
+     *
      * @param id
      * @return
      */
     public Gestante findById(Long id) {
         return gestanteDao.findById(id);
     }
-    
+
     /**
-     * Método responsável pela busca em toda lista.Método utilizado para retornar 
-     * uma lista com todos os resultados encontrados no banco de dados para a entidade que a chamar.
-     * 
+     * Método responsável pela busca em toda lista.Método utilizado para
+     * retornar uma lista com todos os resultados encontrados no banco de dados
+     * para a entidade que a chamar.
+     *
      * @return
      */
     @Override
