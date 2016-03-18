@@ -35,7 +35,9 @@
                     <p:inputText id="nis" value="#{gestanteBean.gestante.nis}" size="20" maxlength="11"/>
 
                     <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
-                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}"/>    
+                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}">
+                        <!--<p:ajax process="@this" rendered="tabInfoResponsavel"/>-->
+                    </p:selectBooleanCheckbox>    
 
                 </h:panelGrid>    
 
@@ -80,15 +82,15 @@
                         </h:panelGrid>
                     </p:tab>
                     
-                    <p:tab id="tabInfoRepresentante" title="#{msg.responsible}">
-                        <h:panelGrid id="gridRepresentante" columns="4">
+                    <p:tab id="tabInfoResponsavel" title="#{msg.responsible}">
+                        <h:panelGrid id="gridResponsavel" columns="4">
 
                             <p:outputLabel for="representante" value="#{msg.familyRepresent}: "/>
-                            <p:inputText id="representante" value="#{gestanteBean.gestante.responsavelGestante.nome}" size="35" maxlength="100" 
+                            <p:inputText id="representante" value="#{gestanteBean.gestante.idResponsavelGestante.nome}" size="35" maxlength="100" 
                                          placeholder="Se menor incapaz"/>
 
                             <p:outputLabel for="dataNascimento" value="#{msg.birthDate}:" style="margin-left: 10px"/>
-                            <p:calendar id="dataNascimento" value="#{gestanteBean.gestante.responsavelGestante.dataNascimento}" 
+                            <p:calendar id="dataNascimento" value="#{gestanteBean.gestante.idResponsavelGestante.dataNascimento}" 
                                         navigator="true" pattern="dd/MM/yyyy" maxdate="#{dateTimeUtilBean.dateToday}" 
                                         yearRange="c-150:c+0" size="9" locale="pt" mask="true">
                                 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
@@ -107,15 +109,15 @@
                             <p:inputMask mask="99999-999" id="cep" value="#{gestanteBean.gestante.endereco.cep}" size="10" maxlength="8"/>
 
                             <p:outputLabel for="email" value="#{msg.email}: "/>
-                            <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.responsavelGestante.email}" size="35" 
+                            <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.idResponsavelGestante.email}" size="35" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
                             
                             <p:outputLabel for="telefone1" value="#{msg.phone1}: " style="margin-left: 10px"/>
-                            <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone1}" 
+                            <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.idResponsavelGestante.telefone1}" 
                                          size="20" maxlength="20"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}: "/>
-                            <p:inputText id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.responsavelGestante.telefone2}" 
+                            <p:inputText id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.idResponsavelGestante.telefone2}" 
                                          size="20" maxlength="20"/>
                         </h:panelGrid>
                     </p:tab>

@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,7 +13,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -47,7 +50,7 @@ public class Gestante implements Serializable {
     private String nomeEstabelecimentoSaude;
 
     @Column(name = "gestante_cnes", length = 15)
-    private String cnes;
+    private Long cnes;
 
     @Column(name = "gestante_num_area", length = 5)
     private String numArea;
@@ -72,10 +75,25 @@ public class Gestante implements Serializable {
     @Column(name = "gestante_data")
     private Date data;
 
-    @Embedded
-    private ResponsavelGestante responsavelGestante;
+//    @Embedded
+//    @OneToOne
+//    @JoinColumn(name = "responsavelGestante_pk")
+//    private ResponsavelGestante responsavelGestante;
     
     @OneToOne
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
+    
+    @PrimaryKeyJoinColumn(name = "id_responsavelGestante", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+//    @JoinColumn(name = "responsavelGestante", referencedColumnName = "id")
+    private ResponsavelGestante idResponsavelGestante;
+    
+    @Embedded
+    private Endereco endereco;
+    
+    public Gestante() {
+        this.endereco = new Endereco();
+        idResponsavelGestante = new ResponsavelGestante();
+    }
 }
