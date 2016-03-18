@@ -24,8 +24,6 @@ public class GestanteBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-//    private static final Log LOGGER = LogFactory.getLog(GestanteBean.class);
-    
     @Inject
     private Gestante gestante;
     
@@ -51,19 +49,6 @@ public class GestanteBean implements Serializable {
         this.gestantes = gestanteService.findAll();
     }
     
-     /**
-     * Método responsável por carregar uma lista com todas as cidades cadastradas.
-     * Esta lista será usada para preencher o respectivo campo de cidade na view.
-     */
-//    public void carregarCidades() {
-//        PessoaBean.cidades.clear();
-//        if (gestante.getUf()!= null) {
-//            for (String cidadesFiltradas : pessoaService.retornaCidades(gestante.getUf().getCodigo())) {
-//                PessoaBean.cidades.add(cidadesFiltradas);
-//            }
-//        }
-//    }
-
     /**
      * Lista de gestantes cadastrados na UBS.
      * 

@@ -18,11 +18,6 @@ public class ResponsavelGestante extends Pessoa implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinTable(name = "responsavel_lista_gestantes", joinColumns = {@JoinColumn(name = "responsavelGestante_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "gestante_id", referencedColumnName = "id")})
-//    private List<Gestante> gestantes;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idResponsavelGestante")
     private transient List<Gestante> gestantes;
 

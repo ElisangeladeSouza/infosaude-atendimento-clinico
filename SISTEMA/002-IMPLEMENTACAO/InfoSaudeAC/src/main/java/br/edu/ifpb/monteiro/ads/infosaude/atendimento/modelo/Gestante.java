@@ -75,18 +75,12 @@ public class Gestante implements Serializable {
     @Column(name = "gestante_data")
     private Date data;
 
-//    @Embedded
-//    @OneToOne
-//    @JoinColumn(name = "responsavelGestante_pk")
-//    private ResponsavelGestante responsavelGestante;
-    
     @OneToOne
     @JoinColumn(name = "paciente_pk")
     private Paciente paciente;
     
     @PrimaryKeyJoinColumn(name = "id_responsavelGestante", referencedColumnName = "id")
     @ManyToOne(optional = false)
-//    @JoinColumn(name = "responsavelGestante", referencedColumnName = "id")
     private ResponsavelGestante idResponsavelGestante;
     
     @Embedded
