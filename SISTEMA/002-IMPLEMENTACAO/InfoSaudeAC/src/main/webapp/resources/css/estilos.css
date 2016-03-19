@@ -217,7 +217,10 @@ footer {
     z-index: 9999;
 }
 
-
+#loginBackground {
+    background: url('../resources/imagens/loginBackground.png');
+    width: 100%;
+}
 
 
 /*html, body{height: 100%;}
