@@ -72,5 +72,7 @@ public class Consulta implements Serializable {
     @OneToOne
     @JoinColumn(name = "requisicao_exame_pk")
     private RequisicaoExame requisicaoExame;
+    
+    private boolean requisitarExames;
 
 }
