@@ -6,43 +6,43 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="/WEB-INF/templates/cabecalho.xhtml">
 
-    <f:metadata>
+<!--    <f:metadata>
         <f:viewParam name="requisicaoExame" value="#{requisicaoExameBean.requisicaoExame}"/>
-    </f:metadata>
+    </f:metadata>-->
 
 <!--    <ui:define id="uiTituloRequisicaoExames" name="titulo">#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest} | #{msg.systemName}</ui:define>
 
     <ui:define id="uiConteudoRequisicaoExames" name="conteudo">-->
 
-        <p:fieldset id="fieldsetRequisicaoExames" legend="#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest}"
-                    style="margin-top: 25px">
+<!--        <p:fieldset id="fieldsetRequisicaoExames" legend="#{requisicaoExameBean.editando ? msg.editCadastreExaminationRequest : msg.newRegisterExaminationRequest}"
+                    style="margin-top: 25px">-->
 
             <h:form id="formCadastroRequisicaoExames">
 
                 <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
                 
-                <h:inputHidden id="dataHora" value="#{requisicaoExameBean.requisicaoExame.data}">
+                <h:inputHidden id="dataHora" value="#{consultaBean.consulta.requisicaoExame.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatorioRequisicaoExames" columns="2">
 
                     <p:outputLabel for="codigo" value="#{msg.code}:"/>
-                    <p:inputText id="codigo" value="#{requisicaoExameBean.requisicaoExame.codigo}" size="20" required="true"
+                    <p:inputText id="codigo" value="#{consultaBean.consulta.requisicaoExame.codigo}" size="20" required="true"
                                  requiredMessage="É necessário informar um código"/>
 
                     <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}:"/>
-                    <p:inputMask id="solicitanteCnes" mask="999999999999999" value="#{requisicaoExameBean.requisicaoExame.solicitanteCnes}" 
+                    <p:inputMask id="solicitanteCnes" mask="999999999999999" value="#{consultaBean.consulta.requisicaoExame.solicitanteCnes}" 
                                  size="20" maxlength="15" />
 
                     <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
-                    <p:inputText id="solicitanteEndereco" value="#{requisicaoExameBean.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
+                    <p:inputText id="solicitanteEndereco" value="#{consultaBean.consulta.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
 
                     <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
-                    <p:inputText id="solicitanteCidade" value="#{requisicaoExameBean.requisicaoExame.solicitanteCidade}" style="width: 210px"/>
+                    <p:inputText id="solicitanteCidade" value="#{consultaBean.consulta.requisicaoExame.solicitanteCidade}" style="width: 210px"/>
 
                     <p:outputLabel for="exames" value="#{msg.examination}s: "/>
-                    <p:selectManyMenu id="exames" value="#{requisicaoExameBean.requisicaoExame.exames}" filter="true" showCheckbox="true"
+                    <p:selectManyMenu id="exames" value="#{consultaBean.consulta.requisicaoExame.exames}" filter="true" showCheckbox="true"
                                       filterMatchMode="contains" scrollHeight="150" style="width: 166px" required="true" 
                                       requiredMessage="#{msg.aListExams}">
                         <f:selectItems value="#{exameBean.exames}" var="exame" itemLabel="#{exame.descricao}" itemValue="#{exame.descricao}"/>
@@ -75,6 +75,6 @@
                 <!--<p:blockUI id="blockUIRequisicaoExames" block="formCadastroRequisicaoExames" trigger="botaoSalvar"/>-->
 
             </h:form>
-        </p:fieldset>
+        <!--</p:fieldset>-->
 <!--    </ui:define>-->
 </html>

@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -68,11 +69,16 @@ public class Consulta implements Serializable {
     @OneToOne
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
-
-    @OneToOne
-    @JoinColumn(name = "requisicao_exame_pk")
-    private RequisicaoExame requisicaoExame;
     
-    private boolean requisitarExames;
+    @Embedded
+    private RequisicaoExame requisicaoExame;
 
+//    @OneToOne
+//    @JoinColumn(name = "requisicao_exame_pk")
+//    private RequisicaoExame requisicaoExame;
+
+    public Consulta(){
+        this.requisicaoExame = new RequisicaoExame();
+    }
+    
 }

@@ -19,13 +19,11 @@
     <ui:insert name="menu">
         <h:form>
 
-            <!--                Algumas tags do atributo rendered do menuitem, recebem uma variável 
-                            correspondente aos grupos de usuário que podem ter acesso a determinadas 
-                            partes do sistema. -->
-            <!--                <p:menu toggleable="true" style="width: 181px" styleClass="sidebar">
-                                
-                            </p:menu>-->
-
+            <!-- 
+                Algumas tags do atributo rendered do menuitem, recebem uma variável 
+                correspondente aos grupos de usuário que podem ter acesso a determinadas 
+                partes do sistema. 
+            -->
             <p:menu style="width: 184px">
                 <p:submenu label="#{msg.consultation}">
                     <p:menuitem value="#{msg.treatmentForm}" outcome="/ficha-atendimento/PesquisaFichaAtendimento" rendered="#{podeVerFichaAtendimento}" icon="fa fa-list-ol"/>

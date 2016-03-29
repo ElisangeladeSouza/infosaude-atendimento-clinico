@@ -10,14 +10,16 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Managed bean usado pela página de cadastro de consulta.
- * É responsável por ligar a classe de modelo Consulta à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de consulta. É responsável por
+ * ligar a classe de modelo Consulta à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -38,12 +40,16 @@ public class ConsultaBean implements Serializable {
 
     private transient List<Consulta> consultas;
 
+    @Getter
+    @Setter
+    private boolean requisitarExames;
+
     /**
      * Construtor da classe
      */
     public ConsultaBean() {
     }
-    
+
     @PostConstruct
     public void init() {
         this.consultas = consultaService.findAll();
@@ -51,7 +57,7 @@ public class ConsultaBean implements Serializable {
 
     /**
      * Lista de consultas feitas na UBS.
-     * 
+     *
      * @return
      */
     public List<Consulta> getConsultas() {
@@ -59,8 +65,8 @@ public class ConsultaBean implements Serializable {
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Consulta e salvar. 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Consulta e salvar.
      */
     public void salvar() {
         this.consultaService.save(consulta);
@@ -74,9 +80,9 @@ public class ConsultaBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Consulta e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Consulta e exibir ao
+     * final do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

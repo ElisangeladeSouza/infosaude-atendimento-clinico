@@ -26,17 +26,22 @@
         <ui:include src="permissoes-telas.xhtml"/>
 
         <header>
-            <h:link outcome="/Home">
-                <p:graphicImage library="imagens" name="info_saude_web.png" styleClass="logo"/>
-            </h:link>
-            <h:form id="formUsuarioLogado" styleClass="formulario-usuario-logado">
-                <!--<a href="#" class="alterna-sidebar js-botao-sidebar"><i class="fa  fa-bars"></i></a>-->
-                <p:menubar id="barraMenu" styleClass="usuario-logado-topo" style="float: left !important">
-                    <p:submenu label="#{contaBean.usuarioLogado}" styleClass="nome-usuario-logado" >
-                        <p:menuitem id="sair" value="#{msg.exit}" action="#{contaBean.logout}" styleClass="link-sair"/>
-                    </p:submenu>
-                </p:menubar>
-            </h:form> 
+            <div >
+                <h:link outcome="/Home">
+                    <p:graphicImage library="imagens" name="info_saude_web.png" styleClass="logo"/>
+                </h:link>
+                <h:form id="formUsuarioLogado" styleClass="formulario-usuario-logado">
+                    <p:toolbar styleClass="usuario-logado-topo" style="float: left;">
+                        <f:facet name="right">
+                            <p:menuButton id="menuButtonUsuarioLogado" value="#{contaBean.usuarioLogado}" 
+                                          styleClass="logged-user" iconPos="right">
+                                <p:menuitem id="sair" value="#{msg.exit}" action="#{contaBean.logout}" styleClass="link-sair"/>
+                            </p:menuButton>
+                        </f:facet>
+                    </p:toolbar>
+                    <!--<a href="#" class="alterna-sidebar js-botao-sidebar"><i class="fa  fa-bars"></i></a>-->
+                </h:form> 
+            </div>
 
         </header>
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,14 +21,15 @@ import lombok.Data;
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
-@Entity
+//@Entity
 @Data
-@Table(name = "requisicao_exame")
+@Embeddable
+//@Table(name = "requisicao_exame")
 public class RequisicaoExame implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
     @Column(name = "requisicao_exame_codigo", length = 20)
     private String codigo;
