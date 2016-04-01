@@ -94,18 +94,18 @@
                                                      request.isUserInRole('TecnicosEnfermagem') or
                                                      request.isUserInRole('Administradores')}" scope="request"/> 
                 
-                <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à REQUISIÇÃO EXAMES-->
+<!--                Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à REQUISIÇÃO EXAMES
                 <c:set var="podeCadastrarRequisicaoExames" value="#{request.isUserInRole('Enfermeiros') or
                                                        request.isUserInRole('Medicos') or 
                                                        request.isUserInRole('Odontologos') or
                                                        request.isUserInRole('Administradores')}" scope="request"/> 
                 
-                <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de REQUISIÇÃO EXAME (PesquisaRequisicaoExames.xhtml)-->
+                Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de REQUISIÇÃO EXAME (PesquisaRequisicaoExames.xhtml)
                 <c:set var="podeVerRequisicaoExames" value="#{request.isUserInRole('Enfermeiros') or
                                                      request.isUserInRole('Medicos') or 
                                                      request.isUserInRole('Odontologos') or
                                                      request.isUserInRole('TecnicosEnfermagem') or
-                                                     request.isUserInRole('Administradores')}" scope="request"/> 
+                                                     request.isUserInRole('Administradores')}" scope="request"/> -->
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à AGENDAMENTO DE VISITA DOMICILIAR-->
                 <c:set var="podeCadastrarAgendamentoVisitaDomiciliar" value="#{request.isUserInRole('Enfermeiros') or

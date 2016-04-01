@@ -58,7 +58,7 @@ public class UbsBean implements Serializable {
         this.todasUbs = ubsService.findAll();
     }
 
-     /**
+    /**
      * Lista de ubs cadastradas na UBS.
      *
      * @return
@@ -83,11 +83,8 @@ public class UbsBean implements Serializable {
      */
     public void salvar() throws NegocioException {
         this.ubsService.save(ubs);
-        if (getEditando()) {
-            FacesUtil.mensagemSucesso("UBS atualizada com sucesso!");
-        } else {
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        }
+        FacesUtil.mensagemSucesso("UBS atualizada com sucesso!");
+        FacesUtil.redirecionaPara("/InfoSaudeAC/Home.xhtml");
     }
 
     /**
