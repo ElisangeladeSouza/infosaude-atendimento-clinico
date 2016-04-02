@@ -27,7 +27,9 @@
 
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
                     <h:panelGroup>
-                        <p:inputMask id="cnes" mask="999999999999999" value="#{ubsBean.ubs.cnes}" size="18" maxlength="15" required="true"/>
+                        <p:inputMask id="cnes" mask="999999999999999" value="#{ubsBean.ubs.cnes}" size="18" maxlength="15" required="true">
+                            <p:tooltip for="cnes" value="#{msg.nationalHealthEstablishmentRegister}"/>
+                        </p:inputMask>
                         <p:outputLabel for="telefone" value="#{msg.phone1}: " style="margin-left: 8px"/>
                         <p:inputText id="telefone" styleClass="phone upper" value="#{ubsBean.ubs.telefoneUbs}" 
                                      size="15" maxlength="20" />

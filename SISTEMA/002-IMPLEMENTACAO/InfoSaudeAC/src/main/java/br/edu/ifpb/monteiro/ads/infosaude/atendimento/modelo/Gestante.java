@@ -3,7 +3,6 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
 import java.io.Serializable;
 import java.util.Date;
-import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

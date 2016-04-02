@@ -51,18 +51,21 @@
                             <p:calendar id="dum" value="#{fichaPreNatalBean.fichaPreNatal.dum}" 
                                         navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                                 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                                <p:tooltip for="dum" value="#{msg.dateLastOfMenstruation}"/>
                             </p:calendar>
 
                             <p:outputLabel for="dpp" value="#{msg.dpp}: " />
                             <p:calendar id="dpp" value="#{fichaPreNatalBean.fichaPreNatal.dpp}" 
                                         navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                                 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                                <p:tooltip for="dpp" value="#{msg.probableDateOfChildBirth}"/>
                             </p:calendar>
 
                             <p:outputLabel for="ig" value="#{msg.ig}: " style="margin-left: 23px"/>
                             <p:calendar id="ig" value="#{fichaPreNatalBean.fichaPreNatal.ig}" 
                                         navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                                 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+                                <p:tooltip for="ig" value="#{msg.gestationalAge}"/>
                             </p:calendar>
 
                             <p:outputLabel for="semanasGestacao" value="#{msg.weekPregnancy}: "/>
