@@ -18,7 +18,7 @@ import lombok.Data;
 
 /**
  * Entidade que representa a Consulta para o paciente que pode ser feita por um
- * Médico, Enfermeiro, Odontólogo ou Administrador da UBS. Ao extender Pessoa,
+ * Médico, Enfermeiro, Odontólogo ou Diretor da UBS. Ao extender Pessoa,
  * passa a herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>

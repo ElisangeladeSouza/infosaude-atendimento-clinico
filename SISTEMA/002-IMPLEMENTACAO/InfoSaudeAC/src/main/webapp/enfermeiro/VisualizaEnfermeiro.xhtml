@@ -12,11 +12,11 @@
         <f:viewParam name="enfermeiro" value="#{enfermeiroBean.enfermeiro}"/>
     </f:metadata>
 
-    <ui:define id="uiTituloAdministrador" name="titulo">#{msg.viewCadastreNurse} | #{msg.systemName}</ui:define>
+    <ui:define id="uiTituloDiretor" name="titulo">#{msg.viewCadastreNurse} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoAdministrador" name="conteudo">
+    <ui:define id="uiConteudoDiretor" name="conteudo">
 
-        <p:fieldset id="fieldsetAdministrador" legend="#{msg.viewCadastreNurse}">
+        <p:fieldset id="fieldsetDiretor" legend="#{msg.viewCadastreNurse}">
             <h:form id="formCadastroEnfermeiro">
                 <p:fieldset id="visualizaPessoalEnfermeiro" legend="#{msg.personal}">
                     <isac:visualizaDadosPessoais corOuRaca="#{enfermeiroBean.enfermeiro.corOuRaca}" 

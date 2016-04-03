@@ -1,9 +1,9 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.AdministradorService;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AdministradorServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Diretor;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.DiretorService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.DiretorServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.PessoaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
@@ -17,41 +17,41 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * * Managed bean usado pela página de cadastro de adminsitrador. É responsável
- * por ligar a classe de modelo Administrador à página de visualização
+ * por ligar a classe de modelo Diretor à página de visualização
  * processando as solicitações do usuário e retornando os dados à visualização.
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
-public class AdministradorBean implements Serializable {
+public class DiretorBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Log LOGGER = LogFactory.getLog(AdministradorBean.class);
+    private static final Log LOGGER = LogFactory.getLog(DiretorBean.class);
 
     @Inject
-    private Administrador administrador;
+    private Diretor diretor;
 
     @Inject
-    private AdministradorServiceIF administradorService;
+    private DiretorServiceIF diretorService;
 
     @Inject
-    private Administrador administradorSelecionado;
+    private Diretor diretorSelecionado;
 
     @Inject
     private PessoaServiceIF pessoaService;
 
-    private transient List<Administrador> administradores;
+    private transient List<Diretor> diretores;
 
     /**
      * Construtor da classe
      */
-    public AdministradorBean() {
+    public DiretorBean() {
     }
 
     @PostConstruct
     public void init() {
-        this.administradores = administradorService.findAll();
+        this.diretores = diretorService.findAll();
     }
 
     /**
@@ -60,41 +60,41 @@ public class AdministradorBean implements Serializable {
      * cidade na view.
      */
     public void carregarCidades() {
-        pessoaService.retornaCidades(administrador.getEndereco().getEstado(), administrador.getEndereco().getEstado().getCodigo());
+        pessoaService.retornaCidades(diretor.getEndereco().getEstado(), diretor.getEndereco().getEstado().getCodigo());
 //        PessoaBean.cidades.clear();
-//        if (administrador.getEndereco().getEnderecoEstado() != null) {
-//            for (String cidadesFiltradas : pessoaService.retornaCidades(administrador.getEndereco().getEnderecoEstado().getCodigo())) {
+//        if (diretor.getEndereco().getEnderecoEstado() != null) {
+//            for (String cidadesFiltradas : pessoaService.retornaCidades(diretor.getEndereco().getEnderecoEstado().getCodigo())) {
 //                PessoaBean.cidades.add(cidadesFiltradas);
 //            }
 //        }
     }
 
     /**
-     * Lista de administradores da UBS.
+     * Lista de diretores da UBS.
      *
      * @return
      */
-    public List<Administrador> getAdministradores() {
-        return administradores;
+    public List<Diretor> getDiretores() {
+        return diretores;
     }
 
     /**
      * Método responsável por iniciar uma transação, instanciar um objeto do
-     * tipo Administrador e salvar. Se algum erro ocorrer, deve-se fazer
+     * tipo Diretor e salvar. Se algum erro ocorrer, deve-se fazer
      * rollback e apresentar uma mensagem de erro.
      *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         try {
-            this.administradorService.save(administrador);
+            this.diretorService.save(diretor);
             if (getEditando()) {
-                FacesUtil.mensagemSucesso("Cadastro do administrador '" + administrador.getNome() + "' atualizado com sucesso!");
+                FacesUtil.mensagemSucesso("Cadastro do diretor '" + diretor.getNome() + "' atualizado com sucesso!");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
-            FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
-            administrador = new Administrador();
+            FacesUtil.redirecionaPara("PesquisaDiretor.xhtml");
+            diretor = new Diretor();
         } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
             LOGGER.warn(rollback);
@@ -102,15 +102,15 @@ public class AdministradorBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Administrador e exibir
+     * Método responsável por excluir um objeto do tipo Diretor e exibir
      * ao final do processo uma mensagem informativa.
      *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
-        this.administradorService.delete(administradorSelecionado);
+        this.diretorService.delete(diretorSelecionado);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
-        FacesUtil.redirecionaPara("PesquisaAdministrador.xhtml");
+        FacesUtil.redirecionaPara("PesquisaDiretor.xhtml");
     }
 
     /**
@@ -120,30 +120,30 @@ public class AdministradorBean implements Serializable {
      * @return
      */
     public boolean getEditando() {
-        return this.administrador.getId() != null;
+        return this.diretor.getId() != null;
     }
 
-    public Administrador getAdministradorSelecionado() {
-        return administradorSelecionado;
+    public Diretor getDiretorSelecionado() {
+        return diretorSelecionado;
     }
 
-    public void setAdministradorSelecionado(Administrador administradorSelecionado) {
-        this.administradorSelecionado = administradorSelecionado;
+    public void setDiretorSelecionado(Diretor diretorSelecionado) {
+        this.diretorSelecionado = diretorSelecionado;
     }
 
-    public Administrador getAdministrador() {
-        return administrador;
+    public Diretor getDiretor() {
+        return diretor;
     }
 
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
+    public void setDiretor(Diretor diretor) {
+        this.diretor = diretor;
     }
 
-    public AdministradorService getAdministradorService() {
-        return (AdministradorService) administradorService;
+    public DiretorService getDiretorService() {
+        return (DiretorService) diretorService;
     }
 
-    public void setAdministradorService(AdministradorService administradorService) {
-        this.administradorService = administradorService;
+    public void setDiretorService(DiretorService diretorService) {
+        this.diretorService = diretorService;
     }
 }

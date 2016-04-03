@@ -7,9 +7,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Entidade que representa o Administrador da UBS. Esse administrador é uma
+ * Entidade que representa o Diretor da UBS. Esse diretor é uma
  * espécie de gerente que poderá ter poderes administrativos sobre todas as
- * operações contidadas dentro do sistema. Apenas o Administrador pode realizar
+ * operações contidadas dentro do sistema. Apenas o Diretor pode realizar
  * algumas operações que nenhum outro profissional com acesso ao sistema pode
  * ter. Ao extender Pessoa, passa a herdar todos os seus atributos.
  *
@@ -18,13 +18,13 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Administrador extends Pessoa implements Serializable {
+public class Diretor extends Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "pessoa_cpf_administrador", nullable = false, unique = true, length = 11)
-    private String cpfAdministrador;
+    @Column(name = "pessoa_cpf_diretor", nullable = false, unique = true, length = 11)
+    private String cpfDiretor;
 
     @Column(name = "pessoa_cartao_sus", unique = true, nullable = false, length = 20)
-    private String cartaoSusAdministrador;
+    private String cartaoSusDiretor;
 }

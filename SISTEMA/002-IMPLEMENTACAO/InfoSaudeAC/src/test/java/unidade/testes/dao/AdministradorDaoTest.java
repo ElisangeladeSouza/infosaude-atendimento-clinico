@@ -1,9 +1,9 @@
 //package unidade.testes.dao;
 //
 //import br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores.DateTimeUtilBean;
-//import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.AdministradorDao;
+//import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.DiretorDao;
 //import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Estados;
-//import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
+//import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Diretor;
 //import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.EntityManagerProducer;
 //import java.util.ArrayList;
 //import java.util.List;
@@ -15,20 +15,20 @@
 //import org.junit.Test;
 //
 ///**
-// * Teste unitários da classe de AdministradorDao.
+// * Teste unitários da classe de DiretorDao.
 // * 
 // * @author wilde <wildearruda@gmail.com> 
 // */
-//public class AdministradorDaoTest {
+//public class DiretorDaoTest {
 //
 //    private static EntityManagerProducer entityManagerProducer;
 //    private static EntityManager entityManager;
-//    private static AdministradorDao administradorDao;
+//    private static DiretorDao diretorDao;
 //    private static DateTimeUtilBean dateTimeUtilBean;
-//    private static List<Administrador> listaAdministradores;
+//    private static List<Diretor> listaDiretores;
 //    private static Long id;
 //
-//    public AdministradorDaoTest() {
+//    public DiretorDaoTest() {
 //    }
 //
 //    /**
@@ -38,25 +38,25 @@
 //     */
 //    @BeforeClass
 //    public static void setUpClass() {
-//        administradorDao = new AdministradorDao();
+//        diretorDao = new DiretorDao();
 //        dateTimeUtilBean = new DateTimeUtilBean();
 //        entityManagerProducer = new EntityManagerProducer("InfoSaudePU_Testes");
 //        entityManager = entityManagerProducer.create();
-//        administradorDao.setEntityManager(entityManager);
+//        diretorDao.setEntityManager(entityManager);
 //    }
 //    
 //    /**
-//     * Método que testa se cadastro de Administrador está sendo salvo nulo. 
+//     * Método que testa se cadastro de Diretor está sendo salvo nulo. 
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorNull() {
+//    public void testSalvarDiretorNull() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -64,42 +64,42 @@
 //     * nos campos obrigatórios.
 //     */
 //    @Test
-//    public void testSalvarAdministradorCamposObrigatorios() {
+//    public void testSalvarDiretorCamposObrigatorios() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR SOBRENOME");
-//        administrador.setCpfAdministrador("52645149847");
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0004");
-//        administrador.setEmail("");
-//        administrador.setCorOuRaca("");
-//        administrador.setEnderecoBairro("");
-//        administrador.setEnderecoCep("");
-//        administrador.setEnderecoCidade("");
-//        administrador.setEnderecoNumero("");
-//        administrador.setEnderecoRua("");
-//        administrador.setRg("");
-//        administrador.setTelefone1("");
-//        administrador.setTelefone2("");
+//        diretor.setNome("ADMINISTRADOR SOBRENOME");
+//        diretor.setCpfDiretor("52645149847");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0004");
+//        diretor.setEmail("");
+//        diretor.setCorOuRaca("");
+//        diretor.setEnderecoBairro("");
+//        diretor.setEnderecoCep("");
+//        diretor.setEnderecoCidade("");
+//        diretor.setEnderecoNumero("");
+//        diretor.setEnderecoRua("");
+//        diretor.setRg("");
+//        diretor.setTelefone1("");
+//        diretor.setTelefone2("");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
-//        listaAdministradores = administradorDao.findAll();
+//        listaDiretores = (List<Diretor>) new ArrayList<Diretor>();
+//        listaDiretores = diretorDao.findAll();
 //
-//        for (Administrador administrador1 : listaAdministradores) {
+//        for (Diretor diretor1 : listaDiretores) {
 //
-//            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
-//                id = administrador1.getId();
+//            if (diretor1.getCpfDiretor().equals(diretor.getCpfDiretor())) {
+//                id = diretor1.getId();
 //            }
 //        }
 //
-//        Administrador novoAdministrador = new Administrador();
-//        novoAdministrador = administradorDao.findById(id);
+//        Diretor novoDiretor = new Diretor();
+//        novoDiretor = diretorDao.findById(id);
 //
-//        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
+//        assertEquals(diretor.getCpfDiretor(), novoDiretor.getCpfDiretor());
 //    }
 //
 //    /**
@@ -107,79 +107,79 @@
 //     * todos os campos.
 //     */
 //    @Test
-//    public void testSalvarAdministradorTodosCampos() {
+//    public void testSalvarDiretorTodosCampos() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR I SOBRENOME");
-//        administrador.setCpfAdministrador("23367341258");
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0009");
-//        administrador.setEmail("administrador.isobrenome@domain.com");
-//        administrador.setCorOuRaca("PARDA");
-//        administrador.setDataNascimento(dateTimeUtilBean.getDateToday());
-//        administrador.setEnderecoBairro("BAIRRO");
-//        administrador.setEnderecoCep("58500-000");
-//        administrador.setEnderecoCidade("MONTEIRO");
-//        administrador.setEnderecoEstado(Estados.PB);
-//        administrador.setEnderecoNumero("1");
-//        administrador.setEnderecoRua("DAS FLORES");
-//        administrador.setRg("88555741-x");
-//        administrador.setTelefone1("(83)9988-7766");
-//        administrador.setTelefone2("(83)3305-0001");
+//        diretor.setNome("ADMINISTRADOR I SOBRENOME");
+//        diretor.setCpfDiretor("23367341258");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0009");
+//        diretor.setEmail("diretor.isobrenome@domain.com");
+//        diretor.setCorOuRaca("PARDA");
+//        diretor.setDataNascimento(dateTimeUtilBean.getDateToday());
+//        diretor.setEnderecoBairro("BAIRRO");
+//        diretor.setEnderecoCep("58500-000");
+//        diretor.setEnderecoCidade("MONTEIRO");
+//        diretor.setEnderecoEstado(Estados.PB);
+//        diretor.setEnderecoNumero("1");
+//        diretor.setEnderecoRua("DAS FLORES");
+//        diretor.setRg("88555741-x");
+//        diretor.setTelefone1("(83)9988-7766");
+//        diretor.setTelefone2("(83)3305-0001");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
-//        listaAdministradores = administradorDao.findAll();
+//        listaDiretores = (List<Diretor>) new ArrayList<Diretor>();
+//        listaDiretores = diretorDao.findAll();
 //
-//        for (Administrador administrador1 : listaAdministradores) {
+//        for (Diretor diretor1 : listaDiretores) {
 //
-//            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
-//                id = administrador1.getId();
+//            if (diretor1.getCpfDiretor().equals(diretor.getCpfDiretor())) {
+//                id = diretor1.getId();
 //            }
 //        }
 //
-//        Administrador novoAdministrador = new Administrador();
-//        novoAdministrador = administradorDao.findById(id);
+//        Diretor novoDiretor = new Diretor();
+//        novoDiretor = diretorDao.findById(id);
 //
-//        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
+//        assertEquals(diretor.getCpfDiretor(), novoDiretor.getCpfDiretor());
 //    }
 //
 //    /**
-//     * Método que testa o cadastro de um Administrador com as mesmas 
+//     * Método que testa o cadastro de um Diretor com as mesmas 
 //     * informações de um cadastro já existente. 
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorDuplicado() {
+//    public void testSalvarDiretorDuplicado() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR II SOBRENOME");
-//        administrador.setCpfAdministrador("17407400253");
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
-//        administrador.setEmail("administrador.iisobrenome@domain.com");
-//        administrador.setCorOuRaca("PARDA");
-//        administrador.setDataNascimento(dateTimeUtilBean.getDateToday());
-//        administrador.setEnderecoBairro("BAIRRO");
-//        administrador.setEnderecoCep("58500-000");
-//        administrador.setEnderecoCidade("MONTEIRO");
-//        administrador.setEnderecoEstado(Estados.CE);
-//        administrador.setEnderecoNumero("1");
-//        administrador.setEnderecoRua("DAS FLORES");
-//        administrador.setRg("88555741-x");
-//        administrador.setTelefone1("(83)9988-7766");
-//        administrador.setTelefone2("(83)3305-0001");
+//        diretor.setNome("ADMINISTRADOR II SOBRENOME");
+//        diretor.setCpfDiretor("17407400253");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0099");
+//        diretor.setEmail("diretor.iisobrenome@domain.com");
+//        diretor.setCorOuRaca("PARDA");
+//        diretor.setDataNascimento(dateTimeUtilBean.getDateToday());
+//        diretor.setEnderecoBairro("BAIRRO");
+//        diretor.setEnderecoCep("58500-000");
+//        diretor.setEnderecoCidade("MONTEIRO");
+//        diretor.setEnderecoEstado(Estados.CE);
+//        diretor.setEnderecoNumero("1");
+//        diretor.setEnderecoRua("DAS FLORES");
+//        diretor.setRg("88555741-x");
+//        diretor.setTelefone1("(83)9988-7766");
+//        diretor.setTelefone2("(83)3305-0001");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -187,15 +187,15 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorNome() {
+//    public void testSalvarDiretorNome() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR III SOBRENOME");
+//        diretor.setNome("ADMINISTRADOR III SOBRENOME");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -203,15 +203,15 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorCpf() {
+//    public void testSalvarDiretorCpf() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setCpfAdministrador("53406305792");
+//        diretor.setCpfDiretor("53406305792");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -219,15 +219,15 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorSus() {
+//    public void testSalvarDiretorSus() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0099");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -235,15 +235,15 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorEmail() {
+//    public void testSalvarDiretorEmail() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setEmail("administrador.iiisobrenome@domain.com");
+//        diretor.setEmail("diretor.iiisobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -251,16 +251,16 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorNomeCpf() {
+//    public void testSalvarDiretorNomeCpf() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR IV SOBRENOME");
-//        administrador.setCpfAdministrador("53406305792");
+//        diretor.setNome("ADMINISTRADOR IV SOBRENOME");
+//        diretor.setCpfDiretor("53406305792");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -268,58 +268,58 @@
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorCpfDuplicado() {
+//    public void testSalvarDiretorCpfDuplicado() {
 //
-//        Administrador administrador = new Administrador();
-//        Administrador novoAdministrador = new Administrador();
+//        Diretor diretor = new Diretor();
+//        Diretor novoDiretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR V SOBRENOME");
-//        administrador.setCpfAdministrador("17407400253");
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
-//        administrador.setEmail("administrador.iisobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR V SOBRENOME");
+//        diretor.setCpfDiretor("17407400253");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0099");
+//        diretor.setEmail("diretor.iisobrenome@domain.com");
 //
-//        novoAdministrador.setNome("ADMINISTRADOR X SOBRENOME");
-//        novoAdministrador.setCpfAdministrador("17407400253");
-//        novoAdministrador.setCartaoSusAdministrador("898 0001 0121 0901");
-//        novoAdministrador.setEmail("administrador.xsobrenome@domain.com");
+//        novoDiretor.setNome("ADMINISTRADOR X SOBRENOME");
+//        novoDiretor.setCpfDiretor("17407400253");
+//        novoDiretor.setCartaoSusDiretor("898 0001 0121 0901");
+//        novoDiretor.setEmail("diretor.xsobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(novoAdministrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(novoDiretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
-//     * Método que testa o cadastro de um Administrador com um Cartão SUS já
+//     * Método que testa o cadastro de um Diretor com um Cartão SUS já
 //     * cadastrado no sistema. 
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */
 //    @Test(expected = Exception.class)
-//    public void testSalvarAdministradorSusDuplicado() {
+//    public void testSalvarDiretorSusDuplicado() {
 //
-//        Administrador administrador = new Administrador();
-//        Administrador novoAdministrador = new Administrador();
+//        Diretor diretor = new Diretor();
+//        Diretor novoDiretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR VI SOBRENOME");
-//        administrador.setCpfAdministrador("17407400253");
-//        administrador.setCartaoSusAdministrador("898 0001 0121 0099");
-//        administrador.setEmail("administrador.iisobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR VI SOBRENOME");
+//        diretor.setCpfDiretor("17407400253");
+//        diretor.setCartaoSusDiretor("898 0001 0121 0099");
+//        diretor.setEmail("diretor.iisobrenome@domain.com");
 //
-//        novoAdministrador.setNome("ADMINISTRADOR VII SOBRENOME");
-//        novoAdministrador.setCpfAdministrador("43622448326");
-//        novoAdministrador.setCartaoSusAdministrador("898 0001 0121 0099");
-//        novoAdministrador.setEmail("administrador.xsobrenome@domain.com");
+//        novoDiretor.setNome("ADMINISTRADOR VII SOBRENOME");
+//        novoDiretor.setCpfDiretor("43622448326");
+//        novoDiretor.setCartaoSusDiretor("898 0001 0121 0099");
+//        novoDiretor.setEmail("diretor.xsobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(novoAdministrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(novoDiretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -330,16 +330,16 @@
 //    @Test
 //    public void testSalvarCpfSusTodoSistema() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ENTIDADE SOBRENOME");
-//        administrador.setCpfAdministrador("91184468680");
-//        administrador.setCartaoSusAdministrador("898 2221 0121 9994");
-//        administrador.setEmail("entidade.sobrenome@domain.com");
+//        diretor.setNome("ENTIDADE SOBRENOME");
+//        diretor.setCpfDiretor("91184468680");
+//        diretor.setCartaoSusDiretor("898 2221 0121 9994");
+//        diretor.setEmail("entidade.sobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //    }
 //
 //    /**
@@ -349,21 +349,21 @@
 //    @Test
 //    public void testFindAll() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR VIII SOBRENOME ");
-//        administrador.setCpfAdministrador("55456713314");
-//        administrador.setCartaoSusAdministrador("756 0000 0000 0000");
-//        administrador.setEmail("administrador.sobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR VIII SOBRENOME ");
+//        diretor.setCpfDiretor("55456713314");
+//        diretor.setCartaoSusDiretor("756 0000 0000 0000");
+//        diretor.setEmail("diretor.sobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
-//        listaAdministradores = administradorDao.findAll();
+//        listaDiretores = (List<Diretor>) new ArrayList<Diretor>();
+//        listaDiretores = diretorDao.findAll();
 //
-//        assertFalse(0 == listaAdministradores.size());
+//        assertFalse(0 == listaDiretores.size());
 //    }
 //
 //    /**
@@ -373,30 +373,30 @@
 //    @Test
 //    public void testFindById() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR IX SOBRENOME");
-//        administrador.setCpfAdministrador("81574762591");
-//        administrador.setCartaoSusAdministrador("756 0000 0000 0001");
-//        administrador.setEmail("administrador.sobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR IX SOBRENOME");
+//        diretor.setCpfDiretor("81574762591");
+//        diretor.setCartaoSusDiretor("756 0000 0000 0001");
+//        diretor.setEmail("diretor.sobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
-//        listaAdministradores = administradorDao.findAll();
+//        listaDiretores = (List<Diretor>) new ArrayList<Diretor>();
+//        listaDiretores = diretorDao.findAll();
 //
-//        for (Administrador administrador1 : listaAdministradores) {
+//        for (Diretor diretor1 : listaDiretores) {
 //
-//            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
-//                id = administrador1.getId();
+//            if (diretor1.getCpfDiretor().equals(diretor.getCpfDiretor())) {
+//                id = diretor1.getId();
 //            }
 //        }
 //
-//        Administrador novoAdministrador = new Administrador();
-//        novoAdministrador = administradorDao.findById(id);
-//        assertEquals(administrador.getCpfAdministrador(), novoAdministrador.getCpfAdministrador());
+//        Diretor novoDiretor = new Diretor();
+//        novoDiretor = diretorDao.findById(id);
+//        assertEquals(diretor.getCpfDiretor(), novoDiretor.getCpfDiretor());
 //    }
 //
 //    /**
@@ -405,20 +405,20 @@
 //    @Test
 //    public void testFindByIdInexistente() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR X SOBRENOME");
-//        administrador.setCpfAdministrador("82471569463");
-//        administrador.setCartaoSusAdministrador("756 0000 0000 0002");
-//        administrador.setEmail("administrador.sobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR X SOBRENOME");
+//        diretor.setCpfDiretor("82471569463");
+//        diretor.setCartaoSusDiretor("756 0000 0000 0002");
+//        diretor.setEmail("diretor.sobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        Administrador novoAdministrador = new Administrador();
+//        Diretor novoDiretor = new Diretor();
 //
-//        assertNull(novoAdministrador = administradorDao.findById(0L));
+//        assertNull(novoDiretor = diretorDao.findById(0L));
 //    }
 //
 //    /**
@@ -427,29 +427,29 @@
 //    @Test
 //    public void testDelete() {
 //
-//        Administrador administrador = new Administrador();
+//        Diretor diretor = new Diretor();
 //
-//        administrador.setNome("ADMINISTRADOR XI SOBRENOME");
-//        administrador.setCpfAdministrador("67338517177");
-//        administrador.setCartaoSusAdministrador("756 0000 0000 0003");
-//        administrador.setEmail("administrador.sobrenome@domain.com");
+//        diretor.setNome("ADMINISTRADOR XI SOBRENOME");
+//        diretor.setCpfDiretor("67338517177");
+//        diretor.setCartaoSusDiretor("756 0000 0000 0003");
+//        diretor.setEmail("diretor.sobrenome@domain.com");
 //
-//        administradorDao.getEntityManager().getTransaction().begin();
-//        administradorDao.salvar(administrador);
-//        administradorDao.getEntityManager().getTransaction().commit();
+//        diretorDao.getEntityManager().getTransaction().begin();
+//        diretorDao.salvar(diretor);
+//        diretorDao.getEntityManager().getTransaction().commit();
 //
-//        listaAdministradores = (List<Administrador>) new ArrayList<Administrador>();
-//        listaAdministradores = administradorDao.findAll();
+//        listaDiretores = (List<Diretor>) new ArrayList<Diretor>();
+//        listaDiretores = diretorDao.findAll();
 //
-//        for (Administrador administrador1 : listaAdministradores) {
+//        for (Diretor diretor1 : listaDiretores) {
 //
-//            if (administrador1.getCpfAdministrador().equals(administrador.getCpfAdministrador())) {
-//                id = administrador1.getId();
-//                administrador = administrador1;
+//            if (diretor1.getCpfDiretor().equals(diretor.getCpfDiretor())) {
+//                id = diretor1.getId();
+//                diretor = diretor1;
 //            }
 //        }
-//        administradorDao.delete(administrador);
+//        diretorDao.delete(diretor);
 //
-//        assertNull(administradorDao.findById(id));
+//        assertNull(diretorDao.findById(id));
 //    }
 //}

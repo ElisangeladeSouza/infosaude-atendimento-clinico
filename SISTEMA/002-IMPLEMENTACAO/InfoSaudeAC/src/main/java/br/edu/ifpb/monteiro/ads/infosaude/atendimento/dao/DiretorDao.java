@@ -1,6 +1,6 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Diretor;
 import java.io.Serializable;
 
 /**
@@ -12,11 +12,11 @@ import java.io.Serializable;
  * 
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class AdministradorDao extends DaoAbstrato<Administrador> implements Serializable {
+public class DiretorDao extends DaoAbstrato<Diretor> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public AdministradorDao() {
-        super(Administrador.class);
+    public DiretorDao() {
+        super(Diretor.class);
     }
 }

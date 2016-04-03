@@ -342,7 +342,7 @@
 //    }
 //
 //    /**
-//     * Método que testa o cadastro de um Administrador com um Cartão SUS já
+//     * Método que testa o cadastro de um Diretor com um Cartão SUS já
 //     * cadastrado no sistema. 
 //     * Caso isso aconteça uma exceção deve ser lançada.
 //     */

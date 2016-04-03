@@ -91,7 +91,7 @@ public class ContaDaoTest {
         assertEquals(conta.getPassword(), novaConta.getPassword());
     }
 
-    //Teste comentado para decisão junto com o administrador para resolução de regra de negócio
+    //Teste comentado para decisão junto com o diretor para resolução de regra de negócio
 //    @Test(expected = Exception.class)
 //    public void testSalvarContaDuplicada() {
 //

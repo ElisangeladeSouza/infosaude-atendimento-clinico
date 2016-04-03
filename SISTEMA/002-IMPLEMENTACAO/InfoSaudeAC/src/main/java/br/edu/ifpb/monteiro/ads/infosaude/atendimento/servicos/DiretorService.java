@@ -1,9 +1,9 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.AdministradorDao;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.dao.DiretorDao;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Administrador;
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.AdministradorServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Diretor;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.DiretorServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jpa.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -16,40 +16,40 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-public class AdministradorService implements AdministradorServiceIF, Serializable {
+public class DiretorService implements DiretorServiceIF, Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private AdministradorDao administradorDAO;
+    private DiretorDao diretorDAO;
 
-    public AdministradorService() {
+    public DiretorService() {
     }
 
     /**
      * Método utilizado para salvar um novo cadastro no banco de dados ou editar
      * um cadastro existente.
      * 
-     * @param administrador
+     * @param diretor
      */
     @Transactional
     @Override
-    public void save(Administrador administrador) {
-        if (administrador != null) {
-            this.administradorDAO.salvar(administrador);
+    public void save(Diretor diretor) {
+        if (diretor != null) {
+            this.diretorDAO.salvar(diretor);
         }
     }
 
     /**
      * Método utilizado para remover um cadastro do banco de dados.
      * 
-     * @param administrador
+     * @param diretor
      * @throws NegocioException
      */
     @Transactional
     @Override
-    public void delete(Administrador administrador) throws NegocioException {
-        administradorDAO.delete(findById(administrador.getId()));
+    public void delete(Diretor diretor) throws NegocioException {
+        diretorDAO.delete(findById(diretor.getId()));
     }
 
     /**
@@ -59,8 +59,8 @@ public class AdministradorService implements AdministradorServiceIF, Serializabl
      * @return
      */
     @Override
-    public List<Administrador> findAll() {
-        return administradorDAO.findAll();
+    public List<Diretor> findAll() {
+        return diretorDAO.findAll();
     }
 
     /**
@@ -71,7 +71,7 @@ public class AdministradorService implements AdministradorServiceIF, Serializabl
      * @return
      */
     @Override
-    public Administrador findById(Long id) {
-        return administradorDAO.findById(id);
+    public Diretor findById(Long id) {
+        return diretorDAO.findById(id);
     }
 }

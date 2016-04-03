@@ -1,6 +1,6 @@
 package unidade.testes.conversores;
 
-import br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores.AdministradorConverter;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.conversores.DiretorConverter;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.UBSException;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,9 +9,9 @@ import org.junit.Test;
  *
  * @author wilde <wildearruda@gmail.com>
  */
-public class AdministradorConverterTest {
+public class DiretorConverterTest {
 
-    public AdministradorConverterTest() {
+    public DiretorConverterTest() {
     }
 
     /**
@@ -27,8 +27,8 @@ public class AdministradorConverterTest {
      */
     @Test(expected = Exception.class)
     public void testGetAsObject() throws UBSException {
-        AdministradorConverter administradorConverter = new AdministradorConverter();
-        administradorConverter.getAsObject(null, null, null);
+        DiretorConverter diretorConverter = new DiretorConverter();
+        diretorConverter.getAsObject(null, null, null);
     }
 
     /**
@@ -37,7 +37,7 @@ public class AdministradorConverterTest {
      */
     @Test(expected = Exception.class)
     public void testGetAsString() throws UBSException {
-        AdministradorConverter administradorConverter = new AdministradorConverter();
-        administradorConverter.getAsString(null, null, null);
+        DiretorConverter diretorConverter = new DiretorConverter();
+        diretorConverter.getAsString(null, null, null);
     }
 }
