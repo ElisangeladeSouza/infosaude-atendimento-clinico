@@ -9,8 +9,8 @@
       <property name="eclipselink.logging.level" value="FINE"/>
       <property name="eclipselink.logging.logger" value="DefaultLogger"/>
       <property name="eclipselink.logging.session" value="true"/>
-      <!--Cria as tabelas de pais, cidades e estados, caso não existam e as populam com os dados relacionados para o Brasil.-->
-      <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/CidadesEstadosBrasil.sql"/>-->
+      <!--Insere o usuário para o primeiro acesso ao sistema e cadastro de outros usuarios-->
+      <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/inserir_usuario_banco.sql"/>
     </properties>
   </persistence-unit>
   <!--
