@@ -1,1 +1,1 @@
-INSERT INTO conta VALUES (1,'suporte.isac@cassioliveira.com.br','isac@568','suporte','Administradores');
+INSERT INTO conta VALUES (1,'suporte.isac@cassioliveira.com.br','1','suporte','Administradores');

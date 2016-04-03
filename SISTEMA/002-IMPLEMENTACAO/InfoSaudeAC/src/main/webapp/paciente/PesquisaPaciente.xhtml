@@ -24,7 +24,7 @@
                 </p:toolbar>
 
                 <p:dataTable id="datatablePesquisaPaciente" var="paciente" value="#{pacienteBean.pacientes}"
-                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" reflow="true" 
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaPaciente"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"

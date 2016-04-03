@@ -12,10 +12,10 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * Managed bean usado pela página de cadastro de exame. 
- * É responsável por ligar a classe de modelo Exame à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de exame. É responsável por ligar
+ * a classe de modelo Exame à página de visualização processando as solicitações
+ * do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -35,8 +35,8 @@ public class ExameBean implements Serializable {
     private transient List<Exame> exames;
 
     /**
-    * Construtor da classe
-    */
+     * Construtor da classe
+     */
     public ExameBean() {
     }
 
@@ -50,10 +50,10 @@ public class ExameBean implements Serializable {
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Exame e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Exame e salvar. Se algum erro ocorrer, deve-se fazer rollback e
+     * apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -61,17 +61,17 @@ public class ExameBean implements Serializable {
         this.exameService.save(exame);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro do exame '" + exame.getDescricao() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaExame.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaExame.xhtml");
         exame = new Exame();
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Exame e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Exame e exibir ao final
+     * do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

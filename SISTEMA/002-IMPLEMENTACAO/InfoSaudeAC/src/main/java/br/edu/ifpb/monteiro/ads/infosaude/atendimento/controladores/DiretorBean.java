@@ -17,8 +17,8 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * * Managed bean usado pela página de cadastro de adminsitrador. É responsável
- * por ligar a classe de modelo Diretor à página de visualização
- * processando as solicitações do usuário e retornando os dados à visualização.
+ * por ligar a classe de modelo Diretor à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
@@ -61,12 +61,6 @@ public class DiretorBean implements Serializable {
      */
     public void carregarCidades() {
         pessoaService.retornaCidades(diretor.getEndereco().getEstado(), diretor.getEndereco().getEstado().getCodigo());
-//        PessoaBean.cidades.clear();
-//        if (diretor.getEndereco().getEnderecoEstado() != null) {
-//            for (String cidadesFiltradas : pessoaService.retornaCidades(diretor.getEndereco().getEnderecoEstado().getCodigo())) {
-//                PessoaBean.cidades.add(cidadesFiltradas);
-//            }
-//        }
     }
 
     /**
@@ -80,8 +74,8 @@ public class DiretorBean implements Serializable {
 
     /**
      * Método responsável por iniciar uma transação, instanciar um objeto do
-     * tipo Diretor e salvar. Se algum erro ocorrer, deve-se fazer
-     * rollback e apresentar uma mensagem de erro.
+     * tipo Diretor e salvar. Se algum erro ocorrer, deve-se fazer rollback e
+     * apresentar uma mensagem de erro.
      *
      * @throws NegocioException
      */
@@ -102,8 +96,8 @@ public class DiretorBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Diretor e exibir
-     * ao final do processo uma mensagem informativa.
+     * Método responsável por excluir um objeto do tipo Diretor e exibir ao
+     * final do processo uma mensagem informativa.
      *
      * @throws NegocioException
      */

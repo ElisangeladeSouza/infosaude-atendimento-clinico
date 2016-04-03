@@ -26,7 +26,6 @@ header{
 }
 
 .alterna-sidebar{
-    line-height: 60px;
     font-size: 20px;
     margin-left: 10px;
     vertical-align: middle;
@@ -111,6 +110,7 @@ header{
 	margin-left: -211px;
 	transition: margin-left 0.5s;
 	overflow-y: auto;
+        z-index: 99999;
 	
 	background-color: #f6f6f6;
 	border-right: 1px solid #eaeaea;

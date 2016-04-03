@@ -14,40 +14,41 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * Managed bean usado pela página de cadastro de ficha de pré-natal. 
- * É responsável por ligar a classe de modelo FichaPreNatal à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de ficha de pré-natal. É
+ * responsável por ligar a classe de modelo FichaPreNatal à página de
+ * visualização processando as solicitações do usuário e retornando os dados à
+ * visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class FichaPreNatalBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private FichaPreNatal fichaPreNatal;
-    
+
     @Inject
     private FichaPreNatalServiceIF fichaPreNatalService;
-    
+
     @Inject
     private FichaPreNatal fichaPreNatalSelecionada;
-    
+
     private transient List<FichaPreNatal> preNatais;
-    
+
     private final transient List<TipoGravidez> tiposGravidez;
-    
+
     private final transient List<TempoGestacional> tempoGestacionais;
 
     /**
-    * Construtor da classe
-    */
+     * Construtor da classe
+     */
     public FichaPreNatalBean() {
         tiposGravidez = Arrays.asList(TipoGravidez.values());
         tempoGestacionais = Arrays.asList(TempoGestacional.values());
     }
-    
+
     @PostConstruct
     public void init() {
         this.preNatais = fichaPreNatalService.findAll();
@@ -64,29 +65,29 @@ public class FichaPreNatalBean implements Serializable {
     public List<TempoGestacional> getTempoGestacionais() {
         return tempoGestacionais;
     }
-    
+
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * FichaPreNatal e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo FichaPreNatal e salvar. Se algum erro ocorrer, deve-se fazer
+     * rollback e apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         this.fichaPreNatalService.save(fichaPreNatal);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro de ficha de pré-natal '" + fichaPreNatal.getId() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaFichaPreNatal.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaFichaPreNatal.xhtml");
         fichaPreNatal = new FichaPreNatal();
     }
-    
-     /**
+
+    /**
      * Método responsável por excluir um objeto do tipo FichaPreNatal e exibir
      * ao final do processo uma mensagem informativa.
-     * 
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

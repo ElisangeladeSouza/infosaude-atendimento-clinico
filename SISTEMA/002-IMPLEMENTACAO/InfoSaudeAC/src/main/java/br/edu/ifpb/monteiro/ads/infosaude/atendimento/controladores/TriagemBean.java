@@ -15,10 +15,10 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * Managed bean usado pela página de cadastro de triagem. 
- * É responsável por ligar a classe de modelo Triagem à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de triagem. É responsável por
+ * ligar a classe de modelo Triagem à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -36,15 +36,15 @@ public class TriagemBean implements Serializable {
     private Triagem triagemSelecionada;
 
     private transient List<Triagem> triagens;
-    
+
     private transient List<GrauUrgencia> urgencias = new ArrayList<>();
 
     /**
-     * Construtor da classe
-     * Inicia o array com os graus de urgência de acordo com o Protocolo de Manchester.
-     * 
+     * Construtor da classe Inicia o array com os graus de urgência de acordo
+     * com o Protocolo de Manchester.
+     *
      * @see GrauUrgencia
-     * 
+     *
      */
     public TriagemBean() {
         this.urgencias = Arrays.asList(GrauUrgencia.values());
@@ -57,44 +57,46 @@ public class TriagemBean implements Serializable {
 
     /**
      * Lista de triagens feitas na UBS.
-     * @return 
+     *
+     * @return
      */
     public List<Triagem> getTriagens() {
         return triagens;
     }
-    
+
     /**
-     * Lista de graus de urgências possíveis para a ordem de atendimento do paciente.
-     * 
+     * Lista de graus de urgências possíveis para a ordem de atendimento do
+     * paciente.
+     *
      * @see GrauUrgencia
-     * 
-     * @return 
+     *
+     * @return
      */
     public List<GrauUrgencia> getUrgencias() {
         return urgencias;
     }
-    
+
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Triagem e salvar. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Triagem e salvar.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         this.triagemService.save(triagem);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro da triagem '" + triagem.getCodigo() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaTriagem.xhtml");
         triagem = new Triagem();
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Triagem e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Triagem e exibir ao
+     * final do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

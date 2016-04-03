@@ -30,7 +30,7 @@
 
                     <p:outputLabel for="paciente" value="#{msg.patient}:"/>
                     <h:panelGroup>
-                        <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.fichaAtendimento}" required="true" style="width: 180px"  
+                        <p:selectOneMenu id="paciente" value="#{consultaBean.consulta.fichaAtendimento}" required="true" style="width: 227px"  
                                          filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                             <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                             <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento}"/>
@@ -39,22 +39,29 @@
                         <p:outputLabel id="msgSemFichaAtendimento" value="#{msg.noTreatmentFormAvaliable}" style="color: red; margin-left: 5px; font-size: 12px"
                                        rendered="#{fichaAtendimentoBean.fichaAtendimentos.size() eq 0}"/>
                     </h:panelGroup>
-
+                    
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s: "/>
-                    <p:inputTextarea id="sintomas" value="#{consultaBean.consulta.sintomas}"  maxlength="255"/>
+                    <p:selectOneMenu id="sintomas" value="#{consultaBean.consulta.sintomas}" editable="true" filter="true" 
+                                     filterMatchMode="contains" style="width: 227px;" label="Digite ou selecione">
+                        <f:selectItems id="listaDeSintomas" value="" var="sintoma" itemLabel="#{sintoma}" 
+                                       itemValue="#{sintoma}"/>
+                    </p:selectOneMenu>
+
+<!--                    <p:outputLabel for="sintomas" value="#{msg.symptom}s: "/>
+                    <p:inputTextarea id="sintomas" value="#{consultaBean.consulta.sintomas}" maxlength="255" rows="3" cols="30" autoResize="false"/>-->
 
                     <p:outputLabel for="anamnese" value="#{msg.anamnese}: "/>
-                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}"  maxlength="255"/>
+                    <p:inputTextarea id="anamnese" value="#{consultaBean.consulta.anamnese}"  maxlength="255" rows="3" cols="30" autoResize="false"/>
 
                     <p:outputLabel for="diagnostico" value="#{msg.diagnosis}: "/>
-                    <p:inputTextarea id="diagnostico" value="#{consultaBean.consulta.diagnostico}" maxlength="255"/>
+                    <p:inputTextarea id="diagnostico" value="#{consultaBean.consulta.diagnostico}" maxlength="255" rows="3" cols="30" autoResize="false"/>
 
                     <p:outputLabel for="prescricao" value="#{msg.prescription}: "/>
                     <p:inputTextarea id="prescricao" value="#{consultaBean.consulta.prescricao}"  maxlength="255"
-                                     required="true" requiredMessage="#{msg.aPrescriptionIsRequired}"/>
+                                     required="true" requiredMessage="#{msg.aPrescriptionIsRequired}" rows="3" cols="30" autoResize="false"/>
 
                     <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
-                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500"/>
+                    <p:inputTextarea id="observacoes" value="#{consultaBean.consulta.observacoes}"  maxlength="500" rows="3" cols="30" autoResize="false"/>
 
                     <!--                    <p:outputLabel for='requisicaoExame' value="Requisição Exame: "/>
                                         <p:commandButton id="requisicaoExame" icon="ui-icon-circle-plus" style="position: relative" value="Requisição Exame"

@@ -13,73 +13,73 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * Managed bean usado pela página de cadastro de gestante. 
- * É responsável por ligar a classe de modelo Gestante à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de gestante. É responsável por
+ * ligar a classe de modelo Gestante à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class GestanteBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private Gestante gestante;
-    
+
     @Inject
     private GestanteServiceIF gestanteService;
-    
+
     @Inject
     private Gestante gestanteSelecionada;
-    
+
     @Inject
     private PessoaServiceIF pessoaService;
-    
+
     private transient List<Gestante> gestantes;
-    
+
     /**
-    * Construtor da classe
-    */
+     * Construtor da classe
+     */
     public GestanteBean() {
     }
-    
+
     @PostConstruct
     public void init() {
         this.gestantes = gestanteService.findAll();
     }
-    
+
     /**
      * Lista de gestantes cadastrados na UBS.
-     * 
-     * @return 
+     *
+     * @return
      */
     public List<Gestante> getGestantes() {
         return gestantes;
     }
-    
+
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Gestante e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Gestante e salvar. Se algum erro ocorrer, deve-se fazer rollback e
+     * apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         this.gestanteService.save(gestante);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro da gestante '" + gestante.getPaciente().getId() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaGestante.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaGestante.xhtml");
         gestante = new Gestante();
     }
-    
+
     /**
-     * Método responsável por excluir um objeto do tipo Gestante e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Gestante e exibir ao
+     * final do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -114,7 +114,7 @@ public class GestanteBean implements Serializable {
     public void setGestanteSelecionada(Gestante gestanteSelecionada) {
         this.gestanteSelecionada = gestanteSelecionada;
     }
-    
+
     public GestanteService getGestanteService() {
         return (GestanteService) gestanteService;
     }

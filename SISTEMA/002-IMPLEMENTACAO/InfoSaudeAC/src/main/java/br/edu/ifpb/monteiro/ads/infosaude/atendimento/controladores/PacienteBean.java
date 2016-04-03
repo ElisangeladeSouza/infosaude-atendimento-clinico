@@ -16,10 +16,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Managed bean usado pela página de cadastro de paciente. 
- * É responsável por ligar a classe de modelo Paciente à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de paciente. É responsável por
+ * ligar a classe de modelo Paciente à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -55,8 +55,9 @@ public class PacienteBean implements Serializable {
     }
 
     /**
-     * Método responsável por carregar uma lista com todas as cidades cadastradas.
-     * Esta lista será usada para preencher o respectivo campo de cidade na view.
+     * Método responsável por carregar uma lista com todas as cidades
+     * cadastradas. Esta lista será usada para preencher o respectivo campo de
+     * cidade na view.
      */
     public void carregarCidades() {
         pessoaService.retornaCidades(paciente.getEndereco().getEstado(), paciente.getEndereco().getEstado().getCodigo());
@@ -64,18 +65,18 @@ public class PacienteBean implements Serializable {
 
     /**
      * Lista de pacientes cadastrados na UBS.
-     * 
-     * @return 
+     *
+     * @return
      */
     public List<Paciente> getPacientes() {
         return pacientes;
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Paciente e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Paciente e salvar. Se algum erro ocorrer, deve-se fazer rollback e
      * apresentar uma mensagem de erro.
-     * 
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -83,10 +84,10 @@ public class PacienteBean implements Serializable {
             this.pacienteService.save(paciente);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Cadastro do paciente '" + paciente.getNome() + "' atualizado com sucesso!");
-                FacesUtil.redirecionaPara("PesquisaPaciente.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
+            FacesUtil.redirecionaPara("PesquisaPaciente.xhtml");
             paciente = new Paciente();
         } catch (RollbackException rollback) {
             FacesUtil.mensagemErro("O CPF informado já está cadastrado. Informe outro CPF.");
@@ -95,9 +96,9 @@ public class PacienteBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Paciente e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Paciente e exibir ao
+     * final do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {

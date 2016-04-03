@@ -22,7 +22,7 @@
                 </p:toolbar>
 
                 <p:dataTable id="datatablePesquisaRequisicaoExames" var="requisicaoExames" value="#{requisicaoExameBean.requisicaoExames}"
-                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" reflow="true" 
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaRequisicaoExames"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"

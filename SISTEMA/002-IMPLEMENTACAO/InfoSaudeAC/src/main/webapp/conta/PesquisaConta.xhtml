@@ -25,7 +25,7 @@
                 </p:toolbar>
 
                 <p:dataTable id="datatablePesquisaConta" var="conta" value="#{contaBean.contas}"
-                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" 
+                             paginatorAlwaysVisible="false" style="margin-top: 1px; " rows="10" reflow="true" 
                              paginatorPosition="bottom" emptyMessage="#{msg.noFoundsRecord}" paginator="true" widgetVar="pesquisaConta"
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} 
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,20,50,100"

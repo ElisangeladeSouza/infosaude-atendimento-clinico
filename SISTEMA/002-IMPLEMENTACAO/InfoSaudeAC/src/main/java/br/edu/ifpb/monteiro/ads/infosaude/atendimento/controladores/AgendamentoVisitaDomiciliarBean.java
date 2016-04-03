@@ -11,34 +11,35 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 /**
- * Managed bean usado pela página de cadastro de Agendamento de visita domiciliar. 
- * É responsável por ligar a classe de modelo AgendamentoVisitaDomiciliar à página 
- * de visualização processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de Agendamento de visita
+ * domiciliar. É responsável por ligar a classe de modelo
+ * AgendamentoVisitaDomiciliar à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
 public class AgendamentoVisitaDomiciliarBean implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Inject
     private AgendamentoVisitaDomiciliar agendamentoVisitaDomiciliar;
-    
+
     @Inject
     private AgendamentoVisitaDomiciliarServiceIF agendamentoVisitaDomiciliarService;
-    
+
     @Inject
-    private AgendamentoVisitaDomiciliar  agendamentoVisitaDomiciliarSelecionado;
-    
+    private AgendamentoVisitaDomiciliar agendamentoVisitaDomiciliarSelecionado;
+
     private transient List<AgendamentoVisitaDomiciliar> visitasDomiciliares;
 
     /**
-    * Construtor da classe
-    */
+     * Construtor da classe
+     */
     public AgendamentoVisitaDomiciliarBean() {
     }
-    
+
     @PostConstruct
     public void init() {
         this.visitasDomiciliares = agendamentoVisitaDomiciliarService.findAll();
@@ -47,29 +48,30 @@ public class AgendamentoVisitaDomiciliarBean implements Serializable {
     public List<AgendamentoVisitaDomiciliar> getVisitasDomiciliares() {
         return visitasDomiciliares;
     }
-    
+
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * AgendamentoVisitaDomiciliar e salvar. Se algum erro ocorrer, deve-se fazer 
-     * rollback e apresentar uma mensagem de erro. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo AgendamentoVisitaDomiciliar e salvar. Se algum erro ocorrer, deve-se
+     * fazer rollback e apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
         this.agendamentoVisitaDomiciliarService.save(agendamentoVisitaDomiciliar);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro do agendamento de visita domiciliar '" + agendamentoVisitaDomiciliar.getId() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaAgendamentoVisitaDomiciliar.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaAgendamentoVisitaDomiciliar.xhtml");
         agendamentoVisitaDomiciliar = new AgendamentoVisitaDomiciliar();
     }
-    
+
     /**
-     * Método responsável por excluir um objeto do tipo AgendamentoVisitaDomiciliar 
-     * e exibir ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo
+     * AgendamentoVisitaDomiciliar e exibir ao final do processo uma mensagem
+     * informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -77,7 +79,7 @@ public class AgendamentoVisitaDomiciliarBean implements Serializable {
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
         FacesUtil.redirecionaPara("PesquisaAgendamentoVisitaDomiciliar.xhtml");
     }
-    
+
     /**
      * Metodo que verifica se o objeto esta nulo quando for recuperado. Se sim,
      * refere-se a um novo cadastro, senao refere-se a um produto a ser editado

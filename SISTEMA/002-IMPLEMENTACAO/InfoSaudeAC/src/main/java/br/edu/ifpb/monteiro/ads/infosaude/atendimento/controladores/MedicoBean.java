@@ -16,10 +16,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Managed bean usado pela página de cadastro de médico. 
- * É responsável por ligar a classe de modelo Medico à página de visualização 
- * processando as solicitações do usuário e retornando os dados à visualização.
- * 
+ * Managed bean usado pela página de cadastro de médico. É responsável por ligar
+ * a classe de modelo Medico à página de visualização processando as
+ * solicitações do usuário e retornando os dados à visualização.
+ *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 @Model
@@ -40,12 +40,12 @@ public class MedicoBean implements Serializable {
 
     @Inject
     private PessoaServiceIF pessoaService;
-    
+
     private transient List<Medico> medicos;
 
     /**
-    * Construtor da classe
-    */
+     * Construtor da classe
+     */
     public MedicoBean() {
     }
 
@@ -55,27 +55,28 @@ public class MedicoBean implements Serializable {
     }
 
     /**
-     * Método responsável por carregar uma lista com todas as cidades cadastradas.
-     * Esta lista será usada para preencher o respectivo campo de cidade na view.
+     * Método responsável por carregar uma lista com todas as cidades
+     * cadastradas. Esta lista será usada para preencher o respectivo campo de
+     * cidade na view.
      */
     public void carregarCidades() {
-       pessoaService.retornaCidades(medico.getEndereco().getEstado(), medico.getEndereco().getEstado().getCodigo());
+        pessoaService.retornaCidades(medico.getEndereco().getEstado(), medico.getEndereco().getEstado().getCodigo());
     }
 
     /**
      * Lista de médicos cadastrados na UBS.
-     * 
-     * @return 
+     *
+     * @return
      */
     public List<Medico> getMedicos() {
         return medicos;
     }
 
     /**
-     * Método responsável por iniciar uma transação, instanciar um objeto do tipo
-     * Medico e salvar. Se algum erro ocorrer, deve-se fazer rollback e 
-     * apresentar uma mensagem de erro. 
-     * 
+     * Método responsável por iniciar uma transação, instanciar um objeto do
+     * tipo Medico e salvar. Se algum erro ocorrer, deve-se fazer rollback e
+     * apresentar uma mensagem de erro.
+     *
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
@@ -83,10 +84,10 @@ public class MedicoBean implements Serializable {
             this.medicoService.save(medico);
             if (getEditando()) {
                 FacesUtil.mensagemSucesso("Cadastro do médico '" + medico.getNome() + "' atualizado com sucesso!");
-                FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
+            FacesUtil.redirecionaPara("PesquisaMedico.xhtml");
             medico = new Medico();
         } catch (RollbackException rollback) {
             LOGGER.warn(rollback);
@@ -95,9 +96,9 @@ public class MedicoBean implements Serializable {
     }
 
     /**
-     * Método responsável por excluir um objeto do tipo Medico e exibir
-     * ao final do processo uma mensagem informativa.
-     * 
+     * Método responsável por excluir um objeto do tipo Medico e exibir ao final
+     * do processo uma mensagem informativa.
+     *
      * @throws NegocioException
      */
     public void excluir() throws NegocioException {
@@ -116,7 +117,7 @@ public class MedicoBean implements Serializable {
     public boolean getEditando() {
         return this.medico.getId() != null;
     }
-    
+
     public Medico getMedicoSelecionado() {
         return medicoSelecionado;
     }

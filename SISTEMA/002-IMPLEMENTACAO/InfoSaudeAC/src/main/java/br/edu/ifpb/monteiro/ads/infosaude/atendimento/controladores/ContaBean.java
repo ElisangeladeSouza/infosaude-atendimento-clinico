@@ -48,8 +48,8 @@ public class ContaBean implements Serializable {
 
     private List<Conta> contas;
 
-    private static transient List<Permissao> permissoes= new ArrayList<>();
-    
+    private static transient List<Permissao> permissoes = new ArrayList<>();
+
     private final String usuarioLogado;
 
     private String confereSenha;
@@ -77,14 +77,14 @@ public class ContaBean implements Serializable {
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
-        if(conta.getPassword() == null ? confereSenha == null : conta.getPassword().equals(confereSenha)) {
+        if (conta.getPassword() == null ? confereSenha == null : conta.getPassword().equals(confereSenha)) {
             this.contaService.save(conta);
-            if(getEditando()) {
-                 FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName() + "'atualizado com sucesso!");
-                 FacesUtil.redirecionaPara("PesquisaConta.xhtml");
+            if (getEditando()) {
+                FacesUtil.mensagemSucesso("Cadastro do usuário '" + conta.getUserName() + "'atualizado com sucesso!");
             } else {
                 FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
             }
+            FacesUtil.redirecionaPara("PesquisaConta.xhtml");
             conta = new Conta();
         } else {
             FacesUtil.mensagemAviso("Senhas não conferem!");
@@ -195,7 +195,7 @@ public class ContaBean implements Serializable {
     public String getUsuarioLogado() {
         return usuarioLogado;
     }
-    
+
     public String getConfereSenha() {
         return confereSenha;
     }

@@ -72,10 +72,10 @@ public class ConsultaBean implements Serializable {
         this.consultaService.save(consulta);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro da consulta '" + consulta.getCodigo() + "' atualizado com sucesso!");
-            FacesUtil.redirecionaPara("PesquisaConsulta.xhtml");
         } else {
             FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
         }
+        FacesUtil.redirecionaPara("PesquisaConsulta.xhtml");
         consulta = new Consulta();
     }
 
