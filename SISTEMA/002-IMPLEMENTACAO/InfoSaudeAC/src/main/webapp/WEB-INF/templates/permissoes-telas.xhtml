@@ -73,10 +73,12 @@
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à AGENDAMENTO PRÉ-NATAL-->
                 <c:set var="podeCadastrarAgendamentoPreNatal" value="#{request.isUserInRole('Enfermeiros') or
+                                                       request.isUserInRole('Recepcionistas') or 
                                                        request.isUserInRole('Administradores')}" scope="request"/> 
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de AGENDAMENTO PRÉ-NATAL (PesquisaAgendamentoPreNatal.xhtml)-->
                 <c:set var="podeVerAgendamentoPreNatal" value="#{request.isUserInRole('Enfermeiros') or
+                                                     request.isUserInRole('Recepcionistas') or 
                                                      request.isUserInRole('Medicos') or 
                                                      request.isUserInRole('Odontologos') or
                                                      request.isUserInRole('TecnicosEnfermagem') or
@@ -109,12 +111,14 @@
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à AGENDAMENTO DE VISITA DOMICILIAR-->
                 <c:set var="podeCadastrarAgendamentoVisitaDomiciliar" value="#{request.isUserInRole('Enfermeiros') or
+                                                       request.isUserInRole('Recepcionistas') or 
                                                        request.isUserInRole('Medicos') or 
                                                        request.isUserInRole('Odontologos') or 
                                                        request.isUserInRole('Administradores')}" scope="request"/> 
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de AGENDAMENTO DE VISITA DOMICILIAR (PesquisaAgendamentoVisitaDomiciliar.xhtml)-->
                 <c:set var="podeVerAgendamentoVisitaDomiciliar" value="#{request.isUserInRole('Enfermeiros') or
+                                                     request.isUserInRole('Recepcionistas') or 
                                                      request.isUserInRole('Medicos') or 
                                                      request.isUserInRole('Odontologos') or
                                                      request.isUserInRole('TecnicosEnfermagem') or
