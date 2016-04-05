@@ -110,6 +110,7 @@
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar qualquer tela relacionada à AGENDAMENTO DE VISITA DOMICILIAR-->
                 <c:set var="podeCadastrarAgendamentoVisitaDomiciliar" value="#{request.isUserInRole('Enfermeiros') or
                                                        request.isUserInRole('Medicos') or 
+                                                       request.isUserInRole('Odontologos') or 
                                                        request.isUserInRole('Administradores')}" scope="request"/> 
                 
                 <!--Permissões onde apenas as roles definidas abaixo podem acessar APENAS a página de pesquisa de AGENDAMENTO DE VISITA DOMICILIAR (PesquisaAgendamentoVisitaDomiciliar.xhtml)-->
