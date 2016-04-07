@@ -2,14 +2,18 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Procedimento;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Ubs;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ProcedimentoService;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.UbsService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ProcedimentoServiceIF;
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.UbsServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import lombok.Getter;
 
 /**
  * Managed bean usado pela página de cadastro de procedimento. É responsável por
@@ -27,12 +31,21 @@ public class ProcedimentoBean implements Serializable {
     private Procedimento procedimento;
 
     @Inject
+    private UbsServiceIF ubsService;
+
+    @Inject
     private ProcedimentoServiceIF procedimentoService;
 
     @Inject
     private Procedimento procedimentoSelecionado;
 
     private transient List<Procedimento> procedimentos;
+
+    @Getter
+    private List<Ubs> listaUbs;
+    
+    @Getter
+    private Long cnesUbs;
 
     /**
      * Construtor da classe
@@ -43,6 +56,16 @@ public class ProcedimentoBean implements Serializable {
     @PostConstruct
     public void init() {
         this.procedimentos = procedimentoService.findAll();
+        cnesUbs = pegaCnesUbs();
+    }
+
+    private Long pegaCnesUbs() {
+        Long cnes = null;
+        listaUbs = ubsService.findAll();
+        for (Ubs ubsSelecionada : listaUbs) {
+            cnes = ubsSelecionada.getCnes();
+        }
+        return cnes;
     }
 
     /**
@@ -116,5 +139,13 @@ public class ProcedimentoBean implements Serializable {
 
     public void setProcedimentoService(ProcedimentoService procedimentoService) {
         this.procedimentoService = (ProcedimentoServiceIF) procedimentoService;
+    }
+
+    public UbsService getUbsService() {
+        return (UbsService) ubsService;
+    }
+
+    public void setUbsService(UbsService ubsService) {
+        this.ubsService = (UbsServiceIF) ubsService;
     }
 }

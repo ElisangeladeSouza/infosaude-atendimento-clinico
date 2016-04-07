@@ -8,9 +8,10 @@ import java.util.List;
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 public interface UbsServiceIF {
-    
-    public List<Ubs> findAll();
 
     public void save(Ubs ubs);
+    
+    public Ubs findById(Long id);
 
+    public List<Ubs> findAll();
 }

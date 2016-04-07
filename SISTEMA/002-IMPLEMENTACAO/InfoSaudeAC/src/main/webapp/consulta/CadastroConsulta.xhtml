@@ -39,11 +39,11 @@
                         <p:outputLabel id="msgSemFichaAtendimento" value="#{msg.noTreatmentFormAvaliable}" style="color: red; margin-left: 5px; font-size: 12px"
                                        rendered="#{fichaAtendimentoBean.fichaAtendimentos.size() eq 0}"/>
                     </h:panelGroup>
-                    
+
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s: "/>
-                    <p:selectOneMenu id="sintomas" value="#{consultaBean.consulta.sintomas}" editable="true" filter="true" 
+                    <p:selectOneMenu id="sintomas" value="#{consultaBean.consulta.sintoma}" editable="true" filter="true" 
                                      filterMatchMode="contains" style="width: 227px;" label="Digite ou selecione">
-                        <f:selectItems id="listaDeSintomas" value="" var="sintoma" itemLabel="#{sintoma}" 
+                        <f:selectItems id="listaDeSintomas" value="#{consultaBean.sintomas}" var="sintoma" itemLabel="#{sintoma}" 
                                        itemValue="#{sintoma}"/>
                     </p:selectOneMenu>
 
@@ -101,51 +101,51 @@
                     </f:facet>
                 </p:toolbar>
 
-<!--                <p:dialog id="dialogRequisicaoExame" header="Requisição de Exames" widgetVar="dialogRequisicaoExame" resizable="false" 
-                          draggable="false" showEffect="fade" hideEffect="fade" modal="true" width="400" height="400" appendTo="@(body)">
-
-                    <h:form id="formDialogRequisicaoExame">
-                        <p:panelGrid id="gridRequisicaoExame" columns="2">
-
-                            <p:outputLabel for="codigo" value="#{msg.code}: "/>
-                            <p:inputText id="codigo" value="#{consultaBean.consulta.requisicaoExame.codigo}" size="20" required="true"
-                                         requiredMessage="É necessário informar um código"/>
-
-                            <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}: "/>
-                            <p:inputMask id="solicitanteCnes" mask="999999999999999" value="#{consultaBean.consulta.requisicaoExame.solicitanteCnes}" 
-                                         size="20" maxlength="15" />
-
-                            <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
-                            <p:inputText id="solicitanteEndereco" value="#{consultaBean.consulta.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
-
-                            <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
-                            <p:inputText id="solicitanteCidade" value="#{consultaBean.consulta.requisicaoExame.solicitanteCidade}" style="width: 210px"/>
-
-                            <p:outputLabel for="exames" value="#{msg.examination}s: "/>
-                            <p:selectManyMenu id="exames" value="#{consultaBean.consulta.requisicaoExame.exames}" filter="true" showCheckbox="true"
-                                              filterMatchMode="contains" scrollHeight="150" style="width: 166px" >
-                                <f:selectItems value="#{exameBean.exames}" var="exame" itemLabel="#{exame.descricao}" itemValue="#{exame.descricao}"/>
-                            </p:selectManyMenu>
-
-                        </p:panelGrid>
-
-                        <p:toolbar id="toolbarExame" style="margin-top: 10px;">
-                            <f:facet name="left">
-                                <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
-                                                 action="#{consultaBean.salvar}"  id="botaoSalvar" 
-                                                 update="@form" icon="ui-icon ui-icon-disk">
-                                </p:commandButton>
-
-                                <p:button style="font-size: 13px;" value="#{msg.cancel}"
-                                          id="botaoCancelar" outcome="/requisicao-exames/PesquisaRequisicaoExames"
-                                          icon="fa fa-times" rendered="#{requisicaoExameBean.editando}" 
-                                          disabled="#{botaoEditar}">
-                                </p:button>
-                            </f:facet>
-                        </p:toolbar>
-
-                    </h:form>
-                </p:dialog>-->
+                <!--                <p:dialog id="dialogRequisicaoExame" header="Requisição de Exames" widgetVar="dialogRequisicaoExame" resizable="false" 
+                                          draggable="false" showEffect="fade" hideEffect="fade" modal="true" width="400" height="400" appendTo="@(body)">
+                
+                                    <h:form id="formDialogRequisicaoExame">
+                                        <p:panelGrid id="gridRequisicaoExame" columns="2">
+                
+                                            <p:outputLabel for="codigo" value="#{msg.code}: "/>
+                                            <p:inputText id="codigo" value="#{consultaBean.consulta.requisicaoExame.codigo}" size="20" required="true"
+                                                         requiredMessage="É necessário informar um código"/>
+                
+                                            <p:outputLabel for="solicitanteCnes" value="#{msg.cnes}: "/>
+                                            <p:inputMask id="solicitanteCnes" mask="999999999999999" value="#{consultaBean.consulta.requisicaoExame.solicitanteCnes}" 
+                                                         size="20" maxlength="15" />
+                
+                                            <p:outputLabel for="solicitanteEndereco" value="#{msg.address}:"/>
+                                            <p:inputText id="solicitanteEndereco" value="#{consultaBean.consulta.requisicaoExame.solicitanteEndereco}" style="width: 210px"/>
+                
+                                            <p:outputLabel for="solicitanteCidade" value="#{msg.city}:"/>
+                                            <p:inputText id="solicitanteCidade" value="#{consultaBean.consulta.requisicaoExame.solicitanteCidade}" style="width: 210px"/>
+                
+                                            <p:outputLabel for="exames" value="#{msg.examination}s: "/>
+                                            <p:selectManyMenu id="exames" value="#{consultaBean.consulta.requisicaoExame.exames}" filter="true" showCheckbox="true"
+                                                              filterMatchMode="contains" scrollHeight="150" style="width: 166px" >
+                                                <f:selectItems value="#{exameBean.exames}" var="exame" itemLabel="#{exame.descricao}" itemValue="#{exame.descricao}"/>
+                                            </p:selectManyMenu>
+                
+                                        </p:panelGrid>
+                
+                                        <p:toolbar id="toolbarExame" style="margin-top: 10px;">
+                                            <f:facet name="left">
+                                                <p:commandButton style="font-size: 13px;" value="#{msg.save}" 
+                                                                 action="#{consultaBean.salvar}"  id="botaoSalvar" 
+                                                                 update="@form" icon="ui-icon ui-icon-disk">
+                                                </p:commandButton>
+                
+                                                <p:button style="font-size: 13px;" value="#{msg.cancel}"
+                                                          id="botaoCancelar" outcome="/requisicao-exames/PesquisaRequisicaoExames"
+                                                          icon="fa fa-times" rendered="#{requisicaoExameBean.editando}" 
+                                                          disabled="#{botaoEditar}">
+                                                </p:button>
+                                            </f:facet>
+                                        </p:toolbar>
+                
+                                    </h:form>
+                                </p:dialog>-->
 
                 <p:blockUI id="blockUIConsulta" block="formCadastroConsulta" trigger="botaoSalvar"/>
             </h:form>    

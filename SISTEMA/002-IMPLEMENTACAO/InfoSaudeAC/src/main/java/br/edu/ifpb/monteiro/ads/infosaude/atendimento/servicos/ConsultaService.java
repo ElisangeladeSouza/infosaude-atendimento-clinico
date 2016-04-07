@@ -38,8 +38,12 @@ public class ConsultaService implements ConsultaServiceIF, Serializable {
     public void save(Consulta consulta) {
         if (consulta != null) {
             consulta.setData(new DateTimeUtilBean().getDateToday());
+            if (consulta.getSintoma() == null) {
+                consulta.setSintoma("");
+            }
             this.consultaDao.salvar(consulta);
         }
+        
     }
 
     /**
@@ -73,5 +77,10 @@ public class ConsultaService implements ConsultaServiceIF, Serializable {
     @Override
     public List<Consulta> findAll() {
         return consultaDao.findAll();
+    }
+
+    @Override
+    public List<String> getSintomas() {
+        return consultaDao.getSintomas();
     }
 }

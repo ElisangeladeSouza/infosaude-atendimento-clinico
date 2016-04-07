@@ -39,14 +39,14 @@
                     
 
                    <p:outputLabel for="funcao" value="#{msg.function}: "/>
-                    <p:selectOneMenu id="funcao" value="#{contaBean.conta.userRoles}" required="true" panelStyle="width:160px" style="width: 180px">
+                    <p:selectOneMenu id="funcao" value="#{contaBean.conta.userRoles}" required="true" panelStyle="width:160px" style="width: 135px">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{contaBean.permissoes}" itemValue="#{permissoes.descricao}" itemLabel="#{permissoes.descricao}" 
                                        var="permissoes"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="email" value="#{msg.email}: "/>
-                    <p:inputText id="email" styleClass="lower" value="#{contaBean.conta.email}" size="38" required="true" 
+                    <p:inputText id="email" styleClass="lower" value="#{contaBean.conta.email}" size="30" required="true" 
                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
                     
                 </h:panelGrid>

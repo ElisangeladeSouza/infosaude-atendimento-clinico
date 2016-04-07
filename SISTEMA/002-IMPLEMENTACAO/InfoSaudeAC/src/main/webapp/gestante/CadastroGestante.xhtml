@@ -17,13 +17,18 @@
         <p:fieldset id="fieldsetGestante" legend="#{gestanteBean.editando ? msg.editCadastrePregnant : msg.newRegisterPregnant}">
             <h:form id="formCadastroGestante">
                 <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
-                
+
                 <h:inputHidden id="data" value="#{gestanteBean.gestante.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
                 <h:panelGrid id="gridEstabelecimento" columns="2">
 
+                    <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
+                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}">
+                        <f:ajax render="@this formCadastroGestante tabInfoResponsavel"/>
+                    </p:selectBooleanCheckbox> 
+                    
                     <p:outputLabel for="nomeGestante" value="#{msg.PregnantName}: "/>
                     <p:selectOneMenu id="nomeGestante" value="#{gestanteBean.gestante.paciente}" style="width: 180px" required="true" 
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
@@ -32,14 +37,9 @@
                     </p:selectOneMenu>
 
                     <p:outputLabel for="nis" value="#{msg.nis}: "/>
-                    <p:inputText id="nis" value="#{gestanteBean.gestante.nis}" size="20" maxlength="11">
+                    <p:inputText id="nis" value="#{gestanteBean.gestante.nis}" size="26" maxlength="11">
                         <p:tooltip for="nis" value="#{msg.socialIdentificationNumber}"/>
                     </p:inputText>
-
-                    <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
-                    <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}">
-                        <f:ajax render="@this formCadastroGestante tabInfoResponsavel"/>
-                    </p:selectBooleanCheckbox>    
 
                 </h:panelGrid>    
 
@@ -49,43 +49,45 @@
 
                             <p:outputLabel for="municipio" value="#{msg.county}: "/>
                             <p:inputText id="municipio" value="#{gestanteBean.gestante.municipioAtendimento}" requiredMessage="#{msg.aCountyIsRequired}"
-                                         required="true" size="35"  maxlength="100"/>
+                                         required="true" size="25"  maxlength="100"/>
 
-                            <p:outputLabel for="codigoIbge" value="#{msg.codeIBGE}: " style="margin-left: 10px"/>
-                            <p:inputText id="codigoIbge" value="#{gestanteBean.gestante.codigoIbge}" size="20" maxlength="7"/>
+                            <p:outputLabel for="codigoIbge" value="Cod. IBGE: " style="margin-left: 10px"/>
+                            <p:inputText id="codigoIbge" value="#{gestanteBean.gestante.codigoIbge}" style="width: 190px" maxlength="7"/>
 
                             <p:outputLabel for="estabelecimento" value="#{msg.healthFacility}: "/>
                             <p:inputText id="estabelecimento" value="#{gestanteBean.gestante.nomeEstabelecimentoSaude}" 
-                                         requiredMessage="#{msg.aHealthFacility}" required="true" size="35" maxlength="100"/>
-                            
+                                         requiredMessage="#{msg.aHealthFacility}" required="true" size="25" maxlength="100"/>
+
                             <p:outputLabel for="uf" value="#{msg.state}: "  style="margin-left: 10px"/>
-                            <p:selectOneMenu id="uf" value="#{gestanteBean.gestante.uf}" style="width: 180px">
+                            <p:selectOneMenu id="uf" value="#{gestanteBean.gestante.uf}" style="width: 170px">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{uf}" itemLabel="#{uf.descricao}" var="uf"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel for="nomeProfissional" value="#{msg.professionalName}: "/>
                             <p:inputText id="nomeProfissional" value="#{gestanteBean.gestante.nomeProfissional}" 
-                                         requiredMessage="#{msg.aProfissionalName}" required="true" size="35" maxlength="200" />
-                            
-                            <p:outputLabel for="cnes" value="#{msg.cnes}: " style="margin-left: 10px"/>
-                            <p:inputText id="cnes" value="#{gestanteBean.gestante.cnes}" size="20" maxlength="15">
+                                         requiredMessage="#{msg.aProfissionalName}" required="true" size="25" maxlength="200" />
+
+                            <p:outputLabel for="cnes" value="#{msg.cnes}: " style="margin-left: 10px; "/>
+                            <p:inputText id="cnes" value="#{gestanteBean.gestante.cnes}" maxlength="15" style="width: 192px">
                                 <p:tooltip for="cnes" value="#{msg.nationalHealthEstablishmentRegister}"/>
                             </p:inputText>
 
                             <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
                             <p:inputMask id="cartaoSusProfissional" value="#{gestanteBean.gestante.cartaoSusProfissional}" 
-                                         requiredMessage="#{msg.mandatorySusCard}" required="true" size="20" mask="999 9999 9999 9999"
+                                         requiredMessage="#{msg.mandatorySusCard}" required="true" size="25" mask="999 9999 9999 9999"
                                          maxlength="20" placeholder="Do profissional"/>
-                            
-                            <p:outputLabel for="numArea" value="#{msg.area}: " style="margin-left: 10px"/>
-                            <p:inputText id="numArea" value="#{gestanteBean.gestante.numArea}" size="5" maxlength="5"/>
 
-                            <p:outputLabel for="microarea" value="#{msg.microarea}: "/>
-                            <p:inputText id="microarea" value="#{gestanteBean.gestante.numMicroarea}" size="7" maxlength="5"/>
+                            <p:outputLabel for="numArea" value="Área: " style="margin-left: 10px"/>
+                            <h:panelGroup>
+                                <p:inputText id="numArea" value="#{gestanteBean.gestante.numArea}" size="7" maxlength="5"/>
+
+                                <p:outputLabel for="microarea" value="Microárea: " style="margin-left: 4px"/>
+                                <p:inputText id="microarea" value="#{gestanteBean.gestante.numMicroarea}" size="7" maxlength="5"/>
+                            </h:panelGroup>
                         </h:panelGrid>
                     </p:tab>
-                    
+
                     <p:tab id="tabInfoResponsavel" title="#{msg.responsible}" rendered="#{gestanteBean.gestante.menorQuinze ne false}">
                         <h:panelGrid id="gridResponsavel" columns="4">
 
@@ -115,7 +117,7 @@
                             <p:outputLabel for="email" value="#{msg.email}: "/>
                             <p:inputText id="email" styleClass="lower" value="#{gestanteBean.gestante.idResponsavelGestante.email}" size="35" 
                                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
-                            
+
                             <p:outputLabel for="telefone1" value="#{msg.phone1}: " style="margin-left: 10px"/>
                             <p:inputText id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.idResponsavelGestante.telefone1}" 
                                          size="20" maxlength="20"/>

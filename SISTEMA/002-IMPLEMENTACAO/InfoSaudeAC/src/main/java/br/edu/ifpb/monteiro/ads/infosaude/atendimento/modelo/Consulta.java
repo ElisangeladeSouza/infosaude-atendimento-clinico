@@ -3,13 +3,13 @@ package br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,13 +18,14 @@ import lombok.Data;
 
 /**
  * Entidade que representa a Consulta para o paciente que pode ser feita por um
- * Médico, Enfermeiro, Odontólogo ou Diretor da UBS. Ao extender Pessoa,
- * passa a herdar todos os seus atributos.
+ * Médico, Enfermeiro, Odontólogo ou Diretor da UBS. Ao extender Pessoa, passa a
+ * herdar todos os seus atributos.
  *
  * @author Cássio Oliveira <cassio@cassioliveira.com.br>
  */
 @Entity
 @Data
+@NamedQuery(name = "Consulta.sintomas", query = "SELECT DISTINCT c.sintoma FROM Consulta c")
 public class Consulta implements Serializable {
 
     @Id
@@ -56,7 +57,7 @@ public class Consulta implements Serializable {
     private Date data;
 
     @Column(name = "consulta_sintomas")
-    private String sintomas;
+    private String sintoma;
 
     @OneToOne
     @JoinColumn(name = "fichaatendimentofk_id", nullable = false)
@@ -69,16 +70,14 @@ public class Consulta implements Serializable {
     @OneToOne
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
-    
+
 //    @Embedded
 //    private RequisicaoExame requisicaoExame;
-
 //    @OneToOne
 //    @JoinColumn(name = "requisicao_exame_pk")
 //    private RequisicaoExame requisicaoExame;
-
-    public Consulta(){
+    public Consulta() {
 //        this.requisicaoExame = new RequisicaoExame();
     }
-    
+
 }

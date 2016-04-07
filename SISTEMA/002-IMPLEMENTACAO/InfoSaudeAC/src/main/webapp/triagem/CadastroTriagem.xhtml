@@ -26,26 +26,26 @@
                 <h:panelGrid id="gridObrigatoriosTriagem" columns="2">
 
                     <p:outputLabel for="codigo" value="#{msg.code}: "/>
-                    <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" required="true" size="10" 
+                    <p:inputText id="codigo" value="#{triagemBean.triagem.codigo}" required="true" size="15" 
                                  requiredMessage="#{msg.aCodeIsRequired}" maxlength="20"/>
-
-                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{triagemBean.triagem.pacienteTriagem}" required="true" style="width: 180px" 
-                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" itemValue="#{fichaAtendimento.paciente}" class="upper"/>
-                    </p:selectOneMenu>
-                    
-                    <p:outputLabel for="entrevista" value="#{msg.interview}"/>
-                    <p:inputTextarea id="entrevista" value="#{triagemBean.triagem.entrevista}" maxlength="200" rows="8" cols="40"/>
                     
                     <p:outputLabel for="grauUrgencia" value="#{msg.degreeOfUrgency}"/>
-                    <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true"
+                    <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true" style="width: 96px"
                                      requiredMessage="#{msg.aDegreeOfUrgencyIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{triagemBean.urgencias}" var="urgencias" itemLabel="#{urgencias.descricao}" itemValue="#{urgencias}" class="upper"/>
                     </p:selectOneMenu>
 
+                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{triagemBean.triagem.pacienteTriagem}" required="true" style="width: 227px" 
+                                     filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="fichaAtendimento" itemLabel="#{fichaAtendimento.paciente.nome}" 
+                                       itemValue="#{fichaAtendimento.paciente}" class="upper"/>
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel for="entrevista" value="#{msg.interview}"/>
+                    <p:inputTextarea id="entrevista" value="#{triagemBean.triagem.entrevista}" maxlength="200" rows="5" cols="30" autoResize="false"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarTriagem" style="margin-top: 10px;">

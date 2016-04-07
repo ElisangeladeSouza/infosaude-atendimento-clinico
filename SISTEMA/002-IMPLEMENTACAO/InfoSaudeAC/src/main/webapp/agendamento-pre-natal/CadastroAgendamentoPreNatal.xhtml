@@ -25,25 +25,25 @@
 
                 <h:panelGrid id="gridAgendamentoPreNatal" columns="2">
 
-                    <p:outputLabel for="gestante" value="#{msg.pregnant}:"/>
-                    <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" style="width: 180px" 
-                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{gestanteBean.gestantes}" var="gestante" itemLabel="#{gestante.paciente.nome}" itemValue="#{gestante}"/>
-                    </p:selectOneMenu>
-
                     <p:outputLabel for="proximaConsulta" value="#{msg.nextAppointment}: "/>
                     <p:calendar id="proximaConsulta" value="#{agendamentoPreNatalBean.agendamentoPreNatal.dataProximoPreNatal}" 
                                 navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                         <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
                     </p:calendar>
 
+                    <p:outputLabel for="gestante" value="#{msg.pregnant}:"/>
+                    <p:selectOneMenu id="gestante" value="#{agendamentoPreNatalBean.agendamentoPreNatal.gestante}" style="width: 204px" 
+                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{gestanteBean.gestantes}" var="gestante" itemLabel="#{gestante.paciente.nome}" itemValue="#{gestante}"/>
+                    </p:selectOneMenu>
+
                     <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}: "/>
-                    <p:inputText id="agenteSaude" value="#{agendamentoPreNatalBean.agendamentoPreNatal.agenteSaude}" size="40" maxlength="150"/>
+                    <p:inputText id="agenteSaude" value="#{agendamentoPreNatalBean.agendamentoPreNatal.agenteSaude}" style="width: 225px" maxlength="150"/>
 
                     <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
                     <p:inputTextarea id="observacoes" value="#{agendamentoPreNatalBean.agendamentoPreNatal.observacoes}" maxlength="200" 
-                                     cols="38" rows="8"/>
+                                     cols="27" rows="5" autoResize="false"/>
 
                 </h:panelGrid>
 

@@ -18,36 +18,37 @@
         <p:fieldset id="fieldsetProcedimento" legend="#{procedimentoBean.editando ? msg.editCadastreProcedure : msg.newRegisterProcedure}">
             <h:form id="formCadastroProcedimento">
                 <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
-                
+
                 <h:inputHidden id="data" value="#{procedimentoBean.procedimento.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
                 <h:panelGrid id="gridObrigatoriosProcedimento" columns="2">
-                    
+
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
-                    <p:outputLabel id="cnes" value="#{procedimentoBean.procedimento.cnes}"/>
+                    <p:outputLabel id="cnes" value="#{procedimentoBean.cnesUbs}"/>
 
                     <p:outputLabel for="codigo" value="#{msg.code}: "/>
-                    <p:inputText id="codigo" value="#{procedimentoBean.procedimento.codigo}" required="true"
-                                 requiredMessage="#{msg.aCodeIsRequired}" maxlength="20" />
-
-                    <p:outputLabel for="descricao" value="#{msg.description}: " />
-                    <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true" maxlength="500"
-                                    rows="6" cols="23" requiredMessage="#{msg.aDescriptionIsRequired}" placeholder="Descrever procedimento"/>
+                    <p:inputText id="codigo" value="#{procedimentoBean.procedimento.codigo}" required="true" size="17"
+                                 requiredMessage="#{msg.aCodeIsRequired}" maxlength="10"  style="margin-right: 5px"/>
+                    
+                    <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
+                    <p:inputMask id="cartaoSusProfissional" value="#{procedimentoBean.procedimento.cartaoSusProfissional}" 
+                                 requiredMessage="#{msg.mandatorySusCard}" required="true" size="17" mask="999 9999 9999 9999"
+                                 maxlength="20" placeholder="Do profissional"/>
 
                     <p:outputLabel for="paciente" value="#{msg.patient}: "/>
-                    <p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.fichaAtendimento}" required="true" style="width: 180px" 
+                    <p:selectOneMenu id="paciente" value="#{procedimentoBean.procedimento.fichaAtendimento}" required="true" style="width: 228px" 
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{fichaAtendimentoBean.fichaAtendimentos}" var="procedimento" itemLabel="#{procedimento.paciente.nome}" itemValue="#{procedimento}" class="upper"/>
                     </p:selectOneMenu>
-                    
-                    <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
-                    <p:inputMask id="cartaoSusProfissional" value="#{procedimentoBean.procedimento.cartaoSusProfissional}" 
-                                         requiredMessage="#{msg.mandatorySusCard}" required="true" size="20" mask="999 9999 9999 9999"
-                                         maxlength="20" placeholder="Do profissional"/>
-                    
+
+
+
+                    <p:outputLabel for="descricao" value="#{msg.description}: " />
+                    <p:inputTextarea id="descricao" value="#{procedimentoBean.procedimento.descricao}" required="true" maxlength="500"
+                                     rows="5" cols="30" autoResize="false" requiredMessage="#{msg.aDescriptionIsRequired}" placeholder="Descrever procedimento"/>
                 </h:panelGrid>
 
                 <p:toolbar id="toolbarProcedimento" style="margin-top: 10px;">

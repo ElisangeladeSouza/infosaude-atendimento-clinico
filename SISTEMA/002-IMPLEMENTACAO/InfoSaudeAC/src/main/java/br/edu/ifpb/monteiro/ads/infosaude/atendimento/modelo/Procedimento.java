@@ -49,8 +49,8 @@ public class Procedimento implements Serializable {
     @Column(name = "procedimento_cartao_sus_profissional", nullable = false, length = 20)
     private String cartaoSusProfissional;
 
-    @Column(name = "procedimento_cnes", length = 15)
-    private Long cnes;
+//    @Column(name = "procedimento_cnes", length = 15)
+//    private Long cnes;
 
     @OneToOne
     @JoinColumn(name = "ficha_atendimento_pk")
@@ -64,10 +64,10 @@ public class Procedimento implements Serializable {
     @JoinColumn(name = "procedimento_pk", referencedColumnName = "id")
     private Paciente paciente;
 
-    @PostConstruct
-    public void init() {
-        Ubs ubs = new Ubs();
-        setCnes(ubs.getCnes());
-    }
+//    @PostConstruct
+//    public void init() {
+//        Ubs ubs = new Ubs();
+//        setCnes(ubs.getCnes());
+//    }
 
 }

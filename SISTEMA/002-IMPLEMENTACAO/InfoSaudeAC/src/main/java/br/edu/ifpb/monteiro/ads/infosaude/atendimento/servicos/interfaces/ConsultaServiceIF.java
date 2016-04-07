@@ -9,6 +9,8 @@ import java.util.List;
  */
 public interface ConsultaServiceIF {
 
+    public List<String> getSintomas();
+
     public List<Consulta> findAll();
 
     public void save(Consulta consulta);

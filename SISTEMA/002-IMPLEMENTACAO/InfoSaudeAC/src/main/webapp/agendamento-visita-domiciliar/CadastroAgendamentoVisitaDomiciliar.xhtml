@@ -25,28 +25,28 @@
 
                 <h:panelGrid id="gridAgendamentoVisitaDomiciliar" columns="2">
 
-                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
-                    <p:selectOneMenu id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente}" style="width: 180px"
-                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
-                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
-                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
-                    </p:selectOneMenu>
-                    
                     <p:outputLabel for="dataVisita" value="#{msg.dateVisiting}: " />
                     <p:calendar id="dataVisita" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.dataVisita}" 
                                 navigator="true" pattern="dd/MM/yyyy" yearRange="c-150:c+0" size="12" locale="pt" mask="true">
                         <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
                     </p:calendar>
-
+                    
+                    <p:outputLabel for="paciente" value="#{msg.patient}:"/>
+                    <p:selectOneMenu id="paciente" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.paciente}" style="width: 205px"
+                                     required="true" filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
+                        <f:selectItems value="#{pacienteBean.pacientes}" var="paciente" itemLabel="#{paciente.nome}" itemValue="#{paciente}"/>
+                    </p:selectOneMenu>
+                    
                     <p:outputLabel for="agenteSaude" value="#{msg.agentOfHealth}: "/>
-                    <p:inputText id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}" size="40" maxlength="150"/>
+                    <p:inputText id="agenteSaude" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.agenteSaude}" style="width: 225px" maxlength="150"/>
                     
                     <p:outputLabel for="medico" value="#{msg.doctor}: "/>
-                    <p:inputText id="medico" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.medico}" size="40" maxlength="150"/>
+                    <p:inputText id="medico" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.medico}" style="width: 225px" maxlength="150"/>
 
                     <p:outputLabel for="observacoes" value="#{msg.observations}: "/>
                     <p:inputTextarea id="observacoes" value="#{agendamentoVisitaDomiciliarBean.agendamentoVisitaDomiciliar.observacoes}" maxlength="200" 
-                                     cols="38" rows="8"/>
+                                     cols="27" rows="5" autoResize="false"/>
 
                 </h:panelGrid>
 

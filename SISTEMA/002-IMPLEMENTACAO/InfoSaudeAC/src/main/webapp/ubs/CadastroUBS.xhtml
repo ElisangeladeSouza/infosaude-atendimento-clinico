@@ -30,9 +30,9 @@
                         <p:inputMask id="cnes" mask="999999999999999" value="#{ubsBean.ubs.cnes}" size="18" maxlength="15" required="true">
                             <p:tooltip for="cnes" value="#{msg.nationalHealthEstablishmentRegister}"/>
                         </p:inputMask>
-                        <p:outputLabel for="telefone" value="#{msg.phone1}: " style="margin-left: 8px"/>
+                        <p:outputLabel for="telefone" value="#{msg.phone1}: " style="margin-left: 8px;"/>
                         <p:inputText id="telefone" styleClass="phone upper" value="#{ubsBean.ubs.telefoneUbs}" 
-                                     size="15" maxlength="20" />
+                                     maxlength="20" style=" width: 120px"/>
                     </h:panelGroup>
 
                     <p:outputLabel for="nome" value="#{msg.name}: "/>
@@ -60,7 +60,7 @@
                             <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado" />
                         </p:selectOneMenu>
                         <p:outputLabel for="cidade" value="#{msg.city}: " style="margin-left: 8px"/>
-                        <p:inputText id="cidade" value="#{ubsBean.ubs.endereco.cidade}" style="margin-left: 11px; width: 133px"/>
+                        <p:inputText id="cidade" value="#{ubsBean.ubs.endereco.cidade}" style="margin-left: 11px; width: 129px"/>
                     </h:panelGroup>
 
                 </h:panelGrid>

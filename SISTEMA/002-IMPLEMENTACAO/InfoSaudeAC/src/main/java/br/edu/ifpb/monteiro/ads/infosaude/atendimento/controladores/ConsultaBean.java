@@ -39,10 +39,13 @@ public class ConsultaBean implements Serializable {
     private Consulta consultaSelecionada;
 
     private transient List<Consulta> consultas;
-
+    
     @Getter
-    @Setter
-    private boolean requisitarExames;
+    private List<String> sintomas;
+
+//    @Getter
+//    @Setter
+//    private boolean requisitarExames;
 
     /**
      * Construtor da classe
@@ -53,6 +56,7 @@ public class ConsultaBean implements Serializable {
     @PostConstruct
     public void init() {
         this.consultas = consultaService.findAll();
+        this.sintomas =  consultaService.getSintomas(); //Consulta o banco e retorna as categorias cadastradas
     }
 
     /**
