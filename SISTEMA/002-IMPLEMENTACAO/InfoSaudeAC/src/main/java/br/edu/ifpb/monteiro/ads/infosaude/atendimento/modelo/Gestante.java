@@ -48,8 +48,8 @@ public class Gestante implements Serializable {
     @Column(name = "gestante_nome_estabelecimento_saude", nullable = false, length = 100)
     private String nomeEstabelecimentoSaude;
 
-    @Column(name = "gestante_cnes", length = 15)
-    private Long cnes;
+//    @Column(name = "gestante_cnes", length = 15)
+//    private Long cnes;
 
     @Column(name = "gestante_num_area", length = 5)
     private String numArea;

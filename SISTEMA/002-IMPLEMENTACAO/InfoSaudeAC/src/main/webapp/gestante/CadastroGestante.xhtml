@@ -68,17 +68,12 @@
                             <p:inputText id="nomeProfissional" value="#{gestanteBean.gestante.nomeProfissional}" 
                                          requiredMessage="#{msg.aProfissionalName}" required="true" size="25" maxlength="200" />
 
-                            <p:outputLabel for="cnes" value="#{msg.cnes}: " style="margin-left: 10px; "/>
-                            <p:inputText id="cnes" value="#{gestanteBean.gestante.cnes}" maxlength="15" style="width: 192px">
-                                <p:tooltip for="cnes" value="#{msg.nationalHealthEstablishmentRegister}"/>
-                            </p:inputText>
-
-                            <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: "/>
+                            <p:outputLabel for="cartaoSusProfissional" value="#{msg.susCard}: " style="margin-left: 10px"/>
                             <p:inputMask id="cartaoSusProfissional" value="#{gestanteBean.gestante.cartaoSusProfissional}" 
                                          requiredMessage="#{msg.mandatorySusCard}" required="true" size="25" mask="999 9999 9999 9999"
                                          maxlength="20" placeholder="Do profissional"/>
 
-                            <p:outputLabel for="numArea" value="Área: " style="margin-left: 10px"/>
+                            <p:outputLabel for="numArea" value="Área: "/>
                             <h:panelGroup>
                                 <p:inputText id="numArea" value="#{gestanteBean.gestante.numArea}" size="7" maxlength="5"/>
 
