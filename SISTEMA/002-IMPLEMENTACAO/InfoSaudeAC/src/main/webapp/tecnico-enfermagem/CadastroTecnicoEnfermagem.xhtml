@@ -48,14 +48,14 @@
                     <p:tab id="tabEnderecoTecnicoEnfermagem" title="#{msg.address}">
                         <h:panelGrid id="gridEnderecoCC" columns="4">
                             <p:outputLabel for="estado" value="#{msg.state}:" />
-                            <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.estado}" style="margin-left: 43px; width: 180px">
+                            <p:selectOneMenu id="estado" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.estado}" style="margin-left: 43px; width: 140px">
                                 <p:ajax process="@this" event="change" update="cidade" listener="#{tecnicoEnfermagemBean.carregarCidades}"/>
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.estados}" itemValue="#{estado}" itemLabel="#{estado.descricao}" var="estado"/>
                             </p:selectOneMenu>
 
-                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 28px"/>
-                            <p:selectOneMenu id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.cidade}" filter="true" 
+                            <p:outputLabel for="cidade" value="#{msg.city}:" style="margin-left: 10px"/>
+                            <p:selectOneMenu id="cidade" value="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.cidade}" filter="true" style="width: 130px"
                                              filterMatchMode="startsWith" disabled="#{tecnicoEnfermagemBean.tecnicoEnfermagem.endereco.estado eq null}">
                                 <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                                 <f:selectItems value="#{pessoaBean.cidades}" itemValue="#{cidade}" itemLabel="#{cidade}" var="cidade"/>
