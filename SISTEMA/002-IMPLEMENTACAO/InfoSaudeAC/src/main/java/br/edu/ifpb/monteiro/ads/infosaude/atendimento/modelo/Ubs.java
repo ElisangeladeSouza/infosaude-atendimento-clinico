@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -42,6 +43,9 @@ public class Ubs implements Serializable {
 
     @Column(name = "ubs_telefone", length = 20)
     private String telefoneUbs;
+
+    @Lob
+    private byte[] logo;
 
     @Embedded
     private Endereco endereco;

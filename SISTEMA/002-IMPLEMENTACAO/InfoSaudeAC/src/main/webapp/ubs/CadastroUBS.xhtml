@@ -34,40 +34,6 @@
 
                 <p:panelGrid id="gridDadosUbs" columns="2">
 
-
-
-<!--                    <p:graphicImage id="mostrarImagem" value="#{ubsBean.imagemEnviada}"/>
-<p:fileUpload mode="advanced" dragDropSupport="false" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" 
-              value="#{ubsBean.imagemEnviada}" update="mostrarImagem"/>-->
-
-<!--                    <p:fileUpload fileUploadListener="#{ubsBean.enviarImagem}" sizeLimit="204800"
-                                  auto="true" update=""/>
-
-                    <p:outputPanel id="outputPanelUpload">
-                        <h:panelGrid columns="2">
-                            <h:outputText value="Imagem" rendered="#{ubsBean.exibeBotao}"/>
-                            <h:outputText value="Pre-visualização" rendered="#{ubsBean.exibeBotao}"/>
-                            <p:imageCropper id="imageCropperImagemTemporaria" value="#{ubsBean.croppedImage}"
-                                            image="#{pageContext.servletContext.contextPath}/upload/#{ubsBean.imagemTemporaria}"/>
-                            <p:graphicImage value="#{ubsBean.imagemEnviada}" cache="false"/>
-                        </h:panelGrid>
-                        <p:commandLink action="#{ubsBean.crop}" update="outputPanelUpload"
-                                       rendered="#{ubsBean.exibeBotao}">
-                            <p:graphicImage style="margin-top: 5px; border: none;" value="/imagens/imgCortar.png"/>
-                        </p:commandLink>
-                    </p:outputPanel>-->
-
-
-
-<!--                    <p:graphicImage id="viewLogo" value="#{ubsBean.image}">
-    <f:param name="ubs" value="#{ubs.id}"/>
-</p:graphicImage>
-<p:outputLabel/>
-
-<p:outputLabel for="logoUbs" value="Logo: "/>
-<p:fileUpload id="logoUbs" cancelLabel="#{msg.cancel}" dragDropSupport="true" fileLimit="1" label="Selecione..." 
-              mode="simple" uploadLabel="Enviar..." skinSimple="true" update="viewLogo"/>-->
-
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
                     <h:panelGroup>
                         <p:inputMask id="cnes" mask="999999999999999" value="#{ubsBean.ubs.cnes}" size="18" maxlength="15" required="true">

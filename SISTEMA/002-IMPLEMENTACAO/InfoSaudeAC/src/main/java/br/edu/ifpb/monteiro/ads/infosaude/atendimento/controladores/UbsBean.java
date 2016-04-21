@@ -12,8 +12,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
+import lombok.Getter;
+import lombok.Setter;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.UploadedFile;
 
 /**
  * Managed bean usado pela página de cadastro de Ubs. É responsável por ligar a
@@ -22,7 +29,8 @@ import javax.inject.Inject;
  *
  * @author elisangela <elysangeladesouza@gmail.com>
  */
-@Model
+@Named
+@SessionScoped
 public class UbsBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,6 +53,10 @@ public class UbsBean implements Serializable {
     private transient List<Ubs> todasUbs;
     private static transient List<Estados> estados = new ArrayList<>();
     static transient List<String> cidades = new ArrayList<>();
+
+    @Getter
+    @Setter
+    private StreamedContent imagemEnviada = new DefaultStreamedContent();
 
     /**
      * Construtor da classe
@@ -85,6 +97,24 @@ public class UbsBean implements Serializable {
         this.ubsService.save(ubs);
         FacesUtil.mensagemSucesso("UBS atualizada com sucesso!");
         FacesUtil.redirecionaPara("/InfoSaudeAC/Home.xhtml");
+    }
+
+    private StreamedContent image = null;
+
+    public StreamedContent getImage() {
+        return image;
+    }
+
+    public void setImage(StreamedContent image) {
+        this.image = image;
+    }
+
+    public void enterImage(FileUploadEvent e) {
+        try {
+            UploadedFile file = e.getFile();
+            image = new DefaultStreamedContent(file.getInputstream(), "image/jpeg");
+        } catch (Exception ex) {
+        }
     }
 
     /**

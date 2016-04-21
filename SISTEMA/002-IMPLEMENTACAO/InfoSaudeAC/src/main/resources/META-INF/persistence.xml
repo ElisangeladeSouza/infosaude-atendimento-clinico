@@ -11,6 +11,8 @@
       <property name="eclipselink.logging.session" value="true"/>
       <!--Insere o usuário para o primeiro acesso ao sistema e cadastro de outros usuarios-->
       <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/inserir_usuario_banco.sql"/>
+      <!--Cria tabela de cidades e a popula com todos as cidades do Brasil(exceto 3 novas cidades adicionadas em 2014)-->
+      <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/inserir_tabela_cidades.sql"/>-->
     </properties>
   </persistence-unit>
   <!--
