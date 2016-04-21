@@ -78,18 +78,4 @@ public class ExameService implements ExameServiceIF, Serializable {
         return exameDao.findAll();
     }
     
-    /**
-     * Recebe o valor passado pelo método buscarPorCampo() para determinar a
-     * duplicidade do cadastro e lança uma exceção informando ao usuário qual
-     * campo não pode ser inserido por já existir no banco de dados.
-     * 
-     * @param campo
-     * @param valor
-     * @param id
-     * @param exame 
-     */
-    @Override
-    public void checaCampoDuplicado(String campo, Object valor, Long id, Exame exame) {
-        exameDao.checaCampoDuplicado(campo, valor, null, exame);
-    }
 }
