@@ -57,7 +57,6 @@ public class ExameBean implements Serializable {
      * @throws NegocioException
      */
     public void salvar() throws NegocioException {
-        exameService.checaCampoDuplicado("descricao", exame.getDescricao(), null, exame);
         this.exameService.save(exame);
         if (getEditando()) {
             FacesUtil.mensagemSucesso("Cadastro do exame '" + exame.getDescricao() + "' atualizado com sucesso!");

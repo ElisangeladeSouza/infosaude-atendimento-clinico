@@ -11,8 +11,6 @@ public interface ExameServiceIF {
 
     public List<Exame> findAll();
 
-    public void checaCampoDuplicado(String campo, Object valor, Long id, Exame exame);
-
     public void save(Exame exame);
 
     public void delete(Exame exameSelecionado);
