@@ -30,7 +30,7 @@
                                  requiredMessage="#{msg.aCodeIsRequired}" maxlength="20"/>
                     
                     <p:outputLabel for="grauUrgencia" value="#{msg.degreeOfUrgency}"/>
-                    <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true" style="width: 96px"
+                    <p:selectOneMenu id="grauUrgencia" value="#{triagemBean.triagem.grauUrgencia}" required="true" style="width: 98px"
                                      requiredMessage="#{msg.aDegreeOfUrgencyIsRequired}">
                         <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true"/>
                         <f:selectItems value="#{triagemBean.urgencias}" var="urgencias" itemLabel="#{urgencias.descricao}" itemValue="#{urgencias}" class="upper"/>
