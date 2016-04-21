@@ -16,14 +16,57 @@
     <ui:define id="uiConteudoUbs" name="conteudo">
 
         <p:fieldset id="fieldsetUbs" legend="#{ubsBean.editando ? msg.editCadastreHealthUnit : msg.newRegisterHealthUnit}">
-            <h:form id="formCadastroUbs" style="margin-top: 10px">
+            <h:form id="formCadastroUbs" style="margin-top: 10px" enctype="multipart/form-data">
                 <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
 
                 <h:inputHidden id="dataHora" value="#{ubsBean.ubs.data}">
                     <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy HH:mm:ss"/>
                 </h:inputHidden>
 
-                <h:panelGrid id="gridDadosUbs" columns="2">
+                <p:panelGrid id="gridLogo" columns="2">
+                    <p:fileUpload style="padding-left: 20px;" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" fileUploadListener="#{ubsBean.enterImage}" 
+                                  update="panel" auto="true" skinSimple="true"/>
+                    <p:panel style="border-style: dotted" id="panel">
+                        <p:graphicImage value="#{ubsBean.image}"/>
+                    </p:panel>
+
+                </p:panelGrid>
+
+                <p:panelGrid id="gridDadosUbs" columns="2">
+
+
+
+<!--                    <p:graphicImage id="mostrarImagem" value="#{ubsBean.imagemEnviada}"/>
+<p:fileUpload mode="advanced" dragDropSupport="false" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" 
+              value="#{ubsBean.imagemEnviada}" update="mostrarImagem"/>-->
+
+<!--                    <p:fileUpload fileUploadListener="#{ubsBean.enviarImagem}" sizeLimit="204800"
+                                  auto="true" update=""/>
+
+                    <p:outputPanel id="outputPanelUpload">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Imagem" rendered="#{ubsBean.exibeBotao}"/>
+                            <h:outputText value="Pre-visualização" rendered="#{ubsBean.exibeBotao}"/>
+                            <p:imageCropper id="imageCropperImagemTemporaria" value="#{ubsBean.croppedImage}"
+                                            image="#{pageContext.servletContext.contextPath}/upload/#{ubsBean.imagemTemporaria}"/>
+                            <p:graphicImage value="#{ubsBean.imagemEnviada}" cache="false"/>
+                        </h:panelGrid>
+                        <p:commandLink action="#{ubsBean.crop}" update="outputPanelUpload"
+                                       rendered="#{ubsBean.exibeBotao}">
+                            <p:graphicImage style="margin-top: 5px; border: none;" value="/imagens/imgCortar.png"/>
+                        </p:commandLink>
+                    </p:outputPanel>-->
+
+
+
+<!--                    <p:graphicImage id="viewLogo" value="#{ubsBean.image}">
+    <f:param name="ubs" value="#{ubs.id}"/>
+</p:graphicImage>
+<p:outputLabel/>
+
+<p:outputLabel for="logoUbs" value="Logo: "/>
+<p:fileUpload id="logoUbs" cancelLabel="#{msg.cancel}" dragDropSupport="true" fileLimit="1" label="Selecione..." 
+              mode="simple" uploadLabel="Enviar..." skinSimple="true" update="viewLogo"/>-->
 
                     <p:outputLabel for="cnes" value="#{msg.cnes}: "/>
                     <h:panelGroup>
@@ -63,7 +106,7 @@
                         <p:inputText id="cidade" value="#{ubsBean.ubs.endereco.cidade}" style="margin-left: 11px; width: 129px"/>
                     </h:panelGroup>
 
-                </h:panelGrid>
+                </p:panelGrid>
 
                 <p:toolbar id="toolbarUbs" style="margin-top: 10px;">
                     <f:facet name="left">
