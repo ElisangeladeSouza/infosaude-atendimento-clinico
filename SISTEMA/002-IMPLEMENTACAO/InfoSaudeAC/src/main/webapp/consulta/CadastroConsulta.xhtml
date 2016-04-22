@@ -43,8 +43,9 @@
                     <p:outputLabel for="sintomas" value="#{msg.symptom}s: "/>
                     <p:selectOneMenu id="sintomas" value="#{consultaBean.consulta.sintoma}" editable="true" filter="true" 
                                      filterMatchMode="contains" style="width: 227px;" label="Digite ou selecione">
-                        <f:selectItems id="listaDeSintomas" value="#{consultaBean.sintomas}" var="sintoma" itemLabel="#{sintoma}" 
-                                       itemValue="#{sintoma}"/>
+                        <f:selectItem itemLabel="#{msg.selectIt}..." noSelectionOption="true" />
+                        <f:selectItems id="listaDeSintomas" value="#{consultaBean.sintomas}" var="sintomas" itemLabel="#{sintomas.descricao}" itemValue="#{sintomas}" 
+                                       class="upper"/>
                     </p:selectOneMenu>
 
 <!--                    <p:outputLabel for="sintomas" value="#{msg.symptom}s: "/>

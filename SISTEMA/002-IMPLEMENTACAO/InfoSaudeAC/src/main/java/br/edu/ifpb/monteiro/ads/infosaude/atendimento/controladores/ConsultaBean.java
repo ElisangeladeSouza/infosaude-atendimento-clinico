@@ -1,17 +1,18 @@
 package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 
+import br.edu.ifpb.monteiro.ads.infosaude.atendimento.enumeracoes.Sintomas;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.modelo.Consulta;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.ConsultaService;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.servicos.interfaces.ConsultaServiceIF;
 import br.edu.ifpb.monteiro.ads.infosaude.atendimento.util.jsf.FacesUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -40,9 +41,9 @@ public class ConsultaBean implements Serializable {
 
     private transient List<Consulta> consultas;
     
-    @Getter
-    private List<String> sintomas;
-
+//    @Getter
+    private transient List<Sintomas> sintomas = new ArrayList<>();
+    
 //    @Getter
 //    @Setter
 //    private boolean requisitarExames;
@@ -51,12 +52,13 @@ public class ConsultaBean implements Serializable {
      * Construtor da classe
      */
     public ConsultaBean() {
+        this.sintomas = Arrays.asList(Sintomas.values());
     }
 
     @PostConstruct
     public void init() {
         this.consultas = consultaService.findAll();
-        this.sintomas =  consultaService.getSintomas(); //Consulta o banco e retorna as categorias cadastradas
+//        this.sintomas =  consultaService.getSintomas(); //Consulta o banco e retorna as categorias cadastradas
     }
 
     /**
@@ -68,6 +70,17 @@ public class ConsultaBean implements Serializable {
         return consultas;
     }
 
+    /**
+     * Lista sintomas possíveis em uma consulta.
+     *
+     * @see Sintomas
+     *
+     * @return
+     */
+    public List<Sintomas> getSintomas() {
+        return sintomas;
+    }
+    
     /**
      * Método responsável por iniciar uma transação, instanciar um objeto do
      * tipo Consulta e salvar.
