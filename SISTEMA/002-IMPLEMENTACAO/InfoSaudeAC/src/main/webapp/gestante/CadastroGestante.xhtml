@@ -26,9 +26,9 @@
 
                     <p:outputLabel for="menorIdade" value="#{msg.minor}: "/>
                     <p:selectBooleanCheckbox id="menorIdade" value="#{gestanteBean.gestante.menorQuinze}">
-                        <f:ajax render="@this formCadastroGestante tabInfoResponsavel"/>
+                        <f:ajax render="@this formCadastroGestante panelGroupResponsavel"/>
                     </p:selectBooleanCheckbox> 
-                    
+
                     <p:outputLabel for="nomeGestante" value="#{msg.PregnantName}: "/>
                     <p:selectOneMenu id="nomeGestante" value="#{gestanteBean.gestante.paciente}" style="width: 180px" required="true" 
                                      filter="true" filterMatchMode="contains" requiredMessage="#{msg.aNameIsRequired}">
@@ -114,11 +114,11 @@
                                          validatorMessage="E-mail com formato incorreto" maxlength="100"/>
 
                             <p:outputLabel for="telefone1" value="#{msg.phone1}: " style="margin-left: 10px"/>
-                            <p:inputMask mask="(99) 9999-9999" id="telefone1" styleClass="phone upper" value="#{gestanteBean.gestante.idResponsavelGestante.telefone1}" 
+                            <p:inputText id="telefone1" styleClass="phone" value="#{gestanteBean.gestante.idResponsavelGestante.telefone1}" 
                                          size="20" maxlength="20"/>
 
                             <p:outputLabel for="telefone2" value="#{msg.phone2}: "/>
-                            <p:inputMask mask="(99) 9999-9999" id="telefone2" styleClass="phone upper" value="#{gestanteBean.gestante.idResponsavelGestante.telefone2}" 
+                            <p:inputText id="telefone2" styleClass="phone" value="#{gestanteBean.gestante.idResponsavelGestante.telefone2}" 
                                          size="20" maxlength="20"/>
                         </h:panelGrid>
                     </p:tab>

@@ -87,6 +87,10 @@ header{
     color: #000000 !important;
 }   
 
+.link-sair{
+    
+}
+
 /*BARRA LATERAL*/
 
 /*.sidebar{
@@ -102,18 +106,18 @@ header{
 
 /* SIDEBAR */
 .sidebar {
-	position: fixed;
-	top: 70px;
-	bottom: 0;
-	left: 0;
-	width: 210px;
-	margin-left: -211px;
-	transition: margin-left 0.5s;
-	overflow-y: auto;
-        z-index: 99999;
-	
-	background-color: #f6f6f6;
-	border-right: 1px solid #eaeaea;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 210px;
+    margin-left: -211px;
+    transition: margin-left 0.5s;
+    overflow-y: auto;
+    z-index: 99999;
+
+    background-color: #f6f6f6;
+    border-right: 1px solid #eaeaea;
 }
 
 .sidebar.esta-oculto{
