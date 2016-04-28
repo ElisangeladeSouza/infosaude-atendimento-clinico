@@ -31,12 +31,12 @@
                 </p:fieldset>
 
                 <p:fieldset id="visualizaEnderecoRecepcionista" legend="#{msg.address}" style="margin-top: 5px;" >
-                    <isac:visualizaEndereco bairro="#{recepcionistaBean.recepcionista.bairro}" 
-                                            cep="#{recepcionistaBean.recepcionista.cep}" 
-                                            cidade="#{recepcionistaBean.recepcionista.cidade}"
-                                            estado="#{recepcionistaBean.recepcionista.estado}"
-                                            numero="#{recepcionistaBean.recepcionista.numero}" 
-                                            rua="#{recepcionistaBean.recepcionista.rua}"/>
+                    <isac:visualizaEndereco bairro="#{recepcionistaBean.recepcionista.endereco.bairro}" 
+                                            cep="#{recepcionistaBean.recepcionista.endereco.cep}" 
+                                            cidade="#{recepcionistaBean.recepcionista.endereco.cidade}"
+                                            estado="#{recepcionistaBean.recepcionista.endereco.estado}"
+                                            numero="#{recepcionistaBean.recepcionista.endereco.numero}" 
+                                            rua="#{recepcionistaBean.recepcionista.endereco.rua}"/>
                 </p:fieldset>
 
                 <p:fieldset id="visualizaDocumentosRecepcionista" legend="#{msg.documentation}" style="margin-top: 5px">

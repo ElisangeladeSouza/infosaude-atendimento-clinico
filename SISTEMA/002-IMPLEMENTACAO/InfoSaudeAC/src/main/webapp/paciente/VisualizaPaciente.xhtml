@@ -31,12 +31,12 @@
                 </p:fieldset>
 
                 <p:fieldset id="visualizaEnderecoTecnicoEnfermagem" legend="#{msg.address}" style="margin-top: 5px;" >
-                    <isac:visualizaEndereco bairro="#{pacienteBean.paciente.bairro}" 
-                                            cep="#{pacienteBean.paciente.cep}" 
-                                            cidade="#{pacienteBean.paciente.cidade}"
-                                            estado="#{pacienteBean.paciente.estado}"
-                                            numero="#{pacienteBean.paciente.numero}" 
-                                            rua="#{pacienteBean.paciente.rua}"/>
+                    <isac:visualizaEndereco bairro="#{pacienteBean.paciente.endereco.bairro}" 
+                                            cep="#{pacienteBean.paciente.endereco.cep}" 
+                                            cidade="#{pacienteBean.paciente.endereco.cidade}"
+                                            estado="#{pacienteBean.paciente.endereco.estado}"
+                                            numero="#{pacienteBean.paciente.endereco.numero}" 
+                                            rua="#{pacienteBean.paciente.endereco.rua}"/>
                 </p:fieldset>
 
                 <p:fieldset id="visualizaDocumentosTecnicoEnfermagem" legend="#{msg.documentation}" style="margin-top: 5px">

@@ -31,12 +31,12 @@
                 </p:fieldset>
 
                 <p:fieldset id="visualizaEnderecoDiretor" legend="#{msg.address}" style="margin-top: 5px;" >
-                    <isac:visualizaEndereco bairro="#{diretorBean.diretor.bairro}" 
-                                            cep="#{diretorBean.diretor.cep}" 
-                                            cidade="#{diretorBean.diretor.cidade}"
-                                            estado="#{diretorBean.diretor.estado}"
-                                            numero="#{diretorBean.diretor.numero}" 
-                                            rua="#{diretorBean.diretor.rua}"/>
+                    <isac:visualizaEndereco bairro="#{diretorBean.diretor.endereco.bairro}" 
+                                            cep="#{diretorBean.diretor.endereco.cep}" 
+                                            cidade="#{diretorBean.diretor.endereco.cidade}"
+                                            estado="#{diretorBean.diretor.endereco.estado}"
+                                            numero="#{diretorBean.diretor.endereco.numero}" 
+                                            rua="#{diretorBean.diretor.endereco.rua}"/>
                 </p:fieldset>
 
                 <p:fieldset id="visualizaDocumentosDiretor" legend="#{msg.documentation}" style="margin-top: 5px">

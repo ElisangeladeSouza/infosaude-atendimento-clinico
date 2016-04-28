@@ -31,12 +31,12 @@
                 </p:fieldset>
 
                 <p:fieldset id="visualizaEnderecoOdontologo" legend="#{msg.address}" style="margin-top: 5px;" >
-                    <isac:visualizaEndereco bairro="#{odontologoBean.odontologo.bairro}" 
-                                            cep="#{odontologoBean.odontologo.cep}" 
-                                            cidade="#{odontologoBean.odontologo.cidade}"
-                                            estado="#{odontologoBean.odontologo.estado}"
-                                            numero="#{odontologoBean.odontologo.numero}" 
-                                            rua="#{odontologoBean.odontologo.rua}"/>
+                    <isac:visualizaEndereco bairro="#{odontologoBean.odontologo.endereco.bairro}" 
+                                            cep="#{odontologoBean.odontologo.endereco.cep}" 
+                                            cidade="#{odontologoBean.odontologo.endereco.cidade}"
+                                            estado="#{odontologoBean.odontologo.endereco.estado}"
+                                            numero="#{odontologoBean.odontologo.endereco.numero}" 
+                                            rua="#{odontologoBean.odontologo.endereco.rua}"/>
                 </p:fieldset>
 
                 <p:fieldset id="visualizaDocumentosOdontologo" legend="#{msg.documentation}" style="margin-top: 5px">
