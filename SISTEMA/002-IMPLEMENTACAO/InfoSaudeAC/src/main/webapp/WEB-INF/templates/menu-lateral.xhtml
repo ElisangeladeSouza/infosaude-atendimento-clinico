@@ -48,6 +48,7 @@
                     <p:menuitem value="#{msg.doctor}" outcome="/medico/PesquisaMedico" rendered="#{podeTudo}" icon="fa fa-user-md"/>
                     <p:menuitem value="#{msg.dentist}" outcome="/odontologo/PesquisaOdontologo" rendered="#{podeTudo}" icon="fa fa-stethoscope"/>
                 </p:submenu>
+                <p:menuitem value="Relatórios" outcome="/HashText.xhtml" rendered="#{tudoCorpoMedico}" icon="fa fa-list-ol"/>
                 <p:submenu label="#{msg.system}" rendered="#{podeTudo}">
                     <p:menuitem value="#{msg.ubs}" outcome="/ubs/CadastroUBS" rendered="#{podeTudo}" icon="fa fa-gears">
                         <c:forEach var="ubs" items="#{ubsBean.todasUbs}">

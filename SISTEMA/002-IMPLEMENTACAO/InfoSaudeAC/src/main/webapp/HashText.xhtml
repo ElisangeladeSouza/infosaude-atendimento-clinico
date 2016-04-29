@@ -9,16 +9,29 @@
     <ui:define name="conteudo">
 
         <h:form>
-            <p:inputText id="insertText" value="#{systemUtilBean.text}" size="15"/>
+<!--            <p:inputText id="insertText" value="#{systemUtilBean.text}" size="15"/>
             <p:commandButton id="hashNow" value="Criptografar!" action="#{systemUtilBean.getHashText(text)}" update="outTextHashed"/>
             <br/>
             <br/>
             <p:outputLabel for="outTextHashed" value="Texto criptografado: " style="font-weight: bold"/>
             <p:outputLabel id="outTextHashed" value="#{systemUtilBean.text}"/>
             <br/>
-            <br/>
-            <p:commandButton id="emitirRelatorio" value="Emitir" action="#{relatorioTodosMedicos.emitir}" onclick="this.form.target = '_blank'"
-                             ajax="false"/>
+            <br/>-->
+
+            <p:fieldset legend="Emitir relatórios">
+
+                <br/>
+                <br/>
+
+                <p:commandButton id="emitirRelatorioMedicos" value="Relatório de todos os médicos" action="#{relatorioTodosMedicos.emitirTodosMedicos}" onclick="this.form.target = '_blank'"
+                                 ajax="false"/>
+
+                <br/>
+                <br/>
+
+                <p:commandButton id="emitirRelatorioPacientes" value="Relatório de todos os pacientes" action="#{relatorioTodosMedicos.emitirTodosPacientes}" onclick="this.form.target = '_blank'"
+                                 ajax="false"/>
+            </p:fieldset>
         </h:form>
 
     </ui:define>

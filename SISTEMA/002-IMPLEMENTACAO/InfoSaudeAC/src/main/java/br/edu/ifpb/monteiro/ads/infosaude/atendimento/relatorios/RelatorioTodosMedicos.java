@@ -25,7 +25,11 @@ public class RelatorioTodosMedicos implements Serializable {
      *
      * @see GeradorRelatorios
      */
-    public void emitir() {
-        geradorRelatorios.preparaRelatorioPdf("/relatorio_todos_medicos.jasper", "Relatório de médicos cadastrados.pdf");
+    public void emitirTodosMedicos() {
+        geradorRelatorios.preparaRelatorioPdf("/relatorio_todos_medicos.jasper", "Relatorio de medicos cadastrados.pdf");
+    }
+    
+    public void emitirTodosPacientes() {
+        geradorRelatorios.preparaRelatorioPdf("/relatorio_todos_pacientes.jasper", "Relatorio de pacientes cadastrados.pdf");
     }
 }
