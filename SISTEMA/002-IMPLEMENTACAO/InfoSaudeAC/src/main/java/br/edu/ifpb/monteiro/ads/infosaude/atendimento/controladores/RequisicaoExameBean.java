@@ -1,3 +1,8 @@
+/*
+  ESTRA CLASSE FOI COMENTADA POIS A FUNCIONALIDADE DE REQUISIÇÃO DE EXAME NÃO FOI FINALIZADA.
+*/
+
+
 //package br.edu.ifpb.monteiro.ads.infosaude.atendimento.controladores;
 //
 //import br.edu.ifpb.monteiro.ads.infosaude.atendimento.excecoes.NegocioException;

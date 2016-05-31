@@ -71,13 +71,4 @@ public class Consulta implements Serializable {
     @JoinColumn(name = "procedimento_pk")
     private Procedimento procedimento;
 
-//    @Embedded
-//    private RequisicaoExame requisicaoExame;
-//    @OneToOne
-//    @JoinColumn(name = "requisicao_exame_pk")
-//    private RequisicaoExame requisicaoExame;
-    public Consulta() {
-//        this.requisicaoExame = new RequisicaoExame();
-    }
-
 }

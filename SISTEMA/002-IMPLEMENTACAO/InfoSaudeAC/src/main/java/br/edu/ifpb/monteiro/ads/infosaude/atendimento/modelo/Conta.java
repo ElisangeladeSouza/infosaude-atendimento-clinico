@@ -34,7 +34,6 @@ public class Conta implements Serializable {
     @Column(name = "password", nullable = false, length = 40)
     private String password;
 
-    //@Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     private String userRoles;
 
